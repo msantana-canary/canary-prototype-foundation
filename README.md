@@ -22,40 +22,78 @@ A comprehensive React component library built with Next.js 15, React 19, TypeScr
 - **Icons**: @mdi/react
 - **Package Manager**: pnpm
 
+## Installation
+
+Install the library in your React/Next.js project:
+
+```bash
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
+```
+
+Or with a specific version:
+
+```bash
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
+```
+
 ## Quick Start
+
+### 1. Install the library
+
+```bash
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
+```
+
+### 2. Import components in your project
+
+```tsx
+import { CanaryButton, CanaryInput, CanaryCard } from '@canary-ui/components';
+import '@canary-ui/components/styles.css';
+
+export default function MyPage() {
+  return (
+    <CanaryCard title="Welcome">
+      <CanaryInput label="Email" type="email" placeholder="Enter your email" />
+      <CanaryButton>Submit</CanaryButton>
+    </CanaryCard>
+  );
+}
+```
+
+### 3. Start building!
+
+Use any of the 30+ components in your application. See the component list below.
+
+## Development Setup (For Contributors)
+
+If you want to contribute or run the showcase locally:
 
 ### 1. Clone this repository
 
 ```bash
-cd /Users/miguelsantana/Documents/Claude-Projects
-cp -r canary-prototype-foundation my-new-prototype
-cd my-new-prototype
+git clone https://github.com/msantana-canary/canary-prototype-foundation.git
+cd canary-prototype-foundation
 ```
 
-### 2. Remove git history and start fresh
+### 2. Install dependencies
 
 ```bash
-rm -rf .git
-git init
+npm install
 ```
 
-### 3. Install dependencies
+### 3. Run the development server
 
 ```bash
-pnpm install
-```
-
-### 4. Run the development server
-
-```bash
-pnpm dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the component showcase.
 
-### 5. Start building your prototype
+### 4. Build the library
 
-Edit `app/page.tsx` or create new pages in the `app` directory.
+```bash
+npm run build:lib
+```
 
 ## Component Categories
 
@@ -236,17 +274,16 @@ export function MyCustomButton({ children, ...props }) {
 
 ## Maintenance
 
-### Updating the Foundation
+### Updating to Latest Version
 
-To pull updates from the foundation repository:
+To update the library in your project:
 
 ```bash
-# Add foundation as remote (one time)
-git remote add foundation /path/to/canary-prototype-foundation
+# Update to latest release
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
-# Pull updates
-git fetch foundation
-git merge foundation/main
+# Or update to a specific version
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
 ```
 
 ## Tips & Best Practices
@@ -279,14 +316,22 @@ pnpm typecheck
 ## Support
 
 For questions or issues:
-- Check the component showcase at `/` for examples
+- Check the [component showcase](https://github.com/msantana-canary/canary-prototype-foundation) for examples
 - Review component source code in `components/canary-ui/`
-- Refer to the original Canary UI in `/Documents/Canary/`
+- Open an issue on [GitHub](https://github.com/msantana-canary/canary-prototype-foundation/issues)
+
+## Contributing
+
+Contributions are welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
 ## License
 
-Private - Internal use only
+MIT
 
 ---
 
-**Ready to build?** Start by editing `app/page.tsx` or create a new page in the `app` directory.
+**Ready to build?** Install the library and start using the components in your project!
