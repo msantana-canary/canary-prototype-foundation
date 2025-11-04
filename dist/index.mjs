@@ -1681,22 +1681,7 @@ function CanaryToast({
             className: "shrink-0 hover:opacity-70 transition-opacity",
             children: /* @__PURE__ */ jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ jsx("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
           }
-        ),
-        /* @__PURE__ */ jsx("style", { jsx: true, children: `
-        @keyframes slide-in {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-slide-in {
-          animation: slide-in 0.3s ease-out;
-        }
-      ` })
+        )
       ]
     }
   );
