@@ -41,7 +41,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/msantana-canary/canary-prototype-foundation.git"
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
