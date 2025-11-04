@@ -5,4 +5,6 @@ export type { CanarySelectOption } from "./CanarySelect";
 export { default as CanaryCheckbox } from "./CanaryCheckbox";
 export { default as CanaryRadio } from "./CanaryRadio";
 export { default as CanaryRadioGroup } from "./CanaryRadioGroup";
+export { default as CanarySegmentedControl } from "./CanarySegmentedControl";
+export type { SegmentedControlOption } from "./CanarySegmentedControl";
 export * from "./types";

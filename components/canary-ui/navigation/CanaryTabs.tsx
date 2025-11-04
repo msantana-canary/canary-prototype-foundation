@@ -36,7 +36,12 @@ export default function CanaryTabs({
   return (
     <div className={`w-full ${className}`}>
       {/* Tab Headers */}
-      <div className="flex border-b" style={{ borderColor: colors.black6 }}>
+      <div
+        className="inline-flex rounded-full p-1 mb-4"
+        style={{
+          backgroundColor: colors.black7,
+        }}
+      >
         {tabs.map((tab) => {
           const isActive = tab.id === activeTab;
           return (
@@ -45,20 +50,19 @@ export default function CanaryTabs({
               onClick={() => handleTabClick(tab.id, tab.disabled)}
               disabled={tab.disabled}
               className={clsx(
-                "flex items-center gap-2 px-4 py-3",
-                "text-[14px] font-medium transition-colors",
-                "border-b-2 -mb-[1px]",
+                "flex items-center gap-2 px-4 py-2",
+                "text-[14px] font-medium font-['Roboto',sans-serif]",
+                "rounded-full transition-all duration-200",
                 "focus:outline-none",
-                isActive
-                  ? "border-[#2858c4]"
-                  : "border-transparent",
                 tab.disabled
                   ? "cursor-not-allowed opacity-50"
-                  : "cursor-pointer hover:bg-[#fafafa]"
+                  : isActive
+                  ? "cursor-pointer"
+                  : "cursor-pointer hover:opacity-70"
               )}
               style={{
-                color: isActive ? colors.blueDark1 : colors.black3,
-                borderBottomColor: isActive ? colors.blueDark1 : "transparent",
+                backgroundColor: isActive ? colors.blueDark1 : "transparent",
+                color: isActive ? colors.white : colors.black3,
               }}
             >
               {tab.icon && <span>{tab.icon}</span>}

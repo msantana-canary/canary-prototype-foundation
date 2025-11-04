@@ -34,26 +34,21 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
     ref
   ) => {
     const sizeClasses = {
-      [InputSize.TABLET]: "h-16 text-[18px] px-4",
-      [InputSize.LARGE]: "h-12 text-[16px] px-4",
-      [InputSize.NORMAL]: "h-10 text-[14px] px-3",
-      [InputSize.COMPACT]: "h-8 text-[14px] px-2",
-      [InputSize.TINY]: "h-7 text-[12px] px-2",
+      [InputSize.LARGE]: "h-12 text-[18px] px-4",
+      [InputSize.NORMAL]: "h-10 text-[16px] px-4",
     };
 
     const selectClasses = clsx(
       // Base styles
-      "w-full rounded border transition-colors duration-200",
+      "w-full rounded transition-all duration-200",
       "font-['Roboto',sans-serif]",
       "outline-none appearance-none",
       "bg-white",
+      "text-[#2d2d2d]", // black1 color
       "pr-10", // Space for dropdown arrow
       // Size
       sizeClasses[size],
       // States
-      error
-        ? `border-[${colors.danger}] focus:border-[${colors.danger}]`
-        : `border-[${colors.black6}] focus:border-[${colors.blueDark1}]`,
       isDisabled && "bg-[#f5f5f5] cursor-not-allowed opacity-60",
       isReadonly && "bg-[#fafafa] cursor-default",
       className
@@ -75,7 +70,15 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
             required={isRequired}
             className={selectClasses}
             style={{
-              borderColor: error ? colors.danger : undefined,
+              boxShadow: `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`,
+            }}
+            onFocus={(e) => {
+              e.target.style.boxShadow = `inset 0 0 0 2px ${error ? colors.danger : colors.blueDark1}`;
+              selectProps.onFocus?.(e);
+            }}
+            onBlur={(e) => {
+              e.target.style.boxShadow = `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`;
+              selectProps.onBlur?.(e);
             }}
             {...selectProps}
           >

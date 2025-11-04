@@ -20,7 +20,7 @@ export default function CanaryCard({
   subtitle,
   footer,
   padding = "medium",
-  hasShadow = true,
+  hasShadow = false,
   hasBorder = true,
   className = "",
   onClick,
@@ -35,14 +35,14 @@ export default function CanaryCard({
   return (
     <div
       className={clsx(
-        "rounded bg-white",
+        "rounded-lg bg-white",
         hasBorder && "border",
         onClick && "cursor-pointer hover:shadow-lg transition-shadow",
         className
       )}
       style={{
         borderColor: hasBorder ? colors.black6 : undefined,
-        boxShadow: hasShadow ? shadows.default : undefined,
+        boxShadow: hasShadow ? shadows.xl : undefined,
       }}
       onClick={onClick}
     >

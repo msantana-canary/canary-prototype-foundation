@@ -20,9 +20,10 @@ export {
   CanaryCheckbox,
   CanaryRadio,
   CanaryRadioGroup,
+  CanarySegmentedControl,
 } from "./forms";
 export { InputSize, InputType } from "./forms/types";
-export type { BaseFormProps, CanarySelectOption } from "./forms";
+export type { BaseFormProps, CanarySelectOption, SegmentedControlOption } from "./forms";
 
 // Data Display
 export { CanaryTag, CanaryTable, CanaryCard } from "./data-display";

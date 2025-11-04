@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from "react";
-import { colors, zIndex } from "../design-tokens";
+import { colors, zIndex, shadows } from "../design-tokens";
 import { CanaryButton } from "../buttons";
 import { ButtonType } from "../buttons/types";
 import clsx from "clsx";
@@ -73,11 +73,12 @@ export default function CanaryModal({
     >
       <div
         className={clsx(
-          "bg-white rounded shadow-xl w-full",
+          "bg-white rounded-lg w-full",
           "max-h-[90vh] flex flex-col",
           sizeClasses[size],
           className
         )}
+        style={{ boxShadow: shadows.xl }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

@@ -27,11 +27,8 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
     ref
   ) => {
     const sizeClasses = {
-      [InputSize.TABLET]: "text-[18px] p-4",
-      [InputSize.LARGE]: "text-[16px] p-4",
-      [InputSize.NORMAL]: "text-[14px] p-3",
-      [InputSize.COMPACT]: "text-[14px] p-2",
-      [InputSize.TINY]: "text-[12px] p-2",
+      [InputSize.LARGE]: "text-[18px] p-4",
+      [InputSize.NORMAL]: "text-[16px] p-4",
     };
 
     const resizeClasses = {
@@ -43,17 +40,15 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
 
     const textareaClasses = clsx(
       // Base styles
-      "w-full rounded border transition-colors duration-200",
+      "w-full rounded transition-all duration-200",
       "font-['Roboto',sans-serif]",
       "outline-none",
+      "text-[#2d2d2d]", // black1 color
       // Size
       sizeClasses[size],
       // Resize
       resizeClasses[resize],
       // States
-      error
-        ? `border-[${colors.danger}] focus:border-[${colors.danger}]`
-        : `border-[${colors.black6}] focus:border-[${colors.blueDark1}]`,
       isDisabled && "bg-[#f5f5f5] cursor-not-allowed opacity-60",
       isReadonly && "bg-[#fafafa] cursor-default",
       className
@@ -76,7 +71,15 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
           rows={rows}
           className={textareaClasses}
           style={{
-            borderColor: error ? colors.danger : undefined,
+            boxShadow: `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`,
+          }}
+          onFocus={(e) => {
+            e.target.style.boxShadow = `inset 0 0 0 2px ${error ? colors.danger : colors.blueDark1}`;
+            textareaProps.onFocus?.(e);
+          }}
+          onBlur={(e) => {
+            e.target.style.boxShadow = `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`;
+            textareaProps.onBlur?.(e);
           }}
           {...textareaProps}
         />

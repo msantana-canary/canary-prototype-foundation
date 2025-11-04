@@ -30,24 +30,19 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
     ref
   ) => {
     const sizeClasses = {
-      [InputSize.TABLET]: "h-16 text-[18px] px-4",
-      [InputSize.LARGE]: "h-12 text-[16px] px-4",
-      [InputSize.NORMAL]: "h-10 text-[14px] px-3",
-      [InputSize.COMPACT]: "h-8 text-[14px] px-2",
-      [InputSize.TINY]: "h-7 text-[12px] px-2",
+      [InputSize.LARGE]: "h-12 text-[18px] px-4",
+      [InputSize.NORMAL]: "h-10 text-[16px] px-4",
     };
 
     const inputClasses = clsx(
       // Base styles
-      "w-full rounded border transition-colors duration-200",
+      "w-full rounded transition-all duration-200",
       "font-['Roboto',sans-serif]",
       "outline-none",
+      "text-[#2d2d2d]", // black1 color
       // Size
       sizeClasses[size],
       // States
-      error
-        ? `border-[${colors.danger}] focus:border-[${colors.danger}]`
-        : `border-[${colors.black6}] focus:border-[${colors.blueDark1}]`,
       isDisabled && "bg-[#f5f5f5] cursor-not-allowed opacity-60",
       isReadonly && "bg-[#fafafa] cursor-default",
       // Left addon padding
@@ -81,7 +76,15 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
             required={isRequired}
             className={inputClasses}
             style={{
-              borderColor: error ? colors.danger : undefined,
+              boxShadow: `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`,
+            }}
+            onFocus={(e) => {
+              e.target.style.boxShadow = `inset 0 0 0 2px ${error ? colors.danger : colors.blueDark1}`;
+              inputProps.onFocus?.(e);
+            }}
+            onBlur={(e) => {
+              e.target.style.boxShadow = `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`;
+              inputProps.onBlur?.(e);
             }}
             {...inputProps}
           />

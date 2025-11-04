@@ -52,58 +52,70 @@ export default function CanaryTable<T extends Record<string, any>>({
 
   return (
     <div className={`w-full overflow-x-auto ${className}`}>
-      <table className="w-full border-collapse">
-        <thead>
-          <tr
-            className="border-b-2"
-            style={{ borderColor: colors.black6 }}
-          >
-            {columns.map((column) => (
-              <th
-                key={column.key}
-                className={clsx(
-                  "px-4 py-3 text-[14px] font-semibold",
-                  alignClasses[column.align || "left"]
-                )}
-                style={{
-                  color: colors.black2,
-                  width: column.width,
-                }}
-              >
-                {column.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row, rowIndex) => (
-            <tr
-              key={rowIndex}
-              className={clsx(
-                "border-b transition-colors",
-                onRowClick && "cursor-pointer hover:bg-[#fafafa]"
-              )}
-              style={{ borderColor: colors.black6 }}
-              onClick={() => onRowClick?.(row, rowIndex)}
-            >
+      <div className="w-full">
+        <table className="w-full border-separate" style={{ borderSpacing: 0 }}>
+          <thead>
+            <tr>
               {columns.map((column) => (
-                <td
+                <th
                   key={column.key}
                   className={clsx(
-                    "px-4 py-3 text-[14px]",
+                    "px-4 py-2 text-[14px] font-semibold",
                     alignClasses[column.align || "left"]
                   )}
-                  style={{ color: colors.black2 }}
+                  style={{
+                    color: colors.black2,
+                    width: column.width,
+                  }}
                 >
-                  {column.render
-                    ? column.render(row[column.key], row, rowIndex)
-                    : row[column.key]}
-                </td>
+                  {column.label}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <tr>
+              <td colSpan={columns.length} className="h-2"></td>
+            </tr>
+            {data.map((row, rowIndex) => (
+              <tr
+                key={rowIndex}
+                className={clsx(
+                  "transition-colors",
+                  onRowClick && "cursor-pointer hover:bg-[#fafafa]"
+                )}
+                onClick={() => onRowClick?.(row, rowIndex)}
+              >
+                {columns.map((column, colIndex) => (
+                  <td
+                    key={column.key}
+                    className={clsx(
+                      "px-4 py-1 text-[14px]",
+                      alignClasses[column.align || "left"]
+                    )}
+                    style={{
+                      color: colors.black2,
+                      width: column.width,
+                      borderTop: rowIndex === 0 ? `1px solid ${colors.black6}` : undefined,
+                      borderBottom: `1px solid ${colors.black6}`,
+                      borderLeft: colIndex === 0 ? `1px solid ${colors.black6}` : undefined,
+                      borderRight: colIndex === columns.length - 1 ? `1px solid ${colors.black6}` : undefined,
+                      borderTopLeftRadius: rowIndex === 0 && colIndex === 0 ? '8px' : undefined,
+                      borderTopRightRadius: rowIndex === 0 && colIndex === columns.length - 1 ? '8px' : undefined,
+                      borderBottomLeftRadius: rowIndex === data.length - 1 && colIndex === 0 ? '8px' : undefined,
+                      borderBottomRightRadius: rowIndex === data.length - 1 && colIndex === columns.length - 1 ? '8px' : undefined,
+                    }}
+                  >
+                    {column.render
+                      ? column.render(row[column.key], row, rowIndex)
+                      : row[column.key]}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
