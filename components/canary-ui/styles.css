@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/**
+ * Canary UI Component Library - Base Styles
+ *
+ * Import this file in your project to use Canary UI components with Tailwind CSS.
+ * Make sure you have Tailwind CSS installed in your project.
+ */
+
+:root {
+  /* Base Canary colors - defined in design-tokens.ts */
+  /* These are available as design tokens in JavaScript */
+}
+
+/* Ensure components use border-box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

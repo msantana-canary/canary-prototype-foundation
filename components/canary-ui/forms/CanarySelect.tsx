@@ -33,9 +33,12 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
     },
     ref
   ) => {
-    const sizeClasses = {
+    const sizeClasses: Record<InputSize, string> = {
+      [InputSize.TABLET]: "h-14 text-[20px] px-5",
       [InputSize.LARGE]: "h-12 text-[18px] px-4",
       [InputSize.NORMAL]: "h-10 text-[16px] px-4",
+      [InputSize.COMPACT]: "h-8 text-[14px] px-3",
+      [InputSize.TINY]: "h-6 text-[12px] px-2",
     };
 
     const selectClasses = clsx(

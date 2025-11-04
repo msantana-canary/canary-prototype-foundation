@@ -26,9 +26,12 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
     },
     ref
   ) => {
-    const sizeClasses = {
+    const sizeClasses: Record<InputSize, string> = {
+      [InputSize.TABLET]: "text-[20px] p-5",
       [InputSize.LARGE]: "text-[18px] p-4",
       [InputSize.NORMAL]: "text-[16px] p-4",
+      [InputSize.COMPACT]: "text-[14px] p-3",
+      [InputSize.TINY]: "text-[12px] p-2",
     };
 
     const resizeClasses = {

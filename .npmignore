@@ -1,0 +1,37 @@
+# Development files
+app/
+.next/
+node_modules/
+.git/
+.claude/
+
+# Config files
+*.config.ts
+*.config.mjs
+tsconfig.json
+tsconfig.lib.json
+next-env.d.ts
+.npmrc
+.gitignore
+.DS_Store
+
+# Documentation (keep README.md)
+docs/
+SESSION.md
+*.md
+!README.md
+
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Source files (only ship dist)
+components/
+public/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

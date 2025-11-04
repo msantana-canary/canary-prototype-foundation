@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./components/canary-ui",
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": false,
+    "composite": false,
+    "incremental": false
+  },
+  "include": ["components/canary-ui/**/*"],
+  "exclude": ["node_modules", "dist", "app", ".next"]
+}
