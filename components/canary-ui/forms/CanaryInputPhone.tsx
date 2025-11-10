@@ -1,16 +1,17 @@
 "use client";
 
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useRef, useImperativeHandle } from "react";
 import { BaseFormProps, InputSize } from "./types";
 import clsx from "clsx";
-import PhoneInput, { Country } from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+import intlTelInput from "intl-tel-input";
+import "intl-tel-input/build/css/intlTelInput.css";
 
 export interface CanaryInputPhoneProps extends Omit<BaseFormProps, "size"> {
   value?: string;
-  onChange?: (value: string | undefined) => void;
-  defaultCountry?: Country;
+  onChange?: (value: string) => void;
+  defaultCountry?: string;
   size?: InputSize;
+  placeholder?: string;
 }
 
 const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
@@ -24,17 +25,67 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
       size = InputSize.NORMAL,
       value,
       onChange,
-      defaultCountry = "US",
+      defaultCountry = "us",
+      placeholder = "",
       className = "",
     },
     ref
   ) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+    const itiRef = useRef<any>(null);
+
+    useImperativeHandle(ref, () => inputRef.current!);
+
     const sizeClasses = {
       [InputSize.TABLET]: "h-[64px] text-[24px]",
       [InputSize.LARGE]: "h-[48px] text-[18px]",
       [InputSize.NORMAL]: "h-[40px] text-[14px]",
       [InputSize.COMPACT]: "h-[32px] text-[14px]",
     };
+
+    useEffect(() => {
+      if (!inputRef.current || itiRef.current) return;
+
+      // Initialize intl-tel-input
+      itiRef.current = intlTelInput(inputRef.current, {
+        initialCountry: defaultCountry,
+        separateDialCode: false,
+        autoPlaceholder: "polite",
+        formatOnDisplay: true,
+        nationalMode: false,
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/js/utils.js",
+      });
+
+      // Handle changes
+      const handleChange = () => {
+        if (onChange && inputRef.current) {
+          onChange(inputRef.current.value);
+        }
+      };
+
+      inputRef.current.addEventListener("blur", handleChange);
+      inputRef.current.addEventListener("change", handleChange);
+      inputRef.current.addEventListener("keyup", handleChange);
+
+      return () => {
+        if (inputRef.current) {
+          inputRef.current.removeEventListener("blur", handleChange);
+          inputRef.current.removeEventListener("change", handleChange);
+          inputRef.current.removeEventListener("keyup", handleChange);
+        }
+        if (itiRef.current) {
+          itiRef.current.destroy();
+          itiRef.current = null;
+        }
+      };
+    }, [defaultCountry, onChange]);
+
+    // Update value when prop changes
+    useEffect(() => {
+      if (inputRef.current && value !== undefined && inputRef.current.value !== value) {
+        inputRef.current.value = value;
+      }
+    }, [value]);
 
     return (
       <div className="w-full">
@@ -48,36 +99,26 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
             )}
           >
             {label}
-            {isRequired && <span className="text-[#e40046] ml-1">*</span>}
+            {isRequired && <span className="text-[#E40046] ml-1">*</span>}
           </label>
         )}
 
         <div className={clsx("canary-phone-input-wrapper", className)}>
-          <PhoneInput
-            ref={ref as any}
-            value={value}
-            onChange={onChange}
-            defaultCountry={defaultCountry}
+          <input
+            ref={inputRef}
+            type="tel"
             disabled={isDisabled}
+            required={isRequired}
+            placeholder={placeholder}
             className={clsx(
               "w-full rounded border font-['Roboto',sans-serif]",
               "transition-[border-color,background-color] duration-200",
               sizeClasses[size],
               error
-                ? "border-[#E40046] focus-within:outline focus-within:outline-2 focus-within:outline-[#E40046] focus-within:outline-offset-[-1px]"
-                : "border-[#666666] focus-within:outline focus-within:outline-2 focus-within:outline-[#2858c4] focus-within:outline-offset-[-1px]",
+                ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]"
+                : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
               isDisabled && "bg-[#E5E5E5] cursor-not-allowed"
             )}
-            numberInputProps={{
-              className: clsx(
-                "flex-1 border-0 outline-none bg-transparent",
-                "text-[14px] leading-[1.5] px-2",
-                "text-[#666666]"
-              ),
-            }}
-            countrySelectProps={{
-              className: "border-r border-[#E0E0E0] px-2 flex items-center gap-1",
-            }}
           />
         </div>
 
@@ -94,51 +135,45 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
         )}
 
         <style jsx global>{`
-          .canary-phone-input-wrapper .PhoneInput {
-            display: flex;
-            align-items: center;
-            background: white;
+          .canary-phone-input-wrapper .iti {
+            width: 100%;
           }
 
-          .canary-phone-input-wrapper .PhoneInputCountry {
-            padding: 0 8px;
-            border-right: 1px solid #E0E0E0;
+          .canary-phone-input-wrapper .iti__tel-input {
+            width: 100%;
+          }
+
+          .canary-phone-input-wrapper .iti__selected-country {
+            padding: 0;
+          }
+
+          .canary-phone-input-wrapper .iti__country-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            padding-right: 8px;
+          }
+
+          .canary-phone-input-wrapper .iti__tel-input {
+            padding-left: 52px !important;
+          }
+
+          .canary-phone-input-wrapper .iti__selected-country-primary {
             display: flex;
             align-items: center;
             gap: 4px;
           }
 
-          .canary-phone-input-wrapper .PhoneInputCountryIcon {
-            width: 24px;
-            height: 24px;
-            overflow: hidden;
+          .canary-phone-input-wrapper .iti__flag {
+            margin: 0;
           }
 
-          .canary-phone-input-wrapper .PhoneInputCountryIcon--border {
-            box-shadow: none;
-          }
-
-          .canary-phone-input-wrapper .PhoneInputCountrySelectArrow {
-            width: 24px;
-            height: 24px;
-            border: none;
-            opacity: 1;
-          }
-
-          .canary-phone-input-wrapper .PhoneInputInput {
-            flex: 1;
-            border: none;
-            outline: none;
-            background: transparent;
-            font-family: 'Roboto', sans-serif;
-            font-size: 14px;
-            line-height: 1.5;
-            padding: 0 8px;
-            color: #666666;
-          }
-
-          .canary-phone-input-wrapper .PhoneInputInput:focus {
-            outline: none;
+          .canary-phone-input-wrapper .iti__arrow {
+            margin-left: 4px;
           }
         `}</style>
       </div>
