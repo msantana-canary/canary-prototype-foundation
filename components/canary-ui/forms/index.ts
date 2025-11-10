@@ -15,5 +15,8 @@ export { default as CanaryInputUnderline } from "./CanaryInputUnderline";
 export { default as CanaryTextAreaUnderline } from "./CanaryTextAreaUnderline";
 export { default as CanarySelectUnderline } from "./CanarySelectUnderline";
 export { default as CanaryInputPhoneUnderline } from "./CanaryInputPhoneUnderline";
+export { default as CanaryInputPasswordUnderline } from "./CanaryInputPasswordUnderline";
+export { default as CanaryInputSearchUnderline } from "./CanaryInputSearchUnderline";
+export { default as CanaryInputCreditCardUnderline } from "./CanaryInputCreditCardUnderline";
 
 export * from "./types";

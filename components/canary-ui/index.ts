@@ -29,6 +29,9 @@ export {
   CanaryTextAreaUnderline,
   CanarySelectUnderline,
   CanaryInputPhoneUnderline,
+  CanaryInputPasswordUnderline,
+  CanaryInputSearchUnderline,
+  CanaryInputCreditCardUnderline,
 } from "./forms";
 export { InputSize, InputType } from "./forms/types";
 export type { BaseFormProps, CanarySelectOption } from "./forms";
