@@ -65,25 +65,34 @@ const CanaryInputUnderline = forwardRef<
     };
 
     return (
-      <div className={clsx("w-full flex flex-col gap-1", className)}>
-        {/* Label - shown above when focused or filled */}
-        {label && showLabelAbove && (
-          <label
-            className={clsx(
-              "block text-black font-['Roboto',sans-serif] font-normal",
-              size === InputSize.TABLET && "text-[20px] leading-[150%]",
-              size === InputSize.LARGE && "text-[14px] leading-[21px]",
-              (size === InputSize.NORMAL || size === InputSize.COMPACT) &&
-                "text-[12px] leading-[1.5]"
-            )}
-          >
-            {label}
-            {isRequired && <span className="text-[#E40046] ml-1">*</span>}
-          </label>
-        )}
+      <div className={clsx("w-full", className)}>
+        {/* Input Field with floating label */}
+        <div className="relative pt-4">
+          {/* Floating Label */}
+          {label && (
+            <label
+              className={clsx(
+                "absolute left-0 font-['Roboto',sans-serif] font-normal pointer-events-none",
+                "transition-all duration-200 ease-out",
+                "text-black",
+                // Position and scale based on focus/filled state
+                showLabelAbove
+                  ? "top-0 text-[12px] leading-[1.5]"
+                  : clsx(
+                      "opacity-50",
+                      size === InputSize.TABLET && "top-[28px] text-[24px]",
+                      size === InputSize.LARGE && "top-[22px] text-[18px]",
+                      size === InputSize.NORMAL && "top-[18px] text-[14px]",
+                      size === InputSize.COMPACT && "top-[14px] text-[14px]"
+                    )
+              )}
+            >
+              {label}
+              {isRequired && <span className="text-[#E40046] ml-1">*</span>}
+            </label>
+          )}
 
-        {/* Input Field with bottom border */}
-        <div className="relative">
+          {/* Input Field with bottom border */}
           <div className="relative flex items-center">
             <input
               ref={ref}
@@ -95,16 +104,16 @@ const CanaryInputUnderline = forwardRef<
               onBlur={handleBlur}
               onChange={handleChange}
               {...inputProps}
-              placeholder={showLabelAbove ? inputProps.placeholder : (label as string) || inputProps.placeholder}
+              placeholder={showLabelAbove ? inputProps.placeholder : ""}
               className={clsx(
                 "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
                 "border-0 border-b border-solid",
                 "transition-[border-color,background-color,padding] duration-200",
-                "outline-none",
+                "outline-none bg-transparent",
                 sizeClasses[size],
                 // Padding - 8px horizontal when focused or error
                 (isFocused || error) ? "px-2 py-2" : "px-0 py-0",
-                // Border and background styles
+                // Border styles
                 isDisabled
                   ? "border-b border-black bg-[rgba(0,0,0,0.1)] cursor-not-allowed"
                   : error
@@ -114,8 +123,6 @@ const CanaryInputUnderline = forwardRef<
                   : isFocused
                   ? "border-b-2 border-[#2858c4] bg-[rgba(40,88,196,0.05)] px-2"
                   : "border-b border-black bg-white",
-                // Text opacity
-                !showLabelAbove && "opacity-50",
                 isDisabled && "opacity-50",
                 // Add padding-right for error icon
                 error && "pr-10"
