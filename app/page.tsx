@@ -13,6 +13,14 @@ import {
   CanaryInputSearch,
   CanaryInputCreditCard,
   CanaryInputPhone,
+  // Underline variants
+  CanaryInputUnderline,
+  CanaryTextAreaUnderline,
+  CanarySelectUnderline,
+  CanaryInputPhoneUnderline,
+  CanaryInputPasswordUnderline,
+  CanaryInputSearchUnderline,
+  CanaryInputCreditCardUnderline,
   CanaryTag,
   CanaryTable,
   CanaryCard,
@@ -99,6 +107,7 @@ export default function ComponentShowcase() {
   const [showToast, setShowToast] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("option1");
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [useUnderlineInputs, setUseUnderlineInputs] = useState(false);
 
   const sampleTableData = [
     { id: 1, name: "John Doe", email: "john@example.com", role: "Admin" },
@@ -509,60 +518,143 @@ export default function MyComponent() {
 
           {/* Form Components */}
           <Section title="Form Components" id="forms">
+            {/* Toggle for Underline vs Bordered */}
+            <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-semibold text-blue-900">Input Style</h3>
+                  <p className="text-xs text-blue-700 mt-1">
+                    Toggle between bordered inputs and underline (floating label) inputs
+                  </p>
+                </div>
+                <button
+                  onClick={() => setUseUnderlineInputs(!useUnderlineInputs)}
+                  className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
+                    useUnderlineInputs ? "bg-blue-600" : "bg-gray-300"
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                      useUnderlineInputs ? "translate-x-9" : "translate-x-1"
+                    }`}
+                  />
+                </button>
+              </div>
+              <div className="mt-2 flex gap-2 text-xs">
+                <span className={!useUnderlineInputs ? "font-semibold text-blue-900" : "text-gray-600"}>
+                  Bordered
+                </span>
+                <span className="text-gray-400">|</span>
+                <span className={useUnderlineInputs ? "font-semibold text-blue-900" : "text-gray-600"}>
+                  Underline (Bottom Border)
+                </span>
+              </div>
+            </div>
+
             <div className="space-y-6">
               {/* Inputs */}
-              <CanaryCard title="CanaryInput">
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputUnderline" : "CanaryInput"}>
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-sm font-medium mb-3 text-gray-600">Input Sizes</h4>
                     <div className="space-y-4">
-                      <CanaryInput
-                        label="Tablet Size"
-                        size={InputSize.TABLET}
-                        placeholder="Tablet size input (64px height, 24px font)"
-                      />
-                      <CanaryInput
-                        label="Large Size"
-                        size={InputSize.LARGE}
-                        placeholder="Large size input (48px height, 18px font)"
-                      />
-                      <CanaryInput
-                        label="Normal Size (Default)"
-                        size={InputSize.NORMAL}
-                        placeholder="Normal size input (40px height, 14px font)"
-                      />
-                      <CanaryInput
-                        label="Compact Size"
-                        size={InputSize.COMPACT}
-                        placeholder="Compact size input (32px height, 14px font)"
-                      />
+                      {useUnderlineInputs ? (
+                        <>
+                          <CanaryInputUnderline
+                            label="Tablet Size"
+                            size={InputSize.TABLET}
+                            placeholder="Tablet size input (64px height, 24px font)"
+                          />
+                          <CanaryInputUnderline
+                            label="Large Size"
+                            size={InputSize.LARGE}
+                            placeholder="Large size input (48px height, 18px font)"
+                          />
+                          <CanaryInputUnderline
+                            label="Normal Size (Default)"
+                            size={InputSize.NORMAL}
+                            placeholder="Normal size input (40px height, 14px font)"
+                          />
+                          <CanaryInputUnderline
+                            label="Compact Size"
+                            size={InputSize.COMPACT}
+                            placeholder="Compact size input (32px height, 14px font)"
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <CanaryInput
+                            label="Tablet Size"
+                            size={InputSize.TABLET}
+                            placeholder="Tablet size input (64px height, 24px font)"
+                          />
+                          <CanaryInput
+                            label="Large Size"
+                            size={InputSize.LARGE}
+                            placeholder="Large size input (48px height, 18px font)"
+                          />
+                          <CanaryInput
+                            label="Normal Size (Default)"
+                            size={InputSize.NORMAL}
+                            placeholder="Normal size input (40px height, 14px font)"
+                          />
+                          <CanaryInput
+                            label="Compact Size"
+                            size={InputSize.COMPACT}
+                            placeholder="Compact size input (32px height, 14px font)"
+                          />
+                        </>
+                      )}
                     </div>
                   </div>
 
                   <div>
                     <h4 className="text-sm font-medium mb-3 text-gray-600">Input States</h4>
                     <div className="space-y-4">
-                      <CanaryInput
-                        label="Email Address"
-                        type={InputType.EMAIL}
-                        placeholder="Enter your email"
-                        helperText="We'll never share your email"
-                      />
-                      <CanaryInput
-                        label="With Error"
-                        placeholder="Enter value"
-                        error="This field is required"
-                      />
-                      <CanaryInput
-                        label="Disabled Input"
-                        placeholder="Disabled state"
-                        isDisabled
-                      />
-                      <CanaryInput
-                        label="Readonly Input"
-                        value="Read-only value"
-                        isReadonly
-                      />
+                      {useUnderlineInputs ? (
+                        <>
+                          <CanaryInputUnderline
+                            label="Email Address"
+                            type={InputType.EMAIL}
+                            placeholder="Enter your email"
+                            helperText="We'll never share your email"
+                          />
+                          <CanaryInputUnderline
+                            label="With Error"
+                            placeholder="Enter value"
+                            error="This field is required"
+                          />
+                          <CanaryInputUnderline
+                            label="Disabled Input"
+                            placeholder="Disabled state"
+                            isDisabled
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <CanaryInput
+                            label="Email Address"
+                            type={InputType.EMAIL}
+                            placeholder="Enter your email"
+                            helperText="We'll never share your email"
+                          />
+                          <CanaryInput
+                            label="With Error"
+                            placeholder="Enter value"
+                            error="This field is required"
+                          />
+                          <CanaryInput
+                            label="Disabled Input"
+                            placeholder="Disabled state"
+                            isDisabled
+                          />
+                          <CanaryInput
+                            label="Readonly Input"
+                            value="Read-only value"
+                            isReadonly
+                          />
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -595,15 +687,31 @@ export default function MyComponent() {
               {/* Specialized Inputs */}
               <CanaryCard title="CanaryInputPassword">
                 <div className="space-y-4">
-                  <CanaryInputPassword
-                    label="Password"
-                    placeholder="Enter your password"
-                  />
-                  <CanaryInputPassword
-                    label="Confirm Password"
-                    placeholder="Confirm your password"
-                    error="Passwords do not match"
-                  />
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputPasswordUnderline
+                        label="Password"
+                        placeholder="Enter your password"
+                      />
+                      <CanaryInputPasswordUnderline
+                        label="Confirm Password"
+                        placeholder="Confirm your password"
+                        error="Passwords do not match"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputPassword
+                        label="Password"
+                        placeholder="Enter your password"
+                      />
+                      <CanaryInputPassword
+                        label="Confirm Password"
+                        placeholder="Confirm your password"
+                        error="Passwords do not match"
+                      />
+                    </>
+                  )}
                 </div>
                 <CodeSnippet
                   code={`<CanaryInputPassword
@@ -620,13 +728,27 @@ export default function MyComponent() {
 
               <CanaryCard title="CanaryInputSearch">
                 <div className="space-y-4">
-                  <CanaryInputSearch
-                    label="Search"
-                    placeholder="Search for anything..."
-                  />
-                  <CanaryInputSearch
-                    placeholder="Quick search (no label)"
-                  />
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputSearchUnderline
+                        label="Search"
+                        placeholder="Search for anything..."
+                      />
+                      <CanaryInputSearchUnderline
+                        placeholder="Quick search (no label)"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputSearch
+                        label="Search"
+                        placeholder="Search for anything..."
+                      />
+                      <CanaryInputSearch
+                        placeholder="Quick search (no label)"
+                      />
+                    </>
+                  )}
                 </div>
                 <CodeSnippet
                   code={`<CanaryInputSearch
@@ -642,15 +764,31 @@ export default function MyComponent() {
 
               <CanaryCard title="CanaryInputCreditCard">
                 <div className="space-y-4">
-                  <CanaryInputCreditCard
-                    label="Credit Card Number"
-                    placeholder="Enter credit card number"
-                    helperText="We accept Visa, Mastercard, American Express, and Discover"
-                  />
-                  <CanaryInputCreditCard
-                    label="Card Number"
-                    placeholder="4242 4242 4242 4242"
-                  />
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputCreditCardUnderline
+                        label="Credit Card Number"
+                        placeholder="Enter credit card number"
+                        helperText="We accept Visa, Mastercard, American Express, and Discover"
+                      />
+                      <CanaryInputCreditCardUnderline
+                        label="Card Number"
+                        placeholder="4242 4242 4242 4242"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputCreditCard
+                        label="Credit Card Number"
+                        placeholder="Enter credit card number"
+                        helperText="We accept Visa, Mastercard, American Express, and Discover"
+                      />
+                      <CanaryInputCreditCard
+                        label="Card Number"
+                        placeholder="4242 4242 4242 4242"
+                      />
+                    </>
+                  )}
                 </div>
                 <CodeSnippet
                   code={`<CanaryInputCreditCard
