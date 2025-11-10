@@ -21,77 +21,77 @@ export const colors = {
   ok: "#008040",
   success: "#008040",
   warning: "#FAB541",
-  danger: "#e40046",
-  error: "#e40046",
+  danger: "#E40046",
+  error: "#E40046",
 
   // Base colors
-  white: "#ffffff",
+  white: "#FFFFFF",
 
   // Black scale (grayscale)
-  black1: "#2d2d2d",
-  black2: "#414141",
-  black3: "#707070",
-  black4: "#9f9f9f",
-  black5: "#cecece",
-  black6: "#eaeaea",
-  black7: "#f2f2f2",
-  black8: "#fafafa",
+  black1: "#000000", // True black
+  black2: "#333333",
+  black3: "#666666",
+  black4: "#999999",
+  black5: "#CCCCCC",
+  black6: "#E5E5E5",
+  black7: "#F0F0F0",
+  black8: "#FAFAFA",
 
   // Canary Blue (Light) - Brand color
-  blueCanary1: "#1c91fa",
-  blueCanary2: "#55acfb",
-  blueCanary3: "#8dc8fc",
-  blueCanary4: "#c6e3f3",
-  blueCanary5: "#e8f4ff",
+  blueCanary1: "#1C91FA",
+  blueCanary2: "#55ACFB",
+  blueCanary3: "#8DC8FC",
+  blueCanary4: "#C6E3FE",
+  blueCanary5: "#E8F4FF",
 
   // Blue Dark - Primary action color
-  blueDark1: "#2858c4", // Primary button color
-  blueDark2: "#5e82d3",
-  blueDark3: "#93abe1",
-  blueDark4: "#c9d5f0",
-  blueDark5: "#eaeef9",
+  blueDark1: "#2858C4", // Primary button color
+  blueDark2: "#5E82D3",
+  blueDark3: "#93ABE1",
+  blueDark4: "#C9D5F0",
+  blueDark5: "#EAEEF9",
 
   // Pink
-  pink1: "#f16682",
-  pink2: "#f48ca1",
-  pink3: "#f8b2c0",
-  pink4: "#fbd9e0",
-  pink5: "#fef0f3",
+  pink1: "#F16682",
+  pink2: "#F48CA1",
+  pink3: "#F8B2C0",
+  pink4: "#FBD9E0",
+  pink5: "#FEF0F3",
 
   // Light Green
-  lightGreen1: "#22d39a",
-  lightGreen2: "#59deb3",
-  lightGreen3: "#90e9cc",
-  lightGreen4: "#c8f4e6",
-  lightGreen5: "#e9fbf5",
+  lightGreen1: "#339966",
+  lightGreen2: "#66B38C",
+  lightGreen3: "#99CCB2",
+  lightGreen4: "#CCE6D9",
+  lightGreen5: "#E5F2EC",
 
   // Dark Green
   darkGreen1: "#008040",
-  darkGreen2: "#59deb3",
-  darkGreen3: "#90e9cc",
-  darkGreen4: "#c8f4e6",
-  darkGreen5: "#e9fbf5",
+  darkGreen2: "#409F6D",
+  darkGreen3: "#80BF9A",
+  darkGreen4: "#BFDFC7",
+  darkGreen5: "#E0F0E5",
 
   // Wheat (Orange/Yellow)
-  wheat1: "#fab541",
-  wheat2: "#fbc770",
-  wheat3: "#fcdaa0",
-  wheat4: "#feeccf",
-  wheat5: "#fff8ec",
+  wheat1: "#FAB541",
+  wheat2: "#FBC770",
+  wheat3: "#FCDAA0",
+  wheat4: "#FEECCF",
+  wheat5: "#FFF8EC",
 
   // Purple
-  purple1: "#9b51e0",
-  purple2: "#bb6bd9",
-  purple3: "#cda8ef",
-  purple4: "#e6d3f7",
-  purple5: "#f5eefc",
+  purple1: "#723DFC",
+  purple2: "#9D7AFA",
+  purple3: "#C9B7FD",
+  purple4: "#E4DBFE",
+  purple5: "#F4F1FF",
 
   // Red
-  red1: "#e40046",
-  red2: "#eb4074",
-  red3: "#f59fba",
-  red4: "#f8bfd1",
-  red5: "#fce6ed",
+  red1: "#E40046",
+  red2: "#EB4074",
+  red3: "#F59FBA",
+  red4: "#F8BFD1",
+  red5: "#FCE6ED",
 } as const;
 
 // ============================================================================

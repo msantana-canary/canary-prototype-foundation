@@ -7,7 +7,6 @@ export enum InputSize {
   LARGE = "large",
   NORMAL = "normal",
   COMPACT = "compact",
-  TINY = "tiny",
 }
 
 export enum InputType {

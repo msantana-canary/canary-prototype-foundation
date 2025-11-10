@@ -20,13 +20,17 @@ export {
   CanaryCheckbox,
   CanaryRadio,
   CanaryRadioGroup,
+  CanaryInputPassword,
+  CanaryInputSearch,
+  CanaryInputCreditCard,
+  CanaryInputPhone,
 } from "./forms";
 export { InputSize, InputType } from "./forms/types";
 export type { BaseFormProps, CanarySelectOption } from "./forms";
 
 // Data Display
 export { CanaryTag, CanaryTable, CanaryCard } from "./data-display";
-export { TagColor } from "./data-display/types";
+export { TagColor, TagSize } from "./data-display/types";
 export type { CustomTagColor, CanaryTableColumn } from "./data-display";
 
 // Layout

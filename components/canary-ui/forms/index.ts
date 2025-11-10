@@ -5,4 +5,8 @@ export type { CanarySelectOption } from "./CanarySelect";
 export { default as CanaryCheckbox } from "./CanaryCheckbox";
 export { default as CanaryRadio } from "./CanaryRadio";
 export { default as CanaryRadioGroup } from "./CanaryRadioGroup";
+export { default as CanaryInputPassword } from "./CanaryInputPassword";
+export { default as CanaryInputSearch } from "./CanaryInputSearch";
+export { default as CanaryInputCreditCard } from "./CanaryInputCreditCard";
+export { default as CanaryInputPhone } from "./CanaryInputPhone";
 export * from "./types";

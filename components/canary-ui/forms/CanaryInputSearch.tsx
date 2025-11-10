@@ -1,14 +1,12 @@
-import { forwardRef, TextareaHTMLAttributes } from "react";
+import { forwardRef, InputHTMLAttributes } from "react";
 import { BaseFormProps, InputSize } from "./types";
 import clsx from "clsx";
 
-export interface CanaryTextAreaProps
-  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size">,
-    BaseFormProps {
-  resize?: "none" | "vertical" | "horizontal" | "both";
-}
+export interface CanaryInputSearchProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type">,
+    BaseFormProps {}
 
-const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
+const CanaryInputSearch = forwardRef<HTMLInputElement, CanaryInputSearchProps>(
   (
     {
       label,
@@ -18,37 +16,25 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
       error,
       helperText,
       size = InputSize.NORMAL,
-      resize = "both",
       className = "",
-      rows = 4,
-      ...textareaProps
+      ...inputProps
     },
     ref
   ) => {
     const sizeClasses = {
-      [InputSize.TABLET]: "text-[24px] leading-[1.5] px-4 py-3",
-      [InputSize.LARGE]: "text-[18px] leading-[1.5] px-2 py-3",
-      [InputSize.NORMAL]: "text-[14px] leading-[1.5] px-2 py-[9px]",
-      [InputSize.COMPACT]: "text-[14px] leading-[1.5] px-2 py-[9px]",
+      [InputSize.TABLET]: "h-[64px] text-[24px] leading-[1.5] pl-[48px] pr-4 py-3",
+      [InputSize.LARGE]: "h-[48px] text-[18px] leading-[1.5] pl-[40px] pr-2 py-3",
+      [InputSize.NORMAL]: "h-[40px] text-[14px] leading-[1.5] pl-[40px] pr-2",
+      [InputSize.COMPACT]: "h-[32px] text-[14px] leading-[1.5] pl-[36px] pr-2",
     };
 
-    const resizeClasses = {
-      none: "resize-none",
-      vertical: "resize-y",
-      horizontal: "resize-x",
-      both: "resize",
-    };
-
-    const textareaClasses = clsx(
+    const inputClasses = clsx(
       // Base styles
       "w-full rounded border font-['Roboto',sans-serif]",
       // Transitions - matches original Canary
       "transition-[border-color,background-color] duration-200",
-      "outline-none min-h-[80px]",
       // Size
       sizeClasses[size],
-      // Resize
-      resizeClasses[resize],
       // Border and focus states
       error
         ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]"
@@ -74,15 +60,26 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
           </label>
         )}
 
-        <textarea
-          ref={ref}
-          disabled={isDisabled}
-          readOnly={isReadonly}
-          required={isRequired}
-          rows={rows}
-          className={textareaClasses}
-          {...textareaProps}
-        />
+        <div className="relative">
+          <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"
+                fill="#000000"
+              />
+            </svg>
+          </div>
+
+          <input
+            ref={ref}
+            type="search"
+            disabled={isDisabled}
+            readOnly={isReadonly}
+            required={isRequired}
+            className={inputClasses}
+            {...inputProps}
+          />
+        </div>
 
         {error && (
           <div className="mt-1 inline-block bg-[#fce6ed] px-2 py-[2px] rounded">
@@ -100,6 +97,6 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
   }
 );
 
-CanaryTextArea.displayName = "CanaryTextArea";
+CanaryInputSearch.displayName = "CanaryInputSearch";
 
-export default CanaryTextArea;
+export default CanaryInputSearch;

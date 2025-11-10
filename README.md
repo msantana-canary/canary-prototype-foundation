@@ -5,12 +5,14 @@ A comprehensive React component library built with Next.js 15, React 19, TypeScr
 ## Features
 
 - ✨ **Complete Component Library** - 30+ pre-built components matching Canary UI
+- 📚 **Interactive Showcase** - Live component examples with copy-to-clipboard code snippets
 - 🎨 **Design System** - Extracted design tokens (colors, typography, spacing)
 - 🚀 **Modern Stack** - Next.js 15 + React 19 + TypeScript 5 + Tailwind CSS 4
 - 📱 **Responsive** - Mobile-first design with responsive components
 - 🎯 **Type-Safe** - Full TypeScript support with proper interfaces
 - 🔧 **Figma MCP Ready** - Designed to work seamlessly with Figma MCP
 - 🚢 **Vercel Optimized** - Ready for instant deployment
+- 🧭 **Navigation Sidebar** - Easy browsing of component categories
 
 ## Tech Stack
 
@@ -52,6 +54,22 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the component showcase.
+
+## Component Showcase
+
+The landing page (`app/page.tsx`) features an **interactive showcase** of all components with:
+
+- **Live Examples** - See each component in action with different variants and states
+- **Code Snippets** - Copy-ready code examples for every component
+- **Navigation Sidebar** - Quick jump to any component category (desktop view)
+- **Collapsible Sections** - Expand/collapse component categories
+- **Copy to Clipboard** - One-click copy for all code examples
+
+This makes it easy to:
+1. Browse available components
+2. See usage examples
+3. Copy code directly into your project
+4. Share with stakeholders or team members
 
 ### 5. Start building your prototype
 
@@ -178,17 +196,92 @@ pnpm start
 
 ## Deployment
 
-### Deploy to Vercel
+### Deploy to Vercel (Recommended)
 
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Vercel will automatically detect Next.js and deploy
+The easiest way to deploy your component library showcase:
 
-Or use Vercel CLI:
+#### Option 1: Via Vercel Dashboard
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial commit: Canary UI Component Library"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   git push -u origin main
+   ```
+
+2. **Import to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Add New Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect Next.js settings
+   - Click "Deploy"
+
+3. **Your showcase is live!**
+   - Vercel provides a URL like `your-project.vercel.app`
+   - Every push to main automatically redeploys
+
+#### Option 2: Via Vercel CLI
 
 ```bash
-npx vercel
+# Install Vercel CLI globally
+npm i -g vercel
+
+# Deploy from your project directory
+vercel
+
+# Follow the prompts
+# Your site will be deployed instantly
 ```
+
+### Deploy to GitHub Pages (Static Export)
+
+To deploy as a static site on GitHub Pages:
+
+1. **Update `next.config.ts`** for static export:
+   ```typescript
+   const nextConfig = {
+     output: 'export',
+     basePath: '/your-repo-name', // Replace with your repo name
+     images: {
+       unoptimized: true,
+     },
+   };
+   ```
+
+2. **Build the static site**:
+   ```bash
+   pnpm build
+   ```
+
+3. **Deploy to GitHub Pages**:
+   ```bash
+   # Create gh-pages branch
+   git checkout -b gh-pages
+
+   # Copy build output
+   cp -r out/* .
+
+   # Commit and push
+   git add .
+   git commit -m "Deploy to GitHub Pages"
+   git push origin gh-pages
+   ```
+
+4. **Configure GitHub Pages**:
+   - Go to repository Settings > Pages
+   - Select `gh-pages` branch
+   - Your site will be at `https://YOUR_USERNAME.github.io/YOUR_REPO`
+
+### Custom Domain (Vercel)
+
+After deploying to Vercel:
+
+1. Go to your project settings
+2. Navigate to "Domains"
+3. Add your custom domain
+4. Follow DNS configuration instructions
 
 ## Component Documentation
 
