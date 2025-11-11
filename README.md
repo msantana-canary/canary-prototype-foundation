@@ -27,13 +27,13 @@ A comprehensive React component library built with Next.js 15, React 19, TypeScr
 Install the library in your React/Next.js project:
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.2
 ```
 
 Or with a specific version:
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.2
 ```
 
 ## Quick Start
@@ -41,7 +41,7 @@ npm install git+https://github.com/msantana-canary/canary-prototype-foundation.g
 ### 1. Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.2
 ```
 
 ### 2. Import components in your project
@@ -283,7 +283,7 @@ To update the library in your project:
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
 # Or update to a specific version
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.0
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.2
 ```
 
 ## Tips & Best Practices
