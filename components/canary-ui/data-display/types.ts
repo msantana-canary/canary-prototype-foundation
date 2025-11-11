@@ -3,24 +3,29 @@
  */
 
 export enum TagColor {
-  /** PRIMARY - Canary brand blue */
-  PRIMARY = "primary",
   /** SUCCESS - Green */
   SUCCESS = "success",
   /** WARNING - Yellow/Wheat */
   WARNING = "warning",
-  /** DANGER - Red/Pink */
-  DANGER = "danger",
-  /** GRAY - Light gray */
-  GRAY = "gray",
-  /** BLACK - Black background */
-  BLACK = "black",
+  /** INFO - Blue */
+  INFO = "info",
+  /** DEFAULT - Gray */
+  DEFAULT = "default",
+  /** ERROR - Red/Pink */
+  ERROR = "error",
+}
+
+export enum TagVariant {
+  /** OUTLINE - Light background with colored border */
+  OUTLINE = "outline",
+  /** FILLED - Solid colored background with white text */
+  FILLED = "filled",
 }
 
 export enum TagSize {
-  /** SMALL - 10px font, 18px height */
-  SMALL = "small",
-  /** MEDIUM - 12px font */
+  /** COMPACT - 10px font, 16px line-height */
+  COMPACT = "compact",
+  /** MEDIUM - 12px font, 18px line-height */
   MEDIUM = "medium",
 }
 

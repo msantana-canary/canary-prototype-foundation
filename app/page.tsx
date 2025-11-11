@@ -40,12 +40,13 @@ import {
   ButtonType,
   ButtonSize,
   TagColor,
+  TagVariant,
   TagSize,
   InputSize,
   InputType,
   colors,
 } from "@/components/canary-ui";
-import { mdiContentCopy, mdiCheckCircle, mdiChevronDown, mdiChevronUp } from "@mdi/js";
+import { mdiContentCopy, mdiCheckCircle, mdiChevronDown, mdiChevronUp, mdiPlus, mdiClose } from "@mdi/js";
 import Icon from "@mdi/react";
 
 // Code snippet component
@@ -126,7 +127,7 @@ export default function ComponentShowcase() {
     {
       key: "role",
       label: "Role",
-      render: (value: string) => <CanaryTag label={value} color={TagColor.PRIMARY} />
+      render: (value: string) => <CanaryTag label={value} color={TagColor.INFO} />
     },
   ];
 
@@ -1042,36 +1043,84 @@ export default function MyComponent() {
               <CanaryCard title="CanaryTag">
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-medium mb-3 text-gray-600">Tag Colors</h4>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Outline Variant (Default)</h4>
                     <div className="flex flex-wrap gap-2">
-                      <CanaryTag label="Primary" color={TagColor.PRIMARY} />
                       <CanaryTag label="Success" color={TagColor.SUCCESS} />
                       <CanaryTag label="Warning" color={TagColor.WARNING} />
-                      <CanaryTag label="Danger" color={TagColor.DANGER} />
-                      <CanaryTag label="Gray" color={TagColor.GRAY} />
-                      <CanaryTag label="Black" color={TagColor.BLACK} />
+                      <CanaryTag label="Info" color={TagColor.INFO} />
+                      <CanaryTag label="Default" color={TagColor.DEFAULT} />
+                      <CanaryTag label="Error" color={TagColor.ERROR} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Filled Variant</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <CanaryTag label="Success" color={TagColor.SUCCESS} variant={TagVariant.FILLED} />
+                      <CanaryTag label="Warning" color={TagColor.WARNING} variant={TagVariant.FILLED} />
+                      <CanaryTag label="Info" color={TagColor.INFO} variant={TagVariant.FILLED} />
+                      <CanaryTag label="Default" color={TagColor.DEFAULT} variant={TagVariant.FILLED} />
+                      <CanaryTag label="Error" color={TagColor.ERROR} variant={TagVariant.FILLED} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">With Icons</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <CanaryTag
+                        label="Add"
+                        color={TagColor.SUCCESS}
+                        leadingIcon={<Icon path={mdiPlus} size={0.5} />}
+                      />
+                      <CanaryTag
+                        label="Remove"
+                        color={TagColor.ERROR}
+                        variant={TagVariant.FILLED}
+                        trailingIcon={<Icon path={mdiClose} size={0.5} />}
+                      />
+                      <CanaryTag
+                        label="Verified"
+                        color={TagColor.INFO}
+                        leadingIcon={<Icon path={mdiCheckCircle} size={0.5} />}
+                      />
                     </div>
                   </div>
 
                   <div>
                     <h4 className="text-sm font-medium mb-3 text-gray-600">Tag Sizes</h4>
                     <div className="flex flex-wrap items-center gap-2">
-                      <CanaryTag label="Small" size={TagSize.SMALL} color={TagColor.PRIMARY} />
-                      <CanaryTag label="Medium" size={TagSize.MEDIUM} color={TagColor.PRIMARY} />
+                      <CanaryTag label="Compact" size={TagSize.COMPACT} color={TagColor.INFO} />
+                      <CanaryTag label="Medium" size={TagSize.MEDIUM} color={TagColor.INFO} />
                     </div>
                   </div>
                 </div>
                 <CodeSnippet
-                  code={`// Tag Colors
-<CanaryTag label="Primary" color={TagColor.PRIMARY} />
+                  code={`// Outline variant (default)
 <CanaryTag label="Success" color={TagColor.SUCCESS} />
 <CanaryTag label="Warning" color={TagColor.WARNING} />
-<CanaryTag label="Danger" color={TagColor.DANGER} />
-<CanaryTag label="Gray" color={TagColor.GRAY} />
-<CanaryTag label="Black" color={TagColor.BLACK} />
+<CanaryTag label="Info" color={TagColor.INFO} />
+<CanaryTag label="Default" color={TagColor.DEFAULT} />
+<CanaryTag label="Error" color={TagColor.ERROR} />
 
-// Tag Sizes
-<CanaryTag label="Small" size={TagSize.SMALL} />
+// Filled variant
+<CanaryTag label="Success" color={TagColor.SUCCESS} variant={TagVariant.FILLED} />
+<CanaryTag label="Error" color={TagColor.ERROR} variant={TagVariant.FILLED} />
+
+// With icons
+<CanaryTag
+  label="Add"
+  color={TagColor.SUCCESS}
+  leadingIcon={<Icon path={mdiPlus} size={0.5} />}
+/>
+<CanaryTag
+  label="Remove"
+  color={TagColor.ERROR}
+  variant={TagVariant.FILLED}
+  trailingIcon={<Icon path={mdiClose} size={0.5} />}
+/>
+
+// Tag sizes
+<CanaryTag label="Compact" size={TagSize.COMPACT} />
 <CanaryTag label="Medium" size={TagSize.MEDIUM} />`}
                 />
               </CanaryCard>
@@ -1091,7 +1140,7 @@ export default function MyComponent() {
   {
     key: "role",
     label: "Role",
-    render: (value) => <CanaryTag label={value} color={TagColor.PRIMARY} />
+    render: (value) => <CanaryTag label={value} color={TagColor.INFO} />
   },
 ];
 

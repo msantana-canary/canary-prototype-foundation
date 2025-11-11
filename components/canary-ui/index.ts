@@ -42,7 +42,7 @@ export type { BaseFormProps, CanarySelectOption } from "./forms";
 
 // Data Display
 export { CanaryTag, CanaryTable, CanaryCard } from "./data-display";
-export { TagColor, TagSize } from "./data-display/types";
+export { TagColor, TagVariant, TagSize } from "./data-display/types";
 export type { CustomTagColor, CanaryTableColumn } from "./data-display";
 
 // Layout

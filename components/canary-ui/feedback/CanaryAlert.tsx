@@ -25,7 +25,7 @@ export default function CanaryAlert({
     success: {
       bg: colors.lightGreen5,
       border: colors.lightGreen1,
-      text: colors.darkGreen1,
+      text: colors.success,
     },
     error: {
       bg: colors.pink4,
