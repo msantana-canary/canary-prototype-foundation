@@ -23,3 +23,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-roboto), 'Roboto', sans-serif;
 }
+
+/* Input placeholder styling - matches Figma design system */
+input::placeholder,
+textarea::placeholder {
+  color: #666666 !important; /* colors.black3 - $color-black-3 */
+  opacity: 1 !important;
+}

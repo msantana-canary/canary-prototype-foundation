@@ -24,74 +24,67 @@ export const colors = {
   danger: "#E40046",
   error: "#E40046",
 
-  // Base colors
+  // Base colors - Figma token: $color-white
   white: "#FFFFFF",
 
-  // Black scale (grayscale)
-  black1: "#000000", // True black
-  black2: "#333333",
-  black3: "#666666",
-  black4: "#999999",
-  black5: "#CCCCCC",
-  black6: "#E5E5E5",
-  black7: "#F0F0F0",
-  black8: "#FAFAFA",
+  // Black scale (grayscale) - Figma tokens: $color-black-1 through $color-black-8
+  black1: "#000000", // $color-black-1
+  black2: "#333333", // $color-black-2
+  black3: "#666666", // $color-black-3
+  black4: "#999999", // $color-black-4
+  black5: "#CCCCCC", // $color-black-5
+  black6: "#E5E5E5", // $color-black-6
+  black7: "#F0F0F0", // $color-black-7
+  black8: "#FAFAFA", // $color-black-8
 
-  // Canary Blue (Light) - Brand color
-  blueCanary1: "#1C91FA",
-  blueCanary2: "#55ACFB",
-  blueCanary3: "#8DC8FC",
-  blueCanary4: "#C6E3FE",
-  blueCanary5: "#E8F4FF",
+  // Canary Blue (Light) - Brand color - Figma tokens: $color-blue-canary-1 through $color-blue-canary-5
+  blueCanary1: "#1C91FA", // $color-blue-canary-1
+  blueCanary2: "#55ACFB", // $color-blue-canary-2
+  blueCanary3: "#8DC8FC", // $color-blue-canary-3
+  blueCanary4: "#C6E3FE", // $color-blue-canary-4
+  blueCanary5: "#E8F4FF", // $color-blue-canary-5
 
-  // Blue Dark - Primary action color
-  blueDark1: "#2858C4", // Primary button color
-  blueDark2: "#5E82D3",
-  blueDark3: "#93ABE1",
-  blueDark4: "#C9D5F0",
-  blueDark5: "#EAEEF9",
+  // Blue Dark - Primary action color - Figma tokens: $color-blue-dark-1 through $color-blue-dark-5
+  blueDark1: "#2858C4", // $color-blue-dark-1 - Primary button color
+  blueDark2: "#5E82D3", // $color-blue-dark-2
+  blueDark3: "#93ABE1", // $color-blue-dark-3
+  blueDark4: "#C9D5F0", // $color-blue-dark-4
+  blueDark5: "#EAEEF9", // $color-blue-dark-5
 
-  // Pink
-  pink1: "#F16682",
-  pink2: "#F48CA1",
-  pink3: "#F8B2C0",
-  pink4: "#FBD9E0",
-  pink5: "#FEF0F3",
+  // Pink - Figma tokens: $color-pink-1 through $color-pink-5
+  pink1: "#F16682", // $color-pink-1
+  pink2: "#F48CA1", // $color-pink-2
+  pink3: "#F8B2C0", // $color-pink-3
+  pink4: "#FBD9E0", // $color-pink-4
+  pink5: "#FEF0F3", // $color-pink-5
 
-  // Light Green
-  lightGreen1: "#339966",
-  lightGreen2: "#66B38C",
-  lightGreen3: "#99CCB2",
-  lightGreen4: "#CCE6D9",
-  lightGreen5: "#E5F2EC",
+  // Light Green - Figma tokens: $color-light-green-1 through $color-light-green-5
+  lightGreen1: "#008040", // $color-light-green-1
+  lightGreen2: "#339966", // $color-light-green-2
+  lightGreen3: "#66B38C", // $color-light-green-3
+  lightGreen4: "#99CCB3", // $color-light-green-4
+  lightGreen5: "#CCE6D9", // $color-light-green-5
 
-  // Dark Green
-  darkGreen1: "#008040",
-  darkGreen2: "#409F6D",
-  darkGreen3: "#80BF9A",
-  darkGreen4: "#BFDFC7",
-  darkGreen5: "#E0F0E5",
+  // Wheat (Orange/Yellow) - Figma tokens: $color-wheat-1 through $color-wheat-5
+  wheat1: "#FAB541", // $color-wheat-1
+  wheat2: "#FBC770", // $color-wheat-2
+  wheat3: "#FCDAA0", // $color-wheat-3
+  wheat4: "#FEECCF", // $color-wheat-4
+  wheat5: "#FFF8EC", // $color-wheat-5
 
-  // Wheat (Orange/Yellow)
-  wheat1: "#FAB541",
-  wheat2: "#FBC770",
-  wheat3: "#FCDAA0",
-  wheat4: "#FEECCF",
-  wheat5: "#FFF8EC",
+  // Purple - Figma tokens: $color-purple-1 through $color-purple-5
+  purple1: "#3304AD", // $color-purple-1
+  purple2: "#723DFC", // $color-purple-2
+  purple3: "#9D7AFA", // $color-purple-3
+  purple4: "#CAB8F8", // $color-purple-4
+  purple5: "#E3DCF6", // $color-purple-5
 
-  // Purple
-  purple1: "#723DFC",
-  purple2: "#9D7AFA",
-  purple3: "#C9B7FD",
-  purple4: "#E4DBFE",
-  purple5: "#F4F1FF",
-
-  // Red
-  red1: "#E40046",
-  red2: "#EB4074",
-  red3: "#F59FBA",
-  red4: "#F8BFD1",
-  red5: "#FCE6ED",
+  // Red - Figma tokens: $color-red-1 through $color-red-5
+  red1: "#E40046", // $color-red-1
+  red2: "#EB4074", // $color-red-2
+  red3: "#F59FBA", // $color-red-3
+  red4: "#F8BFD1", // $color-red-4
+  red5: "#FCE6ED", // $color-red-5
 } as const;
 
 // ============================================================================

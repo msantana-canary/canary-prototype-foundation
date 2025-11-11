@@ -1,6 +1,7 @@
 "use client";
 
 import { forwardRef, InputHTMLAttributes, useState, useCallback } from "react";
+import { colors } from "../design-tokens";
 import { BaseFormProps, InputSize } from "./types";
 import clsx from "clsx";
 import { usePaymentInputs } from "react-payment-inputs";
@@ -77,40 +78,31 @@ const CanaryInputCreditCardUnderline = forwardRef<HTMLInputElement, CanaryInputC
 
     return (
       <div className={clsx("w-full", className)}>
-        {/* Input Field with floating label */}
-        <div className="relative pt-4">
-          {/* Floating Label */}
-          {label && (
-            <label
-              className={clsx(
-                "absolute left-8 font-['Roboto',sans-serif] font-normal pointer-events-none",
-                "transition-all duration-200 ease-out",
-                "text-black",
-                // Position and scale based on focus/filled state
-                showLabelAbove
-                  ? "top-0 left-0 text-[12px] leading-[1.5]"
-                  : clsx(
-                      "opacity-50",
-                      size === InputSize.TABLET && "top-[28px] text-[24px]",
-                      size === InputSize.LARGE && "top-[22px] text-[18px]",
-                      size === InputSize.NORMAL && "top-[18px] text-[14px]",
-                      size === InputSize.COMPACT && "top-[14px] text-[14px]"
-                    )
-              )}
-            >
-              {label}
-              {isRequired && <span className="text-[#E40046] ml-1">*</span>}
-            </label>
-          )}
+        {/* Label - shown when focused or filled */}
+        {label && showLabelAbove && (
+          <label
+            className={clsx(
+              "block text-black font-['Roboto',sans-serif] font-normal mb-1",
+              "transition-all duration-200 ease-out",
+              size === InputSize.TABLET && "text-[20px] leading-[150%]",
+              size === InputSize.LARGE && "text-[14px] leading-[21px]",
+              (size === InputSize.NORMAL || size === InputSize.COMPACT) && "text-[12px] leading-[1.5]"
+            )}
+          >
+            {label}
+            {isRequired && <span className="ml-1" style={{ color: colors.error }}>*</span>}
+          </label>
+        )}
 
-          {/* Input Field with bottom border and credit card icon */}
+        {/* Input Field with bottom border and credit card icon */}
+        <div className="relative">
           <div className="relative flex items-center">
             {/* Credit Card Icon */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center w-6 h-6">
               <Icon
                 path={meta.cardType?.type ? mdiCreditCard : mdiCreditCardOutline}
                 size="24px"
-                color="#000000"
+                color={colors.black1}
               />
             </div>
 
@@ -120,16 +112,16 @@ const CanaryInputCreditCardUnderline = forwardRef<HTMLInputElement, CanaryInputC
               disabled={isDisabled}
               required={isRequired}
               {...cardNumberProps}
-              placeholder={showLabelAbove ? inputProps.placeholder : ""}
+              placeholder={!showLabelAbove ? (label as string) : ""}
               className={clsx(
                 "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
                 "border-0 border-b border-solid",
                 "transition-[border-color,background-color,padding] duration-200",
-                "outline-none bg-transparent",
+                "outline-none",
                 "pl-8", // Space for card icon
                 sizeClasses[size],
-                // Padding - 8px horizontal when focused or error (plus icon space)
-                (isFocused || error) ? "pr-2 py-2" : "pr-0 py-0",
+                // Padding - 8px horizontal when focused (plus icon space)
+                isFocused ? "pr-2 py-2" : "pr-0 py-0",
                 // Border styles
                 isDisabled
                   ? "border-b border-black bg-[rgba(0,0,0,0.1)] cursor-not-allowed"

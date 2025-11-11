@@ -24,6 +24,8 @@ export {
   CanaryInputSearch,
   CanaryInputCreditCard,
   CanaryInputPhone,
+  CanaryInputDate,
+  CanaryInputDateRange,
   // Underline variants (floating label with bottom border)
   CanaryInputUnderline,
   CanaryTextAreaUnderline,
@@ -32,6 +34,8 @@ export {
   CanaryInputPasswordUnderline,
   CanaryInputSearchUnderline,
   CanaryInputCreditCardUnderline,
+  CanaryInputDateUnderline,
+  CanaryInputDateRangeUnderline,
 } from "./forms";
 export { InputSize, InputType } from "./forms/types";
 export type { BaseFormProps, CanarySelectOption } from "./forms";

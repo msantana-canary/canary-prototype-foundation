@@ -13,6 +13,8 @@ import {
   CanaryInputSearch,
   CanaryInputCreditCard,
   CanaryInputPhone,
+  CanaryInputDate,
+  CanaryInputDateRange,
   // Underline variants
   CanaryInputUnderline,
   CanaryTextAreaUnderline,
@@ -21,6 +23,8 @@ import {
   CanaryInputPasswordUnderline,
   CanaryInputSearchUnderline,
   CanaryInputCreditCardUnderline,
+  CanaryInputDateUnderline,
+  CanaryInputDateRangeUnderline,
   CanaryTag,
   CanaryTable,
   CanaryCard,
@@ -241,14 +245,14 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Black Scale (Grayscale)</h4>
                   <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
                     {[
-                      { name: "black1", hex: colors.black1 },
-                      { name: "black2", hex: colors.black2 },
-                      { name: "black3", hex: colors.black3 },
-                      { name: "black4", hex: colors.black4 },
-                      { name: "black5", hex: colors.black5 },
-                      { name: "black6", hex: colors.black6 },
-                      { name: "black7", hex: colors.black7 },
-                      { name: "black8", hex: colors.black8 },
+                      { name: "$color-black-1", hex: colors.black1 },
+                      { name: "$color-black-2", hex: colors.black2 },
+                      { name: "$color-black-3", hex: colors.black3 },
+                      { name: "$color-black-4", hex: colors.black4 },
+                      { name: "$color-black-5", hex: colors.black5 },
+                      { name: "$color-black-6", hex: colors.black6 },
+                      { name: "$color-black-7", hex: colors.black7 },
+                      { name: "$color-black-8", hex: colors.black8 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -267,11 +271,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Canary Blue (Brand)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "blueCanary1", hex: colors.blueCanary1 },
-                      { name: "blueCanary2", hex: colors.blueCanary2 },
-                      { name: "blueCanary3", hex: colors.blueCanary3 },
-                      { name: "blueCanary4", hex: colors.blueCanary4 },
-                      { name: "blueCanary5", hex: colors.blueCanary5 },
+                      { name: "$color-blue-canary-1", hex: colors.blueCanary1 },
+                      { name: "$color-blue-canary-2", hex: colors.blueCanary2 },
+                      { name: "$color-blue-canary-3", hex: colors.blueCanary3 },
+                      { name: "$color-blue-canary-4", hex: colors.blueCanary4 },
+                      { name: "$color-blue-canary-5", hex: colors.blueCanary5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -290,11 +294,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Blue Dark (Primary Action)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "blueDark1", hex: colors.blueDark1 },
-                      { name: "blueDark2", hex: colors.blueDark2 },
-                      { name: "blueDark3", hex: colors.blueDark3 },
-                      { name: "blueDark4", hex: colors.blueDark4 },
-                      { name: "blueDark5", hex: colors.blueDark5 },
+                      { name: "$color-blue-dark-1", hex: colors.blueDark1 },
+                      { name: "$color-blue-dark-2", hex: colors.blueDark2 },
+                      { name: "$color-blue-dark-3", hex: colors.blueDark3 },
+                      { name: "$color-blue-dark-4", hex: colors.blueDark4 },
+                      { name: "$color-blue-dark-5", hex: colors.blueDark5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -313,34 +317,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Light Green</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "lightGreen1", hex: colors.lightGreen1 },
-                      { name: "lightGreen2", hex: colors.lightGreen2 },
-                      { name: "lightGreen3", hex: colors.lightGreen3 },
-                      { name: "lightGreen4", hex: colors.lightGreen4 },
-                      { name: "lightGreen5", hex: colors.lightGreen5 },
-                    ].map(({ name, hex }) => (
-                      <div key={name} className="flex flex-col">
-                        <div
-                          className="h-16 rounded-md border border-gray-200 shadow-sm"
-                          style={{ backgroundColor: hex }}
-                        />
-                        <p className="text-xs font-medium mt-2">{name}</p>
-                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Dark Green */}
-                <div>
-                  <h4 className="text-sm font-semibold mb-3">Dark Green</h4>
-                  <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    {[
-                      { name: "darkGreen1", hex: colors.darkGreen1 },
-                      { name: "darkGreen2", hex: colors.darkGreen2 },
-                      { name: "darkGreen3", hex: colors.darkGreen3 },
-                      { name: "darkGreen4", hex: colors.darkGreen4 },
-                      { name: "darkGreen5", hex: colors.darkGreen5 },
+                      { name: "$color-light-green-1", hex: colors.lightGreen1 },
+                      { name: "$color-light-green-2", hex: colors.lightGreen2 },
+                      { name: "$color-light-green-3", hex: colors.lightGreen3 },
+                      { name: "$color-light-green-4", hex: colors.lightGreen4 },
+                      { name: "$color-light-green-5", hex: colors.lightGreen5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -359,11 +340,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Purple</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "purple1", hex: colors.purple1 },
-                      { name: "purple2", hex: colors.purple2 },
-                      { name: "purple3", hex: colors.purple3 },
-                      { name: "purple4", hex: colors.purple4 },
-                      { name: "purple5", hex: colors.purple5 },
+                      { name: "$color-purple-1", hex: colors.purple1 },
+                      { name: "$color-purple-2", hex: colors.purple2 },
+                      { name: "$color-purple-3", hex: colors.purple3 },
+                      { name: "$color-purple-4", hex: colors.purple4 },
+                      { name: "$color-purple-5", hex: colors.purple5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -382,11 +363,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Pink</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "pink1", hex: colors.pink1 },
-                      { name: "pink2", hex: colors.pink2 },
-                      { name: "pink3", hex: colors.pink3 },
-                      { name: "pink4", hex: colors.pink4 },
-                      { name: "pink5", hex: colors.pink5 },
+                      { name: "$color-pink-1", hex: colors.pink1 },
+                      { name: "$color-pink-2", hex: colors.pink2 },
+                      { name: "$color-pink-3", hex: colors.pink3 },
+                      { name: "$color-pink-4", hex: colors.pink4 },
+                      { name: "$color-pink-5", hex: colors.pink5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -405,11 +386,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Wheat (Orange/Yellow)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "wheat1", hex: colors.wheat1 },
-                      { name: "wheat2", hex: colors.wheat2 },
-                      { name: "wheat3", hex: colors.wheat3 },
-                      { name: "wheat4", hex: colors.wheat4 },
-                      { name: "wheat5", hex: colors.wheat5 },
+                      { name: "$color-wheat-1", hex: colors.wheat1 },
+                      { name: "$color-wheat-2", hex: colors.wheat2 },
+                      { name: "$color-wheat-3", hex: colors.wheat3 },
+                      { name: "$color-wheat-4", hex: colors.wheat4 },
+                      { name: "$color-wheat-5", hex: colors.wheat5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -428,11 +409,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Red</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "red1", hex: colors.red1 },
-                      { name: "red2", hex: colors.red2 },
-                      { name: "red3", hex: colors.red3 },
-                      { name: "red4", hex: colors.red4 },
-                      { name: "red5", hex: colors.red5 },
+                      { name: "$color-red-1", hex: colors.red1 },
+                      { name: "$color-red-2", hex: colors.red2 },
+                      { name: "$color-red-3", hex: colors.red3 },
+                      { name: "$color-red-4", hex: colors.red4 },
+                      { name: "$color-red-5", hex: colors.red5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -615,17 +596,20 @@ export default function MyComponent() {
                         <>
                           <CanaryInputUnderline
                             label="Email Address"
+                            size={InputSize.NORMAL}
                             type={InputType.EMAIL}
                             placeholder="Enter your email"
                             helperText="We'll never share your email"
                           />
                           <CanaryInputUnderline
                             label="With Error"
+                            size={InputSize.NORMAL}
                             placeholder="Enter value"
                             error="This field is required"
                           />
                           <CanaryInputUnderline
                             label="Disabled Input"
+                            size={InputSize.NORMAL}
                             placeholder="Disabled state"
                             isDisabled
                           />
@@ -634,22 +618,26 @@ export default function MyComponent() {
                         <>
                           <CanaryInput
                             label="Email Address"
+                            size={InputSize.NORMAL}
                             type={InputType.EMAIL}
                             placeholder="Enter your email"
                             helperText="We'll never share your email"
                           />
                           <CanaryInput
                             label="With Error"
+                            size={InputSize.NORMAL}
                             placeholder="Enter value"
                             error="This field is required"
                           />
                           <CanaryInput
                             label="Disabled Input"
+                            size={InputSize.NORMAL}
                             placeholder="Disabled state"
                             isDisabled
                           />
                           <CanaryInput
                             label="Readonly Input"
+                            size={InputSize.NORMAL}
                             value="Read-only value"
                             isReadonly
                           />
@@ -800,20 +788,41 @@ export default function MyComponent() {
                 />
               </CanaryCard>
 
-              <CanaryCard title="CanaryInputPhone">
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputPhoneUnderline" : "CanaryInputPhone"}>
                 <div className="space-y-4">
-                  <CanaryInputPhone
-                    label="Mobile Phone"
-                    defaultCountry="US"
-                  />
-                  <CanaryInputPhone
-                    label="International Phone"
-                    defaultCountry="GB"
-                    helperText="Include country code"
-                  />
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputPhoneUnderline
+                        label="Mobile Phone"
+                        defaultCountry="US"
+                      />
+                      <CanaryInputPhoneUnderline
+                        label="International Phone"
+                        defaultCountry="GB"
+                        helperText="Include country code"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputPhone
+                        label="Mobile Phone"
+                        defaultCountry="US"
+                      />
+                      <CanaryInputPhone
+                        label="International Phone"
+                        defaultCountry="GB"
+                        helperText="Include country code"
+                      />
+                    </>
+                  )}
                 </div>
                 <CodeSnippet
-                  code={`<CanaryInputPhone
+                  code={useUnderlineInputs ? `<CanaryInputPhoneUnderline
+  label="Mobile Phone"
+  defaultCountry="US"
+  value={phoneNumber}
+  onChange={setPhoneNumber}
+/>` : `<CanaryInputPhone
   label="Mobile Phone"
   defaultCountry="US"
   value={phoneNumber}
@@ -822,25 +831,134 @@ export default function MyComponent() {
                 />
               </CanaryCard>
 
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputDateUnderline" : "CanaryInputDate"}>
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputDateUnderline
+                        label="Date"
+                        helperText="Select a date"
+                      />
+                      <CanaryInputDateUnderline
+                        label="Birth Date"
+                      />
+                      <CanaryInputDateUnderline
+                        label="Date"
+                        error="Please select a valid date"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputDate
+                        label="Select Date"
+                        helperText="Choose a date from the calendar"
+                      />
+                      <CanaryInputDate
+                        label="Birth Date"
+                      />
+                      <CanaryInputDate
+                        label="Date with Error"
+                        error="Please select a valid date"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={`<CanaryInputDate
+  label="Select Date"
+  value={selectedDate}
+  onChange={(date) => setSelectedDate(date)}
+  helperText="Choose a date from the calendar"
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputDateRangeUnderline" : "CanaryInputDateRange"}>
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputDateRangeUnderline
+                        label="Date Range"
+                        helperText="Select start and end dates"
+                      />
+                      <CanaryInputDateRangeUnderline
+                        label="Vacation Dates"
+                      />
+                      <CanaryInputDateRangeUnderline
+                        label="Date Range"
+                        error="Please select valid dates"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputDateRange
+                        label="Select Date Range"
+                        helperText="Choose start and end dates"
+                      />
+                      <CanaryInputDateRange
+                        label="Vacation Dates"
+                      />
+                      <CanaryInputDateRange
+                        label="Range with Error"
+                        error="Please select valid dates"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={`<CanaryInputDateRange
+  label="Select Date Range"
+  startDate={startDate}
+  endDate={endDate}
+  onChange={(start, end) => {
+    setStartDate(start);
+    setEndDate(end);
+  }}
+  helperText="Choose start and end dates"
+/>`}
+                />
+              </CanaryCard>
+
               {/* Other Form Components */}
-              <CanaryCard title="Other Form Components">
+              <CanaryCard title={useUnderlineInputs ? "CanarySelectUnderline & CanaryTextAreaUnderline" : "CanarySelect & CanaryTextArea"}>
                 <CanaryGrid columns={2} gap="large">
-                  <CanarySelect
-                    label="Select Country"
-                    placeholder="Choose a country"
-                    options={[
-                      { label: "United States", value: "us" },
-                      { label: "Canada", value: "ca" },
-                      { label: "United Kingdom", value: "uk" },
-                    ]}
-                  />
+                  {useUnderlineInputs ? (
+                    <CanarySelectUnderline
+                      label="Select Country"
+                      size={InputSize.NORMAL}
+                      defaultValue=""
+                      options={[
+                        { label: "United States", value: "us" },
+                        { label: "Canada", value: "ca" },
+                        { label: "United Kingdom", value: "uk" },
+                      ]}
+                    />
+                  ) : (
+                    <CanarySelect
+                      label="Select Country"
+                      size={InputSize.NORMAL}
+                      options={[
+                        { label: "United States", value: "us" },
+                        { label: "Canada", value: "ca" },
+                        { label: "United Kingdom", value: "uk" },
+                      ]}
+                    />
+                  )}
 
                   <div className="col-span-2">
-                    <CanaryTextArea
-                      label="Message"
-                      placeholder="Enter your message"
-                      rows={4}
-                    />
+                    {useUnderlineInputs ? (
+                      <CanaryTextAreaUnderline
+                        label="Message"
+                        placeholder="Enter your message"
+                        rows={4}
+                      />
+                    ) : (
+                      <CanaryTextArea
+                        label="Message"
+                        placeholder="Enter your message"
+                        rows={4}
+                      />
+                    )}
                   </div>
 
                   <div>
@@ -873,9 +991,27 @@ export default function MyComponent() {
                 </CanaryGrid>
 
                 <CodeSnippet
-                  code={`<CanarySelect
+                  code={useUnderlineInputs ? `<CanarySelectUnderline
   label="Select Country"
-  placeholder="Choose a country"
+  options={[
+    { label: "United States", value: "us" },
+    { label: "Canada", value: "ca" },
+  ]}
+/>
+
+<CanaryTextAreaUnderline
+  label="Message"
+  placeholder="Enter your message"
+  rows={4}
+/>
+
+<CanaryCheckbox label="I agree to the terms" />
+
+<CanaryRadioGroup label="Contact Method">
+  <CanaryRadio name="contact" label="Email" />
+  <CanaryRadio name="contact" label="Phone" />
+</CanaryRadioGroup>` : `<CanarySelect
+  label="Select Country"
   options={[
     { label: "United States", value: "us" },
     { label: "Canada", value: "ca" },

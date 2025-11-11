@@ -82,9 +82,9 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
             className={selectClasses}
             {...selectProps}
           >
-            {placeholder && (
+            {(placeholder || label) && (
               <option value="" disabled>
-                {placeholder}
+                {placeholder || label}
               </option>
             )}
             {options.map((option) => (

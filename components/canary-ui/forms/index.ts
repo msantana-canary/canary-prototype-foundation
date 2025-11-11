@@ -9,6 +9,8 @@ export { default as CanaryInputPassword } from "./CanaryInputPassword";
 export { default as CanaryInputSearch } from "./CanaryInputSearch";
 export { default as CanaryInputCreditCard } from "./CanaryInputCreditCard";
 export { default as CanaryInputPhone } from "./CanaryInputPhone";
+export { default as CanaryInputDate } from "./CanaryInputDate";
+export { default as CanaryInputDateRange } from "./CanaryInputDateRange";
 
 // Underline variants (floating label with bottom border)
 export { default as CanaryInputUnderline } from "./CanaryInputUnderline";
@@ -18,5 +20,7 @@ export { default as CanaryInputPhoneUnderline } from "./CanaryInputPhoneUnderlin
 export { default as CanaryInputPasswordUnderline } from "./CanaryInputPasswordUnderline";
 export { default as CanaryInputSearchUnderline } from "./CanaryInputSearchUnderline";
 export { default as CanaryInputCreditCardUnderline } from "./CanaryInputCreditCardUnderline";
+export { default as CanaryInputDateUnderline } from "./CanaryInputDateUnderline";
+export { default as CanaryInputDateRangeUnderline } from "./CanaryInputDateRangeUnderline";
 
 export * from "./types";

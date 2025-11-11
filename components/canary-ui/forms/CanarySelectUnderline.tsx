@@ -129,9 +129,9 @@ const CanarySelectUnderline = forwardRef<
                 error && "pr-16"
               )}
             >
-              {placeholder && (
+              {(placeholder || label) && (
                 <option value="" disabled>
-                  {placeholder}
+                  {placeholder || label}
                 </option>
               )}
               {options.map((option) => (

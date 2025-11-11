@@ -200,7 +200,7 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
             bottom: 0;
             display: flex;
             align-items: center;
-            padding-left: 8px;
+            padding-left: 0;
             padding-right: 8px;
           }
 
