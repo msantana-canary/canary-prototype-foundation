@@ -9,7 +9,22 @@ import {
   CanaryCheckbox,
   CanaryRadio,
   CanaryRadioGroup,
-  CanarySegmentedControl,
+  CanaryInputPassword,
+  CanaryInputSearch,
+  CanaryInputCreditCard,
+  CanaryInputPhone,
+  CanaryInputDate,
+  CanaryInputDateRange,
+  // Underline variants
+  CanaryInputUnderline,
+  CanaryTextAreaUnderline,
+  CanarySelectUnderline,
+  CanaryInputPhoneUnderline,
+  CanaryInputPasswordUnderline,
+  CanaryInputSearchUnderline,
+  CanaryInputCreditCardUnderline,
+  CanaryInputDateUnderline,
+  CanaryInputDateRangeUnderline,
   CanaryTag,
   CanaryTable,
   CanaryCard,
@@ -25,18 +40,78 @@ import {
   ButtonType,
   ButtonSize,
   TagColor,
+  TagSize,
   InputSize,
   InputType,
   colors,
-  shadows,
 } from "@/components/canary-ui";
+import { mdiContentCopy, mdiCheckCircle, mdiChevronDown, mdiChevronUp } from "@mdi/js";
+import Icon from "@mdi/react";
+
+// Code snippet component
+interface CodeSnippetProps {
+  code: string;
+  language?: string;
+}
+
+function CodeSnippet({ code, language = "tsx" }: CodeSnippetProps) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="relative bg-gray-900 rounded-lg overflow-hidden mt-4">
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700">
+        <span className="text-xs text-gray-400 font-mono">{language}</span>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1 text-xs text-gray-400 hover:text-white transition-colors"
+        >
+          <Icon path={copied ? mdiCheckCircle : mdiContentCopy} size={0.6} />
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+      <pre className="p-4 overflow-x-auto">
+        <code className="text-sm text-gray-100 font-mono">{code}</code>
+      </pre>
+    </div>
+  );
+}
+
+// Section component with collapsible content
+interface SectionProps {
+  title: string;
+  children: React.ReactNode;
+  id?: string;
+}
+
+function Section({ title, children, id }: SectionProps) {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  return (
+    <section id={id} className="scroll-mt-20">
+      <div
+        className="flex items-center justify-between mb-6 cursor-pointer"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <h3 className="text-2xl font-semibold">{title}</h3>
+        <Icon path={isExpanded ? mdiChevronUp : mdiChevronDown} size={1} className="text-gray-400" />
+      </div>
+      {isExpanded && children}
+    </section>
+  );
+}
 
 export default function ComponentShowcase() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("option1");
-  const [buttonSize, setButtonSize] = useState<"large" | "normal" | "compact">("large");
-  const [formSize, setFormSize] = useState<"large" | "normal">("large");
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [useUnderlineInputs, setUseUnderlineInputs] = useState(false);
 
   const sampleTableData = [
     { id: 1, name: "John Doe", email: "john@example.com", role: "Admin" },
@@ -51,8 +126,18 @@ export default function ComponentShowcase() {
     {
       key: "role",
       label: "Role",
-      render: (value: string) => <CanaryTag label={value} color={TagColor.INFO} />
+      render: (value: string) => <CanaryTag label={value} color={TagColor.PRIMARY} />
     },
+  ];
+
+  const navigationItems = [
+    { id: "intro", label: "Introduction" },
+    { id: "design-tokens", label: "Design Tokens" },
+    { id: "buttons", label: "Buttons" },
+    { id: "forms", label: "Form Components" },
+    { id: "data-display", label: "Data Display" },
+    { id: "layout", label: "Layout & Navigation" },
+    { id: "feedback", label: "Feedback" },
   ];
 
   return (
@@ -61,17 +146,44 @@ export default function ComponentShowcase() {
       <CanaryHeader
         title="Canary UI Component Library"
         actions={
-          <CanaryButton onClick={() => alert("Action clicked!")}>
-            Get Started
+          <CanaryButton href="https://github.com/msantana-canary/canary-prototype-foundation" target="_blank">
+            View on GitHub
           </CanaryButton>
         }
       />
 
-      <CanaryContainer maxWidth="2xl" padding="large">
-        <div className="space-y-12 py-8">
+      <div className="flex">
+        {/* Navigation Sidebar */}
+        <aside className="hidden lg:block w-64 h-[calc(100vh-56px)] sticky top-14 bg-white border-r border-gray-200 overflow-y-auto">
+          <nav className="p-6">
+            <h4 className="text-xs font-semibold text-gray-500 uppercase mb-4">Components</h4>
+            <ul className="space-y-2">
+              {navigationItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`block px-3 py-2 rounded-md text-sm transition-colors ${
+                      activeSection === item.id
+                        ? "bg-blue-50 text-blue-700 font-medium"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                    onClick={() => setActiveSection(item.id)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1">
+          <CanaryContainer maxWidth="2xl" padding="large">
+            <div className="space-y-12 py-8">
           {/* Introduction */}
-          <section>
-            <h2 className="text-3xl font-bold mb-4 text-[#2d2d2d]">Welcome to Canary UI</h2>
+          <section id="intro">
+            <h2 className="text-3xl font-bold mb-4">Welcome to Canary UI</h2>
             <p className="text-lg text-gray-600 mb-6">
               A comprehensive React component library for building high-fidelity prototypes.
               All components match the Canary design system for consistent, professional interfaces.
@@ -81,389 +193,260 @@ export default function ComponentShowcase() {
               title="Foundation Project"
               message="This is a template repository. Clone it to start building your prototype with pre-built Canary UI components."
             />
+
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold mb-3">Quick Start</h4>
+              <CodeSnippet
+                code={`import { CanaryButton, ButtonType } from "@/components/canary-ui";
+
+export default function MyComponent() {
+  return (
+    <CanaryButton type={ButtonType.PRIMARY}>
+      Click me!
+    </CanaryButton>
+  );
+}`}
+              />
+            </div>
           </section>
 
-          {/* Color Palette */}
-          <section>
-            <h3 className="text-2xl font-semibold mb-6 text-[#2d2d2d]">Color Palette</h3>
-            <CanaryCard title="Canary Design System Colors">
-              <div className="space-y-8">
+          {/* Design Tokens */}
+          <Section title="Design Tokens" id="design-tokens">
+            <CanaryCard title="Color System">
+              <p className="text-sm text-gray-600 mb-4">
+                Official Canary color palette synced with Figma Master Styles. All color values match the design system exactly.
+              </p>
+
+              <div className="space-y-6">
                 {/* Status Colors */}
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Status Colors</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <div>
-                      <div className="h-20 rounded-lg shadow-sm" style={{ backgroundColor: colors.ok }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">OK / Success</p>
-                      <p className="text-xs text-gray-500">{colors.ok}</p>
-                    </div>
-                    <div>
-                      <div className="h-20 rounded-lg shadow-sm" style={{ backgroundColor: colors.warning }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">Warning</p>
-                      <p className="text-xs text-gray-500">{colors.warning}</p>
-                    </div>
-                    <div>
-                      <div className="h-20 rounded-lg shadow-sm" style={{ backgroundColor: colors.danger }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">Danger / Error</p>
-                      <p className="text-xs text-gray-500">{colors.danger}</p>
-                    </div>
+                  <h4 className="text-sm font-semibold mb-3">Status Colors</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {[
+                      { name: "Success", hex: colors.success },
+                      { name: "Warning", hex: colors.warning },
+                      { name: "Danger", hex: colors.danger },
+                      { name: "Error", hex: colors.error },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-20 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Black Scale */}
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Black Scale (Grayscale)</h4>
+                  <h4 className="text-sm font-semibold mb-3">Black Scale (Grayscale)</h4>
                   <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.black1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black1</p>
-                      <p className="text-xs text-gray-500">{colors.black1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.black2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black2</p>
-                      <p className="text-xs text-gray-500">{colors.black2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.black3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black3</p>
-                      <p className="text-xs text-gray-500">{colors.black3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.black4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black4</p>
-                      <p className="text-xs text-gray-500">{colors.black4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.black5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black5</p>
-                      <p className="text-xs text-gray-500">{colors.black5}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.black6 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black6</p>
-                      <p className="text-xs text-gray-500">{colors.black6}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.black7 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black7</p>
-                      <p className="text-xs text-gray-500">{colors.black7}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.black8 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">black8</p>
-                      <p className="text-xs text-gray-500">{colors.black8}</p>
-                    </div>
+                    {[
+                      { name: "$color-black-1", hex: colors.black1 },
+                      { name: "$color-black-2", hex: colors.black2 },
+                      { name: "$color-black-3", hex: colors.black3 },
+                      { name: "$color-black-4", hex: colors.black4 },
+                      { name: "$color-black-5", hex: colors.black5 },
+                      { name: "$color-black-6", hex: colors.black6 },
+                      { name: "$color-black-7", hex: colors.black7 },
+                      { name: "$color-black-8", hex: colors.black8 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Blue Canary */}
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Blue Canary (Brand)</h4>
+                  <h4 className="text-sm font-semibold mb-3">Canary Blue (Brand)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.blueCanary1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueCanary1</p>
-                      <p className="text-xs text-gray-500">{colors.blueCanary1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.blueCanary2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueCanary2</p>
-                      <p className="text-xs text-gray-500">{colors.blueCanary2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.blueCanary3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueCanary3</p>
-                      <p className="text-xs text-gray-500">{colors.blueCanary3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.blueCanary4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueCanary4</p>
-                      <p className="text-xs text-gray-500">{colors.blueCanary4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.blueCanary5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueCanary5</p>
-                      <p className="text-xs text-gray-500">{colors.blueCanary5}</p>
-                    </div>
+                    {[
+                      { name: "$color-blue-canary-1", hex: colors.blueCanary1 },
+                      { name: "$color-blue-canary-2", hex: colors.blueCanary2 },
+                      { name: "$color-blue-canary-3", hex: colors.blueCanary3 },
+                      { name: "$color-blue-canary-4", hex: colors.blueCanary4 },
+                      { name: "$color-blue-canary-5", hex: colors.blueCanary5 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Blue Dark */}
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Blue Dark (Primary Actions)</h4>
+                  <h4 className="text-sm font-semibold mb-3">Blue Dark (Primary Action)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.blueDark1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueDark1</p>
-                      <p className="text-xs text-gray-500">{colors.blueDark1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.blueDark2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueDark2</p>
-                      <p className="text-xs text-gray-500">{colors.blueDark2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.blueDark3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueDark3</p>
-                      <p className="text-xs text-gray-500">{colors.blueDark3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.blueDark4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueDark4</p>
-                      <p className="text-xs text-gray-500">{colors.blueDark4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.blueDark5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">blueDark5</p>
-                      <p className="text-xs text-gray-500">{colors.blueDark5}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pink */}
-                <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Pink</h4>
-                  <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.pink1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">pink1</p>
-                      <p className="text-xs text-gray-500">{colors.pink1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.pink2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">pink2</p>
-                      <p className="text-xs text-gray-500">{colors.pink2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.pink3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">pink3</p>
-                      <p className="text-xs text-gray-500">{colors.pink3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.pink4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">pink4</p>
-                      <p className="text-xs text-gray-500">{colors.pink4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.pink5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">pink5</p>
-                      <p className="text-xs text-gray-500">{colors.pink5}</p>
-                    </div>
+                    {[
+                      { name: "$color-blue-dark-1", hex: colors.blueDark1 },
+                      { name: "$color-blue-dark-2", hex: colors.blueDark2 },
+                      { name: "$color-blue-dark-3", hex: colors.blueDark3 },
+                      { name: "$color-blue-dark-4", hex: colors.blueDark4 },
+                      { name: "$color-blue-dark-5", hex: colors.blueDark5 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Light Green */}
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Light Green</h4>
+                  <h4 className="text-sm font-semibold mb-3">Light Green</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.lightGreen1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">lightGreen1</p>
-                      <p className="text-xs text-gray-500">{colors.lightGreen1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.lightGreen2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">lightGreen2</p>
-                      <p className="text-xs text-gray-500">{colors.lightGreen2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.lightGreen3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">lightGreen3</p>
-                      <p className="text-xs text-gray-500">{colors.lightGreen3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.lightGreen4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">lightGreen4</p>
-                      <p className="text-xs text-gray-500">{colors.lightGreen4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.lightGreen5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">lightGreen5</p>
-                      <p className="text-xs text-gray-500">{colors.lightGreen5}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Dark Green */}
-                <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Dark Green</h4>
-                  <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.darkGreen1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">darkGreen1</p>
-                      <p className="text-xs text-gray-500">{colors.darkGreen1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.darkGreen2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">darkGreen2</p>
-                      <p className="text-xs text-gray-500">{colors.darkGreen2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.darkGreen3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">darkGreen3</p>
-                      <p className="text-xs text-gray-500">{colors.darkGreen3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.darkGreen4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">darkGreen4</p>
-                      <p className="text-xs text-gray-500">{colors.darkGreen4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.darkGreen5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">darkGreen5</p>
-                      <p className="text-xs text-gray-500">{colors.darkGreen5}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Wheat */}
-                <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Wheat (Orange/Yellow)</h4>
-                  <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.wheat1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">wheat1</p>
-                      <p className="text-xs text-gray-500">{colors.wheat1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.wheat2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">wheat2</p>
-                      <p className="text-xs text-gray-500">{colors.wheat2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.wheat3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">wheat3</p>
-                      <p className="text-xs text-gray-500">{colors.wheat3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.wheat4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">wheat4</p>
-                      <p className="text-xs text-gray-500">{colors.wheat4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.wheat5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">wheat5</p>
-                      <p className="text-xs text-gray-500">{colors.wheat5}</p>
-                    </div>
+                    {[
+                      { name: "$color-light-green-1", hex: colors.lightGreen1 },
+                      { name: "$color-light-green-2", hex: colors.lightGreen2 },
+                      { name: "$color-light-green-3", hex: colors.lightGreen3 },
+                      { name: "$color-light-green-4", hex: colors.lightGreen4 },
+                      { name: "$color-light-green-5", hex: colors.lightGreen5 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Purple */}
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Purple</h4>
+                  <h4 className="text-sm font-semibold mb-3">Purple</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.purple1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">purple1</p>
-                      <p className="text-xs text-gray-500">{colors.purple1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.purple2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">purple2</p>
-                      <p className="text-xs text-gray-500">{colors.purple2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.purple3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">purple3</p>
-                      <p className="text-xs text-gray-500">{colors.purple3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.purple4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">purple4</p>
-                      <p className="text-xs text-gray-500">{colors.purple4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.purple5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">purple5</p>
-                      <p className="text-xs text-gray-500">{colors.purple5}</p>
-                    </div>
+                    {[
+                      { name: "$color-purple-1", hex: colors.purple1 },
+                      { name: "$color-purple-2", hex: colors.purple2 },
+                      { name: "$color-purple-3", hex: colors.purple3 },
+                      { name: "$color-purple-4", hex: colors.purple4 },
+                      { name: "$color-purple-5", hex: colors.purple5 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Pink */}
+                <div>
+                  <h4 className="text-sm font-semibold mb-3">Pink</h4>
+                  <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+                    {[
+                      { name: "$color-pink-1", hex: colors.pink1 },
+                      { name: "$color-pink-2", hex: colors.pink2 },
+                      { name: "$color-pink-3", hex: colors.pink3 },
+                      { name: "$color-pink-4", hex: colors.pink4 },
+                      { name: "$color-pink-5", hex: colors.pink5 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Wheat */}
+                <div>
+                  <h4 className="text-sm font-semibold mb-3">Wheat (Orange/Yellow)</h4>
+                  <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+                    {[
+                      { name: "$color-wheat-1", hex: colors.wheat1 },
+                      { name: "$color-wheat-2", hex: colors.wheat2 },
+                      { name: "$color-wheat-3", hex: colors.wheat3 },
+                      { name: "$color-wheat-4", hex: colors.wheat4 },
+                      { name: "$color-wheat-5", hex: colors.wheat5 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Red */}
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 text-gray-700">Red</h4>
+                  <h4 className="text-sm font-semibold mb-3">Red</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.red1 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">red1</p>
-                      <p className="text-xs text-gray-500">{colors.red1}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.red2 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">red2</p>
-                      <p className="text-xs text-gray-500">{colors.red2}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm" style={{ backgroundColor: colors.red3 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">red3</p>
-                      <p className="text-xs text-gray-500">{colors.red3}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.red4 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">red4</p>
-                      <p className="text-xs text-gray-500">{colors.red4}</p>
-                    </div>
-                    <div>
-                      <div className="h-16 rounded-lg shadow-sm border" style={{ backgroundColor: colors.red5 }} />
-                      <p className="text-xs font-medium mt-2 text-[#2d2d2d]">red5</p>
-                      <p className="text-xs text-gray-500">{colors.red5}</p>
-                    </div>
+                    {[
+                      { name: "$color-red-1", hex: colors.red1 },
+                      { name: "$color-red-2", hex: colors.red2 },
+                      { name: "$color-red-3", hex: colors.red3 },
+                      { name: "$color-red-4", hex: colors.red4 },
+                      { name: "$color-red-5", hex: colors.red5 },
+                    ].map(({ name, hex }) => (
+                      <div key={name} className="flex flex-col">
+                        <div
+                          className="h-16 rounded-md border border-gray-200 shadow-sm"
+                          style={{ backgroundColor: hex }}
+                        />
+                        <p className="text-xs font-medium mt-2">{name}</p>
+                        <p className="text-xs text-gray-500 font-mono">{hex}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </CanaryCard>
-          </section>
 
-          {/* Drop Shadows */}
-          <section>
-            <h3 className="text-2xl font-semibold mb-6 text-[#2d2d2d]">Drop Shadows</h3>
-            <CanaryCard title="Elevation & Depth">
-              <div className="space-y-6">
-                <p className="text-sm text-gray-600 mb-4">
-                  Box shadows are used to create depth and elevation in the UI. All shadows use subtle black opacity values.
-                </p>
-                <div className="grid grid-cols-3 gap-6">
-                  <div>
-                    <div
-                      className="h-24 rounded-lg bg-white flex items-center justify-center"
-                      style={{ boxShadow: shadows.default }}
-                    >
-                      <span className="text-sm font-medium text-[#2d2d2d]">Small</span>
-                    </div>
-                    <p className="text-xs font-medium mt-2 text-[#2d2d2d]">Small</p>
-                    <p className="text-xs text-gray-500 mt-1">shadows.default</p>
-                  </div>
-                  <div>
-                    <div
-                      className="h-24 rounded-lg bg-white flex items-center justify-center"
-                      style={{ boxShadow: shadows.md }}
-                    >
-                      <span className="text-sm font-medium text-[#2d2d2d]">Medium</span>
-                    </div>
-                    <p className="text-xs font-medium mt-2 text-[#2d2d2d]">Medium</p>
-                    <p className="text-xs text-gray-500 mt-1">shadows.md</p>
-                  </div>
-                  <div>
-                    <div
-                      className="h-24 rounded-lg bg-white flex items-center justify-center"
-                      style={{ boxShadow: shadows.xl }}
-                    >
-                      <span className="text-sm font-medium text-[#2d2d2d]">Large</span>
-                    </div>
-                    <p className="text-xs font-medium mt-2 text-[#2d2d2d]">Large</p>
-                    <p className="text-xs text-gray-500 mt-1">shadows.xl</p>
-                  </div>
-                </div>
-              </div>
+              <CodeSnippet
+                code={`import { colors } from "@/components/canary-ui";
+
+// Use colors in your components
+<div style={{ backgroundColor: colors.blueCanary1 }}>
+  Canary Blue Background
+</div>
+
+// Or with Tailwind arbitrary values
+<div className="bg-[#2858C4]">
+  Primary Blue Background
+</div>`}
+              />
             </CanaryCard>
-          </section>
+          </Section>
 
           {/* Buttons */}
-          <section>
-            <h3 className="text-2xl font-semibold mb-6 text-[#2d2d2d]">Buttons</h3>
-            <CanaryCard>
+          <Section title="Buttons" id="buttons">
+            <CanaryCard title="CanaryButton">
               <div className="space-y-6">
                 <div>
                   <h4 className="text-sm font-medium mb-3 text-gray-600">Button Types</h4>
@@ -473,56 +456,28 @@ export default function ComponentShowcase() {
                     <CanaryButton type={ButtonType.SHADED}>Shaded</CanaryButton>
                     <CanaryButton type={ButtonType.TEXT}>Text</CanaryButton>
                   </div>
+                  <CodeSnippet
+                    code={`<CanaryButton type={ButtonType.PRIMARY}>Primary</CanaryButton>
+<CanaryButton type={ButtonType.OUTLINED}>Outlined</CanaryButton>
+<CanaryButton type={ButtonType.SHADED}>Shaded</CanaryButton>
+<CanaryButton type={ButtonType.TEXT}>Text</CanaryButton>`}
+                  />
                 </div>
 
                 <div>
                   <h4 className="text-sm font-medium mb-3 text-gray-600">Button Sizes</h4>
-                  <CanarySegmentedControl
-                    options={[
-                      { label: "Large", value: "large" },
-                      { label: "Normal", value: "normal" },
-                      { label: "Compact", value: "compact" },
-                    ]}
-                    value={buttonSize}
-                    onChange={(value) => setButtonSize(value as "large" | "normal" | "compact")}
-                  />
-                  <div className="flex flex-wrap items-center gap-3 mt-4">
-                    <CanaryButton
-                      size={
-                        buttonSize === "large"
-                          ? ButtonSize.LARGE
-                          : buttonSize === "normal"
-                          ? ButtonSize.NORMAL
-                          : ButtonSize.COMPACT
-                      }
-                    >
-                      Primary Button
-                    </CanaryButton>
-                    <CanaryButton
-                      type={ButtonType.OUTLINED}
-                      size={
-                        buttonSize === "large"
-                          ? ButtonSize.LARGE
-                          : buttonSize === "normal"
-                          ? ButtonSize.NORMAL
-                          : ButtonSize.COMPACT
-                      }
-                    >
-                      Outlined Button
-                    </CanaryButton>
-                    <CanaryButton
-                      type={ButtonType.SHADED}
-                      size={
-                        buttonSize === "large"
-                          ? ButtonSize.LARGE
-                          : buttonSize === "normal"
-                          ? ButtonSize.NORMAL
-                          : ButtonSize.COMPACT
-                      }
-                    >
-                      Shaded Button
-                    </CanaryButton>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <CanaryButton size={ButtonSize.LARGE}>Large</CanaryButton>
+                    <CanaryButton size={ButtonSize.NORMAL}>Normal</CanaryButton>
+                    <CanaryButton size={ButtonSize.COMPACT}>Compact</CanaryButton>
+                    <CanaryButton size={ButtonSize.TINY}>Tiny</CanaryButton>
                   </div>
+                  <CodeSnippet
+                    code={`<CanaryButton size={ButtonSize.LARGE}>Large</CanaryButton>
+<CanaryButton size={ButtonSize.NORMAL}>Normal</CanaryButton>
+<CanaryButton size={ButtonSize.COMPACT}>Compact</CanaryButton>
+<CanaryButton size={ButtonSize.TINY}>Tiny</CanaryButton>`}
+                  />
                 </div>
 
                 <div>
@@ -532,129 +487,627 @@ export default function ComponentShowcase() {
                     <CanaryButton isLoading>Loading</CanaryButton>
                     <CanaryButton isDisabled>Disabled</CanaryButton>
                   </div>
+                  <CodeSnippet
+                    code={`<CanaryButton>Normal</CanaryButton>
+<CanaryButton isLoading>Loading</CanaryButton>
+<CanaryButton isDisabled>Disabled</CanaryButton>`}
+                  />
                 </div>
               </div>
             </CanaryCard>
-          </section>
+          </Section>
 
           {/* Form Components */}
-          <section>
-            <h3 className="text-2xl font-semibold mb-6 text-[#2d2d2d]">Form Components</h3>
-            <CanaryCard>
-              <div className="space-y-8">
-                {/* Size Selector */}
+          <Section title="Form Components" id="forms">
+            {/* Toggle for Underline vs Bordered */}
+            <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium mb-3 text-gray-600">Form Input Sizes</h4>
-                  <CanarySegmentedControl
-                    options={[
-                      { label: "Large", value: "large" },
-                      { label: "Normal", value: "normal" },
-                    ]}
-                    value={formSize}
-                    onChange={(value) => setFormSize(value as "large" | "normal")}
+                  <h3 className="text-sm font-semibold text-blue-900">Input Style</h3>
+                  <p className="text-xs text-blue-700 mt-1">
+                    Toggle between bordered inputs and underline (floating label) inputs
+                  </p>
+                </div>
+                <button
+                  onClick={() => setUseUnderlineInputs(!useUnderlineInputs)}
+                  className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
+                    useUnderlineInputs ? "bg-blue-600" : "bg-gray-300"
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                      useUnderlineInputs ? "translate-x-9" : "translate-x-1"
+                    }`}
                   />
+                </button>
+              </div>
+              <div className="mt-2 flex gap-2 text-xs">
+                <span className={!useUnderlineInputs ? "font-semibold text-blue-900" : "text-gray-600"}>
+                  Bordered
+                </span>
+                <span className="text-gray-400">|</span>
+                <span className={useUnderlineInputs ? "font-semibold text-blue-900" : "text-gray-600"}>
+                  Underline (Bottom Border)
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              {/* Inputs */}
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputUnderline" : "CanaryInput"}>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Input Sizes</h4>
+                    <div className="space-y-4">
+                      {useUnderlineInputs ? (
+                        <>
+                          <CanaryInputUnderline
+                            label="Tablet Size"
+                            size={InputSize.TABLET}
+                            placeholder="Tablet size input (64px height, 24px font)"
+                          />
+                          <CanaryInputUnderline
+                            label="Large Size"
+                            size={InputSize.LARGE}
+                            placeholder="Large size input (48px height, 18px font)"
+                          />
+                          <CanaryInputUnderline
+                            label="Normal Size (Default)"
+                            size={InputSize.NORMAL}
+                            placeholder="Normal size input (40px height, 14px font)"
+                          />
+                          <CanaryInputUnderline
+                            label="Compact Size"
+                            size={InputSize.COMPACT}
+                            placeholder="Compact size input (32px height, 14px font)"
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <CanaryInput
+                            label="Tablet Size"
+                            size={InputSize.TABLET}
+                            placeholder="Tablet size input (64px height, 24px font)"
+                          />
+                          <CanaryInput
+                            label="Large Size"
+                            size={InputSize.LARGE}
+                            placeholder="Large size input (48px height, 18px font)"
+                          />
+                          <CanaryInput
+                            label="Normal Size (Default)"
+                            size={InputSize.NORMAL}
+                            placeholder="Normal size input (40px height, 14px font)"
+                          />
+                          <CanaryInput
+                            label="Compact Size"
+                            size={InputSize.COMPACT}
+                            placeholder="Compact size input (32px height, 14px font)"
+                          />
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Input States</h4>
+                    <div className="space-y-4">
+                      {useUnderlineInputs ? (
+                        <>
+                          <CanaryInputUnderline
+                            label="Email Address"
+                            size={InputSize.NORMAL}
+                            type={InputType.EMAIL}
+                            placeholder="Enter your email"
+                            helperText="We'll never share your email"
+                          />
+                          <CanaryInputUnderline
+                            label="With Error"
+                            size={InputSize.NORMAL}
+                            placeholder="Enter value"
+                            error="This field is required"
+                          />
+                          <CanaryInputUnderline
+                            label="Disabled Input"
+                            size={InputSize.NORMAL}
+                            placeholder="Disabled state"
+                            isDisabled
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <CanaryInput
+                            label="Email Address"
+                            size={InputSize.NORMAL}
+                            type={InputType.EMAIL}
+                            placeholder="Enter your email"
+                            helperText="We'll never share your email"
+                          />
+                          <CanaryInput
+                            label="With Error"
+                            size={InputSize.NORMAL}
+                            placeholder="Enter value"
+                            error="This field is required"
+                          />
+                          <CanaryInput
+                            label="Disabled Input"
+                            size={InputSize.NORMAL}
+                            placeholder="Disabled state"
+                            isDisabled
+                          />
+                          <CanaryInput
+                            label="Readonly Input"
+                            size={InputSize.NORMAL}
+                            value="Read-only value"
+                            isReadonly
+                          />
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
-                {/* Form Examples */}
-                <CanaryGrid columns={2} gap="large">
-                  <CanaryInput
-                    label="Email Address"
-                    type={InputType.EMAIL}
-                    size={formSize === "large" ? InputSize.LARGE : InputSize.NORMAL}
-                    placeholder="Enter your email"
-                    helperText="We'll never share your email"
-                  />
+                <CodeSnippet
+                  code={`// Input Sizes
+<CanaryInput size={InputSize.TABLET} placeholder="Tablet (64px)" />
+<CanaryInput size={InputSize.LARGE} placeholder="Large (48px)" />
+<CanaryInput size={InputSize.NORMAL} placeholder="Normal (40px)" />
+<CanaryInput size={InputSize.COMPACT} placeholder="Compact (32px)" />
 
-                  <CanarySelect
-                    label="Select Country"
-                    size={formSize === "large" ? InputSize.LARGE : InputSize.NORMAL}
-                    placeholder="Choose a country"
-                    options={[
-                      { label: "United States", value: "us" },
-                      { label: "Canada", value: "ca" },
-                      { label: "United Kingdom", value: "uk" },
-                    ]}
-                  />
+// Input States
+<CanaryInput
+  label="Email"
+  type={InputType.EMAIL}
+  placeholder="Enter your email"
+  helperText="We'll never share your email"
+/>
+
+<CanaryInput
+  label="With Error"
+  error="This field is required"
+/>
+
+<CanaryInput label="Disabled" isDisabled />
+<CanaryInput label="Readonly" isReadonly />`}
+                />
+              </CanaryCard>
+
+              {/* Specialized Inputs */}
+              <CanaryCard title="CanaryInputPassword">
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputPasswordUnderline
+                        label="Password"
+                        placeholder="Enter your password"
+                      />
+                      <CanaryInputPasswordUnderline
+                        label="Confirm Password"
+                        placeholder="Confirm your password"
+                        error="Passwords do not match"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputPassword
+                        label="Password"
+                        placeholder="Enter your password"
+                      />
+                      <CanaryInputPassword
+                        label="Confirm Password"
+                        placeholder="Confirm your password"
+                        error="Passwords do not match"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={`<CanaryInputPassword
+  label="Password"
+  placeholder="Enter your password"
+/>
+
+<CanaryInputPassword
+  label="Confirm Password"
+  error="Passwords do not match"
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title="CanaryInputSearch">
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputSearchUnderline
+                        label="Search"
+                        placeholder="Search for anything..."
+                      />
+                      <CanaryInputSearchUnderline
+                        placeholder="Quick search (no label)"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputSearch
+                        label="Search"
+                        placeholder="Search for anything..."
+                      />
+                      <CanaryInputSearch
+                        placeholder="Quick search (no label)"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={`<CanaryInputSearch
+  label="Search"
+  placeholder="Search for anything..."
+/>
+
+<CanaryInputSearch
+  placeholder="Quick search (no label)"
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title="CanaryInputCreditCard">
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputCreditCardUnderline
+                        label="Credit Card Number"
+                        placeholder="Enter credit card number"
+                        helperText="We accept Visa, Mastercard, American Express, and Discover"
+                      />
+                      <CanaryInputCreditCardUnderline
+                        label="Card Number"
+                        placeholder="4242 4242 4242 4242"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputCreditCard
+                        label="Credit Card Number"
+                        placeholder="Enter credit card number"
+                        helperText="We accept Visa, Mastercard, American Express, and Discover"
+                      />
+                      <CanaryInputCreditCard
+                        label="Card Number"
+                        placeholder="4242 4242 4242 4242"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={`<CanaryInputCreditCard
+  label="Credit Card Number"
+  placeholder="Enter credit card number"
+  helperText="We accept major credit cards"
+  onCardChange={(number, type) => console.log(type)}
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputPhoneUnderline" : "CanaryInputPhone"}>
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputPhoneUnderline
+                        label="Mobile Phone"
+                        defaultCountry="US"
+                      />
+                      <CanaryInputPhoneUnderline
+                        label="International Phone"
+                        defaultCountry="GB"
+                        helperText="Include country code"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputPhone
+                        label="Mobile Phone"
+                        defaultCountry="US"
+                      />
+                      <CanaryInputPhone
+                        label="International Phone"
+                        defaultCountry="GB"
+                        helperText="Include country code"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={useUnderlineInputs ? `<CanaryInputPhoneUnderline
+  label="Mobile Phone"
+  defaultCountry="US"
+  value={phoneNumber}
+  onChange={setPhoneNumber}
+/>` : `<CanaryInputPhone
+  label="Mobile Phone"
+  defaultCountry="US"
+  value={phoneNumber}
+  onChange={setPhoneNumber}
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputDateUnderline" : "CanaryInputDate"}>
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputDateUnderline
+                        label="Date"
+                        helperText="Select a date"
+                      />
+                      <CanaryInputDateUnderline
+                        label="Birth Date"
+                      />
+                      <CanaryInputDateUnderline
+                        label="Date"
+                        error="Please select a valid date"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputDate
+                        label="Select Date"
+                        helperText="Choose a date from the calendar"
+                      />
+                      <CanaryInputDate
+                        label="Birth Date"
+                      />
+                      <CanaryInputDate
+                        label="Date with Error"
+                        error="Please select a valid date"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={`<CanaryInputDate
+  label="Select Date"
+  value={selectedDate}
+  onChange={(date) => setSelectedDate(date)}
+  helperText="Choose a date from the calendar"
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title={useUnderlineInputs ? "CanaryInputDateRangeUnderline" : "CanaryInputDateRange"}>
+                <div className="space-y-4">
+                  {useUnderlineInputs ? (
+                    <>
+                      <CanaryInputDateRangeUnderline
+                        label="Date Range"
+                        helperText="Select start and end dates"
+                      />
+                      <CanaryInputDateRangeUnderline
+                        label="Vacation Dates"
+                      />
+                      <CanaryInputDateRangeUnderline
+                        label="Date Range"
+                        error="Please select valid dates"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <CanaryInputDateRange
+                        label="Select Date Range"
+                        helperText="Choose start and end dates"
+                      />
+                      <CanaryInputDateRange
+                        label="Vacation Dates"
+                      />
+                      <CanaryInputDateRange
+                        label="Range with Error"
+                        error="Please select valid dates"
+                      />
+                    </>
+                  )}
+                </div>
+                <CodeSnippet
+                  code={`<CanaryInputDateRange
+  label="Select Date Range"
+  startDate={startDate}
+  endDate={endDate}
+  onChange={(start, end) => {
+    setStartDate(start);
+    setEndDate(end);
+  }}
+  helperText="Choose start and end dates"
+/>`}
+                />
+              </CanaryCard>
+
+              {/* Other Form Components */}
+              <CanaryCard title={useUnderlineInputs ? "CanarySelectUnderline & CanaryTextAreaUnderline" : "CanarySelect & CanaryTextArea"}>
+                <CanaryGrid columns={2} gap="large">
+                  {useUnderlineInputs ? (
+                    <CanarySelectUnderline
+                      label="Select Country"
+                      size={InputSize.NORMAL}
+                      defaultValue=""
+                      options={[
+                        { label: "United States", value: "us" },
+                        { label: "Canada", value: "ca" },
+                        { label: "United Kingdom", value: "uk" },
+                      ]}
+                    />
+                  ) : (
+                    <CanarySelect
+                      label="Select Country"
+                      size={InputSize.NORMAL}
+                      options={[
+                        { label: "United States", value: "us" },
+                        { label: "Canada", value: "ca" },
+                        { label: "United Kingdom", value: "uk" },
+                      ]}
+                    />
+                  )}
 
                   <div className="col-span-2">
-                    <CanaryTextArea
-                      label="Message"
-                      size={formSize === "large" ? InputSize.LARGE : InputSize.NORMAL}
-                      placeholder="Enter your message"
-                      rows={4}
-                    />
+                    {useUnderlineInputs ? (
+                      <CanaryTextAreaUnderline
+                        label="Message"
+                        placeholder="Enter your message"
+                        rows={4}
+                      />
+                    ) : (
+                      <CanaryTextArea
+                        label="Message"
+                        placeholder="Enter your message"
+                        rows={4}
+                      />
+                    )}
+                  </div>
+
+                  <div>
+                    <CanaryCheckbox label="I agree to the terms and conditions" />
+                    <CanaryCheckbox label="Subscribe to newsletter" className="mt-3" />
+                  </div>
+
+                  <div>
+                    <CanaryRadioGroup label="Preferred Contact Method">
+                      <CanaryRadio
+                        name="contact"
+                        label="Email"
+                        checked={selectedRadio === "option1"}
+                        onChange={() => setSelectedRadio("option1")}
+                      />
+                      <CanaryRadio
+                        name="contact"
+                        label="Phone"
+                        checked={selectedRadio === "option2"}
+                        onChange={() => setSelectedRadio("option2")}
+                      />
+                      <CanaryRadio
+                        name="contact"
+                        label="SMS"
+                        checked={selectedRadio === "option3"}
+                        onChange={() => setSelectedRadio("option3")}
+                      />
+                    </CanaryRadioGroup>
                   </div>
                 </CanaryGrid>
 
-                {/* Other Form Elements */}
-                <div>
-                  <h4 className="text-sm font-medium mb-4 text-gray-600">Other Form Elements</h4>
-                  <CanaryGrid columns={2} gap="large">
-                    <div>
-                      <CanaryCheckbox label="I agree to the terms and conditions" />
-                      <CanaryCheckbox label="Subscribe to newsletter" className="mt-3" />
-                    </div>
+                <CodeSnippet
+                  code={useUnderlineInputs ? `<CanarySelectUnderline
+  label="Select Country"
+  options={[
+    { label: "United States", value: "us" },
+    { label: "Canada", value: "ca" },
+  ]}
+/>
 
-                    <div>
-                      <CanaryRadioGroup label="Preferred Contact Method">
-                        <CanaryRadio
-                          name="contact"
-                          label="Email"
-                          checked={selectedRadio === "option1"}
-                          onChange={() => setSelectedRadio("option1")}
-                        />
-                        <CanaryRadio
-                          name="contact"
-                          label="Phone"
-                          checked={selectedRadio === "option2"}
-                          onChange={() => setSelectedRadio("option2")}
-                        />
-                        <CanaryRadio
-                          name="contact"
-                          label="SMS"
-                          checked={selectedRadio === "option3"}
-                          onChange={() => setSelectedRadio("option3")}
-                        />
-                      </CanaryRadioGroup>
-                    </div>
-                  </CanaryGrid>
-                </div>
-              </div>
-            </CanaryCard>
-          </section>
+<CanaryTextAreaUnderline
+  label="Message"
+  placeholder="Enter your message"
+  rows={4}
+/>
+
+<CanaryCheckbox label="I agree to the terms" />
+
+<CanaryRadioGroup label="Contact Method">
+  <CanaryRadio name="contact" label="Email" />
+  <CanaryRadio name="contact" label="Phone" />
+</CanaryRadioGroup>` : `<CanarySelect
+  label="Select Country"
+  options={[
+    { label: "United States", value: "us" },
+    { label: "Canada", value: "ca" },
+  ]}
+/>
+
+<CanaryTextArea
+  label="Message"
+  placeholder="Enter your message"
+  rows={4}
+/>
+
+<CanaryCheckbox label="I agree to the terms" />
+
+<CanaryRadioGroup label="Contact Method">
+  <CanaryRadio name="contact" label="Email" />
+  <CanaryRadio name="contact" label="Phone" />
+</CanaryRadioGroup>`}
+                />
+              </CanaryCard>
+            </div>
+          </Section>
 
           {/* Data Display */}
-          <section>
-            <h3 className="text-2xl font-semibold mb-6 text-[#2d2d2d]">Data Display</h3>
-
+          <Section title="Data Display" id="data-display">
             <div className="space-y-6">
               {/* Tags */}
-              <CanaryCard title="Tags">
-                <div className="flex flex-wrap gap-2">
-                  <CanaryTag label="Success" color={TagColor.OK} />
-                  <CanaryTag label="Warning" color={TagColor.WARNING} />
-                  <CanaryTag label="Error" color={TagColor.ERROR} />
-                  <CanaryTag label="Info" color={TagColor.INFO} />
-                  <CanaryTag label="Dark" color={TagColor.DARK} />
+              <CanaryCard title="CanaryTag">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Tag Colors</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <CanaryTag label="Primary" color={TagColor.PRIMARY} />
+                      <CanaryTag label="Success" color={TagColor.SUCCESS} />
+                      <CanaryTag label="Warning" color={TagColor.WARNING} />
+                      <CanaryTag label="Danger" color={TagColor.DANGER} />
+                      <CanaryTag label="Gray" color={TagColor.GRAY} />
+                      <CanaryTag label="Black" color={TagColor.BLACK} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Tag Sizes</h4>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <CanaryTag label="Small" size={TagSize.SMALL} color={TagColor.PRIMARY} />
+                      <CanaryTag label="Medium" size={TagSize.MEDIUM} color={TagColor.PRIMARY} />
+                    </div>
+                  </div>
                 </div>
+                <CodeSnippet
+                  code={`// Tag Colors
+<CanaryTag label="Primary" color={TagColor.PRIMARY} />
+<CanaryTag label="Success" color={TagColor.SUCCESS} />
+<CanaryTag label="Warning" color={TagColor.WARNING} />
+<CanaryTag label="Danger" color={TagColor.DANGER} />
+<CanaryTag label="Gray" color={TagColor.GRAY} />
+<CanaryTag label="Black" color={TagColor.BLACK} />
+
+// Tag Sizes
+<CanaryTag label="Small" size={TagSize.SMALL} />
+<CanaryTag label="Medium" size={TagSize.MEDIUM} />`}
+                />
               </CanaryCard>
 
               {/* Table */}
-              <CanaryCard title="Table Example">
+              <CanaryCard title="CanaryTable">
                 <CanaryTable
                   columns={tableColumns}
                   data={sampleTableData}
                   onRowClick={(row) => alert(`Clicked row: ${row.name}`)}
                 />
+                <CodeSnippet
+                  code={`const columns = [
+  { key: "id", label: "ID", width: "80px" },
+  { key: "name", label: "Name" },
+  { key: "email", label: "Email" },
+  {
+    key: "role",
+    label: "Role",
+    render: (value) => <CanaryTag label={value} color={TagColor.PRIMARY} />
+  },
+];
+
+<CanaryTable
+  columns={columns}
+  data={data}
+  onRowClick={(row) => alert(\`Clicked: \${row.name}\`)}
+/>`}
+                />
               </CanaryCard>
             </div>
-          </section>
+          </Section>
 
           {/* Layout Components */}
-          <section>
-            <h3 className="text-2xl font-semibold mb-6 text-[#2d2d2d]">Layout & Navigation</h3>
-
-            <CanaryCard title="Tabs Example">
+          <Section title="Layout & Navigation" id="layout">
+            <CanaryCard title="CanaryTabs">
               <CanaryTabs
                 tabs={[
                   { id: "tab1", label: "Overview", content: <p>Overview content goes here</p> },
@@ -662,10 +1115,19 @@ export default function ComponentShowcase() {
                   { id: "tab3", label: "Users", content: <p>Users content goes here</p> },
                 ]}
               />
+              <CodeSnippet
+                code={`<CanaryTabs
+  tabs={[
+    { id: "tab1", label: "Overview", content: <p>Overview content</p> },
+    { id: "tab2", label: "Settings", content: <p>Settings content</p> },
+    { id: "tab3", label: "Users", content: <p>Users content</p> },
+  ]}
+/>`}
+              />
             </CanaryCard>
 
             <div className="mt-6">
-              <CanaryCard title="Modal Example">
+              <CanaryCard title="CanaryModal">
                 <CanaryButton onClick={() => setIsModalOpen(true)}>
                   Open Modal
                 </CanaryButton>
@@ -690,25 +1152,55 @@ export default function ComponentShowcase() {
                     including forms, images, or other components.
                   </p>
                 </CanaryModal>
+
+                <CodeSnippet
+                  code={`const [isOpen, setIsOpen] = useState(false);
+
+<CanaryButton onClick={() => setIsOpen(true)}>
+  Open Modal
+</CanaryButton>
+
+<CanaryModal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Example Modal"
+  footer={
+    <div className="flex justify-end gap-3">
+      <CanaryButton type={ButtonType.OUTLINED} onClick={() => setIsOpen(false)}>
+        Cancel
+      </CanaryButton>
+      <CanaryButton onClick={() => setIsOpen(false)}>
+        Confirm
+      </CanaryButton>
+    </div>
+  }
+>
+  <p>Modal content goes here</p>
+</CanaryModal>`}
+                />
               </CanaryCard>
             </div>
-          </section>
+          </Section>
 
           {/* Feedback */}
-          <section>
-            <h3 className="text-2xl font-semibold mb-6 text-[#2d2d2d]">Feedback Components</h3>
-
+          <Section title="Feedback Components" id="feedback">
             <div className="space-y-6">
-              <CanaryCard title="Alerts">
+              <CanaryCard title="CanaryAlert">
                 <div className="space-y-3">
                   <CanaryAlert type="success" message="This is a success alert!" />
                   <CanaryAlert type="error" message="This is an error alert!" />
                   <CanaryAlert type="warning" message="This is a warning alert!" />
                   <CanaryAlert type="info" message="This is an info alert!" />
                 </div>
+                <CodeSnippet
+                  code={`<CanaryAlert type="success" message="Success message!" />
+<CanaryAlert type="error" message="Error message!" />
+<CanaryAlert type="warning" message="Warning message!" />
+<CanaryAlert type="info" message="Info message!" />`}
+                />
               </CanaryCard>
 
-              <CanaryCard title="Toast Notifications">
+              <CanaryCard title="CanaryToast">
                 <CanaryButton onClick={() => setShowToast(true)}>
                   Show Toast
                 </CanaryButton>
@@ -719,25 +1211,47 @@ export default function ComponentShowcase() {
                   isOpen={showToast}
                   onClose={() => setShowToast(false)}
                 />
+
+                <CodeSnippet
+                  code={`const [showToast, setShowToast] = useState(false);
+
+<CanaryButton onClick={() => setShowToast(true)}>
+  Show Toast
+</CanaryButton>
+
+<CanaryToast
+  message="This is a toast notification!"
+  type="success"
+  isOpen={showToast}
+  onClose={() => setShowToast(false)}
+/>`}
+                />
               </CanaryCard>
 
-              <CanaryCard title="Loading Spinner">
+              <CanaryCard title="CanaryLoading">
                 <div className="flex items-center gap-4">
                   <CanaryLoading />
                   <CanaryLoading size={32} color="#e40046" />
                   <CanaryLoading size={48} color="#008040" />
                 </div>
+                <CodeSnippet
+                  code={`<CanaryLoading />
+<CanaryLoading size={32} color="#e40046" />
+<CanaryLoading size={48} color="#008040" />`}
+                />
               </CanaryCard>
             </div>
-          </section>
+          </Section>
 
           {/* Footer */}
           <section className="text-center text-gray-500 text-sm py-8 border-t">
             <p>Canary UI Component Library - Built with Next.js, React, and Tailwind CSS</p>
             <p className="mt-2">Clone this project to start building your prototype</p>
           </section>
-        </div>
-      </CanaryContainer>
+            </div>
+          </CanaryContainer>
+        </main>
+      </div>
     </div>
   );
 }

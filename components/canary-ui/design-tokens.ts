@@ -21,77 +21,70 @@ export const colors = {
   ok: "#008040",
   success: "#008040",
   warning: "#FAB541",
-  danger: "#e40046",
-  error: "#e40046",
+  danger: "#E40046",
+  error: "#E40046",
 
-  // Base colors
-  white: "#ffffff",
+  // Base colors - Figma token: $color-white
+  white: "#FFFFFF",
 
-  // Black scale (grayscale)
-  black1: "#2d2d2d",
-  black2: "#414141",
-  black3: "#707070",
-  black4: "#9f9f9f",
-  black5: "#cecece",
-  black6: "#eaeaea",
-  black7: "#f2f2f2",
-  black8: "#fafafa",
+  // Black scale (grayscale) - Figma tokens: $color-black-1 through $color-black-8
+  black1: "#000000", // $color-black-1
+  black2: "#333333", // $color-black-2
+  black3: "#666666", // $color-black-3
+  black4: "#999999", // $color-black-4
+  black5: "#CCCCCC", // $color-black-5
+  black6: "#E5E5E5", // $color-black-6
+  black7: "#F0F0F0", // $color-black-7
+  black8: "#FAFAFA", // $color-black-8
 
-  // Canary Blue (Light) - Brand color
-  blueCanary1: "#1c91fa",
-  blueCanary2: "#55acfb",
-  blueCanary3: "#8dc8fc",
-  blueCanary4: "#c6e3f3",
-  blueCanary5: "#e8f4ff",
+  // Canary Blue (Light) - Brand color - Figma tokens: $color-blue-canary-1 through $color-blue-canary-5
+  blueCanary1: "#1C91FA", // $color-blue-canary-1
+  blueCanary2: "#55ACFB", // $color-blue-canary-2
+  blueCanary3: "#8DC8FC", // $color-blue-canary-3
+  blueCanary4: "#C6E3FE", // $color-blue-canary-4
+  blueCanary5: "#E8F4FF", // $color-blue-canary-5
 
-  // Blue Dark - Primary action color
-  blueDark1: "#2858c4", // Primary button color
-  blueDark2: "#5e82d3",
-  blueDark3: "#93abe1",
-  blueDark4: "#c9d5f0",
-  blueDark5: "#eaeef9",
+  // Blue Dark - Primary action color - Figma tokens: $color-blue-dark-1 through $color-blue-dark-5
+  blueDark1: "#2858C4", // $color-blue-dark-1 - Primary button color
+  blueDark2: "#5E82D3", // $color-blue-dark-2
+  blueDark3: "#93ABE1", // $color-blue-dark-3
+  blueDark4: "#C9D5F0", // $color-blue-dark-4
+  blueDark5: "#EAEEF9", // $color-blue-dark-5
 
-  // Pink
-  pink1: "#f16682",
-  pink2: "#f48ca1",
-  pink3: "#f8b2c0",
-  pink4: "#fbd9e0",
-  pink5: "#fef0f3",
+  // Pink - Figma tokens: $color-pink-1 through $color-pink-5
+  pink1: "#F16682", // $color-pink-1
+  pink2: "#F48CA1", // $color-pink-2
+  pink3: "#F8B2C0", // $color-pink-3
+  pink4: "#FBD9E0", // $color-pink-4
+  pink5: "#FEF0F3", // $color-pink-5
 
-  // Light Green
-  lightGreen1: "#22d39a",
-  lightGreen2: "#59deb3",
-  lightGreen3: "#90e9cc",
-  lightGreen4: "#c8f4e6",
-  lightGreen5: "#e9fbf5",
+  // Light Green - Figma tokens: $color-light-green-1 through $color-light-green-5
+  lightGreen1: "#008040", // $color-light-green-1
+  lightGreen2: "#339966", // $color-light-green-2
+  lightGreen3: "#66B38C", // $color-light-green-3
+  lightGreen4: "#99CCB3", // $color-light-green-4
+  lightGreen5: "#CCE6D9", // $color-light-green-5
 
-  // Dark Green
-  darkGreen1: "#008040",
-  darkGreen2: "#59deb3",
-  darkGreen3: "#90e9cc",
-  darkGreen4: "#c8f4e6",
-  darkGreen5: "#e9fbf5",
+  // Wheat (Orange/Yellow) - Figma tokens: $color-wheat-1 through $color-wheat-5
+  wheat1: "#FAB541", // $color-wheat-1
+  wheat2: "#FBC770", // $color-wheat-2
+  wheat3: "#FCDAA0", // $color-wheat-3
+  wheat4: "#FEECCF", // $color-wheat-4
+  wheat5: "#FFF8EC", // $color-wheat-5
 
-  // Wheat (Orange/Yellow)
-  wheat1: "#fab541",
-  wheat2: "#fbc770",
-  wheat3: "#fcdaa0",
-  wheat4: "#feeccf",
-  wheat5: "#fff8ec",
+  // Purple - Figma tokens: $color-purple-1 through $color-purple-5
+  purple1: "#3304AD", // $color-purple-1
+  purple2: "#723DFC", // $color-purple-2
+  purple3: "#9D7AFA", // $color-purple-3
+  purple4: "#CAB8F8", // $color-purple-4
+  purple5: "#E3DCF6", // $color-purple-5
 
-  // Purple
-  purple1: "#9b51e0",
-  purple2: "#bb6bd9",
-  purple3: "#cda8ef",
-  purple4: "#e6d3f7",
-  purple5: "#f5eefc",
-
-  // Red
-  red1: "#e40046",
-  red2: "#eb4074",
-  red3: "#f59fba",
-  red4: "#f8bfd1",
-  red5: "#fce6ed",
+  // Red - Figma tokens: $color-red-1 through $color-red-5
+  red1: "#E40046", // $color-red-1
+  red2: "#EB4074", // $color-red-2
+  red3: "#F59FBA", // $color-red-3
+  red4: "#F8BFD1", // $color-red-4
+  red5: "#FCE6ED", // $color-red-5
 } as const;
 
 // ============================================================================

@@ -33,34 +33,42 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
     },
     ref
   ) => {
-    const sizeClasses: Record<InputSize, string> = {
-      [InputSize.TABLET]: "h-14 text-[20px] px-5",
-      [InputSize.LARGE]: "h-12 text-[18px] px-4",
-      [InputSize.NORMAL]: "h-10 text-[16px] px-4",
-      [InputSize.COMPACT]: "h-8 text-[14px] px-3",
-      [InputSize.TINY]: "h-6 text-[12px] px-2",
+    const sizeClasses = {
+      [InputSize.TABLET]: "h-[64px] text-[24px] leading-[1.5] px-4 py-3",
+      [InputSize.LARGE]: "h-[48px] text-[18px] leading-[1.5] px-2 py-3",
+      [InputSize.NORMAL]: "h-[40px] text-[14px] leading-[1.5] px-2",
+      [InputSize.COMPACT]: "h-[32px] text-[14px] leading-[1.5] px-2",
     };
 
     const selectClasses = clsx(
       // Base styles
-      "w-full rounded transition-all duration-200",
-      "font-['Roboto',sans-serif]",
-      "outline-none appearance-none",
-      "bg-white",
-      "text-[#2d2d2d]", // black1 color
+      "w-full rounded border font-['Roboto',sans-serif]",
+      // Transitions - matches original Canary (border-color 200ms, background-color 200ms)
+      "transition-[border-color,background-color] duration-200",
+      "outline-none appearance-none bg-white",
       "pr-10", // Space for dropdown arrow
       // Size
       sizeClasses[size],
-      // States
-      isDisabled && "bg-[#f5f5f5] cursor-not-allowed opacity-60",
-      isReadonly && "bg-[#fafafa] cursor-default",
+      // Border and focus states
+      error
+        ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]"
+        : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
+      isDisabled && "bg-[#E5E5E5] cursor-not-allowed",
+      isReadonly && "bg-[#FAFAFA] cursor-default",
       className
     );
 
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-[14px] font-medium text-[#2d2d2d] mb-2">
+          <label
+            className={clsx(
+              "block text-black",
+              size === InputSize.TABLET && "text-[20px] leading-[150%] mb-2",
+              size === InputSize.LARGE && "text-[14px] leading-[21px] mb-1",
+              (size === InputSize.NORMAL || size === InputSize.COMPACT) && "text-[12px] leading-[18px] mb-1"
+            )}
+          >
             {label}
             {isRequired && <span className="text-[#e40046] ml-1">*</span>}
           </label>
@@ -72,22 +80,11 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
             disabled={isDisabled || isReadonly}
             required={isRequired}
             className={selectClasses}
-            style={{
-              boxShadow: `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`,
-            }}
-            onFocus={(e) => {
-              e.target.style.boxShadow = `inset 0 0 0 2px ${error ? colors.danger : colors.blueDark1}`;
-              selectProps.onFocus?.(e);
-            }}
-            onBlur={(e) => {
-              e.target.style.boxShadow = `inset 0 0 0 1px ${error ? colors.danger : colors.black3}`;
-              selectProps.onBlur?.(e);
-            }}
             {...selectProps}
           >
-            {placeholder && (
+            {(placeholder || label) && (
               <option value="" disabled>
-                {placeholder}
+                {placeholder || label}
               </option>
             )}
             {options.map((option) => (
@@ -101,34 +98,33 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
             ))}
           </select>
 
-          {/* Dropdown arrow */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+          {/* Dropdown arrow - unfold_more icon from Figma */}
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1 1.5L6 6.5L11 1.5"
-                stroke={colors.black3}
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                d="M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z"
+                fill="#000000"
               />
             </svg>
           </div>
         </div>
 
         {error && (
-          <p className="text-[12px] mt-1" style={{ color: colors.danger }}>
-            {error}
-          </p>
+          <div className="mt-1 inline-block bg-[#fce6ed] px-2 py-[2px] rounded">
+            <p className="text-[12px] text-[#E40046] leading-[1.5]">
+              {error}
+            </p>
+          </div>
         )}
 
         {helperText && !error && (
-          <p className="text-[12px] text-[#707070] mt-1">{helperText}</p>
+          <p className="text-[12px] text-[#666666] mt-1 leading-[1.5]">{helperText}</p>
         )}
       </div>
     );

@@ -20,7 +20,7 @@ export default function CanaryHeader({
   return (
     <header
       className={clsx(
-        "w-full bg-white border-b flex items-center px-6 shrink-0",
+        "w-full bg-white border-b flex items-center px-6 shrink-0 sticky top-0 z-50",
         className
       )}
       style={{

@@ -3,20 +3,25 @@
  */
 
 export enum TagColor {
-  /** SUCCESS Green */
-  OK = "ok",
-  /** WARNING Yellow */
+  /** PRIMARY - Canary brand blue */
+  PRIMARY = "primary",
+  /** SUCCESS - Green */
+  SUCCESS = "success",
+  /** WARNING - Yellow/Wheat */
   WARNING = "warning",
-  /** ERROR Red */
-  ERROR = "error",
-  /** DEFAULT Black/Gray */
-  DARK = "dark",
-  /** INFO Blue */
-  INFO = "canary_blue",
-  /** THEME uses theme button color*/
-  THEME = "theme",
-  /** WHITE */
-  WHITE = "white",
+  /** DANGER - Red/Pink */
+  DANGER = "danger",
+  /** GRAY - Light gray */
+  GRAY = "gray",
+  /** BLACK - Black background */
+  BLACK = "black",
+}
+
+export enum TagSize {
+  /** SMALL - 10px font, 18px height */
+  SMALL = "small",
+  /** MEDIUM - 12px font */
+  MEDIUM = "medium",
 }
 
 export interface CustomTagColor {
