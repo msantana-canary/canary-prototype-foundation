@@ -104,40 +104,41 @@ export default function CanaryButton({
 
   // Size classes
   const sizeClasses = {
-    [ButtonSize.TABLET]: "h-16 text-[18px] font-medium min-w-[104px]",
+    [ButtonSize.TABLET]: "h-14 text-[24px] font-medium",
     [ButtonSize.LARGE]: "h-12 text-[18px]",
-    [ButtonSize.NORMAL]: "h-10 text-[16px]",
-    [ButtonSize.COMPACT]: "h-8 text-[14px]",
-    [ButtonSize.TINY]: "h-7 text-[14px]",
+    [ButtonSize.NORMAL]: "h-10 text-[14px]",
+    [ButtonSize.COMPACT]: "h-8 text-[12px]",
   };
 
   // Padding classes for text buttons
   const getPaddingClasses = (): string => {
     if (isIconType) return "p-0";
 
-    const basePadding = size === ButtonSize.TINY ? "px-2" : "px-4";
+    // TABLET size has 24px padding, others have 16px
+    const basePadding = size === ButtonSize.TABLET ? "px-6" : "px-4";
 
     if (hasIcon && !isIconType) {
       if (isExpanded) {
-        return size === ButtonSize.TINY ? "px-10" : "px-10";
+        return "px-10";
       }
       if (iconPosition === IconPosition.LEFT) {
-        return size === ButtonSize.TINY ? "pl-2 pr-2" : "pl-2 pr-4";
+        return "pl-2 pr-4";
       }
       if (iconPosition === IconPosition.RIGHT) {
-        return size === ButtonSize.TINY ? "pl-2 pr-2" : "pl-4 pr-2";
+        return "pl-4 pr-2";
       }
       if (iconPosition === IconPosition.TOP) {
-        return size === ButtonSize.TINY ? "p-2" : "p-4";
+        // Top icon buttons: uniform padding all around per Figma specs
+        return "p-4"; // 16px all around for all sizes
       }
     }
 
     if (type === ButtonType.OUTLINED) {
-      return size === ButtonSize.TINY ? "px-[7px]" : "px-[15px]";
+      return size === ButtonSize.TABLET ? "px-[23px]" : "px-[15px]";
     }
 
     if (isExpanded) {
-      return size === ButtonSize.TINY ? "px-1" : "px-2";
+      return "px-2";
     }
 
     return basePadding;
@@ -147,11 +148,10 @@ export default function CanaryButton({
   const getIconButtonWidth = (): string => {
     if (!isIconType) return "";
     return {
-      [ButtonSize.TABLET]: "w-16",
+      [ButtonSize.TABLET]: "w-14",
       [ButtonSize.LARGE]: "w-12",
       [ButtonSize.NORMAL]: "w-10",
       [ButtonSize.COMPACT]: "w-8",
-      [ButtonSize.TINY]: "w-7",
     }[size];
   };
 
@@ -200,14 +200,16 @@ export default function CanaryButton({
     "shrink-0",
     // Size
     sizeClasses[size],
+    // Remove fixed height for top icon buttons (they should hug content)
+    hasIcon && !isIconType && iconPosition === IconPosition.TOP && "h-auto",
+    // Min width for TABLET text buttons
+    !isIconType && size === ButtonSize.TABLET && "min-w-[104px]",
     // Padding
     getPaddingClasses(),
     // Icon button width
     getIconButtonWidth(),
     // Border radius
     isRounded
-      ? "rounded-full [&_.button-bg]:rounded-full"
-      : isIconType
       ? "rounded-full [&_.button-bg]:rounded-full"
       : "rounded-[4px] [&_.button-bg]:rounded-[4px]",
     // Expanded
@@ -218,12 +220,13 @@ export default function CanaryButton({
     getHoverClasses(),
     // Disabled
     isDisabled && "cursor-default opacity-50",
-    // Icon positioning
+    // Icon positioning (not for expanded buttons - they use absolute positioning)
     hasIcon &&
       !isIconType &&
+      !isExpanded &&
       iconPosition === IconPosition.RIGHT &&
       "flex-row-reverse",
-    hasIcon && !isIconType && iconPosition === IconPosition.TOP && "flex-col",
+    // Top icon: flex-col is applied to content wrapper, not button
     // Custom classes
     className
   );
@@ -244,38 +247,44 @@ export default function CanaryButton({
   };
 
   const iconClasses = clsx(
-    "shrink-0",
+    "shrink-0 flex items-center justify-center",
     // Icon size
     isIconType
       ? size === ButtonSize.TABLET
-        ? "w-10 h-10"
+        ? "w-6 h-6"
         : size === ButtonSize.LARGE
         ? "w-6 h-6"
         : "w-5 h-5"
-      : "w-6 h-6",
-    // Icon margin
+      : size === ButtonSize.TABLET
+      ? "w-8 h-8"
+      : size === ButtonSize.LARGE
+      ? "w-6 h-6"
+      : "w-5 h-5",
+    // Icon margin (not for expanded buttons)
     !isIconType &&
+      hasIcon &&
+      !isExpanded &&
+      iconPosition === IconPosition.LEFT &&
+      "mr-2",
+    !isIconType &&
+      hasIcon &&
+      !isExpanded &&
+      iconPosition === IconPosition.RIGHT &&
+      "ml-2",
+    // Top icon: no margin, gap is handled by flex container
+    // Expanded positioning - icon pinned to edges inside button padding
+    isExpanded &&
       hasIcon &&
       iconPosition === IconPosition.LEFT &&
-      (size === ButtonSize.TINY ? "mr-2" : "mr-2"),
-    !isIconType &&
+      "absolute left-4",
+    isExpanded &&
       hasIcon &&
       iconPosition === IconPosition.RIGHT &&
-      (size === ButtonSize.TINY ? "ml-2" : "ml-2"),
-    !isIconType &&
+      "absolute right-4",
+    isExpanded &&
       hasIcon &&
       iconPosition === IconPosition.TOP &&
-      (size === ButtonSize.TINY ? "mb-1" : "mb-2"),
-    // Expanded positioning
-    isExpanded &&
-      hasIcon &&
-      iconPosition === IconPosition.LEFT &&
-      "absolute left-0",
-    isExpanded &&
-      hasIcon &&
-      iconPosition === IconPosition.RIGHT &&
-      "absolute right-0",
-    isExpanded && hasIcon && iconPosition === IconPosition.TOP && "absolute top-0"
+      "absolute top-4"
   );
 
   const content = (
@@ -296,18 +305,25 @@ export default function CanaryButton({
         </div>
       )}
 
+      {/* Expanded: Icon outside content wrapper, absolutely positioned */}
+      {isExpanded && icon && (
+        <div className={iconClasses} style={contentStyle}>
+          {icon}
+        </div>
+      )}
+
       {/* Content */}
       <div
         className={clsx(
           "button-content relative flex items-center justify-center",
           "transition-opacity duration-200",
-          iconPosition === IconPosition.TOP && "flex-col",
-          iconPosition === IconPosition.RIGHT && "flex-row-reverse",
+          iconPosition === IconPosition.TOP && (size === ButtonSize.TABLET ? "flex-col gap-2" : "flex-col gap-1"),
+          !isExpanded && iconPosition === IconPosition.RIGHT && "flex-row-reverse",
           isLoading && "opacity-0"
         )}
         style={contentStyle}
       >
-        {icon && <div className={iconClasses}>{icon}</div>}
+        {!isExpanded && icon && <div className={iconClasses}>{icon}</div>}
         {!isIconType && <span>{children}</span>}
       </div>
     </>
