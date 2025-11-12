@@ -39,6 +39,8 @@ import {
   CanaryLoading,
   ButtonType,
   ButtonSize,
+  ButtonColor,
+  IconPosition,
   TagColor,
   TagVariant,
   TagSize,
@@ -46,7 +48,22 @@ import {
   InputType,
   colors,
 } from "@/components/canary-ui";
-import { mdiContentCopy, mdiCheckCircle, mdiChevronDown, mdiChevronUp, mdiPlus, mdiClose } from "@mdi/js";
+import {
+  mdiContentCopy,
+  mdiCheckCircle,
+  mdiChevronDown,
+  mdiChevronUp,
+  mdiPlus,
+  mdiClose,
+  mdiArrowRight,
+  mdiDelete,
+  mdiPencil,
+  mdiDownload,
+  mdiUpload,
+  mdiRefresh,
+  mdiMenu,
+  mdiAccount
+} from "@mdi/js";
 import Icon from "@mdi/react";
 
 // Code snippet component
@@ -468,16 +485,16 @@ export default function MyComponent() {
                 <div>
                   <h4 className="text-sm font-medium mb-3 text-gray-600">Button Sizes</h4>
                   <div className="flex flex-wrap items-center gap-3">
-                    <CanaryButton size={ButtonSize.LARGE}>Large</CanaryButton>
-                    <CanaryButton size={ButtonSize.NORMAL}>Normal</CanaryButton>
-                    <CanaryButton size={ButtonSize.COMPACT}>Compact</CanaryButton>
-                    <CanaryButton size={ButtonSize.TINY}>Tiny</CanaryButton>
+                    <CanaryButton size={ButtonSize.TABLET}>Tablet (56px)</CanaryButton>
+                    <CanaryButton size={ButtonSize.LARGE}>Large (48px)</CanaryButton>
+                    <CanaryButton size={ButtonSize.NORMAL}>Normal (40px)</CanaryButton>
+                    <CanaryButton size={ButtonSize.COMPACT}>Compact (32px)</CanaryButton>
                   </div>
                   <CodeSnippet
-                    code={`<CanaryButton size={ButtonSize.LARGE}>Large</CanaryButton>
-<CanaryButton size={ButtonSize.NORMAL}>Normal</CanaryButton>
-<CanaryButton size={ButtonSize.COMPACT}>Compact</CanaryButton>
-<CanaryButton size={ButtonSize.TINY}>Tiny</CanaryButton>`}
+                    code={`<CanaryButton size={ButtonSize.TABLET}>Tablet (56px)</CanaryButton>
+<CanaryButton size={ButtonSize.LARGE}>Large (48px)</CanaryButton>
+<CanaryButton size={ButtonSize.NORMAL}>Normal (40px)</CanaryButton>
+<CanaryButton size={ButtonSize.COMPACT}>Compact (32px)</CanaryButton>`}
                   />
                 </div>
 
@@ -492,6 +509,265 @@ export default function MyComponent() {
                     code={`<CanaryButton>Normal</CanaryButton>
 <CanaryButton isLoading>Loading</CanaryButton>
 <CanaryButton isDisabled>Disabled</CanaryButton>`}
+                  />
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-medium mb-3 text-gray-600">Buttons with Icons</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-xs text-gray-500 mb-2">Leading Icon (Left)</p>
+                      <div className="flex flex-wrap gap-3">
+                        <CanaryButton
+                          icon={<Icon path={mdiPlus} size={1} />}
+                          iconPosition={IconPosition.LEFT}
+                        >
+                          Add Item
+                        </CanaryButton>
+                        <CanaryButton
+                          type={ButtonType.OUTLINED}
+                          icon={<Icon path={mdiUpload} size={1} />}
+                          iconPosition={IconPosition.LEFT}
+                        >
+                          Upload
+                        </CanaryButton>
+                        <CanaryButton
+                          type={ButtonType.SHADED}
+                          size={ButtonSize.COMPACT}
+                          icon={<Icon path={mdiRefresh} size={0.7} />}
+                          iconPosition={IconPosition.LEFT}
+                        >
+                          Refresh
+                        </CanaryButton>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs text-gray-500 mb-2">Trailing Icon (Right)</p>
+                      <div className="flex flex-wrap gap-3">
+                        <CanaryButton
+                          icon={<Icon path={mdiArrowRight} size={1} />}
+                          iconPosition={IconPosition.RIGHT}
+                        >
+                          Continue
+                        </CanaryButton>
+                        <CanaryButton
+                          type={ButtonType.OUTLINED}
+                          icon={<Icon path={mdiDownload} size={1} />}
+                          iconPosition={IconPosition.RIGHT}
+                        >
+                          Download
+                        </CanaryButton>
+                        <CanaryButton
+                          type={ButtonType.TEXT}
+                          icon={<Icon path={mdiChevronDown} size={1} />}
+                          iconPosition={IconPosition.RIGHT}
+                        >
+                          Show More
+                        </CanaryButton>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs text-gray-500 mb-2">Top Icon (Above Text)</p>
+                      <div className="flex flex-wrap gap-3 items-start">
+                        <CanaryButton
+                          size={ButtonSize.TABLET}
+                          icon={<Icon path={mdiUpload} size={1.33} />}
+                          iconPosition={IconPosition.TOP}
+                        >
+                          Upload
+                        </CanaryButton>
+                        <CanaryButton
+                          size={ButtonSize.LARGE}
+                          type={ButtonType.OUTLINED}
+                          icon={<Icon path={mdiDownload} size={1} />}
+                          iconPosition={IconPosition.TOP}
+                        >
+                          Download
+                        </CanaryButton>
+                        <CanaryButton
+                          icon={<Icon path={mdiContentCopy} size={0.83} />}
+                          iconPosition={IconPosition.TOP}
+                        >
+                          Copy
+                        </CanaryButton>
+                        <CanaryButton
+                          size={ButtonSize.COMPACT}
+                          type={ButtonType.SHADED}
+                          icon={<Icon path={mdiAccount} size={0.83} />}
+                          iconPosition={IconPosition.TOP}
+                        >
+                          Profile
+                        </CanaryButton>
+                      </div>
+                    </div>
+                  </div>
+                  <CodeSnippet
+                    code={`import Icon from "@mdi/react";
+import { mdiPlus, mdiArrowRight, mdiUpload, mdiDownload } from "@mdi/js";
+
+// Leading icon (left)
+<CanaryButton
+  icon={<Icon path={mdiPlus} size={1} />}
+  iconPosition={IconPosition.LEFT}
+>
+  Add Item
+</CanaryButton>
+
+// Trailing icon (right)
+<CanaryButton
+  icon={<Icon path={mdiArrowRight} size={1} />}
+  iconPosition={IconPosition.RIGHT}
+>
+  Continue
+</CanaryButton>
+
+// Top icon
+<CanaryButton
+  icon={<Icon path={mdiContentCopy} size={1} />}
+  iconPosition={IconPosition.TOP}
+>
+  Copy
+</CanaryButton>`}
+                  />
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-medium mb-3 text-gray-600">Icon-Only Buttons</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-xs text-gray-500 mb-2">Primary Icon Buttons</p>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <CanaryButton
+                          type={ButtonType.ICON_PRIMARY}
+                          size={ButtonSize.TABLET}
+                          icon={<Icon path={mdiPlus} size={1.67} />}
+                        />
+                        <CanaryButton
+                          type={ButtonType.ICON_PRIMARY}
+                          size={ButtonSize.LARGE}
+                          icon={<Icon path={mdiPencil} size={1} />}
+                        />
+                        <CanaryButton
+                          type={ButtonType.ICON_PRIMARY}
+                          icon={<Icon path={mdiCheckCircle} size={0.83} />}
+                        />
+                        <CanaryButton
+                          type={ButtonType.ICON_PRIMARY}
+                          size={ButtonSize.COMPACT}
+                          icon={<Icon path={mdiArrowRight} size={0.83} />}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs text-gray-500 mb-2">Secondary Icon Buttons</p>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <CanaryButton
+                          type={ButtonType.ICON_SECONDARY}
+                          size={ButtonSize.TABLET}
+                          icon={<Icon path={mdiMenu} size={1.67} />}
+                        />
+                        <CanaryButton
+                          type={ButtonType.ICON_SECONDARY}
+                          size={ButtonSize.LARGE}
+                          icon={<Icon path={mdiClose} size={1} />}
+                        />
+                        <CanaryButton
+                          type={ButtonType.ICON_SECONDARY}
+                          icon={<Icon path={mdiDelete} size={0.83} />}
+                        />
+                        <CanaryButton
+                          type={ButtonType.ICON_SECONDARY}
+                          size={ButtonSize.COMPACT}
+                          icon={<Icon path={mdiRefresh} size={0.83} />}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <CodeSnippet
+                    code={`import Icon from "@mdi/react";
+import { mdiPlus, mdiClose, mdiPencil, mdiDelete } from "@mdi/js";
+
+// Icon-only buttons (no text)
+<CanaryButton
+  type={ButtonType.ICON_PRIMARY}
+  icon={<Icon path={mdiPencil} size={0.8} />}
+/>
+
+<CanaryButton
+  type={ButtonType.ICON_SECONDARY}
+  icon={<Icon path={mdiClose} size={0.8} />}
+/>`}
+                  />
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-medium mb-3 text-gray-600">Expanded Buttons</h4>
+                  <p className="text-xs text-gray-600 mb-3">
+                    Expanded buttons fill available width with icons pinned to edges. Useful in flex containers or full-width layouts.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <CanaryButton
+                        isExpanded
+                        icon={<Icon path={mdiArrowRight} size={1} />}
+                        iconPosition={IconPosition.RIGHT}
+                      >
+                        Continue to Payment
+                      </CanaryButton>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <CanaryButton
+                        type={ButtonType.OUTLINED}
+                        isExpanded
+                        icon={<Icon path={mdiDownload} size={1} />}
+                        iconPosition={IconPosition.LEFT}
+                      >
+                        Download Report
+                      </CanaryButton>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <CanaryButton
+                        type={ButtonType.SHADED}
+                        isExpanded
+                        size={ButtonSize.LARGE}
+                        icon={<Icon path={mdiChevronDown} size={1} />}
+                        iconPosition={IconPosition.RIGHT}
+                      >
+                        Select Option
+                      </CanaryButton>
+                    </div>
+                  </div>
+                  <CodeSnippet
+                    code={`import Icon from "@mdi/react";
+import { mdiArrowRight, mdiDownload } from "@mdi/js";
+
+// Expanded button fills available width
+// Icon is pinned to the edge
+<div className="flex items-center gap-3">
+  <CanaryButton
+    isExpanded
+    icon={<Icon path={mdiArrowRight} size={1} />}
+    iconPosition={IconPosition.RIGHT}
+  >
+    Continue to Payment
+  </CanaryButton>
+</div>
+
+<div className="flex items-center gap-3">
+  <CanaryButton
+    type={ButtonType.OUTLINED}
+    isExpanded
+    icon={<Icon path={mdiDownload} size={1} />}
+    iconPosition={IconPosition.LEFT}
+  >
+    Download Report
+  </CanaryButton>
+</div>`}
                   />
                 </div>
               </div>
