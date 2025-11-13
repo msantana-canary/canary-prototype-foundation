@@ -36,7 +36,7 @@ export default function CanaryTag({
       return {
         backgroundColor: customColor.backgroundColor,
         borderColor: customColor.borderColor,
-        textColor: customColor.fontColor || colors.black1,
+        textColor: customColor.fontColor || colors.colorBlack1,
       };
     }
 
@@ -55,13 +55,13 @@ export default function CanaryTag({
           };
         case TagColor.INFO:
           return {
-            backgroundColor: colors.blueDark1, // #2858C4
+            backgroundColor: colors.colorBlueDark1, // #2858C4
             textColor: colors.white,
           };
         case TagColor.DEFAULT:
           return {
-            backgroundColor: colors.black6, // #E5E5E5
-            textColor: colors.black1, // #000000
+            backgroundColor: colors.colorBlack6, // #E5E5E5
+            textColor: colors.colorBlack1, // #000000
           };
         case TagColor.ERROR:
           return {
@@ -79,37 +79,37 @@ export default function CanaryTag({
       switch (color) {
         case TagColor.SUCCESS:
           return {
-            backgroundColor: colors.lightGreen5, // #CCE6D9
+            backgroundColor: colors.colorLightGreen5, // #CCE6D9
             borderColor: colors.success, // #008040
             textColor: colors.success, // #008040
           };
         case TagColor.WARNING:
           return {
-            backgroundColor: colors.wheat5, // #FFF8EC
-            borderColor: colors.wheat3, // #FCDAA0
+            backgroundColor: colors.colorWheat5, // #FFF8EC
+            borderColor: colors.colorWheat3, // #FCDAA0
             textColor: colors.warning, // #FAB541
           };
         case TagColor.INFO:
           return {
-            backgroundColor: colors.blueDark5, // #EAEEF9
-            borderColor: colors.blueDark3, // #93ABE1
-            textColor: colors.blueDark1, // #2858C4
+            backgroundColor: colors.colorBlueDark5, // #EAEEF9
+            borderColor: colors.colorBlueDark3, // #93ABE1
+            textColor: colors.colorBlueDark1, // #2858C4
           };
         case TagColor.DEFAULT:
           return {
-            backgroundColor: colors.black6, // #E5E5E5
-            borderColor: colors.black4, // #999999
-            textColor: colors.black1, // #000000
+            backgroundColor: colors.colorBlack6, // #E5E5E5
+            borderColor: colors.colorBlack4, // #999999
+            textColor: colors.colorBlack1, // #000000
           };
         case TagColor.ERROR:
           return {
-            backgroundColor: colors.red5, // #FCE6ED
-            borderColor: colors.red3, // #F59FBA
+            backgroundColor: colors.colorRed5, // #FCE6ED
+            borderColor: colors.colorRed3, // #F59FBA
             textColor: colors.error, // #E40046
           };
         default:
           return {
-            backgroundColor: colors.lightGreen5,
+            backgroundColor: colors.colorLightGreen5,
             borderColor: colors.success,
             textColor: colors.success,
           };

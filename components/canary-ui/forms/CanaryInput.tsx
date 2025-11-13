@@ -59,11 +59,11 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
     );
 
     const inputStyles = {
-      borderColor: error ? colors.error : (isDisabled ? colors.black1 : colors.black3),
-      backgroundColor: isDisabled ? colors.black6 : (isReadonly ? colors.black8 : 'white'),
-      color: colors.black1, // Ensure text is visible
+      borderColor: error ? colors.error : (isDisabled ? colors.colorBlack1 : colors.colorBlack3),
+      backgroundColor: isDisabled ? colors.colorBlack6 : (isReadonly ? colors.colorBlack8 : 'white'),
+      color: colors.colorBlack1, // Ensure text is visible
       ...(!error && {
-        '--tw-ring-color': colors.blueDark1,
+        '--tw-ring-color': colors.colorBlueDark1,
       }),
       ...(error && {
         '--tw-ring-color': colors.error,
@@ -129,7 +129,7 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
         </div>
 
         {error && (
-          <div className="mt-1 inline-block px-2 py-[2px] rounded" style={{ backgroundColor: colors.red5 }}>
+          <div className="mt-1 inline-block px-2 py-[2px] rounded" style={{ backgroundColor: colors.colorRed5 }}>
             <p className="text-[12px] leading-[1.5]" style={{ color: colors.error }}>
               {error}
             </p>
@@ -137,7 +137,7 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
         )}
 
         {helperText && !error && (
-          <p className="text-[12px] mt-1 leading-[1.5]" style={{ color: colors.black3 }}>{helperText}</p>
+          <p className="text-[12px] mt-1 leading-[1.5]" style={{ color: colors.colorBlack3 }}>{helperText}</p>
         )}
       </div>
     );

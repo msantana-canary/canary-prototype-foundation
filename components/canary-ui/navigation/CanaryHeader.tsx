@@ -25,7 +25,7 @@ export default function CanaryHeader({
       )}
       style={{
         height: dimensions.headerHeight,
-        borderColor: colors.black6,
+        borderColor: colors.colorBlack6,
       }}
     >
       {/* Logo/Brand */}
@@ -33,7 +33,7 @@ export default function CanaryHeader({
         <div className="flex items-center gap-3">
           {logo && <div className="shrink-0">{logo}</div>}
           {title && (
-            <h1 className="text-[20px] font-semibold" style={{ color: colors.black1 }}>
+            <h1 className="text-[20px] font-semibold" style={{ color: colors.colorBlack1 }}>
               {title}
             </h1>
           )}

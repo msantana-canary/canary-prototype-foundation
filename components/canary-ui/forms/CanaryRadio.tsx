@@ -42,7 +42,7 @@ const CanaryRadio = forwardRef<HTMLInputElement, CanaryRadioProps>(
               borderColor: error
                 ? colors.danger
                 : inputProps.checked
-                ? colors.blueDark1
+                ? colors.colorBlueDark1
                 : undefined,
             }}
             {...inputProps}

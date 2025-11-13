@@ -39,7 +39,7 @@ export default function CanaryTabs({
       <div
         className="inline-flex rounded-full p-1 mb-4"
         style={{
-          backgroundColor: colors.black7,
+          backgroundColor: colors.colorBlack7,
         }}
       >
         {tabs.map((tab) => {
@@ -61,8 +61,8 @@ export default function CanaryTabs({
                   : "cursor-pointer hover:opacity-70"
               )}
               style={{
-                backgroundColor: isActive ? colors.blueDark1 : "transparent",
-                color: isActive ? colors.white : colors.black3,
+                backgroundColor: isActive ? colors.colorBlueDark1 : "transparent",
+                color: isActive ? colors.white : colors.colorBlack3,
               }}
             >
               {tab.icon && <span>{tab.icon}</span>}
