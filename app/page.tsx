@@ -46,6 +46,7 @@ import {
   TagSize,
   InputSize,
   InputType,
+  SidebarVariant,
   colors,
 } from "@/components/canary-ui";
 import {
@@ -62,7 +63,32 @@ import {
   mdiUpload,
   mdiRefresh,
   mdiMenu,
-  mdiAccount
+  mdiAccount,
+  mdiCogOutline,
+  mdiArrowLeft,
+  mdiTrendingUp,
+  mdiLogin,
+  mdiLogout,
+  mdiMessageProcessingOutline,
+  mdiPhoneOutline,
+  mdiCurrencyUsd,
+  mdiShieldAccountOutline,
+  mdiFileDocumentOutline,
+  mdiAccountCheckOutline,
+  mdiAccountMultipleOutline,
+  mdiSilverwareForkKnife,
+  mdiCreditCardOutline,
+  mdiHomeOutline,
+  mdiPaletteOutline,
+  mdiCreditCard,
+  mdiAccountGroupOutline,
+  mdiShieldCheckOutline,
+  mdiPuzzleOutline,
+  mdiTabletCellphone,
+  mdiBookOpenPageVariantOutline,
+  mdiMapMarker,
+  mdiChatOutline,
+  mdiCashMultiple,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -130,6 +156,8 @@ export default function ComponentShowcase() {
   const [selectedRadio, setSelectedRadio] = useState("option1");
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [useUnderlineInputs, setUseUnderlineInputs] = useState(false);
+  const [selectedMainSidebarItem, setSelectedMainSidebarItem] = useState("upsells");
+  const [selectedSettingsSidebarItem, setSelectedSettingsSidebarItem] = useState("general");
 
   const sampleTableData = [
     { id: 1, name: "John Doe", email: "john@example.com", role: "Admin" },
@@ -263,14 +291,14 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Black Scale (Grayscale)</h4>
                   <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
                     {[
-                      { name: "$color-black-1", hex: colors.black1 },
-                      { name: "$color-black-2", hex: colors.black2 },
-                      { name: "$color-black-3", hex: colors.black3 },
-                      { name: "$color-black-4", hex: colors.black4 },
-                      { name: "$color-black-5", hex: colors.black5 },
-                      { name: "$color-black-6", hex: colors.black6 },
-                      { name: "$color-black-7", hex: colors.black7 },
-                      { name: "$color-black-8", hex: colors.black8 },
+                      { name: "$color-black-1", hex: colors.colorBlack1 },
+                      { name: "$color-black-2", hex: colors.colorBlack2 },
+                      { name: "$color-black-3", hex: colors.colorBlack3 },
+                      { name: "$color-black-4", hex: colors.colorBlack4 },
+                      { name: "$color-black-5", hex: colors.colorBlack5 },
+                      { name: "$color-black-6", hex: colors.colorBlack6 },
+                      { name: "$color-black-7", hex: colors.colorBlack7 },
+                      { name: "$color-black-8", hex: colors.colorBlack8 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -289,11 +317,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Canary Blue (Brand)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-blue-canary-1", hex: colors.blueCanary1 },
-                      { name: "$color-blue-canary-2", hex: colors.blueCanary2 },
-                      { name: "$color-blue-canary-3", hex: colors.blueCanary3 },
-                      { name: "$color-blue-canary-4", hex: colors.blueCanary4 },
-                      { name: "$color-blue-canary-5", hex: colors.blueCanary5 },
+                      { name: "$color-blue-canary-1", hex: colors.colorBlueCanary1 },
+                      { name: "$color-blue-canary-2", hex: colors.colorBlueCanary2 },
+                      { name: "$color-blue-canary-3", hex: colors.colorBlueCanary3 },
+                      { name: "$color-blue-canary-4", hex: colors.colorBlueCanary4 },
+                      { name: "$color-blue-canary-5", hex: colors.colorBlueCanary5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -312,11 +340,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Blue Dark (Primary Action)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-blue-dark-1", hex: colors.blueDark1 },
-                      { name: "$color-blue-dark-2", hex: colors.blueDark2 },
-                      { name: "$color-blue-dark-3", hex: colors.blueDark3 },
-                      { name: "$color-blue-dark-4", hex: colors.blueDark4 },
-                      { name: "$color-blue-dark-5", hex: colors.blueDark5 },
+                      { name: "$color-blue-dark-1", hex: colors.colorBlueDark1 },
+                      { name: "$color-blue-dark-2", hex: colors.colorBlueDark2 },
+                      { name: "$color-blue-dark-3", hex: colors.colorBlueDark3 },
+                      { name: "$color-blue-dark-4", hex: colors.colorBlueDark4 },
+                      { name: "$color-blue-dark-5", hex: colors.colorBlueDark5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -335,11 +363,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Light Green</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-light-green-1", hex: colors.lightGreen1 },
-                      { name: "$color-light-green-2", hex: colors.lightGreen2 },
-                      { name: "$color-light-green-3", hex: colors.lightGreen3 },
-                      { name: "$color-light-green-4", hex: colors.lightGreen4 },
-                      { name: "$color-light-green-5", hex: colors.lightGreen5 },
+                      { name: "$color-light-green-1", hex: colors.colorLightGreen1 },
+                      { name: "$color-light-green-2", hex: colors.colorLightGreen2 },
+                      { name: "$color-light-green-3", hex: colors.colorLightGreen3 },
+                      { name: "$color-light-green-4", hex: colors.colorLightGreen4 },
+                      { name: "$color-light-green-5", hex: colors.colorLightGreen5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -358,11 +386,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Purple</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-purple-1", hex: colors.purple1 },
-                      { name: "$color-purple-2", hex: colors.purple2 },
-                      { name: "$color-purple-3", hex: colors.purple3 },
-                      { name: "$color-purple-4", hex: colors.purple4 },
-                      { name: "$color-purple-5", hex: colors.purple5 },
+                      { name: "$color-purple-1", hex: colors.colorPurple1 },
+                      { name: "$color-purple-2", hex: colors.colorPurple2 },
+                      { name: "$color-purple-3", hex: colors.colorPurple3 },
+                      { name: "$color-purple-4", hex: colors.colorPurple4 },
+                      { name: "$color-purple-5", hex: colors.colorPurple5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -381,11 +409,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Pink</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-pink-1", hex: colors.pink1 },
-                      { name: "$color-pink-2", hex: colors.pink2 },
-                      { name: "$color-pink-3", hex: colors.pink3 },
-                      { name: "$color-pink-4", hex: colors.pink4 },
-                      { name: "$color-pink-5", hex: colors.pink5 },
+                      { name: "$color-pink-1", hex: colors.colorPink1 },
+                      { name: "$color-pink-2", hex: colors.colorPink2 },
+                      { name: "$color-pink-3", hex: colors.colorPink3 },
+                      { name: "$color-pink-4", hex: colors.colorPink4 },
+                      { name: "$color-pink-5", hex: colors.colorPink5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -404,11 +432,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Wheat (Orange/Yellow)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-wheat-1", hex: colors.wheat1 },
-                      { name: "$color-wheat-2", hex: colors.wheat2 },
-                      { name: "$color-wheat-3", hex: colors.wheat3 },
-                      { name: "$color-wheat-4", hex: colors.wheat4 },
-                      { name: "$color-wheat-5", hex: colors.wheat5 },
+                      { name: "$color-wheat-1", hex: colors.colorWheat1 },
+                      { name: "$color-wheat-2", hex: colors.colorWheat2 },
+                      { name: "$color-wheat-3", hex: colors.colorWheat3 },
+                      { name: "$color-wheat-4", hex: colors.colorWheat4 },
+                      { name: "$color-wheat-5", hex: colors.colorWheat5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -427,11 +455,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Red</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-red-1", hex: colors.red1 },
-                      { name: "$color-red-2", hex: colors.red2 },
-                      { name: "$color-red-3", hex: colors.red3 },
-                      { name: "$color-red-4", hex: colors.red4 },
-                      { name: "$color-red-5", hex: colors.red5 },
+                      { name: "$color-red-1", hex: colors.colorRed1 },
+                      { name: "$color-red-2", hex: colors.colorRed2 },
+                      { name: "$color-red-3", hex: colors.colorRed3 },
+                      { name: "$color-red-4", hex: colors.colorRed4 },
+                      { name: "$color-red-5", hex: colors.colorRed5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -450,7 +478,7 @@ export default function MyComponent() {
                 code={`import { colors } from "@/components/canary-ui";
 
 // Use colors in your components
-<div style={{ backgroundColor: colors.blueCanary1 }}>
+<div style={{ backgroundColor: colors.colorBlueCanary1 }}>
   Canary Blue Background
 </div>
 
@@ -693,12 +721,12 @@ import { mdiPlus, mdiClose, mdiPencil, mdiDelete } from "@mdi/js";
 // Icon-only buttons (no text)
 <CanaryButton
   type={ButtonType.ICON_PRIMARY}
-  icon={<Icon path={mdiPencil} size={0.8} />}
+  icon={<Icon path={mdiPencil} size={1} />}
 />
 
 <CanaryButton
   type={ButtonType.ICON_SECONDARY}
-  icon={<Icon path={mdiClose} size={0.8} />}
+  icon={<Icon path={mdiClose} size={1} />}
 />`}
                   />
                 </div>
@@ -1450,6 +1478,658 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
               />
             </CanaryCard>
+
+            <div className="mt-6">
+              <CanaryCard title="CanarySidebar - Main Variant">
+                <p className="text-sm text-gray-600 mb-4">
+                  A navigation sidebar with two variants: Main (blue) and Settings (dark gray).
+                  Supports sections, icons, badges, and interactive states (default, selected, focus, onPress, disabled).
+                </p>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* Main Variant */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3">Main Variant</h4>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "900px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        selectedItemId={selectedMainSidebarItem}
+                        onItemClick={setSelectedMainSidebarItem}
+                        sections={[
+                          {
+                            id: "main-section",
+                            items: [
+                              {
+                                id: "upsells",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "digital-tips",
+                                label: "Digital Tips",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>local_atm</span>,
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section",
+                            items: [
+                              {
+                                id: "authorizations",
+                                label: "Authorizations",
+                                icon: <Icon path={mdiShieldCheckOutline} size={1} />,
+                              },
+                              {
+                                id: "contracts",
+                                label: "Contracts",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>text_snippet</span>,
+                              },
+                              {
+                                id: "guest-verification",
+                                label: "Guest Verification",
+                                icon: <Icon path={mdiAccountCheckOutline} size={1} />,
+                              },
+                              {
+                                id: "clients-on-file",
+                                label: "Clients on File",
+                                icon: (
+                                  <img
+                                    src="/clients-on-file-icon.svg"
+                                    alt="Clients on File"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "amenities",
+                                label: "Amenities",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>storefront</span>,
+                              },
+                              {
+                                id: "payment-links",
+                                label: "Payment Links",
+                                icon: <Icon path={mdiCreditCardOutline} size={1} />,
+                              },
+                            ],
+                          },
+                          {
+                            id: "bottom-section",
+                            items: [
+                              {
+                                id: "settings",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Settings Variant */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3">Settings Variant</h4>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "900px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.SETTINGS}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        selectedItemId={selectedSettingsSidebarItem}
+                        onItemClick={setSelectedSettingsSidebarItem}
+                        sections={[
+                          {
+                            id: "general-settings-section",
+                            title: "General Settings",
+                            items: [
+                              {
+                                id: "property-info",
+                                label: "Property Info",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>apartment</span>,
+                              },
+                              {
+                                id: "branding",
+                                label: "Branding",
+                                icon: <Icon path={mdiPaletteOutline} size={1} />,
+                              },
+                              {
+                                id: "billing-payment",
+                                label: "Billing & Payment",
+                                icon: <Icon path={mdiCreditCardOutline} size={1} />,
+                              },
+                              {
+                                id: "staff-members",
+                                label: "Staff Members",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>group</span>,
+                              },
+                              {
+                                id: "security",
+                                label: "Security",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>security</span>,
+                              },
+                              {
+                                id: "integrations",
+                                label: "Integrations",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                              {
+                                id: "devices",
+                                label: "Devices",
+                                icon: <Icon path={mdiTabletCellphone} size={1} />,
+                              },
+                            ],
+                          },
+                          {
+                            id: "product-settings-section",
+                            title: "Product Settings",
+                            items: [
+                              {
+                                id: "compendium",
+                                label: "Compendium",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>newsmode</span>,
+                              },
+                              {
+                                id: "guest-journey",
+                                label: "Guest Journey",
+                                icon: <Icon path={mdiMapMarker} size={1} />,
+                              },
+                              {
+                                id: "upsells-settings",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in-settings",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout-settings",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages-settings",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls-settings",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "authorizations-settings",
+                                label: "Authorizations",
+                                icon: <Icon path={mdiShieldCheckOutline} size={1} />,
+                              },
+                              {
+                                id: "digital-tips-settings",
+                                label: "Digital Tips",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>local_atm</span>,
+                              },
+                              {
+                                id: "contracts-settings",
+                                label: "Contracts",
+                                icon: <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>text_snippet</span>,
+                              },
+                              {
+                                id: "payment-links-settings",
+                                label: "Payment Links",
+                                icon: <Icon path={mdiCreditCardOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                        backButton={
+                          <CanaryButton
+                            type={ButtonType.TEXT}
+                            color={ButtonColor.WHITE}
+                            icon={<Icon path={mdiArrowLeft} size={1} />}
+                            iconPosition={IconPosition.LEFT}
+                            onClick={() => console.log("Back clicked")}
+                          >
+                            Back
+                          </CanaryButton>
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <CodeSnippet
+                  code={`// Main Variant
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  logo={<div className="text-white text-xl font-bold">LOGO</div>}
+  selectedItemId={selectedItemId}
+  onItemClick={setSelectedItemId}
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "home", label: "Home", icon: <Icon path={mdiHome} size={1} /> },
+        { id: "analytics", label: "Analytics", icon: <Icon path={mdiChartBar} size={1} />, badge: 5 },
+      ],
+    },
+  ]}
+/>
+
+// Settings Variant
+<CanarySidebar
+  variant={SidebarVariant.SETTINGS}
+  logo={<img src="/canary-logo.png" alt="Logo" />}
+  title="General Settings"
+  selectedItemId={selectedItemId}
+  onItemClick={setSelectedItemId}
+  sections={[
+    {
+      id: "general-settings",
+      title: "General Settings",
+      items: [
+        { id: "property-info", label: "Property Info", icon: <Icon path={mdiHome} size={1} /> },
+        { id: "security", label: "Security", icon: <Icon path={mdiShield} size={1} /> },
+      ],
+    },
+    {
+      id: "product-settings",
+      title: "Product Settings",
+      items: [
+        { id: "upsells", label: "Upsells", icon: <Icon path={mdiTrendingUp} size={1} /> },
+        { id: "messages", label: "Messages", icon: <Icon path={mdiMessage} size={1} /> },
+      ],
+    },
+  ]}
+  backButton={
+    <CanaryButton
+      type={ButtonType.TEXT}
+      color={ButtonColor.WHITE}
+      icon={<Icon path={mdiArrowLeft} size={1} />}
+      iconPosition={IconPosition.LEFT}
+    >
+      Back
+    </CanaryButton>
+  }
+/>`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="Sidebar States Demo">
+                <p className="text-sm text-gray-600 mb-4">
+                  Compare different states: Default (no badges), Selected item, and With Notifications (badges enabled on items).
+                </p>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Default State - No Badges */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">Default State</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">No badges, no selection</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "600px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        sections={[
+                          {
+                            id: "main-section-default",
+                            items: [
+                              {
+                                id: "upsells-default",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in-default",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout-default",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages-default",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls-default",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "digital-tips-default",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section-default",
+                            items: [
+                              {
+                                id: "authorizations-default",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "settings-default",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Selected State - With Selection */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">Selected State</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">Item selected, no badges</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "600px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        selectedItemId="messages-selected"
+                        sections={[
+                          {
+                            id: "main-section-selected",
+                            items: [
+                              {
+                                id: "upsells-selected",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in-selected",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout-selected",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages-selected",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls-selected",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "digital-tips-selected",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section-selected",
+                            items: [
+                              {
+                                id: "authorizations-selected",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "settings-selected",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  {/* With Notifications - Badges Enabled */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">With Notifications</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">Badges visible on items</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "600px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        selectedItemId="upsells-notifications"
+                        sections={[
+                          {
+                            id: "main-section-notifications",
+                            items: [
+                              {
+                                id: "upsells-notifications",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                                badge: 4,
+                              },
+                              {
+                                id: "check-in-notifications",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                                badge: 4,
+                              },
+                              {
+                                id: "checkout-notifications",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                                badge: 2,
+                              },
+                              {
+                                id: "messages-notifications",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                                badge: 7,
+                              },
+                              {
+                                id: "calls-notifications",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                                badge: 3,
+                              },
+                              {
+                                id: "digital-tips-notifications",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                                badge: 5,
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section-notifications",
+                            items: [
+                              {
+                                id: "authorizations-notifications",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "settings-notifications",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <CodeSnippet
+                  code={`// Default State - No badges
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "upsells", label: "Upsells", icon: <Icon path={mdiTrendingUp} size={1} /> },
+        { id: "messages", label: "Messages", icon: <Icon path={mdiMessage} size={1} /> },
+      ],
+    },
+  ]}
+/>
+
+// Selected State - Item selected, no badges
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  selectedItemId="messages"
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "upsells", label: "Upsells", icon: <Icon path={mdiTrendingUp} size={1} /> },
+        { id: "messages", label: "Messages", icon: <Icon path={mdiMessage} size={1} /> },
+      ],
+    },
+  ]}
+/>
+
+// With Notifications - Badges enabled
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  selectedItemId="upsells"
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "upsells", label: "Upsells", icon: <Icon path={mdiTrendingUp} size={1} />, badge: 4 },
+        { id: "messages", label: "Messages", icon: <Icon path={mdiMessage} size={1} />, badge: 7 },
+        { id: "check-in", label: "Check-in", icon: <Icon path={mdiLogin} size={1} />, badge: 4 },
+        { id: "checkout", label: "Checkout", icon: <Icon path={mdiLogout} size={1} />, badge: 2 },
+        { id: "calls", label: "Calls", icon: <Icon path={mdiPhone} size={1} />, badge: 3 },
+        { id: "digital-tips", label: "Digital Tips", icon: <Icon path={mdiCurrencyUsd} size={1} />, badge: 5 },
+      ],
+    },
+  ]}
+/>`}
+                />
+              </CanaryCard>
+            </div>
 
             <div className="mt-6">
               <CanaryCard title="CanaryModal">

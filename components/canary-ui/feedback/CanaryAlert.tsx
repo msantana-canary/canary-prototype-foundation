@@ -23,24 +23,24 @@ export default function CanaryAlert({
 }: CanaryAlertProps) {
   const typeColors = {
     success: {
-      bg: colors.lightGreen5,
-      border: colors.lightGreen1,
+      bg: colors.colorLightGreen5,
+      border: colors.colorLightGreen1,
       text: colors.success,
     },
     error: {
-      bg: colors.pink4,
-      border: colors.pink3,
-      text: colors.pink1,
+      bg: colors.colorPink4,
+      border: colors.colorPink3,
+      text: colors.colorPink1,
     },
     warning: {
-      bg: colors.wheat5,
-      border: colors.wheat3,
-      text: colors.wheat1,
+      bg: colors.colorWheat5,
+      border: colors.colorWheat3,
+      text: colors.colorWheat1,
     },
     info: {
-      bg: colors.blueDark5,
-      border: colors.blueDark3,
-      text: colors.blueDark1,
+      bg: colors.colorBlueDark5,
+      border: colors.colorBlueDark3,
+      text: colors.colorBlueDark1,
     },
   };
 

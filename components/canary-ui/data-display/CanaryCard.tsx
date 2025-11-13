@@ -41,20 +41,20 @@ export default function CanaryCard({
         className
       )}
       style={{
-        borderColor: hasBorder ? colors.black6 : undefined,
+        borderColor: hasBorder ? colors.colorBlack6 : undefined,
         boxShadow: hasShadow ? shadows.xl : undefined,
       }}
       onClick={onClick}
     >
       {(title || subtitle) && (
-        <div className={clsx("border-b", paddingClasses[padding])} style={{ borderColor: colors.black6 }}>
+        <div className={clsx("border-b", paddingClasses[padding])} style={{ borderColor: colors.colorBlack6 }}>
           {title && (
-            <h3 className="text-[18px] font-semibold" style={{ color: colors.black1 }}>
+            <h3 className="text-[18px] font-semibold" style={{ color: colors.colorBlack1 }}>
               {title}
             </h3>
           )}
           {subtitle && (
-            <p className="text-[14px] mt-1" style={{ color: colors.black3 }}>
+            <p className="text-[14px] mt-1" style={{ color: colors.colorBlack3 }}>
               {subtitle}
             </p>
           )}
@@ -66,7 +66,7 @@ export default function CanaryCard({
       {footer && (
         <div
           className={clsx("border-t", paddingClasses[padding])}
-          style={{ borderColor: colors.black6 }}
+          style={{ borderColor: colors.colorBlack6 }}
         >
           {footer}
         </div>
