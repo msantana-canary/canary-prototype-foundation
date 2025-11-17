@@ -1521,11 +1521,16 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                         <h4 className="text-sm font-semibold mb-2">Large (Mobile) - 44px × 24px</h4>
                         <CanarySwitch size="large" label="Large size switch with label" checked={true} />
                       </div>
+                      <div>
+                        <h4 className="text-sm font-semibold mb-2">XLarge (Tablet) - 56px × 30px</h4>
+                        <CanarySwitch size="xlarge" label="XLarge size switch with label" checked={true} />
+                      </div>
                     </div>
 
                     <CodeSnippet
                       code={`<CanarySwitch size="normal" label="Normal (Desktop)" />
-<CanarySwitch size="large" label="Large (Mobile)" />`}
+<CanarySwitch size="large" label="Large (Mobile)" />
+<CanarySwitch size="xlarge" label="XLarge (Tablet)" />`}
                     />
                   </CanaryCard>
                 </div>
