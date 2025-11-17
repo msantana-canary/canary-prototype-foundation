@@ -54,7 +54,7 @@ export default function CanaryButton({
         return colors.danger;
       case ButtonColor.NORMAL:
       default:
-        return colors.blueDark1;
+        return colors.colorBlueDark1;
     }
   };
 
@@ -62,7 +62,7 @@ export default function CanaryButton({
   const getContentColor = (): string => {
     switch (colorProp) {
       case ButtonColor.WHITE:
-        return colors.black1;
+        return colors.colorBlack1;
       case ButtonColor.WARNING:
       case ButtonColor.DANGER:
       case ButtonColor.SUCCESS:

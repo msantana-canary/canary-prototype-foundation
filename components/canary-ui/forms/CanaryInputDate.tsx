@@ -235,7 +235,7 @@ const CanaryInputDate = forwardRef<HTMLDivElement, CanaryInputDateProps>(
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               className={iconSizes[size]}
-              fill={isDisabled ? colors.black3 : colors.black1}
+              fill={isDisabled ? colors.colorBlack3 : colors.colorBlack1}
             >
               <path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1" />
             </svg>
@@ -262,7 +262,7 @@ const CanaryInputDate = forwardRef<HTMLDivElement, CanaryInputDateProps>(
 
         {/* Error message */}
         {error && (
-          <div className="mt-1 inline-block px-2 py-[2px] rounded" style={{ backgroundColor: colors.red5 }}>
+          <div className="mt-1 inline-block px-2 py-[2px] rounded" style={{ backgroundColor: colors.colorRed5 }}>
             <p className="text-[12px] leading-[1.5] font-['Roboto',sans-serif] font-normal" style={{ color: colors.error }}>
               {error}
             </p>
@@ -271,7 +271,7 @@ const CanaryInputDate = forwardRef<HTMLDivElement, CanaryInputDateProps>(
 
         {/* Helper text */}
         {helperText && !error && (
-          <p className="text-[12px] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal" style={{ color: colors.black3 }}>
+          <p className="text-[12px] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal" style={{ color: colors.colorBlack3 }}>
             {helperText}
           </p>
         )}

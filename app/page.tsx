@@ -46,6 +46,7 @@ import {
   TagSize,
   InputSize,
   InputType,
+  SidebarVariant,
   colors,
 } from "@/components/canary-ui";
 import {
@@ -62,7 +63,32 @@ import {
   mdiUpload,
   mdiRefresh,
   mdiMenu,
-  mdiAccount
+  mdiAccount,
+  mdiCogOutline,
+  mdiArrowLeft,
+  mdiTrendingUp,
+  mdiLogin,
+  mdiLogout,
+  mdiMessageProcessingOutline,
+  mdiPhoneOutline,
+  mdiCurrencyUsd,
+  mdiShieldAccountOutline,
+  mdiFileDocumentOutline,
+  mdiAccountCheckOutline,
+  mdiAccountMultipleOutline,
+  mdiSilverwareForkKnife,
+  mdiCreditCardOutline,
+  mdiHomeOutline,
+  mdiPaletteOutline,
+  mdiCreditCard,
+  mdiAccountGroupOutline,
+  mdiShieldCheckOutline,
+  mdiPuzzleOutline,
+  mdiTabletCellphone,
+  mdiBookOpenPageVariantOutline,
+  mdiMapMarker,
+  mdiChatOutline,
+  mdiCashMultiple,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -131,6 +157,8 @@ export default function ComponentShowcase() {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [useUnderlineInputs, setUseUnderlineInputs] = useState(false);
+  const [selectedMainSidebarItem, setSelectedMainSidebarItem] = useState("upsells");
+  const [selectedSettingsSidebarItem, setSelectedSettingsSidebarItem] = useState("general");
 
   const toggleCheckbox = (id: string) => {
     setSelectedCheckboxes(prev =>
@@ -270,14 +298,14 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Black Scale (Grayscale)</h4>
                   <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
                     {[
-                      { name: "$color-black-1", hex: colors.black1 },
-                      { name: "$color-black-2", hex: colors.black2 },
-                      { name: "$color-black-3", hex: colors.black3 },
-                      { name: "$color-black-4", hex: colors.black4 },
-                      { name: "$color-black-5", hex: colors.black5 },
-                      { name: "$color-black-6", hex: colors.black6 },
-                      { name: "$color-black-7", hex: colors.black7 },
-                      { name: "$color-black-8", hex: colors.black8 },
+                      { name: "$color-black-1", hex: colors.colorBlack1 },
+                      { name: "$color-black-2", hex: colors.colorBlack2 },
+                      { name: "$color-black-3", hex: colors.colorBlack3 },
+                      { name: "$color-black-4", hex: colors.colorBlack4 },
+                      { name: "$color-black-5", hex: colors.colorBlack5 },
+                      { name: "$color-black-6", hex: colors.colorBlack6 },
+                      { name: "$color-black-7", hex: colors.colorBlack7 },
+                      { name: "$color-black-8", hex: colors.colorBlack8 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -296,11 +324,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Canary Blue (Brand)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-blue-canary-1", hex: colors.blueCanary1 },
-                      { name: "$color-blue-canary-2", hex: colors.blueCanary2 },
-                      { name: "$color-blue-canary-3", hex: colors.blueCanary3 },
-                      { name: "$color-blue-canary-4", hex: colors.blueCanary4 },
-                      { name: "$color-blue-canary-5", hex: colors.blueCanary5 },
+                      { name: "$color-blue-canary-1", hex: colors.colorBlueCanary1 },
+                      { name: "$color-blue-canary-2", hex: colors.colorBlueCanary2 },
+                      { name: "$color-blue-canary-3", hex: colors.colorBlueCanary3 },
+                      { name: "$color-blue-canary-4", hex: colors.colorBlueCanary4 },
+                      { name: "$color-blue-canary-5", hex: colors.colorBlueCanary5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -319,11 +347,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Blue Dark (Primary Action)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-blue-dark-1", hex: colors.blueDark1 },
-                      { name: "$color-blue-dark-2", hex: colors.blueDark2 },
-                      { name: "$color-blue-dark-3", hex: colors.blueDark3 },
-                      { name: "$color-blue-dark-4", hex: colors.blueDark4 },
-                      { name: "$color-blue-dark-5", hex: colors.blueDark5 },
+                      { name: "$color-blue-dark-1", hex: colors.colorBlueDark1 },
+                      { name: "$color-blue-dark-2", hex: colors.colorBlueDark2 },
+                      { name: "$color-blue-dark-3", hex: colors.colorBlueDark3 },
+                      { name: "$color-blue-dark-4", hex: colors.colorBlueDark4 },
+                      { name: "$color-blue-dark-5", hex: colors.colorBlueDark5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -342,11 +370,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Light Green</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-light-green-1", hex: colors.lightGreen1 },
-                      { name: "$color-light-green-2", hex: colors.lightGreen2 },
-                      { name: "$color-light-green-3", hex: colors.lightGreen3 },
-                      { name: "$color-light-green-4", hex: colors.lightGreen4 },
-                      { name: "$color-light-green-5", hex: colors.lightGreen5 },
+                      { name: "$color-light-green-1", hex: colors.colorLightGreen1 },
+                      { name: "$color-light-green-2", hex: colors.colorLightGreen2 },
+                      { name: "$color-light-green-3", hex: colors.colorLightGreen3 },
+                      { name: "$color-light-green-4", hex: colors.colorLightGreen4 },
+                      { name: "$color-light-green-5", hex: colors.colorLightGreen5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -365,11 +393,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Purple</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-purple-1", hex: colors.purple1 },
-                      { name: "$color-purple-2", hex: colors.purple2 },
-                      { name: "$color-purple-3", hex: colors.purple3 },
-                      { name: "$color-purple-4", hex: colors.purple4 },
-                      { name: "$color-purple-5", hex: colors.purple5 },
+                      { name: "$color-purple-1", hex: colors.colorPurple1 },
+                      { name: "$color-purple-2", hex: colors.colorPurple2 },
+                      { name: "$color-purple-3", hex: colors.colorPurple3 },
+                      { name: "$color-purple-4", hex: colors.colorPurple4 },
+                      { name: "$color-purple-5", hex: colors.colorPurple5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -388,11 +416,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Pink</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-pink-1", hex: colors.pink1 },
-                      { name: "$color-pink-2", hex: colors.pink2 },
-                      { name: "$color-pink-3", hex: colors.pink3 },
-                      { name: "$color-pink-4", hex: colors.pink4 },
-                      { name: "$color-pink-5", hex: colors.pink5 },
+                      { name: "$color-pink-1", hex: colors.colorPink1 },
+                      { name: "$color-pink-2", hex: colors.colorPink2 },
+                      { name: "$color-pink-3", hex: colors.colorPink3 },
+                      { name: "$color-pink-4", hex: colors.colorPink4 },
+                      { name: "$color-pink-5", hex: colors.colorPink5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -411,11 +439,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Wheat (Orange/Yellow)</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-wheat-1", hex: colors.wheat1 },
-                      { name: "$color-wheat-2", hex: colors.wheat2 },
-                      { name: "$color-wheat-3", hex: colors.wheat3 },
-                      { name: "$color-wheat-4", hex: colors.wheat4 },
-                      { name: "$color-wheat-5", hex: colors.wheat5 },
+                      { name: "$color-wheat-1", hex: colors.colorWheat1 },
+                      { name: "$color-wheat-2", hex: colors.colorWheat2 },
+                      { name: "$color-wheat-3", hex: colors.colorWheat3 },
+                      { name: "$color-wheat-4", hex: colors.colorWheat4 },
+                      { name: "$color-wheat-5", hex: colors.colorWheat5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -434,11 +462,11 @@ export default function MyComponent() {
                   <h4 className="text-sm font-semibold mb-3">Red</h4>
                   <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
                     {[
-                      { name: "$color-red-1", hex: colors.red1 },
-                      { name: "$color-red-2", hex: colors.red2 },
-                      { name: "$color-red-3", hex: colors.red3 },
-                      { name: "$color-red-4", hex: colors.red4 },
-                      { name: "$color-red-5", hex: colors.red5 },
+                      { name: "$color-red-1", hex: colors.colorRed1 },
+                      { name: "$color-red-2", hex: colors.colorRed2 },
+                      { name: "$color-red-3", hex: colors.colorRed3 },
+                      { name: "$color-red-4", hex: colors.colorRed4 },
+                      { name: "$color-red-5", hex: colors.colorRed5 },
                     ].map(({ name, hex }) => (
                       <div key={name} className="flex flex-col">
                         <div
@@ -457,7 +485,7 @@ export default function MyComponent() {
                 code={`import { colors } from "@/components/canary-ui";
 
 // Use colors in your components
-<div style={{ backgroundColor: colors.blueCanary1 }}>
+<div style={{ backgroundColor: colors.colorBlueCanary1 }}>
   Canary Blue Background
 </div>
 
@@ -700,12 +728,12 @@ import { mdiPlus, mdiClose, mdiPencil, mdiDelete } from "@mdi/js";
 // Icon-only buttons (no text)
 <CanaryButton
   type={ButtonType.ICON_PRIMARY}
-  icon={<Icon path={mdiPencil} size={0.8} />}
+  icon={<Icon path={mdiPencil} size={1} />}
 />
 
 <CanaryButton
   type={ButtonType.ICON_SECONDARY}
-  icon={<Icon path={mdiClose} size={0.8} />}
+  icon={<Icon path={mdiClose} size={1} />}
 />`}
                   />
                 </div>

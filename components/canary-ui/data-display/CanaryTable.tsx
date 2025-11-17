@@ -64,7 +64,7 @@ export default function CanaryTable<T extends Record<string, any>>({
                     alignClasses[column.align || "left"]
                   )}
                   style={{
-                    color: colors.black2,
+                    color: colors.colorBlack2,
                     width: column.width,
                   }}
                 >
@@ -94,12 +94,12 @@ export default function CanaryTable<T extends Record<string, any>>({
                       alignClasses[column.align || "left"]
                     )}
                     style={{
-                      color: colors.black2,
+                      color: colors.colorBlack2,
                       width: column.width,
-                      borderTop: rowIndex === 0 ? `1px solid ${colors.black6}` : undefined,
-                      borderBottom: `1px solid ${colors.black6}`,
-                      borderLeft: colIndex === 0 ? `1px solid ${colors.black6}` : undefined,
-                      borderRight: colIndex === columns.length - 1 ? `1px solid ${colors.black6}` : undefined,
+                      borderTop: rowIndex === 0 ? `1px solid ${colors.colorBlack6}` : undefined,
+                      borderBottom: `1px solid ${colors.colorBlack6}`,
+                      borderLeft: colIndex === 0 ? `1px solid ${colors.colorBlack6}` : undefined,
+                      borderRight: colIndex === columns.length - 1 ? `1px solid ${colors.colorBlack6}` : undefined,
                       borderTopLeftRadius: rowIndex === 0 && colIndex === 0 ? '8px' : undefined,
                       borderTopRightRadius: rowIndex === 0 && colIndex === columns.length - 1 ? '8px' : undefined,
                       borderBottomLeftRadius: rowIndex === data.length - 1 && colIndex === 0 ? '8px' : undefined,

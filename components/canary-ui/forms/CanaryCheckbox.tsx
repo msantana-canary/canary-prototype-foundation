@@ -71,7 +71,7 @@ const CanaryCheckbox = forwardRef<HTMLInputElement, CanaryCheckboxProps>(
           <Icon
             path={getIcon()}
             size={config.iconSize}
-            color={colors.blueDark1}
+            color={colors.colorBlueDark1}
             className="shrink-0"
           />
 
@@ -81,7 +81,7 @@ const CanaryCheckbox = forwardRef<HTMLInputElement, CanaryCheckboxProps>(
               style={{
                 fontSize: config.fontSize,
                 lineHeight: "1.5",
-                color: colors.black1,
+                color: colors.colorBlack1,
               }}
             >
               {label}
@@ -90,15 +90,15 @@ const CanaryCheckbox = forwardRef<HTMLInputElement, CanaryCheckboxProps>(
         </label>
 
         {error && (
-          <div className="mt-1 ml-8 inline-block px-2 py-[2px] rounded" style={{ backgroundColor: colors.red5 }}>
-            <p className="text-[12px] leading-[1.5]" style={{ color: colors.error }}>
+          <div className="mt-1 ml-8 inline-block px-2 py-[2px] rounded" style={{ backgroundColor: colors.colorRed5 }}>
+            <p className="text-[12px] leading-[1.5]" style={{ color: colors.colorError }}>
               {error}
             </p>
           </div>
         )}
 
         {helperText && !error && (
-          <p className="text-[12px] mt-1 ml-8 leading-[1.5]" style={{ color: colors.black3 }}>
+          <p className="text-[12px] mt-1 ml-8 leading-[1.5]" style={{ color: colors.colorBlack3 }}>
             {helperText}
           </p>
         )}

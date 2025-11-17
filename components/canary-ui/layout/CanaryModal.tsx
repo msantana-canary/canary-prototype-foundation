@@ -85,10 +85,10 @@ export default function CanaryModal({
         {(title || showCloseButton) && (
           <div
             className="flex items-center justify-between px-6 py-4 border-b shrink-0"
-            style={{ borderColor: colors.black6 }}
+            style={{ borderColor: colors.colorBlack6 }}
           >
             {title && (
-              <h2 className="text-[20px] font-semibold" style={{ color: colors.black1 }}>
+              <h2 className="text-[20px] font-semibold" style={{ color: colors.colorBlack1 }}>
                 {title}
               </h2>
             )}
@@ -115,7 +115,7 @@ export default function CanaryModal({
         {footer && (
           <div
             className="px-6 py-4 border-t shrink-0"
-            style={{ borderColor: colors.black6 }}
+            style={{ borderColor: colors.colorBlack6 }}
           >
             {footer}
           </div>

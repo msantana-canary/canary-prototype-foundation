@@ -1,6 +1,6 @@
 {
   "name": "@canary-ui/components",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A comprehensive React component library implementing the Canary design system",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

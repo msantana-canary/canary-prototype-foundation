@@ -27,7 +27,7 @@ export default function CanarySegmentedControl({
         className
       )}
       style={{
-        backgroundColor: colors.black7,
+        backgroundColor: colors.colorBlack7,
       }}
     >
       {options.map((option) => {
@@ -44,8 +44,8 @@ export default function CanarySegmentedControl({
                 : "hover:opacity-70"
             )}
             style={{
-              backgroundColor: isSelected ? colors.blueDark1 : "transparent",
-              color: isSelected ? colors.white : colors.black3,
+              backgroundColor: isSelected ? colors.colorBlueDark1 : "transparent",
+              color: isSelected ? colors.white : colors.colorBlack3,
             }}
           >
             {option.label}

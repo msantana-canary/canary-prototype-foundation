@@ -50,6 +50,8 @@ export { CanaryContainer, CanaryGrid, CanaryModal } from "./layout";
 
 // Navigation
 export { CanaryTabs, CanarySidebar, CanaryHeader } from "./navigation";
+export { SidebarVariant, NavigationItemState } from "./navigation";
+export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection } from "./navigation";
 
 // Feedback
 export { CanaryToast, CanaryAlert } from "./feedback";

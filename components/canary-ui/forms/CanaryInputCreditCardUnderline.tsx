@@ -102,7 +102,7 @@ const CanaryInputCreditCardUnderline = forwardRef<HTMLInputElement, CanaryInputC
               <Icon
                 path={meta.cardType?.type ? mdiCreditCard : mdiCreditCardOutline}
                 size="24px"
-                color={colors.black1}
+                color={colors.colorBlack1}
               />
             </div>
 

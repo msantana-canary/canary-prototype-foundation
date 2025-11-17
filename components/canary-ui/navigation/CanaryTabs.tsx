@@ -50,7 +50,7 @@ export default function CanaryTabs({
         <div
           className="inline-flex rounded-full p-1 gap-1 mb-4"
           style={{
-            backgroundColor: colors.black6,
+            backgroundColor: colors.colorBlack6,
           }}
         >
           {tabs.map((tab) => {
@@ -72,8 +72,8 @@ export default function CanaryTabs({
                     : "cursor-pointer hover:shadow-[0px_4px_0px_0px_#CCCCCC]"
                 )}
                 style={{
-                  backgroundColor: isActive ? colors.blueDark1 : colors.black6,
-                  color: isActive ? colors.white : colors.black1,
+                  backgroundColor: isActive ? colors.colorBlueDark1 : colors.colorBlack6,
+                  color: isActive ? colors.colorWhite : colors.colorBlack1,
                 }}
               >
                 {tab.icon && <span>{tab.icon}</span>}
@@ -100,7 +100,7 @@ export default function CanaryTabs({
         <div
           className="inline-flex items-start gap-px rounded-lg"
           style={{
-            border: `1px solid ${colors.black6}`,
+            border: `1px solid ${colors.colorBlack6}`,
             overflow: "visible",
           }}
         >
@@ -126,8 +126,8 @@ export default function CanaryTabs({
                 )}
                 style={{
                   fontSize: segmentedFontSize,
-                  backgroundColor: isActive ? colors.blueDark1 : colors.white,
-                  color: isActive ? colors.white : colors.black1,
+                  backgroundColor: isActive ? colors.colorBlueDark1 : colors.colorWhite,
+                  color: isActive ? colors.colorWhite : colors.colorBlack1,
                   lineHeight: "1.5",
                 }}
               >
@@ -184,7 +184,7 @@ export default function CanaryTabs({
                   className="font-medium font-['Roboto',sans-serif] text-center whitespace-nowrap"
                   style={{
                     fontSize,
-                    color: isActive ? colors.blueDark1 : colors.black2,
+                    color: isActive ? colors.colorBlueDark1 : colors.colorBlack2,
                     lineHeight,
                   }}
                 >
@@ -194,7 +194,7 @@ export default function CanaryTabs({
                   <div
                     className="flex items-center justify-center px-1 rounded-full"
                     style={{
-                      backgroundColor: colors.pink1,
+                      backgroundColor: colors.colorPink1,
                       minWidth: "16px",
                       height: "16px",
                     }}
@@ -202,7 +202,7 @@ export default function CanaryTabs({
                     <span
                       className="text-[11px] font-medium text-center"
                       style={{
-                        color: colors.white,
+                        color: colors.colorWhite,
                         lineHeight: "16px",
                         letterSpacing: "0.5px",
                       }}
@@ -216,7 +216,7 @@ export default function CanaryTabs({
               <div
                 className="w-full h-1"
                 style={{
-                  backgroundColor: isActive ? colors.blueDark1 : "transparent",
+                  backgroundColor: isActive ? colors.colorBlueDark1 : "transparent",
                 }}
               />
             </button>
