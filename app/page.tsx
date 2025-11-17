@@ -128,8 +128,15 @@ export default function ComponentShowcase() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("option1");
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [useUnderlineInputs, setUseUnderlineInputs] = useState(false);
+
+  const toggleCheckbox = (id: string) => {
+    setSelectedCheckboxes(prev =>
+      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+    );
+  };
 
   const sampleTableData = [
     { id: 1, name: "John Doe", email: "john@example.com", role: "Admin" },
@@ -1238,32 +1245,146 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                     )}
                   </div>
 
-                  <div>
-                    <CanaryCheckbox label="I agree to the terms and conditions" />
-                    <CanaryCheckbox label="Subscribe to newsletter" className="mt-3" />
+                  {/* Checkboxes */}
+                  <div className="col-span-2">
+                    <CanaryCard title="CanaryCheckbox">
+                      <div className="space-y-8">
+                        {/* Interactive Example */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Interactive Example</h4>
+                          <div className="space-y-2">
+                            <CanaryCheckbox
+                              size="normal"
+                              label="Receive email notifications"
+                              checked={selectedCheckboxes.includes("email")}
+                              onChange={() => toggleCheckbox("email")}
+                            />
+                            <CanaryCheckbox
+                              size="normal"
+                              label="Receive SMS notifications"
+                              checked={selectedCheckboxes.includes("sms")}
+                              onChange={() => toggleCheckbox("sms")}
+                            />
+                            <CanaryCheckbox
+                              size="normal"
+                              label="Receive push notifications"
+                              checked={selectedCheckboxes.includes("push")}
+                              onChange={() => toggleCheckbox("push")}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Disabled States */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Disabled States</h4>
+                          <div className="space-y-2">
+                            <CanaryCheckbox size="normal" label="Disabled unchecked" isDisabled />
+                            <CanaryCheckbox size="normal" label="Disabled checked" checked isDisabled />
+                          </div>
+                        </div>
+
+                        {/* Special States */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Special States</h4>
+                          <div className="space-y-2">
+                            <CanaryCheckbox size="normal" label="Indeterminate state" indeterminate />
+                            <CanaryCheckbox
+                              size="normal"
+                              label="With helper text"
+                              helperText="This provides additional context"
+                            />
+                            <CanaryCheckbox
+                              size="normal"
+                              label="With error message"
+                              error="This field is required"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Size Variants */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Size Variants</h4>
+                          <div className="space-y-2">
+                            <CanaryCheckbox size="normal" label="Normal (Desktop) - 24px icon, 14px font" />
+                            <CanaryCheckbox size="large" label="Large (Mobile) - 24px icon, 18px font" />
+                            <CanaryCheckbox size="xlarge" label="XLarge (Tablet) - 32px icon, 28px font" />
+                          </div>
+                        </div>
+                      </div>
+                    </CanaryCard>
                   </div>
 
-                  <div>
-                    <CanaryRadioGroup label="Preferred Contact Method">
-                      <CanaryRadio
-                        name="contact"
-                        label="Email"
-                        checked={selectedRadio === "option1"}
-                        onChange={() => setSelectedRadio("option1")}
-                      />
-                      <CanaryRadio
-                        name="contact"
-                        label="Phone"
-                        checked={selectedRadio === "option2"}
-                        onChange={() => setSelectedRadio("option2")}
-                      />
-                      <CanaryRadio
-                        name="contact"
-                        label="SMS"
-                        checked={selectedRadio === "option3"}
-                        onChange={() => setSelectedRadio("option3")}
-                      />
-                    </CanaryRadioGroup>
+                  {/* Radio Buttons */}
+                  <div className="col-span-2">
+                    <CanaryCard title="CanaryRadio">
+                      <div className="space-y-8">
+                        {/* Interactive Example */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Interactive Example</h4>
+                          <CanaryRadioGroup label="Preferred Contact Method">
+                            <CanaryRadio
+                              size="normal"
+                              name="contact"
+                              label="Email"
+                              checked={selectedRadio === "email"}
+                              onChange={() => setSelectedRadio("email")}
+                            />
+                            <CanaryRadio
+                              size="normal"
+                              name="contact"
+                              label="Phone"
+                              checked={selectedRadio === "phone"}
+                              onChange={() => setSelectedRadio("phone")}
+                            />
+                            <CanaryRadio
+                              size="normal"
+                              name="contact"
+                              label="SMS"
+                              checked={selectedRadio === "sms"}
+                              onChange={() => setSelectedRadio("sms")}
+                            />
+                          </CanaryRadioGroup>
+                        </div>
+
+                        {/* Disabled States */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Disabled States</h4>
+                          <div className="space-y-2">
+                            <CanaryRadio size="normal" name="disabled-demo" label="Disabled unchecked" isDisabled />
+                            <CanaryRadio size="normal" name="disabled-demo" label="Disabled checked" checked isDisabled />
+                          </div>
+                        </div>
+
+                        {/* Helper Text and Error States */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Helper Text & Error States</h4>
+                          <div className="space-y-2">
+                            <CanaryRadio
+                              size="normal"
+                              name="helper-demo"
+                              label="With helper text"
+                              helperText="Additional information appears here"
+                            />
+                            <CanaryRadio
+                              size="normal"
+                              name="error-demo"
+                              label="With error message"
+                              error="Please select an option"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Size Variants */}
+                        <div>
+                          <h4 className="text-sm font-medium mb-3 text-gray-600">Size Variants</h4>
+                          <div className="space-y-2">
+                            <CanaryRadio size="normal" name="size-demo" label="Normal (Desktop) - 24px icon, 14px font" />
+                            <CanaryRadio size="large" name="size-demo" label="Large (Mobile) - 24px icon, 18px font" />
+                            <CanaryRadio size="xlarge" name="size-demo" label="XLarge (Tablet) - 32px icon, 28px font" />
+                          </div>
+                        </div>
+                      </div>
+                    </CanaryCard>
                   </div>
                 </CanaryGrid>
 
@@ -1285,8 +1406,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 <CanaryCheckbox label="I agree to the terms" />
 
 <CanaryRadioGroup label="Contact Method">
-  <CanaryRadio name="contact" label="Email" />
-  <CanaryRadio name="contact" label="Phone" />
+  <CanaryRadio size="normal" name="contact" label="Email" />
+  <CanaryRadio size="large" name="contact" label="Phone" />
+  <CanaryRadio size="xlarge" name="contact" label="SMS" />
 </CanaryRadioGroup>` : `<CanarySelect
   label="Select Country"
   options={[
@@ -1304,8 +1426,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 <CanaryCheckbox label="I agree to the terms" />
 
 <CanaryRadioGroup label="Contact Method">
-  <CanaryRadio name="contact" label="Email" />
-  <CanaryRadio name="contact" label="Phone" />
+  <CanaryRadio size="normal" name="contact" label="Email" />
+  <CanaryRadio size="large" name="contact" label="Phone" />
+  <CanaryRadio size="xlarge" name="contact" label="SMS" />
 </CanaryRadioGroup>`}
                 />
               </CanaryCard>
@@ -1432,8 +1555,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 
           {/* Layout Components */}
           <Section title="Layout & Navigation" id="layout">
-            <CanaryCard title="CanaryTabs">
+            <CanaryCard title="CanaryTabs - Rounded Variant">
               <CanaryTabs
+                variant="rounded"
                 tabs={[
                   { id: "tab1", label: "Overview", content: <p>Overview content goes here</p> },
                   { id: "tab2", label: "Settings", content: <p>Settings content goes here</p> },
@@ -1442,6 +1566,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               />
               <CodeSnippet
                 code={`<CanaryTabs
+  variant="rounded"
   tabs={[
     { id: "tab1", label: "Overview", content: <p>Overview content</p> },
     { id: "tab2", label: "Settings", content: <p>Settings content</p> },
@@ -1450,6 +1575,110 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
               />
             </CanaryCard>
+
+            <div className="mt-6">
+              <CanaryCard title="CanaryTabs - Text Variant (Normal)">
+                <CanaryTabs
+                  variant="text"
+                  size="normal"
+                  tabs={[
+                    { id: "tab1", label: "Overview", content: <p>Overview content goes here</p> },
+                    { id: "tab2", label: "Analytics", badge: 3, content: <p>Analytics content with badge</p> },
+                    { id: "tab3", label: "Settings", content: <p>Settings content goes here</p> },
+                  ]}
+                />
+                <CodeSnippet
+                  code={`<CanaryTabs
+  variant="text"
+  size="normal"
+  tabs={[
+    { id: "tab1", label: "Overview", content: <p>Overview content</p> },
+    { id: "tab2", label: "Analytics", badge: 3, content: <p>Analytics content</p> },
+    { id: "tab3", label: "Settings", content: <p>Settings content</p> },
+  ]}
+/>`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="CanaryTabs - Text Variant (Compact)">
+                <CanaryTabs
+                  variant="text"
+                  size="compact"
+                  tabs={[
+                    { id: "tab1", label: "Overview", content: <p>Overview content goes here</p> },
+                    { id: "tab2", label: "Analytics", badge: 3, content: <p>Analytics content with badge</p> },
+                    { id: "tab3", label: "Settings", content: <p>Settings content goes here</p> },
+                  ]}
+                />
+                <CodeSnippet
+                  code={`<CanaryTabs
+  variant="text"
+  size="compact"
+  tabs={[
+    { id: "tab1", label: "Overview", content: <p>Overview content</p> },
+    { id: "tab2", label: "Analytics", badge: 3, content: <p>Analytics content</p> },
+    { id: "tab3", label: "Settings", content: <p>Settings content</p> },
+  ]}
+/>`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="CanaryTabs - Segmented Variant (Normal)">
+                <CanaryTabs
+                  variant="segmented"
+                  size="normal"
+                  tabs={[
+                    { id: "tab1", label: "Dashboard", content: <p>Dashboard content goes here</p> },
+                    { id: "tab2", label: "Analytics", content: <p>Analytics content goes here</p> },
+                    { id: "tab3", label: "Reports", content: <p>Reports content goes here</p> },
+                    { id: "tab4", label: "Settings", content: <p>Settings content goes here</p> },
+                  ]}
+                />
+                <CodeSnippet
+                  code={`<CanaryTabs
+  variant="segmented"
+  size="normal"
+  tabs={[
+    { id: "tab1", label: "Dashboard", content: <p>Dashboard content</p> },
+    { id: "tab2", label: "Analytics", content: <p>Analytics content</p> },
+    { id: "tab3", label: "Reports", content: <p>Reports content</p> },
+    { id: "tab4", label: "Settings", content: <p>Settings content</p> },
+  ]}
+/>`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="CanaryTabs - Segmented Variant (Compact)">
+                <CanaryTabs
+                  variant="segmented"
+                  size="compact"
+                  tabs={[
+                    { id: "tab1", label: "Dashboard", content: <p>Dashboard content goes here</p> },
+                    { id: "tab2", label: "Analytics", content: <p>Analytics content goes here</p> },
+                    { id: "tab3", label: "Reports", content: <p>Reports content goes here</p> },
+                    { id: "tab4", label: "Settings", content: <p>Settings content goes here</p> },
+                  ]}
+                />
+                <CodeSnippet
+                  code={`<CanaryTabs
+  variant="segmented"
+  size="compact"
+  tabs={[
+    { id: "tab1", label: "Dashboard", content: <p>Dashboard content</p> },
+    { id: "tab2", label: "Analytics", content: <p>Analytics content</p> },
+    { id: "tab3", label: "Reports", content: <p>Reports content</p> },
+    { id: "tab4", label: "Settings", content: <p>Settings content</p> },
+  ]}
+/>`}
+                />
+              </CanaryCard>
+            </div>
 
             <div className="mt-6">
               <CanaryCard title="CanaryModal">
