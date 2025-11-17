@@ -91,7 +91,7 @@ const CanaryCheckbox = forwardRef<HTMLInputElement, CanaryCheckboxProps>(
 
         {error && (
           <div className="mt-1 ml-8 inline-block px-2 py-[2px] rounded" style={{ backgroundColor: colors.colorRed5 }}>
-            <p className="text-[12px] leading-[1.5]" style={{ color: colors.colorError }}>
+            <p className="text-[12px] leading-[1.5]" style={{ color: colors.error }}>
               {error}
             </p>
           </div>
