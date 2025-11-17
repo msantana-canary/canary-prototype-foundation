@@ -89,6 +89,7 @@ import {
   mdiMapMarker,
   mdiChatOutline,
   mdiCashMultiple,
+  mdiNewspaperVariantOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -1702,6 +1703,685 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
     { id: "tab2", label: "Analytics", content: <p>Analytics content</p> },
     { id: "tab3", label: "Reports", content: <p>Reports content</p> },
     { id: "tab4", label: "Settings", content: <p>Settings content</p> },
+  ]}
+/>`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="CanarySidebar - Main Variant">
+                <p className="text-sm text-gray-600 mb-4">
+                  A navigation sidebar with two variants: Main (blue) and Settings (dark gray).
+                  Supports sections, icons, badges, and interactive states (default, selected, focus, onPress, disabled).
+                </p>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* Main Variant */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3">Main Variant</h4>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "900px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        selectedItemId={selectedMainSidebarItem}
+                        onItemClick={setSelectedMainSidebarItem}
+                        sections={[
+                          {
+                            id: "main-section",
+                            items: [
+                              {
+                                id: "upsells",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "digital-tips",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section",
+                            items: [
+                              {
+                                id: "authorizations",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "contracts",
+                                label: "Contracts",
+                                icon: (
+                                  <img
+                                    src="/contracts-icon.svg"
+                                    alt="Contracts"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "guest-verification",
+                                label: "Guest Verification",
+                                icon: <Icon path={mdiAccountCheckOutline} size={1} />,
+                              },
+                              {
+                                id: "clients-on-file",
+                                label: "Clients on File",
+                                icon: (
+                                  <img
+                                    src="/clients-on-file-icon.svg"
+                                    alt="Clients on File"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "amenities",
+                                label: "Amenities",
+                                icon: (
+                                  <img
+                                    src="/amenities-icon.svg"
+                                    alt="Amenities"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "payment-links",
+                                label: "Payment Links",
+                                icon: <Icon path={mdiCreditCardOutline} size={1} />,
+                              },
+                            ],
+                          },
+                          {
+                            id: "bottom-section",
+                            items: [
+                              {
+                                id: "settings",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Settings Variant */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3">Settings Variant</h4>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "900px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.SETTINGS}
+                        selectedItemId={selectedSettingsSidebarItem}
+                        onItemClick={setSelectedSettingsSidebarItem}
+                        sections={[
+                          {
+                            id: "general-settings-section",
+                            title: "General Settings",
+                            items: [
+                              {
+                                id: "property-info",
+                                label: "Property Info",
+                                icon: <Icon path={mdiHomeOutline} size={1} />,
+                              },
+                              {
+                                id: "branding",
+                                label: "Branding",
+                                icon: <Icon path={mdiPaletteOutline} size={1} />,
+                              },
+                              {
+                                id: "billing-payment",
+                                label: "Billing & Payment",
+                                icon: <Icon path={mdiCreditCardOutline} size={1} />,
+                              },
+                              {
+                                id: "staff-members",
+                                label: "Staff Members",
+                                icon: <Icon path={mdiAccountGroupOutline} size={1} />,
+                              },
+                              {
+                                id: "security",
+                                label: "Security",
+                                icon: <Icon path={mdiShieldCheckOutline} size={1} />,
+                              },
+                              {
+                                id: "integrations",
+                                label: "Integrations",
+                                icon: <Icon path={mdiPuzzleOutline} size={1} />,
+                              },
+                              {
+                                id: "devices",
+                                label: "Devices",
+                                icon: <Icon path={mdiTabletCellphone} size={1} />,
+                              },
+                            ],
+                          },
+                          {
+                            id: "product-settings-section",
+                            title: "Product Settings",
+                            items: [
+                              {
+                                id: "compendium",
+                                label: "Compendium",
+                                icon: <Icon path={mdiNewspaperVariantOutline} size={1} />,
+                              },
+                              {
+                                id: "guest-journey",
+                                label: "Guest Journey",
+                                icon: <Icon path={mdiMapMarker} size={1} />,
+                              },
+                              {
+                                id: "upsells-settings",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in-settings",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout-settings",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages-settings",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls-settings",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "authorizations-settings",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "digital-tips-settings",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "contracts-settings",
+                                label: "Contracts",
+                                icon: (
+                                  <img
+                                    src="/contracts-icon.svg"
+                                    alt="Contracts"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "payment-links-settings",
+                                label: "Payment Links",
+                                icon: <Icon path={mdiCreditCardOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                        backButton={
+                          <CanaryButton
+                            type={ButtonType.TEXT}
+                            color={ButtonColor.WHITE}
+                            icon={<Icon path={mdiArrowLeft} size={1} />}
+                            iconPosition={IconPosition.LEFT}
+                            onClick={() => console.log("Back clicked")}
+                          >
+                            Back
+                          </CanaryButton>
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <CodeSnippet
+                  code={`// Main Variant
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  logo={<div className="text-white text-xl font-bold">LOGO</div>}
+  selectedItemId={selectedItemId}
+  onItemClick={setSelectedItemId}
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "home", label: "Home", icon: <Icon path={mdiHome} size={1} /> },
+        { id: "analytics", label: "Analytics", icon: <Icon path={mdiChartBar} size={1} />, badge: 5 },
+      ],
+    },
+  ]}
+/>
+
+// Settings Variant
+<CanarySidebar
+  variant={SidebarVariant.SETTINGS}
+  logo={<img src="/canary-logo.png" alt="Logo" />}
+  title="General Settings"
+  selectedItemId={selectedItemId}
+  onItemClick={setSelectedItemId}
+  sections={[
+    {
+      id: "general-settings",
+      title: "General Settings",
+      items: [
+        { id: "property-info", label: "Property Info", icon: <Icon path={mdiHome} size={1} /> },
+        { id: "security", label: "Security", icon: <Icon path={mdiShield} size={1} /> },
+      ],
+    },
+  ]}
+  backButton={
+    <CanaryButton
+      type={ButtonType.TEXT}
+      color={ButtonColor.WHITE}
+      icon={<Icon path={mdiArrowLeft} size={1} />}
+      iconPosition={IconPosition.LEFT}
+    >
+      Back
+    </CanaryButton>
+  }
+/>`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="Sidebar States Demo">
+                <p className="text-sm text-gray-600 mb-4">
+                  Compare different states: Default (no badges), Selected item, and With Notifications (badges enabled on items).
+                </p>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Default State - No Badges */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">Default State</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">No badges, no selection</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "600px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        sections={[
+                          {
+                            id: "main-section-default",
+                            items: [
+                              {
+                                id: "upsells-default",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in-default",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout-default",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages-default",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls-default",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "digital-tips-default",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section-default",
+                            items: [
+                              {
+                                id: "authorizations-default",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "settings-default",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Selected State - With Selection */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">Selected State</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">Item selected, no badges</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "600px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        selectedItemId="messages-selected"
+                        sections={[
+                          {
+                            id: "main-section-selected",
+                            items: [
+                              {
+                                id: "upsells-selected",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "check-in-selected",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                              },
+                              {
+                                id: "checkout-selected",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                              },
+                              {
+                                id: "messages-selected",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                              },
+                              {
+                                id: "calls-selected",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                              },
+                              {
+                                id: "digital-tips-selected",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section-selected",
+                            items: [
+                              {
+                                id: "authorizations-selected",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "settings-selected",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  {/* With Notifications - Badges Enabled */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">With Notifications</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">Badges visible on items</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "600px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        logo={
+                          <img
+                            src="/canary-logo.png"
+                            alt="Canary Technologies"
+                            className="w-full h-full object-contain brightness-0 invert"
+                          />
+                        }
+                        selectedItemId="upsells-notifications"
+                        sections={[
+                          {
+                            id: "main-section-notifications",
+                            items: [
+                              {
+                                id: "upsells-notifications",
+                                label: "Upsells",
+                                icon: (
+                                  <img
+                                    src="/upsells-icon.svg"
+                                    alt="Upsells"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                                badge: 4,
+                              },
+                              {
+                                id: "check-in-notifications",
+                                label: "Check-in",
+                                icon: <Icon path={mdiLogin} size={1} />,
+                                badge: 4,
+                              },
+                              {
+                                id: "checkout-notifications",
+                                label: "Checkout",
+                                icon: <Icon path={mdiLogout} size={1} />,
+                                badge: 2,
+                              },
+                              {
+                                id: "messages-notifications",
+                                label: "Messages",
+                                icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+                                badge: 7,
+                              },
+                              {
+                                id: "calls-notifications",
+                                label: "Calls",
+                                icon: <Icon path={mdiPhoneOutline} size={1} />,
+                                badge: 3,
+                              },
+                              {
+                                id: "digital-tips-notifications",
+                                label: "Digital Tips",
+                                icon: (
+                                  <img
+                                    src="/digital-tips-icon.svg"
+                                    alt="Digital Tips"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                                badge: 5,
+                              },
+                            ],
+                          },
+                          {
+                            id: "secondary-section-notifications",
+                            items: [
+                              {
+                                id: "authorizations-notifications",
+                                label: "Authorizations",
+                                icon: (
+                                  <img
+                                    src="/authorizations-icon.svg"
+                                    alt="Authorizations"
+                                    className="w-6 h-6 sidebar-icon"
+                                  />
+                                ),
+                              },
+                              {
+                                id: "settings-notifications",
+                                label: "Settings",
+                                icon: <Icon path={mdiCogOutline} size={1} />,
+                              },
+                            ],
+                          },
+                        ]}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <CodeSnippet
+                  code={`// Default State - No badges
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "upsells", label: "Upsells", icon: <Icon path={mdiTrendingUp} size={1} /> },
+        { id: "messages", label: "Messages", icon: <Icon path={mdiMessage} size={1} /> },
+      ],
+    },
+  ]}
+/>
+
+// Selected State - Item selected, no badges
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  selectedItemId="messages"
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "upsells", label: "Upsells", icon: <Icon path={mdiTrendingUp} size={1} /> },
+        { id: "messages", label: "Messages", icon: <Icon path={mdiMessage} size={1} /> },
+      ],
+    },
+  ]}
+/>
+
+// With Notifications - Badges enabled
+<CanarySidebar
+  variant={SidebarVariant.MAIN}
+  selectedItemId="upsells"
+  sections={[
+    {
+      id: "main",
+      items: [
+        { id: "upsells", label: "Upsells", icon: <Icon path={mdiTrendingUp} size={1} />, badge: 4 },
+        { id: "messages", label: "Messages", icon: <Icon path={mdiMessage} size={1} />, badge: 7 },
+        { id: "check-in", label: "Check-in", icon: <Icon path={mdiLogin} size={1} />, badge: 4 },
+        { id: "checkout", label: "Checkout", icon: <Icon path={mdiLogout} size={1} />, badge: 2 },
+        { id: "calls", label: "Calls", icon: <Icon path={mdiPhone} size={1} />, badge: 3 },
+        { id: "digital-tips", label: "Digital Tips", icon: <Icon path={mdiCurrencyUsd} size={1} />, badge: 5 },
+      ],
+    },
   ]}
 />`}
                 />

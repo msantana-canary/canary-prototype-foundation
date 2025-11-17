@@ -105,14 +105,18 @@ export default function CanarySidebar({
         backgroundColor,
       }}
     >
-      {/* Logo - 24px top padding, centered, 140px width, 35% opacity */}
-      {logo && (
+      {/* Logo or Back Button */}
+      {backButton && variant === SidebarVariant.SETTINGS ? (
+        <div className="flex items-center pt-4 pb-4 px-4 shrink-0">
+          {backButton}
+        </div>
+      ) : logo ? (
         <div className="flex items-center justify-center pt-6 pb-6 shrink-0">
           <div style={{ opacity: 0.35, width: "140px", height: "24px" }}>
             {logo}
           </div>
         </div>
-      )}
+      ) : null}
 
       {/* Title Header (for Settings variant) */}
       {title && (
@@ -124,7 +128,7 @@ export default function CanarySidebar({
       )}
 
       {/* Navigation Sections - scrollable area */}
-      <nav className="flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto">
+      <nav className="flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8">
         {sections.map((section, sectionIndex) => (
           <div key={section.id}>
             {/* Divider before section (except first) */}
@@ -291,13 +295,6 @@ export default function CanarySidebar({
           </div>
         ))}
       </nav>
-
-      {/* Back Button - Sticky at bottom (for Settings variant) */}
-      {backButton && (
-        <div className="mt-auto px-4 py-4 border-t shrink-0" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }}>
-          {backButton}
-        </div>
-      )}
     </aside>
   );
 }
