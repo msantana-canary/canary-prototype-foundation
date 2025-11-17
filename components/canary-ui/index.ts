@@ -20,6 +20,7 @@ export {
   CanaryCheckbox,
   CanaryRadio,
   CanaryRadioGroup,
+  CanarySwitch,
   CanaryInputPassword,
   CanaryInputSearch,
   CanaryInputCreditCard,

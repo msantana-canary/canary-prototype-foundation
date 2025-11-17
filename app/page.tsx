@@ -9,6 +9,7 @@ import {
   CanaryCheckbox,
   CanaryRadio,
   CanaryRadioGroup,
+  CanarySwitch,
   CanaryInputPassword,
   CanaryInputSearch,
   CanaryInputCreditCard,
@@ -156,6 +157,11 @@ export default function ComponentShowcase() {
   const [showToast, setShowToast] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("option1");
   const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
+  const [switchStates, setSwitchStates] = useState({
+    notifications: true,
+    darkMode: false,
+    autoSave: true,
+  });
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [useUnderlineInputs, setUseUnderlineInputs] = useState(false);
   const [selectedMainSidebarItem, setSelectedMainSidebarItem] = useState("upsells");
@@ -1416,6 +1422,113 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                     </CanaryCard>
                   </div>
                 </CanaryGrid>
+
+                {/* Switch Component Demos */}
+                <div className="mt-6">
+                  <CanaryCard title="CanarySwitch - Interactive Examples">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Toggle switches for on/off states. Supports two sizes: Normal (Desktop) and Large (Mobile).
+                    </p>
+
+                    <div className="space-y-4">
+                      <CanarySwitch
+                        size="normal"
+                        label="Enable notifications"
+                        checked={switchStates.notifications}
+                        onChange={(checked) => setSwitchStates({ ...switchStates, notifications: checked })}
+                      />
+                      <CanarySwitch
+                        size="normal"
+                        label="Dark mode"
+                        checked={switchStates.darkMode}
+                        onChange={(checked) => setSwitchStates({ ...switchStates, darkMode: checked })}
+                      />
+                      <CanarySwitch
+                        size="normal"
+                        label="Auto-save"
+                        checked={switchStates.autoSave}
+                        onChange={(checked) => setSwitchStates({ ...switchStates, autoSave: checked })}
+                      />
+                    </div>
+
+                    <CodeSnippet
+                      code={`const [isEnabled, setIsEnabled] = useState(false);
+
+<CanarySwitch
+  size="normal"
+  label="Enable notifications"
+  checked={isEnabled}
+  onChange={(checked) => setIsEnabled(checked)}
+/>`}
+                    />
+                  </CanaryCard>
+                </div>
+
+                <div className="mt-6">
+                  <CanaryCard title="CanarySwitch - States">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div>
+                        <h4 className="text-sm font-semibold mb-3">Normal Size (Desktop)</h4>
+                        <div className="space-y-3">
+                          <CanarySwitch size="normal" label="Switch On" checked={true} />
+                          <CanarySwitch size="normal" label="Switch Off" checked={false} />
+                          <CanarySwitch size="normal" label="Disabled On" checked={true} isDisabled />
+                          <CanarySwitch size="normal" label="Disabled Off" checked={false} isDisabled />
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="text-sm font-semibold mb-3">Large Size (Mobile)</h4>
+                        <div className="space-y-3">
+                          <CanarySwitch size="large" label="Switch On" checked={true} />
+                          <CanarySwitch size="large" label="Switch Off" checked={false} />
+                          <CanarySwitch size="large" label="Disabled On" checked={true} isDisabled />
+                          <CanarySwitch size="large" label="Disabled Off" checked={false} isDisabled />
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="text-sm font-semibold mb-3">XLarge Size (Tablet)</h4>
+                        <div className="space-y-3">
+                          <CanarySwitch size="xlarge" label="Switch On" checked={true} />
+                          <CanarySwitch size="xlarge" label="Switch Off" checked={false} />
+                          <CanarySwitch size="xlarge" label="Disabled On" checked={true} isDisabled />
+                          <CanarySwitch size="xlarge" label="Disabled Off" checked={false} isDisabled />
+                        </div>
+                      </div>
+                    </div>
+
+                    <CodeSnippet
+                      code={`// Normal size (Desktop) - 28px × 16px
+<CanarySwitch size="normal" label="Switch On" checked={true} />
+<CanarySwitch size="normal" label="Disabled" checked={true} isDisabled />
+
+// Large size (Mobile) - 44px × 24px
+<CanarySwitch size="large" label="Switch On" checked={true} />
+<CanarySwitch size="large" label="Disabled" checked={true} isDisabled />`}
+                    />
+                  </CanaryCard>
+                </div>
+
+                <div className="mt-6">
+                  <CanaryCard title="CanarySwitch - Size Comparison">
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="text-sm font-semibold mb-2">Normal (Desktop) - 28px × 16px</h4>
+                        <CanarySwitch size="normal" label="Normal size switch with label" checked={true} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-semibold mb-2">Large (Mobile) - 44px × 24px</h4>
+                        <CanarySwitch size="large" label="Large size switch with label" checked={true} />
+                      </div>
+                    </div>
+
+                    <CodeSnippet
+                      code={`<CanarySwitch size="normal" label="Normal (Desktop)" />
+<CanarySwitch size="large" label="Large (Mobile)" />`}
+                    />
+                  </CanaryCard>
+                </div>
 
                 <CodeSnippet
                   code={useUnderlineInputs ? `<CanarySelectUnderline
