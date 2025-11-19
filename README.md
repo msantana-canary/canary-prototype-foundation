@@ -27,11 +27,11 @@ A comprehensive React component library implementing the Canary design system fo
 Install the library in your React/Next.js project:
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.2
 # or
-yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
+yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.2
 # or
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.2
 ```
 
 Or install from npm (once published):
@@ -49,7 +49,7 @@ pnpm add @canary-ui/components
 ### 1. Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.2
 ```
 
 ### 2. Import styles in your app
@@ -302,8 +302,8 @@ To update the library in your project:
 # Update to latest release
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
-# Or update to a specific version (current: v0.2.1)
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
+# Or update to a specific version (current: v0.2.2)
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.2
 ```
 
 ## Tips & Best Practices
