@@ -1,6 +1,6 @@
 {
   "name": "@canary-ui/components",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "A comprehensive React component library implementing the Canary design system",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -26,8 +26,8 @@
     "dev": "pnpm --filter @canary-ui/demo dev",
     "dev:demo": "pnpm --filter @canary-ui/demo dev",
     "build:css": "cp components/canary-ui/styles.css dist/styles.css",
-    "build:lib": "tsup",
-    "build": "pnpm build:lib && pnpm build:css",
+    "build:lib": "tsup && pnpm build:css",
+    "build": "pnpm build:lib",
     "build:demo": "pnpm --filter @canary-ui/demo build",
     "start:demo": "pnpm --filter @canary-ui/demo start",
     "lint": "eslint",

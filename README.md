@@ -24,18 +24,16 @@ A comprehensive React component library implementing the Canary design system fo
 
 ## Installation
 
-### Prerequisites
-
-Canary UI requires Tailwind CSS to be installed in your project. The library components use Tailwind utility classes, so you need to configure Tailwind to scan the library's components.
+The library ships with pre-built CSS, so you don't need to configure Tailwind to scan the library's components. All styles are self-contained in the library's CSS file.
 
 ### Step 1: Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.3
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.0
 # or
-yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.3
+yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.0
 # or
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.3
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.0
 ```
 
 Or install from npm (once published):
@@ -48,58 +46,17 @@ yarn add @canary-ui/components
 pnpm add @canary-ui/components
 ```
 
-### Step 2: Install Tailwind CSS (if not already installed)
-
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
-
-### Step 3: Configure Tailwind
-
-Update your `tailwind.config.js` or `tailwind.config.ts`:
-
-```typescript
-import type { Config } from "tailwindcss";
-
-export default {
-  // Use the Canary UI preset
-  presets: [
-    require("@canary-ui/components/tailwind.preset"),
-  ],
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    // IMPORTANT: Add this line to scan Canary UI components
-    "./node_modules/@canary-ui/components/dist/**/*.{js,mjs}",
-  ],
-  // ... your customizations
-} satisfies Config;
-```
-
-**For Tailwind CSS v4 users:**
-
-If you're using Tailwind v4 (CSS-first configuration), the preset is compatible. Just ensure your CSS imports Tailwind:
-
-```css
-/* In your globals.css or main CSS file */
-@import "tailwindcss";
-```
-
-And create a `tailwind.config.ts` as shown above.
-
-### Step 4: Import library styles
+### Step 2: Import library styles
 
 ```tsx
 // In your root layout (app/layout.tsx for Next.js App Router)
 // or _app.tsx for Next.js Pages Router
 import '@canary-ui/components/styles.css';
-import './globals.css'; // Your Tailwind styles
 ```
 
-**Important:** Import the library's styles.css BEFORE your own Tailwind CSS file to ensure proper style precedence.
+**That's it!** All component styles are included in the library's CSS file. You don't need to configure Tailwind or any build tools.
 
-### Step 5: Use components
+### Step 3: Use components
 
 ```tsx
 import { CanaryButton, CanaryInput, CanaryCard } from '@canary-ui/components';
@@ -117,12 +74,10 @@ export default function MyPage() {
 ## Quick Start Summary
 
 1. **Install library**: `npm install @canary-ui/components`
-2. **Install Tailwind CSS**: `npm install -D tailwindcss`
-3. **Configure Tailwind**: Add preset and content paths
-4. **Import styles**: Import library CSS before your Tailwind CSS
-5. **Use components**: Import and use any component
+2. **Import styles**: Add `import '@canary-ui/components/styles.css'` to your root layout
+3. **Use components**: Import and use any component
 
-That's it! You're ready to build with Canary UI.
+That's it! You're ready to build with Canary UI. No Tailwind configuration needed.
 
 ## Development Setup (For Contributors)
 
@@ -348,13 +303,11 @@ To update the library in your project:
 # Update to latest release
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
-# Or update to a specific version (current: v0.2.3)
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.3
+# Or update to a specific version (current: v0.3.0)
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.0
 ```
 
-**After updating**, make sure to:
-1. Rebuild your Tailwind CSS (happens automatically in most setups)
-2. Clear your build cache if needed: `rm -rf .next` (Next.js) or equivalent
+**After updating**, clear your build cache if needed: `rm -rf .next` (Next.js) or equivalent. The library CSS is automatically updated.
 
 ## Tips & Best Practices
 

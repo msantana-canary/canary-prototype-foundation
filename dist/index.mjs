@@ -439,7 +439,7 @@ function CanaryButton({
       }
     }
     if (type === "outlined" /* OUTLINED */) {
-      return size === "tablet" /* TABLET */ ? "px-[23px]" : "px-[15px]";
+      return size === "tablet" /* TABLET */ ? "canary-button-px-23" : "canary-button-px-15";
     }
     if (isExpanded) {
       return "px-2";
@@ -459,29 +459,29 @@ function CanaryButton({
     switch (type) {
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "opacity-100";
+        return "canary-opacity-100";
       case "shaded" /* SHADED */:
-        return "opacity-10";
+        return "canary-opacity-10";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "opacity-0";
+        return "canary-opacity-0";
       default:
-        return "opacity-100";
+        return "canary-opacity-100";
     }
   };
   const getHoverClasses = () => {
     if (isDisabled || isLoading) return "";
     switch (type) {
       case "shaded" /* SHADED */:
-        return "hover:[&_.button-bg]:opacity-25 active:[&_.button-bg]:opacity-50";
+        return "canary-hover-shaded-bg canary-active-shaded-bg";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "hover:[&_.button-bg]:opacity-[0.08] active:[&_.button-bg]:opacity-[0.16]";
+        return "canary-hover-outlined-bg canary-active-outlined-bg";
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "hover:[&_.button-content]:opacity-80 active:[&_.button-content]:opacity-60";
+        return "canary-hover-primary-content canary-active-primary-content";
       default:
         return "";
     }
@@ -1355,7 +1355,7 @@ var CanaryInputSearch = forwardRef(
       // Size
       sizeClasses[size],
       // Border and focus states
-      error ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]" : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
+      error ? "border-[#E40046] canary-focus-outline-error" : "border-[#666666] canary-focus-outline-blue",
       isDisabled && "bg-[#E5E5E5] cursor-not-allowed",
       isReadonly && "bg-[#FAFAFA] cursor-default",
       className
@@ -1442,7 +1442,7 @@ var CanaryInputCreditCard = forwardRef(
       // Size
       sizeClasses[size],
       // Border and focus states
-      error ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]" : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
+      error ? "border-[#E40046] canary-focus-outline-error" : "border-[#666666] canary-focus-outline-blue",
       isDisabled && "bg-[#E5E5E5] cursor-not-allowed",
       isReadonly && "bg-[#FAFAFA] cursor-default",
       className

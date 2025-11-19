@@ -48,8 +48,8 @@ const CanaryInputCreditCard = forwardRef<HTMLInputElement, CanaryInputCreditCard
       sizeClasses[size],
       // Border and focus states
       error
-        ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]"
-        : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
+        ? "border-[#E40046] canary-focus-outline-error"
+        : "border-[#666666] canary-focus-outline-blue",
       isDisabled && "bg-[#E5E5E5] cursor-not-allowed",
       isReadonly && "bg-[#FAFAFA] cursor-default",
       className
