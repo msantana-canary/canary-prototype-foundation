@@ -180,7 +180,7 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
           </p>
         )}
 
-        <style jsx global>{`
+        <style dangerouslySetInnerHTML={{ __html: `
           .canary-phone-input-underline-wrapper .iti {
             width: 100%;
           }
@@ -221,7 +221,7 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
           .canary-phone-input-underline-wrapper .iti__arrow {
             margin-left: 4px;
           }
-        `}</style>
+        ` }} />
       </div>
     );
   }

@@ -1612,7 +1612,7 @@ var CanaryInputPhone = react.forwardRef(
       ) }),
       error && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "mt-1 inline-block bg-[#fce6ed] px-2 py-[2px] rounded", children: /* @__PURE__ */ jsxRuntime.jsx("p", { className: "text-[12px] text-[#E40046] leading-[1.5]", children: error }) }),
       helperText && !error && /* @__PURE__ */ jsxRuntime.jsx("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5]", children: helperText }),
-      /* @__PURE__ */ jsxRuntime.jsx("style", { jsx: true, global: true, children: `
+      /* @__PURE__ */ jsxRuntime.jsx("style", { dangerouslySetInnerHTML: { __html: `
           .canary-phone-input-wrapper .iti {
             width: 100%;
           }
@@ -1653,7 +1653,7 @@ var CanaryInputPhone = react.forwardRef(
           .canary-phone-input-wrapper .iti__arrow {
             margin-left: 4px;
           }
-        ` })
+        ` } })
     ] });
   }
 );
@@ -2715,7 +2715,7 @@ var CanaryInputPhoneUnderline = react.forwardRef(
       ] }),
       error && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ jsxRuntime.jsx("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
       helperText && !error && /* @__PURE__ */ jsxRuntime.jsx("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText }),
-      /* @__PURE__ */ jsxRuntime.jsx("style", { jsx: true, global: true, children: `
+      /* @__PURE__ */ jsxRuntime.jsx("style", { dangerouslySetInnerHTML: { __html: `
           .canary-phone-input-underline-wrapper .iti {
             width: 100%;
           }
@@ -2756,7 +2756,7 @@ var CanaryInputPhoneUnderline = react.forwardRef(
           .canary-phone-input-underline-wrapper .iti__arrow {
             margin-left: 4px;
           }
-        ` })
+        ` } })
     ] });
   }
 );

@@ -134,7 +134,7 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
           <p className="text-[12px] text-[#666666] mt-1 leading-[1.5]">{helperText}</p>
         )}
 
-        <style jsx global>{`
+        <style dangerouslySetInnerHTML={{ __html: `
           .canary-phone-input-wrapper .iti {
             width: 100%;
           }
@@ -175,7 +175,7 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
           .canary-phone-input-wrapper .iti__arrow {
             margin-left: 4px;
           }
-        `}</style>
+        ` }} />
       </div>
     );
   }
