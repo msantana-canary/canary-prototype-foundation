@@ -1,6 +1,6 @@
-# Canary Prototype Foundation
+# @canary-ui/components
 
-A comprehensive React component library built with Next.js 15, React 19, TypeScript, and Tailwind CSS. This foundation provides pre-built Canary UI components for creating high-fidelity prototypes that match the Canary design system.
+A comprehensive React component library implementing the Canary design system for building high-fidelity prototypes. Built with React 19, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -27,13 +27,21 @@ A comprehensive React component library built with Next.js 15, React 19, TypeScr
 Install the library in your React/Next.js project:
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.7
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
+# or
+yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
+# or
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
 ```
 
-Or with a specific version:
+Or install from npm (once published):
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.7
+npm install @canary-ui/components
+# or
+yarn add @canary-ui/components
+# or
+pnpm add @canary-ui/components
 ```
 
 ## Quick Start
@@ -41,32 +49,40 @@ npm install git+https://github.com/msantana-canary/canary-prototype-foundation.g
 ### 1. Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.7
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
 ```
 
-### 2. Import components in your project
+### 2. Import styles in your app
+
+```tsx
+// In your root layout or _app.tsx
+import '@canary-ui/components/styles.css';
+```
+
+### 3. Use components in your project
 
 ```tsx
 import { CanaryButton, CanaryInput, CanaryCard } from '@canary-ui/components';
-import '@canary-ui/components/styles.css';
 
 export default function MyPage() {
   return (
     <CanaryCard title="Welcome">
       <CanaryInput label="Email" type="email" placeholder="Enter your email" />
-      <CanaryButton>Submit</CanaryButton>
+      <CanaryButton type="primary">Submit</CanaryButton>
     </CanaryCard>
   );
 }
 ```
 
-### 3. Start building!
+### 4. Start building!
 
 Use any of the 30+ components in your application. See the component list below.
 
 ## Development Setup (For Contributors)
 
-If you want to contribute or run the showcase locally:
+This is a monorepo containing:
+- The component library (root)
+- A demo/documentation site (`demo/`)
 
 ### 1. Clone this repository
 
@@ -78,22 +94,22 @@ cd canary-prototype-foundation
 ### 2. Install dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
-### 3. Run the development server
+### 3. Build the library
 
 ```bash
-npm run dev
+pnpm build
+```
+
+### 4. Run the demo site
+
+```bash
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the component showcase.
-
-### 4. Build the library
-
-```bash
-npm run build:lib
-```
 
 ## Component Categories
 
@@ -101,12 +117,20 @@ npm run build:lib
 - `CanaryButton` - Full-featured button with types, sizes, icons, loading states
 
 ### Forms
-- `CanaryInput` - Text input with validation and helper text
+- `CanaryInput` - Standard text input
+- `CanaryInputUnderline` - Underline variant with floating label
 - `CanaryTextArea` - Multi-line text input
 - `CanarySelect` - Dropdown select with custom options
 - `CanaryCheckbox` - Checkbox with label support
 - `CanaryRadio` - Radio button
 - `CanaryRadioGroup` - Radio button group container
+- `CanarySwitch` - Toggle switch
+- `CanaryInputPassword` - Password input with visibility toggle
+- `CanaryInputSearch` - Search input with icon
+- `CanaryInputCreditCard` - Credit card input with formatting
+- `CanaryInputPhone` - International phone input
+- `CanaryInputDate` - Date picker
+- `CanaryInputDateRange` - Date range picker
 
 ### Data Display
 - `CanaryTag` - Status tags with color variants
@@ -135,8 +159,7 @@ import {
   CanaryButton,
   CanaryInput,
   CanaryCard,
-  ButtonType,
-} from "@/components/canary-ui";
+} from "@canary-ui/components";
 
 export default function MyPage() {
   return (
@@ -146,7 +169,7 @@ export default function MyPage() {
         type="email"
         placeholder="Enter your email"
       />
-      <CanaryButton type={ButtonType.PRIMARY}>
+      <CanaryButton type="primary">
         Submit
       </CanaryButton>
     </CanaryCard>
@@ -156,10 +179,10 @@ export default function MyPage() {
 
 ## Design Tokens
 
-All design tokens are centralized in `components/canary-ui/design-tokens.ts`:
+All design tokens are centralized and exported from the library:
 
 ```typescript
-import { colors, typography, spacing } from "@/components/canary-ui/design-tokens";
+import { colors, typography, spacing } from "@canary-ui/components";
 
 // Use in your custom components
 const myStyle = {
@@ -186,11 +209,8 @@ Using the Figma design at node 123:456, build a survey creation page using the C
 
 ```
 canary-prototype-foundation/
-├── app/                      # Next.js app directory
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Component showcase
 ├── components/
-│   └── canary-ui/           # Component library
+│   └── canary-ui/           # Component library source
 │       ├── design-tokens.ts # Design system tokens
 │       ├── buttons/         # Button components
 │       ├── forms/           # Form components
@@ -200,8 +220,12 @@ canary-prototype-foundation/
 │       ├── feedback/        # Feedback components
 │       ├── loading/         # Loading components
 │       └── index.ts         # Main export
-├── public/                  # Static assets
-└── package.json
+├── demo/                    # Demo site (consumes library)
+│   ├── app/
+│   └── package.json
+├── dist/                    # Built library output
+├── package.json             # Library configuration
+└── pnpm-workspace.yaml      # Monorepo config
 ```
 
 ## Building for Production
@@ -234,8 +258,8 @@ Each component is fully typed with TypeScript. Use your IDE's IntelliSense to se
 
 ```tsx
 <CanaryButton
-  type={ButtonType.PRIMARY}     // Button style variant
-  size={ButtonSize.NORMAL}      // Button size
+  type="primary"                // Button style variant
+  size="medium"                 // Button size
   isLoading={false}             // Show loading state
   isDisabled={false}            // Disable button
   onClick={() => {}}            // Click handler
@@ -244,6 +268,8 @@ Each component is fully typed with TypeScript. Use your IDE's IntelliSense to se
 </CanaryButton>
 ```
 
+For full documentation, see the [demo site](https://canary-prototype-foundation.vercel.app/).
+
 ## Customization
 
 ### Extending Components
@@ -251,7 +277,7 @@ Each component is fully typed with TypeScript. Use your IDE's IntelliSense to se
 Create custom components that use Canary UI:
 
 ```tsx
-import { CanaryButton, colors } from "@/components/canary-ui";
+import { CanaryButton, colors } from "@canary-ui/components";
 
 export function MyCustomButton({ children, ...props }) {
   return (
@@ -266,12 +292,6 @@ export function MyCustomButton({ children, ...props }) {
 }
 ```
 
-### Adding New Components
-
-1. Create component in appropriate category folder
-2. Export from category `index.ts`
-3. Re-export from `components/canary-ui/index.ts`
-
 ## Maintenance
 
 ### Updating to Latest Version
@@ -282,8 +302,8 @@ To update the library in your project:
 # Update to latest release
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
-# Or update to a specific version
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.1.7
+# Or update to a specific version (current: v0.2.1)
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.2.1
 ```
 
 ## Tips & Best Practices
