@@ -19,57 +19,53 @@ declare const colors: {
     readonly ok: "#008040";
     readonly success: "#008040";
     readonly warning: "#FAB541";
-    readonly danger: "#e40046";
-    readonly error: "#e40046";
-    readonly white: "#ffffff";
-    readonly black1: "#2d2d2d";
-    readonly black2: "#414141";
-    readonly black3: "#707070";
-    readonly black4: "#9f9f9f";
-    readonly black5: "#cecece";
-    readonly black6: "#eaeaea";
-    readonly black7: "#f2f2f2";
-    readonly black8: "#fafafa";
-    readonly blueCanary1: "#1c91fa";
-    readonly blueCanary2: "#55acfb";
-    readonly blueCanary3: "#8dc8fc";
-    readonly blueCanary4: "#c6e3f3";
-    readonly blueCanary5: "#e8f4ff";
-    readonly blueDark1: "#2858c4";
-    readonly blueDark2: "#5e82d3";
-    readonly blueDark3: "#93abe1";
-    readonly blueDark4: "#c9d5f0";
-    readonly blueDark5: "#eaeef9";
-    readonly pink1: "#f16682";
-    readonly pink2: "#f48ca1";
-    readonly pink3: "#f8b2c0";
-    readonly pink4: "#fbd9e0";
-    readonly pink5: "#fef0f3";
-    readonly lightGreen1: "#22d39a";
-    readonly lightGreen2: "#59deb3";
-    readonly lightGreen3: "#90e9cc";
-    readonly lightGreen4: "#c8f4e6";
-    readonly lightGreen5: "#e9fbf5";
-    readonly darkGreen1: "#008040";
-    readonly darkGreen2: "#59deb3";
-    readonly darkGreen3: "#90e9cc";
-    readonly darkGreen4: "#c8f4e6";
-    readonly darkGreen5: "#e9fbf5";
-    readonly wheat1: "#fab541";
-    readonly wheat2: "#fbc770";
-    readonly wheat3: "#fcdaa0";
-    readonly wheat4: "#feeccf";
-    readonly wheat5: "#fff8ec";
-    readonly purple1: "#9b51e0";
-    readonly purple2: "#bb6bd9";
-    readonly purple3: "#cda8ef";
-    readonly purple4: "#e6d3f7";
-    readonly purple5: "#f5eefc";
-    readonly red1: "#e40046";
-    readonly red2: "#eb4074";
-    readonly red3: "#f59fba";
-    readonly red4: "#f8bfd1";
-    readonly red5: "#fce6ed";
+    readonly danger: "#E40046";
+    readonly error: "#E40046";
+    readonly colorWhite: "#FFFFFF";
+    readonly white: "#FFFFFF";
+    readonly colorBlack1: "#000000";
+    readonly colorBlack2: "#333333";
+    readonly colorBlack3: "#666666";
+    readonly colorBlack4: "#999999";
+    readonly colorBlack5: "#CCCCCC";
+    readonly colorBlack6: "#E5E5E5";
+    readonly colorBlack7: "#F0F0F0";
+    readonly colorBlack8: "#FAFAFA";
+    readonly colorBlueCanary1: "#1C91FA";
+    readonly colorBlueCanary2: "#55ACFB";
+    readonly colorBlueCanary3: "#8DC8FC";
+    readonly colorBlueCanary4: "#C6E3FE";
+    readonly colorBlueCanary5: "#E8F4FF";
+    readonly colorBlueDark1: "#2858C4";
+    readonly colorBlueDark2: "#5E82D3";
+    readonly colorBlueDark3: "#93ABE1";
+    readonly colorBlueDark4: "#C9D5F0";
+    readonly colorBlueDark5: "#EAEEF9";
+    readonly colorPink1: "#F16682";
+    readonly colorPink2: "#F48CA1";
+    readonly colorPink3: "#F8B2C0";
+    readonly colorPink4: "#FBD9E0";
+    readonly colorPink5: "#FEF0F3";
+    readonly colorLightGreen1: "#008040";
+    readonly colorLightGreen2: "#339966";
+    readonly colorLightGreen3: "#66B38C";
+    readonly colorLightGreen4: "#99CCB3";
+    readonly colorLightGreen5: "#CCE6D9";
+    readonly colorWheat1: "#FAB541";
+    readonly colorWheat2: "#FBC770";
+    readonly colorWheat3: "#FCDAA0";
+    readonly colorWheat4: "#FEECCF";
+    readonly colorWheat5: "#FFF8EC";
+    readonly colorPurple1: "#3304AD";
+    readonly colorPurple2: "#723DFC";
+    readonly colorPurple3: "#9D7AFA";
+    readonly colorPurple4: "#CAB8F8";
+    readonly colorPurple5: "#E3DCF6";
+    readonly colorRed1: "#E40046";
+    readonly colorRed2: "#EB4074";
+    readonly colorRed3: "#F59FBA";
+    readonly colorRed4: "#F8BFD1";
+    readonly colorRed5: "#FCE6ED";
 };
 /**
  * Typography System
@@ -221,8 +217,7 @@ declare enum ButtonSize {
     TABLET = "tablet",
     LARGE = "large",
     NORMAL = "normal",
-    COMPACT = "compact",
-    TINY = "tiny"
+    COMPACT = "compact"
 }
 declare enum ButtonColor {
     NORMAL = "normal",
@@ -267,8 +262,7 @@ declare enum InputSize {
     TABLET = "tablet",
     LARGE = "large",
     NORMAL = "normal",
-    COMPACT = "compact",
-    TINY = "tiny"
+    COMPACT = "compact"
 }
 declare enum InputType {
     TEXT = "text",
@@ -305,29 +299,35 @@ interface CanaryTextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaEl
 }
 declare const CanaryTextArea: react.ForwardRefExoticComponent<CanaryTextAreaProps & react.RefAttributes<HTMLTextAreaElement>>;
 
-interface CanarySelectOption {
+interface CanarySelectOption$1 {
     label: string;
     value: string | number;
     disabled?: boolean;
 }
 interface CanarySelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">, BaseFormProps {
-    options: CanarySelectOption[];
+    options: CanarySelectOption$1[];
     placeholder?: string;
 }
 declare const CanarySelect: react.ForwardRefExoticComponent<CanarySelectProps & react.RefAttributes<HTMLSelectElement>>;
 
+type CheckboxSize = "normal" | "large" | "xlarge";
 interface CanaryCheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
     label?: string;
+    size?: CheckboxSize;
     isDisabled?: boolean;
+    indeterminate?: boolean;
     error?: string;
     helperText?: string;
 }
 declare const CanaryCheckbox: react.ForwardRefExoticComponent<CanaryCheckboxProps & react.RefAttributes<HTMLInputElement>>;
 
+type RadioSize = "normal" | "large" | "xlarge";
 interface CanaryRadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
     label?: string;
+    size?: RadioSize;
     isDisabled?: boolean;
     error?: string;
+    helperText?: string;
 }
 declare const CanaryRadio: react.ForwardRefExoticComponent<CanaryRadioProps & react.RefAttributes<HTMLInputElement>>;
 
@@ -341,36 +341,142 @@ interface CanaryRadioGroupProps {
 }
 declare function CanaryRadioGroup({ label, children, error, helperText, isRequired, className, }: CanaryRadioGroupProps): react_jsx_runtime.JSX.Element;
 
-interface SegmentedControlOption {
+type SwitchSize = "normal" | "large" | "xlarge";
+interface CanarySwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "onChange"> {
+    label?: string;
+    size?: SwitchSize;
+    isDisabled?: boolean;
+    checked?: boolean;
+    onChange?: (checked: boolean) => void;
+}
+declare const CanarySwitch: react.ForwardRefExoticComponent<CanarySwitchProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputPasswordProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type">, BaseFormProps {
+}
+declare const CanaryInputPassword: react.ForwardRefExoticComponent<CanaryInputPasswordProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputSearchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type">, BaseFormProps {
+}
+declare const CanaryInputSearch: react.ForwardRefExoticComponent<CanaryInputSearchProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputCreditCardProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "onChange">, BaseFormProps {
+    onCardChange?: (cardNumber: string, cardType: string) => void;
+}
+declare const CanaryInputCreditCard: react.ForwardRefExoticComponent<CanaryInputCreditCardProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputPhoneProps extends Omit<BaseFormProps, "size"> {
+    value?: string;
+    onChange?: (value: string) => void;
+    defaultCountry?: string;
+    size?: InputSize;
+    placeholder?: string;
+}
+declare const CanaryInputPhone: react.ForwardRefExoticComponent<CanaryInputPhoneProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputDateProps extends Omit<BaseFormProps, "size"> {
+    size?: InputSize;
+    value?: string;
+    onChange?: (date: string) => void;
+}
+declare const CanaryInputDate: react.ForwardRefExoticComponent<CanaryInputDateProps & react.RefAttributes<HTMLDivElement>>;
+
+interface CanaryInputDateRangeProps extends Omit<BaseFormProps, "size"> {
+    size?: InputSize;
+    startDate?: string;
+    endDate?: string;
+    onChange?: (startDate: string, endDate: string) => void;
+}
+declare const CanaryInputDateRange: react.ForwardRefExoticComponent<CanaryInputDateRangeProps & react.RefAttributes<HTMLDivElement>>;
+
+interface CanaryInputUnderlineProps extends Omit<BaseFormProps, "size">, Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
+    size?: InputSize;
+}
+declare const CanaryInputUnderline: react.ForwardRefExoticComponent<CanaryInputUnderlineProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryTextAreaUnderlineProps extends Omit<BaseFormProps, "size">, Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size"> {
+    size?: InputSize;
+    rows?: number;
+}
+declare const CanaryTextAreaUnderline: react.ForwardRefExoticComponent<CanaryTextAreaUnderlineProps & react.RefAttributes<HTMLTextAreaElement>>;
+
+interface CanarySelectOption {
     label: string;
-    value: string;
+    value: string | number;
+    disabled?: boolean;
 }
-interface CanarySegmentedControlProps {
-    options: SegmentedControlOption[];
-    value: string;
-    onChange: (value: string) => void;
-    className?: string;
+interface CanarySelectUnderlineProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">, Omit<BaseFormProps, "size"> {
+    options: CanarySelectOption[];
+    placeholder?: string;
+    size?: InputSize;
 }
-declare function CanarySegmentedControl({ options, value, onChange, className, }: CanarySegmentedControlProps): react_jsx_runtime.JSX.Element;
+declare const CanarySelectUnderline: react.ForwardRefExoticComponent<CanarySelectUnderlineProps & react.RefAttributes<HTMLSelectElement>>;
+
+interface CanaryInputPhoneUnderlineProps extends Omit<BaseFormProps, "size"> {
+    value?: string;
+    onChange?: (value: string) => void;
+    defaultCountry?: string;
+    size?: InputSize;
+    placeholder?: string;
+}
+declare const CanaryInputPhoneUnderline: react.ForwardRefExoticComponent<CanaryInputPhoneUnderlineProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputPasswordUnderlineProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type">, Omit<BaseFormProps, "size"> {
+    size?: InputSize;
+}
+declare const CanaryInputPasswordUnderline: react.ForwardRefExoticComponent<CanaryInputPasswordUnderlineProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputSearchUnderlineProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type">, Omit<BaseFormProps, "size"> {
+    size?: InputSize;
+}
+declare const CanaryInputSearchUnderline: react.ForwardRefExoticComponent<CanaryInputSearchUnderlineProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputCreditCardUnderlineProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "onChange">, Omit<BaseFormProps, "size"> {
+    size?: InputSize;
+    onCardChange?: (cardNumber: string, cardType: string) => void;
+}
+declare const CanaryInputCreditCardUnderline: react.ForwardRefExoticComponent<CanaryInputCreditCardUnderlineProps & react.RefAttributes<HTMLInputElement>>;
+
+interface CanaryInputDateUnderlineProps extends Omit<BaseFormProps, "size"> {
+    size?: InputSize;
+    value?: string;
+    onChange?: (date: string) => void;
+}
+declare const CanaryInputDateUnderline: react.ForwardRefExoticComponent<CanaryInputDateUnderlineProps & react.RefAttributes<HTMLDivElement>>;
+
+interface CanaryInputDateRangeUnderlineProps extends Omit<BaseFormProps, "size"> {
+    size?: InputSize;
+    startDate?: string;
+    endDate?: string;
+    onChange?: (startDate: string, endDate: string) => void;
+}
+declare const CanaryInputDateRangeUnderline: react.ForwardRefExoticComponent<CanaryInputDateRangeUnderlineProps & react.RefAttributes<HTMLDivElement>>;
 
 /**
  * Data Display Component Types
  */
 declare enum TagColor {
-    /** SUCCESS Green */
-    OK = "ok",
-    /** WARNING Yellow */
+    /** SUCCESS - Green */
+    SUCCESS = "success",
+    /** WARNING - Yellow/Wheat */
     WARNING = "warning",
-    /** ERROR Red */
-    ERROR = "error",
-    /** DEFAULT Black/Gray */
-    DARK = "dark",
-    /** INFO Blue */
-    INFO = "canary_blue",
-    /** THEME uses theme button color*/
-    THEME = "theme",
-    /** WHITE */
-    WHITE = "white"
+    /** INFO - Blue */
+    INFO = "info",
+    /** DEFAULT - Gray */
+    DEFAULT = "default",
+    /** ERROR - Red/Pink */
+    ERROR = "error"
+}
+declare enum TagVariant {
+    /** OUTLINE - Light background with colored border */
+    OUTLINE = "outline",
+    /** FILLED - Solid colored background with white text */
+    FILLED = "filled"
+}
+declare enum TagSize {
+    /** COMPACT - 10px font, 16px line-height */
+    COMPACT = "compact",
+    /** MEDIUM - 12px font, 18px line-height */
+    MEDIUM = "medium"
 }
 interface CustomTagColor {
     backgroundColor?: string;
@@ -382,12 +488,15 @@ interface CustomTagColor {
 interface CanaryTagProps {
     label: string;
     color?: TagColor;
+    variant?: TagVariant;
+    size?: TagSize;
     customColor?: CustomTagColor;
-    icon?: ReactNode;
-    hasDropShadow?: boolean;
+    leadingIcon?: ReactNode;
+    trailingIcon?: ReactNode;
+    uppercase?: boolean;
     className?: string;
 }
-declare function CanaryTag({ label, color, customColor, icon, hasDropShadow, className, }: CanaryTagProps): react_jsx_runtime.JSX.Element;
+declare function CanaryTag({ label, color, variant, size, customColor, leadingIcon, trailingIcon, uppercase, className, }: CanaryTagProps): react_jsx_runtime.JSX.Element;
 
 interface CanaryTableColumn<T = any> {
     key: string;
@@ -448,37 +557,68 @@ interface CanaryModalProps {
 }
 declare function CanaryModal({ isOpen, onClose, title, children, footer, size, closeOnOverlayClick, showCloseButton, className, }: CanaryModalProps): react_jsx_runtime.JSX.Element | null;
 
+type TabVariant = "rounded" | "text" | "segmented";
+type TabSize = "normal" | "compact";
 interface CanaryTab {
     id: string;
     label: string;
     content: ReactNode;
     icon?: ReactNode;
+    badge?: string | number;
     disabled?: boolean;
 }
 interface CanaryTabsProps {
     tabs: CanaryTab[];
+    variant?: TabVariant;
+    size?: TabSize;
     defaultTab?: string;
     onChange?: (tabId: string) => void;
     className?: string;
 }
-declare function CanaryTabs({ tabs, defaultTab, onChange, className, }: CanaryTabsProps): react_jsx_runtime.JSX.Element;
+declare function CanaryTabs({ tabs, variant, size, defaultTab, onChange, className, }: CanaryTabsProps): react_jsx_runtime.JSX.Element;
 
-interface CanarySidebarItem {
+/**
+ * Sidebar Navigation Types and Enums
+ * Matches the Canary UI sidebar system
+ */
+declare enum SidebarVariant {
+    MAIN = "main",
+    SETTINGS = "settings"
+}
+declare enum NavigationItemState {
+    DEFAULT = "default",
+    SELECTED = "selected",
+    FOCUS = "focus",
+    ON_PRESS = "onPress",
+    DISABLED = "disabled"
+}
+
+interface SidebarNavigationItem {
     id: string;
     label: string;
     icon?: ReactNode;
     onClick?: () => void;
-    isActive?: boolean;
+    isDisabled?: boolean;
     badge?: string | number;
 }
+interface SidebarSection {
+    id: string;
+    title?: string;
+    items: SidebarNavigationItem[];
+}
 interface CanarySidebarProps {
-    items: CanarySidebarItem[];
-    header?: ReactNode;
-    footer?: ReactNode;
-    width?: string;
+    variant?: SidebarVariant;
+    sections: SidebarSection[];
+    logo?: ReactNode;
+    title?: string;
+    backButton?: ReactNode;
+    selectedItemId?: string;
+    onItemClick?: (itemId: string) => void;
+    width?: number;
     className?: string;
 }
-declare function CanarySidebar({ items, header, footer, width, className, }: CanarySidebarProps): react_jsx_runtime.JSX.Element;
+declare function CanarySidebar({ variant, sections, logo, title, backButton, selectedItemId, onItemClick, width, // Remove default, let it auto-size
+className, }: CanarySidebarProps): react_jsx_runtime.JSX.Element;
 
 interface CanaryHeaderProps {
     logo?: ReactNode;
@@ -520,4 +660,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryInput, CanaryLoading, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySegmentedControl, CanarySelect, type CanarySelectOption, CanarySidebar, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, type SegmentedControlOption, TagColor, borderRadius, breakpoints, colors, dimensions, easings, shadows, spacing, transitions, typography, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryLoading, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, shadows, spacing, transitions, typography, zIndex };
