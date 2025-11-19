@@ -1,10 +1,13 @@
-@import "tailwindcss";
-
 /**
- * Canary UI Component Library - Base Styles
+ * Canary UI Component Library - Custom Styles
  *
- * Import this file in your project to use Canary UI components with Tailwind CSS.
- * Make sure you have Tailwind CSS installed in your project.
+ * This file contains only custom styles specific to Canary UI components.
+ * Tailwind CSS utilities should be configured in your project's Tailwind setup.
+ *
+ * Installation:
+ * 1. Install Tailwind CSS in your project
+ * 2. Configure Tailwind to scan this library (see README)
+ * 3. Import this file for custom component styles
  */
 
 :root {

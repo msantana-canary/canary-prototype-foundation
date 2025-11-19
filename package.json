@@ -1,6 +1,6 @@
 {
   "name": "@canary-ui/components",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "A comprehensive React component library implementing the Canary design system",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -11,10 +11,12 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./tailwind.preset": "./tailwind.preset.js"
   },
   "files": [
     "dist",
+    "tailwind.preset.js",
     "README.md"
   ],
   "sideEffects": [
@@ -23,9 +25,9 @@
   "scripts": {
     "dev": "pnpm --filter @canary-ui/demo dev",
     "dev:demo": "pnpm --filter @canary-ui/demo dev",
-    "build:css": "postcss components/canary-ui/styles.css -o dist/styles.css",
+    "build:css": "cp components/canary-ui/styles.css dist/styles.css",
     "build:lib": "tsup",
-    "build": "pnpm build:css && pnpm build:lib",
+    "build": "pnpm build:lib && pnpm build:css",
     "build:demo": "pnpm --filter @canary-ui/demo build",
     "start:demo": "pnpm --filter @canary-ui/demo start",
     "lint": "eslint",
@@ -56,7 +58,8 @@
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tailwindcss": "^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
