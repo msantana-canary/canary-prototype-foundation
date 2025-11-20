@@ -31,11 +31,11 @@ The library ships with pre-built CSS, so you don't need to configure Tailwind to
 ### Step 1: Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.3
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.4
 # or
-yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.3
+yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.4
 # or
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.3
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.4
 ```
 
 Or install from npm (once published):
@@ -715,7 +715,7 @@ export function MyCustomButton({ children, ...props }) {
 
 ## Keeping Up to Date
 
-### Current Version: v0.3.3
+### Current Version: v0.3.4
 
 **📋 [View Changelog](./CHANGELOG.md)** - See what's new in each release
 
@@ -728,7 +728,7 @@ To update the library in your project:
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
 # Or update to a specific version
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.3
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.4
 ```
 
 **After updating:**
@@ -738,7 +738,8 @@ npm install git+https://github.com/msantana-canary/canary-prototype-foundation.g
 
 ### Version History
 
-- **v0.3.3** (Latest) - React Strict Mode fix, opacity class fixes, improved docs, outline button padding
+- **v0.3.4** (Latest) - React Strict Mode fix, opacity class fixes, improved docs, outline button padding
+- **v0.3.3** - Added standard opacity utilities to CSS
 - **v0.3.2** - Logo update, settings sidebar improvements
 - **v0.3.1** - Icon system, standard sidebar sections, auto font loading
 - **v0.3.0** - Self-contained CSS, no Tailwind config needed
