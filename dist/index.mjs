@@ -4338,7 +4338,7 @@ function CanaryTabs({
           })
         }
       ),
-      /* @__PURE__ */ jsx("div", { className: "py-4", children: activeTabContent })
+      /* @__PURE__ */ jsx("div", { children: activeTabContent })
     ] });
   }
   if (variant === "segmented") {
@@ -4385,7 +4385,7 @@ function CanaryTabs({
           })
         }
       ),
-      /* @__PURE__ */ jsx("div", { className: "py-4", children: activeTabContent })
+      /* @__PURE__ */ jsx("div", { children: activeTabContent })
     ] });
   }
   const isCompact = size === "compact";
@@ -4473,7 +4473,7 @@ function CanaryTabs({
         tab.id
       );
     }) }),
-    /* @__PURE__ */ jsx("div", { className: "py-4", children: activeTabContent })
+    /* @__PURE__ */ jsx("div", { children: activeTabContent })
   ] });
 }
 

@@ -84,7 +84,7 @@ export default function CanaryTabs({
         </div>
 
         {/* Tab Content */}
-        <div className="py-4">{activeTabContent}</div>
+        <div>{activeTabContent}</div>
       </div>
     );
   }
@@ -138,7 +138,7 @@ export default function CanaryTabs({
         </div>
 
         {/* Tab Content */}
-        <div className="py-4">{activeTabContent}</div>
+        <div>{activeTabContent}</div>
       </div>
     );
   }
@@ -225,7 +225,7 @@ export default function CanaryTabs({
       </div>
 
       {/* Tab Content */}
-      <div className="py-4">{activeTabContent}</div>
+      <div>{activeTabContent}</div>
     </div>
   );
 }
