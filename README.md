@@ -153,6 +153,180 @@ Open [http://localhost:3000](http://localhost:3000) to see the component showcas
 - `CanaryToast` - Toast notifications
 - `CanaryLoading` - Loading spinner
 
+### Icons
+- `CanaryIcon` - Pre-configured Material Design Icons (50+ icons)
+- `CanaryLogo` - Embedded Canary logo component
+- `Icon` - Base icon component from @mdi/react
+- `iconPaths` - Raw MDI icon paths for advanced usage
+
+## Common Patterns
+
+### Using Standard Sidebar Sections
+
+The library includes pre-configured sidebar sections that match the Canary product exactly:
+
+```tsx
+import { CanarySidebar, standardMainSidebarSections } from '@canary-ui/components';
+
+export default function Layout({ children }) {
+  return (
+    <div className="flex h-screen">
+      {/* Sidebar with pre-configured icons and sections */}
+      <CanarySidebar sections={standardMainSidebarSections} />
+
+      <main className="flex-1">
+        {children}
+      </main>
+    </div>
+  );
+}
+```
+
+For settings pages, use `standardSettingsSidebarSections`:
+
+```tsx
+import { CanarySidebar, standardSettingsSidebarSections } from '@canary-ui/components';
+import { SidebarVariant } from '@canary-ui/components';
+
+<CanarySidebar
+  variant={SidebarVariant.SETTINGS}
+  sections={standardSettingsSidebarSections}
+  title="Settings"
+/>
+```
+
+### Using the Icon System
+
+The library provides 50+ pre-configured Material Design Icons:
+
+```tsx
+import { CanaryIcon } from '@canary-ui/components';
+
+export default function Dashboard() {
+  return (
+    <div>
+      <CanaryIcon.Home size={24} />
+      <CanaryIcon.Settings color="#2858C4" />
+      <CanaryIcon.AccountCircle size={32} className="custom-class" />
+    </div>
+  );
+}
+```
+
+Available icons include: Home, Menu, Close, Settings, Account, Email, Message, Phone, Currency, CreditCard, Shield, Alert, Check, and many more. See `components/canary-ui/icons.tsx` for the full list.
+
+### Building a Form
+
+```tsx
+import {
+  CanaryInput,
+  CanarySelect,
+  CanaryCheckbox,
+  CanaryButton
+} from '@canary-ui/components';
+import { useState } from 'react';
+
+export default function RegistrationForm() {
+  const [formData, setFormData] = useState({
+    email: '',
+    country: '',
+    terms: false
+  });
+
+  return (
+    <form className="space-y-4">
+      <CanaryInput
+        label="Email"
+        type="email"
+        value={formData.email}
+        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        placeholder="Enter your email"
+      />
+
+      <CanarySelect
+        label="Country"
+        value={formData.country}
+        onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+        options={[
+          { value: 'us', label: 'United States' },
+          { value: 'ca', label: 'Canada' },
+          { value: 'uk', label: 'United Kingdom' }
+        ]}
+      />
+
+      <CanaryCheckbox
+        label="I agree to the terms and conditions"
+        checked={formData.terms}
+        onChange={(checked) => setFormData({ ...formData, terms: checked })}
+      />
+
+      <CanaryButton type="primary" onClick={() => console.log(formData)}>
+        Submit
+      </CanaryButton>
+    </form>
+  );
+}
+```
+
+### Using Modals
+
+```tsx
+import { CanaryModal, CanaryButton } from '@canary-ui/components';
+import { useState } from 'react';
+
+export default function ModalExample() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <CanaryButton onClick={() => setIsOpen(true)}>
+        Open Modal
+      </CanaryButton>
+
+      <CanaryModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Confirm Action"
+      >
+        <p>Are you sure you want to proceed?</p>
+        <div className="flex gap-2 mt-4">
+          <CanaryButton
+            type="secondary"
+            onClick={() => setIsOpen(false)}
+          >
+            Cancel
+          </CanaryButton>
+          <CanaryButton
+            type="primary"
+            onClick={() => {
+              // Handle confirmation
+              setIsOpen(false);
+            }}
+          >
+            Confirm
+          </CanaryButton>
+        </div>
+      </CanaryModal>
+    </>
+  );
+}
+```
+
+### Working with Design Tokens
+
+Access design tokens directly for custom styling:
+
+```tsx
+import { colors, typography, spacing } from '@canary-ui/components';
+
+const customStyles = {
+  backgroundColor: colors.colorBlueDark1, // #2858C4
+  color: colors.colorWhite,
+  fontSize: typography.fontSize.body,
+  padding: spacing[4] // 1rem
+};
+```
+
 ## Usage Example
 
 ```tsx
