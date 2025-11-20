@@ -4313,7 +4313,7 @@ function CanaryTabs({
       /* @__PURE__ */ jsxRuntime.jsx(
         "div",
         {
-          className: "inline-flex rounded-full p-1 gap-1 mb-4",
+          className: "inline-flex rounded-full p-1 gap-1",
           style: {
             backgroundColor: colors.colorBlack6
           },
