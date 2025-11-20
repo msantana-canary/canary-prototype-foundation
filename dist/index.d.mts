@@ -764,6 +764,19 @@ interface CanaryHeaderProps {
 declare function CanaryHeader({ logo, title, actions, navigation, className, }: CanaryHeaderProps): react_jsx_runtime.JSX.Element;
 
 /**
+ * Canary Logo Component
+ *
+ * Pre-configured logo component with embedded image.
+ * No need for teammates to manage logo assets.
+ */
+interface CanaryLogoProps {
+    width?: number | string;
+    height?: number | string;
+    className?: string;
+}
+declare function CanaryLogo({ width, height, className }: CanaryLogoProps): react_jsx_runtime.JSX.Element;
+
+/**
  * Standard Canary Sidebar Sections
  *
  * Pre-configured sidebar navigation items matching the Canary product.
@@ -812,4 +825,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryLoading, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, iconPaths, shadows, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, iconPaths, shadows, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, zIndex };

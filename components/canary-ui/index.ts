@@ -54,9 +54,9 @@ export type { CustomTagColor, CanaryTableColumn } from "./data-display";
 export { CanaryContainer, CanaryGrid, CanaryModal } from "./layout";
 
 // Navigation
-export { CanaryTabs, CanarySidebar, CanaryHeader } from "./navigation";
+export { CanaryTabs, CanarySidebar, CanaryHeader, CanaryLogo } from "./navigation";
 export { SidebarVariant, NavigationItemState } from "./navigation";
-export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection } from "./navigation";
+export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps } from "./navigation";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./navigation";
 
 // Feedback

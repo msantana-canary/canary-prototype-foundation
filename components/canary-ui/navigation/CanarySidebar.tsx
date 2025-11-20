@@ -1,6 +1,7 @@
 import { ReactNode, useState } from "react";
 import { colors } from "../design-tokens";
 import { SidebarVariant, NavigationItemState } from "./types";
+import CanaryLogo from "./CanaryLogo";
 import clsx from "clsx";
 
 export interface SidebarNavigationItem {
@@ -110,13 +111,13 @@ export default function CanarySidebar({
         <div className="flex items-center pt-4 pb-4 px-4 shrink-0">
           {backButton}
         </div>
-      ) : logo ? (
+      ) : (
         <div className="flex items-center justify-center pt-6 pb-6 shrink-0">
           <div style={{ opacity: 0.35, width: "140px", height: "24px" }}>
-            {logo}
+            {logo !== undefined ? logo : <CanaryLogo />}
           </div>
         </div>
-      ) : null}
+      )}
 
       {/* Title Header (for Settings variant) */}
       {title && (
