@@ -75,7 +75,6 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
         }
         if (itiRef.current) {
           itiRef.current.destroy();
-          itiRef.current = null;
         }
       };
     }, [defaultCountry, onChange]);

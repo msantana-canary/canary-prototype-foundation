@@ -135,7 +135,7 @@ export default function CanaryButton({
 
     // Outlined buttons: use semantic CSS class to account for 1px border
     if (type === ButtonType.OUTLINED) {
-      return size === ButtonSize.TABLET ? "canary-button-px-23" : "canary-button-px-15";
+      return size === ButtonSize.TABLET ? "px-6" : "px-4";
     }
 
     if (isExpanded) {
@@ -220,7 +220,7 @@ export default function CanaryButton({
     // Hover and active states
     getHoverClasses(),
     // Disabled
-    isDisabled && "cursor-default opacity-50",
+    isDisabled && "cursor-default canary-opacity-50",
     // Icon positioning (not for expanded buttons - they use absolute positioning)
     hasIcon &&
       !isIconType &&
@@ -320,7 +320,7 @@ export default function CanaryButton({
           "transition-opacity duration-200",
           iconPosition === IconPosition.TOP && (size === ButtonSize.TABLET ? "flex-col gap-2" : "flex-col gap-1"),
           !isExpanded && iconPosition === IconPosition.RIGHT && "flex-row-reverse",
-          isLoading && "opacity-0"
+          isLoading && "canary-opacity-0"
         )}
         style={contentStyle}
       >

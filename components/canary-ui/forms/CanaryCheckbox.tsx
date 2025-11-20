@@ -55,7 +55,7 @@ const CanaryCheckbox = forwardRef<HTMLInputElement, CanaryCheckboxProps>(
         <label
           className={clsx(
             "flex items-center pl-1 pr-2 py-2",
-            isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
+            isDisabled ? "cursor-not-allowed canary-opacity-50" : "cursor-pointer",
             className
           )}
           style={{ gap: config.gap }}

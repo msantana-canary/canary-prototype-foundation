@@ -766,7 +766,7 @@ declare function CanaryHeader({ logo, title, actions, navigation, className, }: 
 /**
  * Canary Logo Component
  *
- * Pre-configured logo component with embedded image.
+ * Pre-configured logo component with embedded SVG.
  * No need for teammates to manage logo assets.
  */
 interface CanaryLogoProps {

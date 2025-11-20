@@ -66,7 +66,7 @@ const CanarySwitch = forwardRef<HTMLInputElement, CanarySwitchProps>(
         <label
           className={clsx(
             "flex items-center",
-            isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
+            isDisabled ? "cursor-not-allowed canary-opacity-50" : "cursor-pointer",
             className
           )}
           style={{ gap: config.gap }}

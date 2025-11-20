@@ -123,8 +123,8 @@ const CanarySelectUnderline = forwardRef<
                   ? "border-b-2 border-[#2858c4] bg-[rgba(40,88,196,0.05)] px-2"
                   : "border-b border-black bg-white",
                 // Text opacity
-                !showLabelAbove && "opacity-50",
-                isDisabled && "opacity-50",
+                !showLabelAbove && "canary-opacity-50",
+                isDisabled && "canary-opacity-50",
                 // Add extra padding-right for error icon
                 error && "pr-16"
               )}

@@ -2,6 +2,8 @@
 
 A comprehensive React component library implementing the Canary design system for building high-fidelity prototypes. Built with React 19, TypeScript, and Tailwind CSS.
 
+**📚 [View Live Demo & Component Gallery](https://canary-prototype-foundation.vercel.app/)**
+
 ## Features
 
 - ✨ **Complete Component Library** - 30+ pre-built components matching Canary UI
@@ -185,35 +187,77 @@ export default function Layout({ children }) {
 For settings pages, use `standardSettingsSidebarSections`:
 
 ```tsx
-import { CanarySidebar, standardSettingsSidebarSections } from '@canary-ui/components';
-import { SidebarVariant } from '@canary-ui/components';
+import { CanarySidebar, standardSettingsSidebarSections, CanaryButton } from '@canary-ui/components';
+import { SidebarVariant, ButtonType, ButtonColor, IconPosition } from '@canary-ui/components';
+import Icon from '@mdi/react';
+import { mdiArrowLeft } from '@mdi/js';
 
 <CanarySidebar
   variant={SidebarVariant.SETTINGS}
   sections={standardSettingsSidebarSections}
   title="Settings"
+  backButton={
+    <CanaryButton
+      type={ButtonType.TEXT}
+      color={ButtonColor.WHITE}
+      icon={<Icon path={mdiArrowLeft} size={1} />}
+      iconPosition={IconPosition.LEFT}
+      onClick={() => console.log('Back clicked')}
+    >
+      Back
+    </CanaryButton>
+  }
 />
 ```
 
-### Using the Icon System
+### Using Icons
 
-The library provides 50+ pre-configured Material Design Icons:
+The library uses **Material Design Icons** from [Pictogrammers](https://pictogrammers.com/library/mdi/). All icons are included - you don't need to install anything extra.
+
+**Important:** Always use **outline variants** of icons as the default style (e.g., `mdiHomeOutline`, `mdiAccountOutline`, `mdiCogOutline`).
 
 ```tsx
-import { CanaryIcon } from '@canary-ui/components';
+import Icon from '@mdi/react';
+import { mdiHomeOutline, mdiCogOutline, mdiAccountOutline } from '@mdi/js';
 
 export default function Dashboard() {
   return (
     <div>
-      <CanaryIcon.Home size={24} />
-      <CanaryIcon.Settings color="#2858C4" />
-      <CanaryIcon.AccountCircle size={32} className="custom-class" />
+      {/* Default size: 1 (24px) */}
+      <Icon path={mdiHomeOutline} size={1} />
+
+      {/* Custom size and color */}
+      <Icon path={mdiCogOutline} size={0.8} color="#2858C4" />
+
+      {/* Larger icon */}
+      <Icon path={mdiAccountOutline} size={1.5} />
     </div>
   );
 }
 ```
 
-Available icons include: Home, Menu, Close, Settings, Account, Email, Message, Phone, Currency, CreditCard, Shield, Alert, Check, and many more. See `components/canary-ui/icons.tsx` for the full list.
+**Finding icons:**
+1. Visit [pictogrammers.com/library/mdi](https://pictogrammers.com/library/mdi/)
+2. Search for the icon you need
+3. **Use the outline variant when available** (ends with `-outline`)
+4. Import using camelCase: `home-outline` → `mdiHomeOutline`
+
+**Common outline icons:**
+- Navigation: `mdiHomeOutline`, `mdiMenuOutline`, `mdiCloseOutline`
+- User: `mdiAccountOutline`, `mdiAccountCircleOutline`, `mdiAccountGroupOutline`
+- Settings: `mdiCogOutline`, `mdiCogOutline`, `mdiDotsVerticalOutline`
+- Files: `mdiFolderOutline`, `mdiFileOutline`, `mdiFileDocumentOutline`
+- Communication: `mdiEmailOutline`, `mdiMessageOutline`, `mdiPhoneOutline`
+
+**Alternative: Pre-configured icons**
+
+For convenience, the library also provides 50+ pre-configured icons via `CanaryIcon`, but **direct import from Pictogrammers is preferred**:
+
+```tsx
+import { CanaryIcon } from '@canary-ui/components';
+
+<CanaryIcon.Home size={24} />  // Uses outline variant by default
+```
 
 ### Building a Form
 
@@ -325,6 +369,208 @@ const customStyles = {
   fontSize: typography.fontSize.body,
   padding: spacing[4] // 1rem
 };
+```
+
+## API Reference
+
+Quick reference for the most commonly used components. For complete prop lists, use TypeScript IntelliSense or visit the [demo site](https://canary-prototype-foundation.vercel.app/).
+
+### CanaryButton
+
+```tsx
+import { CanaryButton, ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/components';
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `type` | `ButtonType` | `PRIMARY` | Button variant: `PRIMARY`, `OUTLINED`, `SHADED`, `TEXT`, `ICON_PRIMARY`, `ICON_SECONDARY` |
+| `size` | `ButtonSize` | `NORMAL` | Button size: `TABLET`, `LARGE`, `NORMAL`, `COMPACT` |
+| `color` | `ButtonColor` | `NORMAL` | Color theme: `NORMAL`, `WHITE`, `DANGER`, `WARNING`, `SUCCESS` |
+| `icon` | `ReactNode` | - | Icon element to display |
+| `iconPosition` | `IconPosition` | `RIGHT` | Icon placement: `LEFT`, `RIGHT`, `TOP` |
+| `isLoading` | `boolean` | `false` | Shows loading spinner, hides text |
+| `isDisabled` | `boolean` | `false` | Disables button interaction |
+| `isExpanded` | `boolean` | `false` | Makes button full-width |
+| `isRounded` | `boolean` | `false` | Uses fully rounded corners |
+| `onClick` | `function` | - | Click handler |
+| `href` | `string` | - | Renders as `<a>` tag if provided |
+| `className` | `string` | - | Additional CSS classes |
+
+**Common patterns:**
+```tsx
+// Primary button with loading state
+<CanaryButton type={ButtonType.PRIMARY} isLoading={isSubmitting}>
+  Submit
+</CanaryButton>
+
+// Text button with icon (for dark backgrounds)
+<CanaryButton
+  type={ButtonType.TEXT}
+  color={ButtonColor.WHITE}
+  icon={<Icon path={mdiArrowLeft} size={1} />}
+  iconPosition={IconPosition.LEFT}
+>
+  Back
+</CanaryButton>
+
+// Danger button
+<CanaryButton type={ButtonType.PRIMARY} color={ButtonColor.DANGER}>
+  Delete Account
+</CanaryButton>
+```
+
+### CanaryInput
+
+```tsx
+import { CanaryInput, InputType, InputSize } from '@canary-ui/components';
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | - | Input label text |
+| `type` | `InputType` | `TEXT` | HTML input type: `TEXT`, `EMAIL`, `PASSWORD`, `NUMBER`, `TEL`, `URL`, `SEARCH`, `DATE`, `TIME` |
+| `size` | `InputSize` | `LARGE` | Input size: `TABLET`, `LARGE`, `NORMAL`, `COMPACT` |
+| `placeholder` | `string` | - | Placeholder text |
+| `value` | `string` | - | Controlled input value |
+| `onChange` | `function` | - | Change handler |
+| `isDisabled` | `boolean` | `false` | Disables input |
+| `isReadonly` | `boolean` | `false` | Makes input read-only |
+| `isRequired` | `boolean` | `false` | Adds required indicator |
+| `error` | `string` | - | Error message to display |
+| `helperText` | `string` | - | Helper text below input |
+| `leftAddon` | `ReactNode` | - | Element on left side of input |
+| `rightAddon` | `ReactNode` | - | Element on right side of input |
+| `className` | `string` | - | Additional CSS classes |
+
+**Common patterns:**
+```tsx
+// Email input with validation
+<CanaryInput
+  label="Email Address"
+  type={InputType.EMAIL}
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  error={emailError}
+  isRequired
+/>
+
+// Input with icon addon
+<CanaryInput
+  placeholder="Search..."
+  leftAddon={<Icon path={mdiMagnify} size={0.8} />}
+/>
+```
+
+### CanarySidebar
+
+```tsx
+import { CanarySidebar, SidebarVariant, standardMainSidebarSections } from '@canary-ui/components';
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `SidebarVariant` | `MAIN` | Sidebar type: `MAIN`, `SETTINGS` |
+| `sections` | `SidebarSection[]` | `[]` | Navigation sections with items |
+| `title` | `string` | - | Title for Settings variant |
+| `backButton` | `ReactNode` | - | Back button for Settings variant |
+| `logo` | `ReactNode` | `<CanaryLogo />` | Custom logo component |
+| `className` | `string` | - | Additional CSS classes |
+
+**Common patterns:**
+```tsx
+// Main sidebar with standard sections
+<CanarySidebar sections={standardMainSidebarSections} />
+
+// Settings sidebar with back button
+<CanarySidebar
+  variant={SidebarVariant.SETTINGS}
+  sections={standardSettingsSidebarSections}
+  title="Settings"
+  backButton={
+    <CanaryButton
+      type={ButtonType.TEXT}
+      color={ButtonColor.WHITE}
+      icon={<Icon path={mdiArrowLeft} size={1} />}
+      iconPosition={IconPosition.LEFT}
+      onClick={() => router.back()}
+    >
+      Back
+    </CanaryButton>
+  }
+/>
+```
+
+### CanaryCard
+
+```tsx
+import { CanaryCard } from '@canary-ui/components';
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | - | Card header title |
+| `headerActions` | `ReactNode` | - | Actions in header (buttons, etc.) |
+| `footer` | `ReactNode` | - | Card footer content |
+| `children` | `ReactNode` | - | Card body content |
+| `className` | `string` | - | Additional CSS classes |
+
+**Common patterns:**
+```tsx
+// Card with title and content
+<CanaryCard title="User Profile">
+  <CanaryInput label="Name" value={name} />
+  <CanaryInput label="Email" value={email} />
+</CanaryCard>
+
+// Card with header actions and footer
+<CanaryCard
+  title="Payment Information"
+  headerActions={
+    <CanaryButton type={ButtonType.TEXT}>Edit</CanaryButton>
+  }
+  footer={
+    <CanaryButton type={ButtonType.PRIMARY}>Save Changes</CanaryButton>
+  }
+>
+  {/* Card content */}
+</CanaryCard>
+```
+
+### CanaryModal
+
+```tsx
+import { CanaryModal } from '@canary-ui/components';
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `isOpen` | `boolean` | `false` | Controls modal visibility |
+| `onClose` | `function` | - | Called when modal should close |
+| `title` | `string` | - | Modal title |
+| `children` | `ReactNode` | - | Modal content |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Modal width |
+| `className` | `string` | - | Additional CSS classes |
+
+**Common patterns:**
+```tsx
+// Confirmation modal
+const [isOpen, setIsOpen] = useState(false);
+
+<CanaryModal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Confirm Deletion"
+>
+  <p>Are you sure you want to delete this item?</p>
+  <div className="flex gap-2 mt-4">
+    <CanaryButton type={ButtonType.OUTLINED} onClick={() => setIsOpen(false)}>
+      Cancel
+    </CanaryButton>
+    <CanaryButton type={ButtonType.PRIMARY} color={ButtonColor.DANGER}>
+      Delete
+    </CanaryButton>
+  </div>
+</CanaryModal>
 ```
 
 ## Usage Example
@@ -467,7 +713,11 @@ export function MyCustomButton({ children, ...props }) {
 }
 ```
 
-## Maintenance
+## Keeping Up to Date
+
+### Current Version: v0.3.2
+
+**📋 [View Changelog](./CHANGELOG.md)** - See what's new in each release
 
 ### Updating to Latest Version
 
@@ -477,11 +727,21 @@ To update the library in your project:
 # Update to latest release
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
-# Or update to a specific version (current: v0.3.2)
+# Or update to a specific version
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.2
 ```
 
-**After updating**, clear your build cache if needed: `rm -rf .next` (Next.js) or equivalent. The library CSS is automatically updated.
+**After updating:**
+1. Clear your build cache: `rm -rf .next` (Next.js) or equivalent
+2. The library CSS is automatically updated
+3. Check the [Changelog](./CHANGELOG.md) for any breaking changes or new features
+
+### Version History
+
+- **v0.3.2** (Latest) - React Strict Mode fix, opacity class fixes, improved docs
+- **v0.3.1** - Icon system, standard sidebar sections, auto font loading
+- **v0.3.0** - Self-contained CSS, no Tailwind config needed
+- See [full changelog](./CHANGELOG.md) for complete history
 
 ## Tips & Best Practices
 

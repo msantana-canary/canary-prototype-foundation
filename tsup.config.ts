@@ -10,12 +10,10 @@ export default defineConfig({
   sourcemap: true,
   clean: false, // Don't clean dist since CSS is built separately
   external: ["react", "react-dom"],
-  treeshake: true,
+  treeshake: false, // Disable treeshaking to preserve "use client"
   minify: false,
   outDir: "dist",
-  esbuildOptions(options) {
-    options.banner = {
-      js: '"use client";',
-    };
+  banner: {
+    js: '"use client";',
   },
 });

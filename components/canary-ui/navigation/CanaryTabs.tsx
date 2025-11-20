@@ -66,7 +66,7 @@ export default function CanaryTabs({
                   "rounded-full transition-all duration-200",
                   "focus:outline-none",
                   tab.disabled
-                    ? "cursor-not-allowed opacity-50"
+                    ? "cursor-not-allowed canary-opacity-50"
                     : isActive
                     ? "cursor-pointer"
                     : "cursor-pointer hover:shadow-[0px_4px_0px_0px_#CCCCCC]"
@@ -121,7 +121,7 @@ export default function CanaryTabs({
                   "focus:outline-none",
                   isFirst && "rounded-l-lg",
                   isLast && "rounded-r-lg",
-                  tab.disabled && "cursor-not-allowed opacity-50",
+                  tab.disabled && "cursor-not-allowed canary-opacity-50",
                   !tab.disabled && !isActive && "hover:shadow-[0px_4px_0px_0px_#CCCCCC]"
                 )}
                 style={{
@@ -167,7 +167,7 @@ export default function CanaryTabs({
               className={clsx(
                 "flex flex-col items-start overflow-clip relative shrink-0",
                 "focus:outline-none transition-all duration-200",
-                tab.disabled && "cursor-not-allowed opacity-50"
+                tab.disabled && "cursor-not-allowed canary-opacity-50"
               )}
             >
               {/* Tab Label and Badge Container */}

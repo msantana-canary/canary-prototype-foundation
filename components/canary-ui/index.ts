@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Canary UI Component Library
  *

@@ -171,7 +171,7 @@ const CanaryInputDateUnderline = forwardRef<HTMLDivElement, CanaryInputDateUnder
               : isFocused
               ? "border-b-2 border-[#2858c4] bg-[rgba(40,88,196,0.05)]"
               : "border-b border-black bg-white",
-            isDisabled && "opacity-50"
+            isDisabled && "canary-opacity-50"
           )}
           onFocus={handleFocus}
           onBlur={handleBlur}
