@@ -19,6 +19,17 @@
 module.exports = {
   theme: {
     extend: {
+      spacing: {
+        '0.5': '2px',
+        '2.25': '9px',
+        '9': '36px',
+        '10': '40px',
+        '12': '48px',
+        '14': '56px',
+        '3.75': '15px',
+        '5.75': '23px',
+        '1px': '4px',
+      },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
       },

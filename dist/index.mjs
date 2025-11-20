@@ -571,7 +571,7 @@ function CanaryButton({
       }
     }
     if (type === "outlined" /* OUTLINED */) {
-      return size === "tablet" /* TABLET */ ? "px-[23px]" : "px-[15px]";
+      return size === "tablet" /* TABLET */ ? "canary-button-px-23" : "canary-button-px-15";
     }
     if (isExpanded) {
       return "px-2";
@@ -591,29 +591,29 @@ function CanaryButton({
     switch (type) {
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "opacity-100";
+        return "canary-opacity-100";
       case "shaded" /* SHADED */:
-        return "opacity-10";
+        return "canary-opacity-10";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "opacity-0";
+        return "canary-opacity-0";
       default:
-        return "opacity-100";
+        return "canary-opacity-100";
     }
   };
   const getHoverClasses = () => {
     if (isDisabled || isLoading) return "";
     switch (type) {
       case "shaded" /* SHADED */:
-        return "hover:[&_.button-bg]:opacity-25 active:[&_.button-bg]:opacity-50";
+        return "canary-hover-shaded-bg canary-active-shaded-bg";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "hover:[&_.button-bg]:opacity-[0.08] active:[&_.button-bg]:opacity-[0.16]";
+        return "canary-hover-outlined-bg canary-active-outlined-bg";
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "hover:[&_.button-content]:opacity-80 active:[&_.button-content]:opacity-60";
+        return "canary-hover-primary-content canary-active-primary-content";
       default:
         return "";
     }

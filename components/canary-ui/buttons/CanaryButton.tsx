@@ -133,8 +133,9 @@ export default function CanaryButton({
       }
     }
 
+    // Outlined buttons: use semantic CSS class to account for 1px border
     if (type === ButtonType.OUTLINED) {
-      return size === ButtonSize.TABLET ? "px-[23px]" : "px-[15px]";
+      return size === ButtonSize.TABLET ? "canary-button-px-23" : "canary-button-px-15";
     }
 
     if (isExpanded) {
@@ -160,15 +161,15 @@ export default function CanaryButton({
     switch (type) {
       case ButtonType.PRIMARY:
       case ButtonType.ICON_PRIMARY:
-        return "opacity-100";
+        return "canary-opacity-100";
       case ButtonType.SHADED:
-        return "opacity-10";
+        return "canary-opacity-10";
       case ButtonType.OUTLINED:
       case ButtonType.TEXT:
       case ButtonType.ICON_SECONDARY:
-        return "opacity-0";
+        return "canary-opacity-0";
       default:
-        return "opacity-100";
+        return "canary-opacity-100";
     }
   };
 
@@ -178,14 +179,14 @@ export default function CanaryButton({
 
     switch (type) {
       case ButtonType.SHADED:
-        return "hover:[&_.button-bg]:opacity-25 active:[&_.button-bg]:opacity-50";
+        return "canary-hover-shaded-bg canary-active-shaded-bg";
       case ButtonType.OUTLINED:
       case ButtonType.TEXT:
       case ButtonType.ICON_SECONDARY:
-        return "hover:[&_.button-bg]:opacity-[0.08] active:[&_.button-bg]:opacity-[0.16]";
+        return "canary-hover-outlined-bg canary-active-outlined-bg";
       case ButtonType.PRIMARY:
       case ButtonType.ICON_PRIMARY:
-        return "hover:[&_.button-content]:opacity-80 active:[&_.button-content]:opacity-60";
+        return "canary-hover-primary-content canary-active-primary-content";
       default:
         return "";
     }

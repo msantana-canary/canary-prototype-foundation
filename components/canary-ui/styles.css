@@ -394,6 +394,10 @@ body {
 .canary-opacity-8 { opacity: 0.08; }
 .canary-opacity-16 { opacity: 0.16; }
 
+/* Standard Tailwind opacity utilities */
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+
 /* Additional gap utilities */
 .gap-0 { gap: 0; }
 .gap-6 { gap: 1.5rem; }

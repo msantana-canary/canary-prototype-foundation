@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "@canary-ui/components/styles.css";
 import "./globals.css";
 
 const roboto = Roboto({
