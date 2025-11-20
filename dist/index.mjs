@@ -1,8 +1,9 @@
+import Icon from '@mdi/react';
+export { default as Icon } from '@mdi/react';
+import { mdiRadioboxMarked, mdiRadioboxBlank, mdiAlertCircleOutline, mdiCreditCard, mdiCreditCardOutline, mdiMinusBox, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiMonitor, mdiLaptop, mdiCellphone, mdiTabletCellphone, mdiMapMarker, mdiSilverwareForkKnife, mdiShieldCheckOutline, mdiShieldAccountOutline, mdiShieldOutline, mdiChartLine, mdiTrendingDown, mdiTrendingUp, mdiHelpCircleOutline, mdiInformationOutline, mdiCheckCircleOutline, mdiCheck, mdiRefresh, mdiUpload, mdiDownload, mdiContentCopy, mdiDeleteOutline, mdiPencilOutline, mdiMinus, mdiPlus, mdiPhoneOutline, mdiChatOutline, mdiMessageProcessingOutline, mdiMessageOutline, mdiEmailOutline, mdiCashMultiple, mdiCurrencyUsd, mdiBookOpenPageVariantOutline, mdiNewspaperVariantOutline, mdiFolderOutline, mdiFileDocumentOutline, mdiFileOutline, mdiPuzzleOutline, mdiPaletteOutline, mdiCogOutline, mdiLogout, mdiLogin, mdiAccountMultipleOutline, mdiAccountCheckOutline, mdiAccountGroupOutline, mdiAccountCircleOutline, mdiAccountOutline, mdiArrowRight, mdiArrowLeft, mdiChevronRight, mdiChevronLeft, mdiChevronUp, mdiChevronDown, mdiClose, mdiMenu, mdiHomeOutline, mdiFileSign, mdiAccountBoxOutline, mdiStoreOutline } from '@mdi/js';
 import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
 import clsx13 from 'clsx';
 import { forwardRef, useState, useCallback, useRef, useImperativeHandle, useEffect } from 'react';
-import Icon from '@mdi/react';
-import { mdiRadioboxMarked, mdiRadioboxBlank, mdiAlertCircleOutline, mdiCreditCard, mdiCreditCardOutline, mdiMinusBox, mdiCheckboxMarked, mdiCheckboxBlankOutline } from '@mdi/js';
 import { usePaymentInputs } from 'react-payment-inputs';
 import intlTelInput from 'intl-tel-input';
 import 'intl-tel-input/build/css/intlTelInput.css';
@@ -288,6 +289,137 @@ var easings = {
   out: "cubic-bezier(0, 0, 0.2, 1)",
   inOut: "cubic-bezier(0.4, 0, 0.2, 1)"
 };
+var CanaryIcon = {
+  // Navigation & UI
+  Home: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiHomeOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Menu: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiMenu, size: props.size || 1, color: props.color, className: props.className }),
+  Close: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiClose, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronDown: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiChevronDown, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronUp: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiChevronUp, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronLeft: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiChevronLeft, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronRight: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiChevronRight, size: props.size || 1, color: props.color, className: props.className }),
+  ArrowLeft: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiArrowLeft, size: props.size || 1, color: props.color, className: props.className }),
+  ArrowRight: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiArrowRight, size: props.size || 1, color: props.color, className: props.className }),
+  // User & Account
+  Account: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiAccountOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountCircle: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiAccountCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountGroup: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiAccountGroupOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountCheck: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiAccountCheckOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountMultiple: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiAccountMultipleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Login: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiLogin, size: props.size || 1, color: props.color, className: props.className }),
+  Logout: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiLogout, size: props.size || 1, color: props.color, className: props.className }),
+  // Settings & Configuration
+  Settings: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiCogOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Palette: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiPaletteOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Puzzle: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiPuzzleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Documents & Files
+  File: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiFileOutline, size: props.size || 1, color: props.color, className: props.className }),
+  FileDocument: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiFileDocumentOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Folder: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiFolderOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Newspaper: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiNewspaperVariantOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Compendium: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiNewspaperVariantOutline, size: props.size || 1, color: props.color, className: props.className }),
+  BookOpen: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiBookOpenPageVariantOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Financial
+  Currency: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiCurrencyUsd, size: props.size || 1, color: props.color, className: props.className }),
+  Cash: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiCashMultiple, size: props.size || 1, color: props.color, className: props.className }),
+  CreditCard: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiCreditCardOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Communication
+  Email: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiEmailOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Message: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiMessageOutline, size: props.size || 1, color: props.color, className: props.className }),
+  MessageProcessing: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiMessageProcessingOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Chat: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiChatOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Phone: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiPhoneOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Actions
+  Plus: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiPlus, size: props.size || 1, color: props.color, className: props.className }),
+  Minus: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiMinus, size: props.size || 1, color: props.color, className: props.className }),
+  Pencil: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiPencilOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Delete: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiDeleteOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Copy: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiContentCopy, size: props.size || 1, color: props.color, className: props.className }),
+  Download: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiDownload, size: props.size || 1, color: props.color, className: props.className }),
+  Upload: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiUpload, size: props.size || 1, color: props.color, className: props.className }),
+  Refresh: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiRefresh, size: props.size || 1, color: props.color, className: props.className }),
+  Check: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiCheck, size: props.size || 1, color: props.color, className: props.className }),
+  CheckCircle: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiCheckCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Status & Alerts
+  Alert: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiAlertCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Information: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiInformationOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Help: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiHelpCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Business
+  TrendingUp: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiTrendingUp, size: props.size || 1, color: props.color, className: props.className }),
+  TrendingDown: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiTrendingDown, size: props.size || 1, color: props.color, className: props.className }),
+  Chart: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiChartLine, size: props.size || 1, color: props.color, className: props.className }),
+  Shield: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiShieldOutline, size: props.size || 1, color: props.color, className: props.className }),
+  ShieldAccount: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiShieldAccountOutline, size: props.size || 1, color: props.color, className: props.className }),
+  ShieldCheck: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiShieldCheckOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Hospitality
+  Restaurant: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiSilverwareForkKnife, size: props.size || 1, color: props.color, className: props.className }),
+  Location: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiMapMarker, size: props.size || 1, color: props.color, className: props.className }),
+  // Devices
+  Tablet: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiTabletCellphone, size: props.size || 1, color: props.color, className: props.className }),
+  Cellphone: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiCellphone, size: props.size || 1, color: props.color, className: props.className }),
+  Laptop: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiLaptop, size: props.size || 1, color: props.color, className: props.className }),
+  Monitor: (props) => /* @__PURE__ */ jsx(Icon, { path: mdiMonitor, size: props.size || 1, color: props.color, className: props.className })
+};
+var iconPaths = {
+  home: mdiHomeOutline,
+  menu: mdiMenu,
+  close: mdiClose,
+  chevronDown: mdiChevronDown,
+  chevronUp: mdiChevronUp,
+  chevronLeft: mdiChevronLeft,
+  chevronRight: mdiChevronRight,
+  arrowLeft: mdiArrowLeft,
+  arrowRight: mdiArrowRight,
+  account: mdiAccountOutline,
+  accountCircle: mdiAccountCircleOutline,
+  accountGroup: mdiAccountGroupOutline,
+  accountCheck: mdiAccountCheckOutline,
+  accountMultiple: mdiAccountMultipleOutline,
+  login: mdiLogin,
+  logout: mdiLogout,
+  settings: mdiCogOutline,
+  palette: mdiPaletteOutline,
+  puzzle: mdiPuzzleOutline,
+  file: mdiFileOutline,
+  fileDocument: mdiFileDocumentOutline,
+  folder: mdiFolderOutline,
+  newspaper: mdiNewspaperVariantOutline,
+  compendium: mdiNewspaperVariantOutline,
+  bookOpen: mdiBookOpenPageVariantOutline,
+  currency: mdiCurrencyUsd,
+  cash: mdiCashMultiple,
+  creditCard: mdiCreditCardOutline,
+  email: mdiEmailOutline,
+  message: mdiMessageOutline,
+  messageProcessing: mdiMessageProcessingOutline,
+  chat: mdiChatOutline,
+  phone: mdiPhoneOutline,
+  plus: mdiPlus,
+  minus: mdiMinus,
+  pencil: mdiPencilOutline,
+  delete: mdiDeleteOutline,
+  copy: mdiContentCopy,
+  download: mdiDownload,
+  upload: mdiUpload,
+  refresh: mdiRefresh,
+  check: mdiCheck,
+  checkCircle: mdiCheckCircleOutline,
+  alert: mdiAlertCircleOutline,
+  information: mdiInformationOutline,
+  help: mdiHelpCircleOutline,
+  trendingUp: mdiTrendingUp,
+  trendingDown: mdiTrendingDown,
+  chart: mdiChartLine,
+  shield: mdiShieldOutline,
+  shieldAccount: mdiShieldAccountOutline,
+  shieldCheck: mdiShieldCheckOutline,
+  restaurant: mdiSilverwareForkKnife,
+  location: mdiMapMarker,
+  tablet: mdiTabletCellphone,
+  cellphone: mdiCellphone,
+  laptop: mdiLaptop,
+  monitor: mdiMonitor
+};
 
 // components/canary-ui/buttons/types.ts
 var ButtonType = /* @__PURE__ */ ((ButtonType2) => {
@@ -439,7 +571,7 @@ function CanaryButton({
       }
     }
     if (type === "outlined" /* OUTLINED */) {
-      return size === "tablet" /* TABLET */ ? "canary-button-px-23" : "canary-button-px-15";
+      return size === "tablet" /* TABLET */ ? "px-[23px]" : "px-[15px]";
     }
     if (isExpanded) {
       return "px-2";
@@ -459,29 +591,29 @@ function CanaryButton({
     switch (type) {
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "canary-opacity-100";
+        return "opacity-100";
       case "shaded" /* SHADED */:
-        return "canary-opacity-10";
+        return "opacity-10";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "canary-opacity-0";
+        return "opacity-0";
       default:
-        return "canary-opacity-100";
+        return "opacity-100";
     }
   };
   const getHoverClasses = () => {
     if (isDisabled || isLoading) return "";
     switch (type) {
       case "shaded" /* SHADED */:
-        return "canary-hover-shaded-bg canary-active-shaded-bg";
+        return "hover:[&_.button-bg]:opacity-25 active:[&_.button-bg]:opacity-50";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "canary-hover-outlined-bg canary-active-outlined-bg";
+        return "hover:[&_.button-bg]:opacity-[0.08] active:[&_.button-bg]:opacity-[0.16]";
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "canary-hover-primary-content canary-active-primary-content";
+        return "hover:[&_.button-content]:opacity-80 active:[&_.button-content]:opacity-60";
       default:
         return "";
     }
@@ -4607,6 +4739,158 @@ function CanaryHeader({
     }
   );
 }
+var standardMainSidebarSections = [
+  {
+    id: "main-section",
+    items: [
+      {
+        id: "upsells",
+        label: "Upsells",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiCashMultiple, size: 1 })
+      },
+      {
+        id: "check-in",
+        label: "Check-in",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiLogin, size: 1 })
+      },
+      {
+        id: "checkout",
+        label: "Checkout",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiLogout, size: 1 })
+      },
+      {
+        id: "messages",
+        label: "Messages",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiMessageProcessingOutline, size: 1 })
+      },
+      {
+        id: "calls",
+        label: "Calls",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiPhoneOutline, size: 1 })
+      },
+      {
+        id: "digital-tips",
+        label: "Digital Tips",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiCurrencyUsd, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "secondary-section",
+    items: [
+      {
+        id: "authorizations",
+        label: "Authorizations",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiShieldCheckOutline, size: 1 })
+      },
+      {
+        id: "contracts",
+        label: "Contracts",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiFileSign, size: 1 })
+      },
+      {
+        id: "id-verification",
+        label: "ID Verification",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiAccountCheckOutline, size: 1 })
+      },
+      {
+        id: "clients-on-file",
+        label: "Clients on File",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiAccountBoxOutline, size: 1 })
+      },
+      {
+        id: "amenities",
+        label: "Amenities",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiStoreOutline, size: 1 })
+      },
+      {
+        id: "payment-links",
+        label: "Payment Links",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiCreditCardOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "bottom-section",
+    items: [
+      {
+        id: "settings",
+        label: "Settings",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiCogOutline, size: 1 })
+      }
+    ]
+  }
+];
+var standardSettingsSidebarSections = [
+  {
+    id: "settings-section",
+    title: "General",
+    items: [
+      {
+        id: "property-info",
+        label: "Property Info",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiHomeOutline, size: 1 })
+      },
+      {
+        id: "branding",
+        label: "Branding",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiPaletteOutline, size: 1 })
+      },
+      {
+        id: "billing-payment",
+        label: "Billing & Payment",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiCreditCardOutline, size: 1 })
+      },
+      {
+        id: "staff-members",
+        label: "Staff Members",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiAccountGroupOutline, size: 1 })
+      },
+      {
+        id: "security",
+        label: "Security",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiShieldAccountOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "integrations-section",
+    title: "Integrations",
+    items: [
+      {
+        id: "pms",
+        label: "PMS",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiPuzzleOutline, size: 1 })
+      },
+      {
+        id: "devices",
+        label: "Devices",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiTabletCellphone, size: 1 })
+      },
+      {
+        id: "compendium",
+        label: "Compendium",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiNewspaperVariantOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "location-section",
+    title: "Location",
+    items: [
+      {
+        id: "area-info",
+        label: "Area Info",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiMapMarker, size: 1 })
+      },
+      {
+        id: "chat",
+        label: "Chat",
+        icon: /* @__PURE__ */ jsx(Icon, { path: mdiChatOutline, size: 1 })
+      }
+    ]
+  }
+];
 function CanaryToast({
   message,
   type = "info",
@@ -4758,6 +5042,6 @@ function CanaryAlert({
   );
 }
 
-export { ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox_default as CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryInput_default as CanaryInput, CanaryInputCreditCard_default as CanaryInputCreditCard, CanaryInputCreditCardUnderline_default as CanaryInputCreditCardUnderline, CanaryInputDate_default as CanaryInputDate, CanaryInputDateRange_default as CanaryInputDateRange, CanaryInputDateRangeUnderline_default as CanaryInputDateRangeUnderline, CanaryInputDateUnderline_default as CanaryInputDateUnderline, CanaryInputPassword_default as CanaryInputPassword, CanaryInputPasswordUnderline_default as CanaryInputPasswordUnderline, CanaryInputPhone_default as CanaryInputPhone, CanaryInputPhoneUnderline_default as CanaryInputPhoneUnderline, CanaryInputSearch_default as CanaryInputSearch, CanaryInputSearchUnderline_default as CanaryInputSearchUnderline, CanaryInputUnderline_default as CanaryInputUnderline, CanaryLoading, CanaryModal, CanaryRadio_default as CanaryRadio, CanaryRadioGroup, CanarySelect_default as CanarySelect, CanarySelectUnderline_default as CanarySelectUnderline, CanarySidebar, CanarySwitch_default as CanarySwitch, CanaryTable, CanaryTabs, CanaryTag, CanaryTextArea_default as CanaryTextArea, CanaryTextAreaUnderline_default as CanaryTextAreaUnderline, CanaryToast, IconPosition, InputSize, InputType, NavigationItemState, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, shadows, spacing, transitions, typography, zIndex };
+export { ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox_default as CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, CanaryInput_default as CanaryInput, CanaryInputCreditCard_default as CanaryInputCreditCard, CanaryInputCreditCardUnderline_default as CanaryInputCreditCardUnderline, CanaryInputDate_default as CanaryInputDate, CanaryInputDateRange_default as CanaryInputDateRange, CanaryInputDateRangeUnderline_default as CanaryInputDateRangeUnderline, CanaryInputDateUnderline_default as CanaryInputDateUnderline, CanaryInputPassword_default as CanaryInputPassword, CanaryInputPasswordUnderline_default as CanaryInputPasswordUnderline, CanaryInputPhone_default as CanaryInputPhone, CanaryInputPhoneUnderline_default as CanaryInputPhoneUnderline, CanaryInputSearch_default as CanaryInputSearch, CanaryInputSearchUnderline_default as CanaryInputSearchUnderline, CanaryInputUnderline_default as CanaryInputUnderline, CanaryLoading, CanaryModal, CanaryRadio_default as CanaryRadio, CanaryRadioGroup, CanarySelect_default as CanarySelect, CanarySelectUnderline_default as CanarySelectUnderline, CanarySidebar, CanarySwitch_default as CanarySwitch, CanaryTable, CanaryTabs, CanaryTag, CanaryTextArea_default as CanaryTextArea, CanaryTextAreaUnderline_default as CanaryTextAreaUnderline, CanaryToast, IconPosition, InputSize, InputType, NavigationItemState, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, iconPaths, shadows, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, zIndex };
 //# sourceMappingURL=index.mjs.map
 //# sourceMappingURL=index.mjs.map

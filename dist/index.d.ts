@@ -1,6 +1,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as react from 'react';
 import { ReactNode, MouseEvent, InputHTMLAttributes, TextareaHTMLAttributes, SelectHTMLAttributes } from 'react';
+export { default as Icon } from '@mdi/react';
 
 /**
  * Canary Design System - Design Tokens
@@ -199,6 +200,139 @@ declare const easings: {
     readonly in: "cubic-bezier(0.4, 0, 1, 1)";
     readonly out: "cubic-bezier(0, 0, 0.2, 1)";
     readonly inOut: "cubic-bezier(0.4, 0, 0.2, 1)";
+};
+
+interface CanaryIconProps {
+    size?: string | number;
+    color?: string;
+    className?: string;
+}
+/**
+ * Standard Canary Icons
+ * Pre-configured icon components with consistent defaults
+ */
+declare const CanaryIcon: {
+    Home: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Menu: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Close: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ChevronDown: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ChevronUp: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ChevronLeft: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ChevronRight: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ArrowLeft: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ArrowRight: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Account: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    AccountCircle: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    AccountGroup: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    AccountCheck: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    AccountMultiple: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Login: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Logout: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Settings: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Palette: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Puzzle: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    File: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    FileDocument: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Folder: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Newspaper: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Compendium: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    BookOpen: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Currency: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Cash: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    CreditCard: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Email: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Message: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    MessageProcessing: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Chat: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Phone: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Plus: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Minus: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Pencil: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Delete: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Copy: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Download: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Upload: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Refresh: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Check: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    CheckCircle: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Alert: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Information: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Help: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    TrendingUp: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    TrendingDown: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Chart: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Shield: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ShieldAccount: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    ShieldCheck: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Restaurant: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Location: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Tablet: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Cellphone: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Laptop: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+    Monitor: (props: CanaryIconProps) => react_jsx_runtime.JSX.Element;
+};
+/**
+ * Export raw icon paths for advanced usage
+ */
+declare const iconPaths: {
+    home: string;
+    menu: string;
+    close: string;
+    chevronDown: string;
+    chevronUp: string;
+    chevronLeft: string;
+    chevronRight: string;
+    arrowLeft: string;
+    arrowRight: string;
+    account: string;
+    accountCircle: string;
+    accountGroup: string;
+    accountCheck: string;
+    accountMultiple: string;
+    login: string;
+    logout: string;
+    settings: string;
+    palette: string;
+    puzzle: string;
+    file: string;
+    fileDocument: string;
+    folder: string;
+    newspaper: string;
+    compendium: string;
+    bookOpen: string;
+    currency: string;
+    cash: string;
+    creditCard: string;
+    email: string;
+    message: string;
+    messageProcessing: string;
+    chat: string;
+    phone: string;
+    plus: string;
+    minus: string;
+    pencil: string;
+    delete: string;
+    copy: string;
+    download: string;
+    upload: string;
+    refresh: string;
+    check: string;
+    checkCircle: string;
+    alert: string;
+    information: string;
+    help: string;
+    trendingUp: string;
+    trendingDown: string;
+    chart: string;
+    shield: string;
+    shieldAccount: string;
+    shieldCheck: string;
+    restaurant: string;
+    location: string;
+    tablet: string;
+    cellphone: string;
+    laptop: string;
+    monitor: string;
 };
 
 /**
@@ -629,6 +763,24 @@ interface CanaryHeaderProps {
 }
 declare function CanaryHeader({ logo, title, actions, navigation, className, }: CanaryHeaderProps): react_jsx_runtime.JSX.Element;
 
+/**
+ * Standard Canary Sidebar Sections
+ *
+ * Pre-configured sidebar navigation items matching the Canary product.
+ * Use these as-is or customize for your prototype.
+ */
+
+/**
+ * Standard Main Sidebar Sections
+ * Used for the main application navigation
+ */
+declare const standardMainSidebarSections: SidebarSection[];
+/**
+ * Standard Settings Sidebar Sections
+ * Used for settings/configuration pages
+ */
+declare const standardSettingsSidebarSections: SidebarSection[];
+
 type ToastType = "success" | "error" | "warning" | "info";
 interface CanaryToastProps {
     message: string;
@@ -660,4 +812,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryLoading, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, shadows, spacing, transitions, typography, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryLoading, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, iconPaths, shadows, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, zIndex };

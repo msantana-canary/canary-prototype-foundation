@@ -1,18 +1,18 @@
 'use strict';
 
+var Icon = require('@mdi/react');
+var js = require('@mdi/js');
 var jsxRuntime = require('react/jsx-runtime');
 var clsx13 = require('clsx');
 var react = require('react');
-var Icon = require('@mdi/react');
-var js = require('@mdi/js');
 var reactPaymentInputs = require('react-payment-inputs');
 var intlTelInput = require('intl-tel-input');
 require('intl-tel-input/build/css/intlTelInput.css');
 
 function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
-var clsx13__default = /*#__PURE__*/_interopDefault(clsx13);
 var Icon__default = /*#__PURE__*/_interopDefault(Icon);
+var clsx13__default = /*#__PURE__*/_interopDefault(clsx13);
 var intlTelInput__default = /*#__PURE__*/_interopDefault(intlTelInput);
 
 var __defProp = Object.defineProperty;
@@ -296,6 +296,137 @@ var easings = {
   out: "cubic-bezier(0, 0, 0.2, 1)",
   inOut: "cubic-bezier(0.4, 0, 0.2, 1)"
 };
+var CanaryIcon = {
+  // Navigation & UI
+  Home: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiHomeOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Menu: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMenu, size: props.size || 1, color: props.color, className: props.className }),
+  Close: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiClose, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronDown: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiChevronDown, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronUp: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiChevronUp, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronLeft: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiChevronLeft, size: props.size || 1, color: props.color, className: props.className }),
+  ChevronRight: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiChevronRight, size: props.size || 1, color: props.color, className: props.className }),
+  ArrowLeft: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiArrowLeft, size: props.size || 1, color: props.color, className: props.className }),
+  ArrowRight: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiArrowRight, size: props.size || 1, color: props.color, className: props.className }),
+  // User & Account
+  Account: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountCircle: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountGroup: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountGroupOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountCheck: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountCheckOutline, size: props.size || 1, color: props.color, className: props.className }),
+  AccountMultiple: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountMultipleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Login: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiLogin, size: props.size || 1, color: props.color, className: props.className }),
+  Logout: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiLogout, size: props.size || 1, color: props.color, className: props.className }),
+  // Settings & Configuration
+  Settings: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCogOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Palette: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPaletteOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Puzzle: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPuzzleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Documents & Files
+  File: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiFileOutline, size: props.size || 1, color: props.color, className: props.className }),
+  FileDocument: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiFileDocumentOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Folder: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiFolderOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Newspaper: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiNewspaperVariantOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Compendium: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiNewspaperVariantOutline, size: props.size || 1, color: props.color, className: props.className }),
+  BookOpen: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiBookOpenPageVariantOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Financial
+  Currency: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCurrencyUsd, size: props.size || 1, color: props.color, className: props.className }),
+  Cash: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCashMultiple, size: props.size || 1, color: props.color, className: props.className }),
+  CreditCard: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCreditCardOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Communication
+  Email: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiEmailOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Message: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMessageOutline, size: props.size || 1, color: props.color, className: props.className }),
+  MessageProcessing: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMessageProcessingOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Chat: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiChatOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Phone: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPhoneOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Actions
+  Plus: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPlus, size: props.size || 1, color: props.color, className: props.className }),
+  Minus: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMinus, size: props.size || 1, color: props.color, className: props.className }),
+  Pencil: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPencilOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Delete: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiDeleteOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Copy: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiContentCopy, size: props.size || 1, color: props.color, className: props.className }),
+  Download: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiDownload, size: props.size || 1, color: props.color, className: props.className }),
+  Upload: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiUpload, size: props.size || 1, color: props.color, className: props.className }),
+  Refresh: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiRefresh, size: props.size || 1, color: props.color, className: props.className }),
+  Check: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCheck, size: props.size || 1, color: props.color, className: props.className }),
+  CheckCircle: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCheckCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Status & Alerts
+  Alert: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAlertCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Information: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiInformationOutline, size: props.size || 1, color: props.color, className: props.className }),
+  Help: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiHelpCircleOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Business
+  TrendingUp: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiTrendingUp, size: props.size || 1, color: props.color, className: props.className }),
+  TrendingDown: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiTrendingDown, size: props.size || 1, color: props.color, className: props.className }),
+  Chart: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiChartLine, size: props.size || 1, color: props.color, className: props.className }),
+  Shield: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiShieldOutline, size: props.size || 1, color: props.color, className: props.className }),
+  ShieldAccount: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiShieldAccountOutline, size: props.size || 1, color: props.color, className: props.className }),
+  ShieldCheck: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiShieldCheckOutline, size: props.size || 1, color: props.color, className: props.className }),
+  // Hospitality
+  Restaurant: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiSilverwareForkKnife, size: props.size || 1, color: props.color, className: props.className }),
+  Location: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMapMarker, size: props.size || 1, color: props.color, className: props.className }),
+  // Devices
+  Tablet: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiTabletCellphone, size: props.size || 1, color: props.color, className: props.className }),
+  Cellphone: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCellphone, size: props.size || 1, color: props.color, className: props.className }),
+  Laptop: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiLaptop, size: props.size || 1, color: props.color, className: props.className }),
+  Monitor: (props) => /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMonitor, size: props.size || 1, color: props.color, className: props.className })
+};
+var iconPaths = {
+  home: js.mdiHomeOutline,
+  menu: js.mdiMenu,
+  close: js.mdiClose,
+  chevronDown: js.mdiChevronDown,
+  chevronUp: js.mdiChevronUp,
+  chevronLeft: js.mdiChevronLeft,
+  chevronRight: js.mdiChevronRight,
+  arrowLeft: js.mdiArrowLeft,
+  arrowRight: js.mdiArrowRight,
+  account: js.mdiAccountOutline,
+  accountCircle: js.mdiAccountCircleOutline,
+  accountGroup: js.mdiAccountGroupOutline,
+  accountCheck: js.mdiAccountCheckOutline,
+  accountMultiple: js.mdiAccountMultipleOutline,
+  login: js.mdiLogin,
+  logout: js.mdiLogout,
+  settings: js.mdiCogOutline,
+  palette: js.mdiPaletteOutline,
+  puzzle: js.mdiPuzzleOutline,
+  file: js.mdiFileOutline,
+  fileDocument: js.mdiFileDocumentOutline,
+  folder: js.mdiFolderOutline,
+  newspaper: js.mdiNewspaperVariantOutline,
+  compendium: js.mdiNewspaperVariantOutline,
+  bookOpen: js.mdiBookOpenPageVariantOutline,
+  currency: js.mdiCurrencyUsd,
+  cash: js.mdiCashMultiple,
+  creditCard: js.mdiCreditCardOutline,
+  email: js.mdiEmailOutline,
+  message: js.mdiMessageOutline,
+  messageProcessing: js.mdiMessageProcessingOutline,
+  chat: js.mdiChatOutline,
+  phone: js.mdiPhoneOutline,
+  plus: js.mdiPlus,
+  minus: js.mdiMinus,
+  pencil: js.mdiPencilOutline,
+  delete: js.mdiDeleteOutline,
+  copy: js.mdiContentCopy,
+  download: js.mdiDownload,
+  upload: js.mdiUpload,
+  refresh: js.mdiRefresh,
+  check: js.mdiCheck,
+  checkCircle: js.mdiCheckCircleOutline,
+  alert: js.mdiAlertCircleOutline,
+  information: js.mdiInformationOutline,
+  help: js.mdiHelpCircleOutline,
+  trendingUp: js.mdiTrendingUp,
+  trendingDown: js.mdiTrendingDown,
+  chart: js.mdiChartLine,
+  shield: js.mdiShieldOutline,
+  shieldAccount: js.mdiShieldAccountOutline,
+  shieldCheck: js.mdiShieldCheckOutline,
+  restaurant: js.mdiSilverwareForkKnife,
+  location: js.mdiMapMarker,
+  tablet: js.mdiTabletCellphone,
+  cellphone: js.mdiCellphone,
+  laptop: js.mdiLaptop,
+  monitor: js.mdiMonitor
+};
 
 // components/canary-ui/buttons/types.ts
 var ButtonType = /* @__PURE__ */ ((ButtonType2) => {
@@ -447,7 +578,7 @@ function CanaryButton({
       }
     }
     if (type === "outlined" /* OUTLINED */) {
-      return size === "tablet" /* TABLET */ ? "canary-button-px-23" : "canary-button-px-15";
+      return size === "tablet" /* TABLET */ ? "px-[23px]" : "px-[15px]";
     }
     if (isExpanded) {
       return "px-2";
@@ -467,29 +598,29 @@ function CanaryButton({
     switch (type) {
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "canary-opacity-100";
+        return "opacity-100";
       case "shaded" /* SHADED */:
-        return "canary-opacity-10";
+        return "opacity-10";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "canary-opacity-0";
+        return "opacity-0";
       default:
-        return "canary-opacity-100";
+        return "opacity-100";
     }
   };
   const getHoverClasses = () => {
     if (isDisabled || isLoading) return "";
     switch (type) {
       case "shaded" /* SHADED */:
-        return "canary-hover-shaded-bg canary-active-shaded-bg";
+        return "hover:[&_.button-bg]:opacity-25 active:[&_.button-bg]:opacity-50";
       case "outlined" /* OUTLINED */:
       case "text" /* TEXT */:
       case "icon_secondary" /* ICON_SECONDARY */:
-        return "canary-hover-outlined-bg canary-active-outlined-bg";
+        return "hover:[&_.button-bg]:opacity-[0.08] active:[&_.button-bg]:opacity-[0.16]";
       case "primary" /* PRIMARY */:
       case "icon_primary" /* ICON_PRIMARY */:
-        return "canary-hover-primary-content canary-active-primary-content";
+        return "hover:[&_.button-content]:opacity-80 active:[&_.button-content]:opacity-60";
       default:
         return "";
     }
@@ -4615,6 +4746,158 @@ function CanaryHeader({
     }
   );
 }
+var standardMainSidebarSections = [
+  {
+    id: "main-section",
+    items: [
+      {
+        id: "upsells",
+        label: "Upsells",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCashMultiple, size: 1 })
+      },
+      {
+        id: "check-in",
+        label: "Check-in",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiLogin, size: 1 })
+      },
+      {
+        id: "checkout",
+        label: "Checkout",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiLogout, size: 1 })
+      },
+      {
+        id: "messages",
+        label: "Messages",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMessageProcessingOutline, size: 1 })
+      },
+      {
+        id: "calls",
+        label: "Calls",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPhoneOutline, size: 1 })
+      },
+      {
+        id: "digital-tips",
+        label: "Digital Tips",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCurrencyUsd, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "secondary-section",
+    items: [
+      {
+        id: "authorizations",
+        label: "Authorizations",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiShieldCheckOutline, size: 1 })
+      },
+      {
+        id: "contracts",
+        label: "Contracts",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiFileSign, size: 1 })
+      },
+      {
+        id: "id-verification",
+        label: "ID Verification",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountCheckOutline, size: 1 })
+      },
+      {
+        id: "clients-on-file",
+        label: "Clients on File",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountBoxOutline, size: 1 })
+      },
+      {
+        id: "amenities",
+        label: "Amenities",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiStoreOutline, size: 1 })
+      },
+      {
+        id: "payment-links",
+        label: "Payment Links",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCreditCardOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "bottom-section",
+    items: [
+      {
+        id: "settings",
+        label: "Settings",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCogOutline, size: 1 })
+      }
+    ]
+  }
+];
+var standardSettingsSidebarSections = [
+  {
+    id: "settings-section",
+    title: "General",
+    items: [
+      {
+        id: "property-info",
+        label: "Property Info",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiHomeOutline, size: 1 })
+      },
+      {
+        id: "branding",
+        label: "Branding",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPaletteOutline, size: 1 })
+      },
+      {
+        id: "billing-payment",
+        label: "Billing & Payment",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiCreditCardOutline, size: 1 })
+      },
+      {
+        id: "staff-members",
+        label: "Staff Members",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiAccountGroupOutline, size: 1 })
+      },
+      {
+        id: "security",
+        label: "Security",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiShieldAccountOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "integrations-section",
+    title: "Integrations",
+    items: [
+      {
+        id: "pms",
+        label: "PMS",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiPuzzleOutline, size: 1 })
+      },
+      {
+        id: "devices",
+        label: "Devices",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiTabletCellphone, size: 1 })
+      },
+      {
+        id: "compendium",
+        label: "Compendium",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiNewspaperVariantOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "location-section",
+    title: "Location",
+    items: [
+      {
+        id: "area-info",
+        label: "Area Info",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiMapMarker, size: 1 })
+      },
+      {
+        id: "chat",
+        label: "Chat",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(Icon__default.default, { path: js.mdiChatOutline, size: 1 })
+      }
+    ]
+  }
+];
 function CanaryToast({
   message,
   type = "info",
@@ -4766,6 +5049,10 @@ function CanaryAlert({
   );
 }
 
+Object.defineProperty(exports, "Icon", {
+  enumerable: true,
+  get: function () { return Icon__default.default; }
+});
 exports.ButtonColor = ButtonColor;
 exports.ButtonSize = ButtonSize;
 exports.ButtonType = ButtonType;
@@ -4776,6 +5063,7 @@ exports.CanaryCheckbox = CanaryCheckbox_default;
 exports.CanaryContainer = CanaryContainer;
 exports.CanaryGrid = CanaryGrid;
 exports.CanaryHeader = CanaryHeader;
+exports.CanaryIcon = CanaryIcon;
 exports.CanaryInput = CanaryInput_default;
 exports.CanaryInputCreditCard = CanaryInputCreditCard_default;
 exports.CanaryInputCreditCardUnderline = CanaryInputCreditCardUnderline_default;
@@ -4817,8 +5105,11 @@ exports.breakpoints = breakpoints;
 exports.colors = colors;
 exports.dimensions = dimensions;
 exports.easings = easings;
+exports.iconPaths = iconPaths;
 exports.shadows = shadows;
 exports.spacing = spacing;
+exports.standardMainSidebarSections = standardMainSidebarSections;
+exports.standardSettingsSidebarSections = standardSettingsSidebarSections;
 exports.transitions = transitions;
 exports.typography = typography;
 exports.zIndex = zIndex;

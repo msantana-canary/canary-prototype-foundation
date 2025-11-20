@@ -8,6 +8,10 @@
 // Design Tokens
 export * from "./design-tokens";
 
+// Icons
+export { CanaryIcon, iconPaths, Icon } from "./icons";
+export type { CanaryIconProps } from "./icons";
+
 // Buttons
 export { CanaryButton } from "./buttons";
 export { ButtonType, ButtonSize, ButtonColor, IconPosition } from "./buttons/types";
@@ -53,6 +57,7 @@ export { CanaryContainer, CanaryGrid, CanaryModal } from "./layout";
 export { CanaryTabs, CanarySidebar, CanaryHeader } from "./navigation";
 export { SidebarVariant, NavigationItemState } from "./navigation";
 export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection } from "./navigation";
+export { standardMainSidebarSections, standardSettingsSidebarSections } from "./navigation";
 
 // Feedback
 export { CanaryToast, CanaryAlert } from "./feedback";
