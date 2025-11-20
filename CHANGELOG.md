@@ -7,9 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.2] - 2025-11-19
+
 ### Added
-- CanaryLogo component with embedded logo asset
+- **CanaryLogo component** with embedded logo asset (base64 PNG)
 - Logo now appears automatically in CanarySidebar without requiring manual asset management
+- **CHANGELOG.md** tracking all version history from v0.1.0 onwards
+- **Common Patterns documentation** in README with practical examples:
+  - Using standard sidebar sections
+  - Using the icon system
+  - Building forms
+  - Working with modals
+  - Accessing design tokens
+- Icons section added to component categories in README
+
+### Changed
+- Enhanced README with real-world usage patterns
+- Better documentation for teammates using the library
+
+### Fixed
+- Removed hardcoded `py-4` padding from CanaryTabs content areas (all variants)
+- Users now have full control over spacing around tab content
+
+### Developer Experience
+- Teammates get Canary logo automatically without managing assets
+- Better onboarding with practical code examples
+- Clear version history for understanding changes
 
 ## [0.3.1] - 2025-11-19
 
@@ -156,7 +179,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Installation
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.1
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.2
 ```
 
 ## Usage
