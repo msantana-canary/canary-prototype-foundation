@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.4] - 2025-11-21
+
+### Fixed
+- **React Strict Mode Compatibility**: Fixed phone input components (`CanaryInputPhone`, `CanaryInputPhoneUnderline`) crashing when React Strict Mode is enabled
+- **Opacity Class Prefixing**: Updated 18 components to use `canary-opacity-*` classes for consistent rendering across all button types and form components
+- **Outline Button Padding**: Changed from arbitrary values to standard Tailwind classes (`px-4`, `px-6`)
+
+### Added
+- **Demo Site Link**: Added prominent link to [live demo](https://canary-prototype-foundation.vercel.app/) at top of README
+- **API Reference**: Added prop tables for most-used components (CanaryButton, CanaryInput, CanarySidebar, CanaryCard, CanaryModal)
+- **Icon Usage Guidelines**: Documented Material Design Icons from Pictogrammers as standard with outline variants as default
+
+### Changed
+- Enhanced version management documentation in README
+- Improved "Keeping Up to Date" section with version history
+
+### Developer Experience
+- Components now work correctly with React Strict Mode enabled
+- Better documentation for teammates with quick prop reference
+- Clear icon usage standards (outline variants from Pictogrammers)
+
+## [0.3.3] - 2025-11-21
+
+### Fixed
+- Added missing `.opacity-0` and `.opacity-50` utility classes to styles.css
+- Fixed button rendering issues in external projects that were missing these utilities
+
+### Changed
+- Verified all CanaryButton CSS dependencies are present
+
 ## [0.3.2] - 2025-11-19
 
 ### Added
@@ -179,7 +209,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Installation
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.2
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.3.4
 ```
 
 ## Usage
