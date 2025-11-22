@@ -102,6 +102,7 @@ const CanarySelectUnderline = forwardRef<
               onFocus={handleFocus}
               onBlur={handleBlur}
               onChange={handleChange}
+              style={{ WebkitAppearance: 'none' }}
               {...selectProps}
               className={clsx(
                 "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",

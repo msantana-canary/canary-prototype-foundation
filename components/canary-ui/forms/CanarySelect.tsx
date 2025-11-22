@@ -80,6 +80,7 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
             disabled={isDisabled || isReadonly}
             required={isRequired}
             className={selectClasses}
+            style={{ WebkitAppearance: 'none' }}
             {...selectProps}
           >
             {(placeholder || label) && (

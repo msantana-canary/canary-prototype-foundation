@@ -975,9 +975,9 @@ var CanaryTextArea = forwardRef2(
     ]);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "text-[24px] leading-[1.5] px-4 py-3",
-      ["large" /* LARGE */]: "text-[18px] leading-[1.5] px-2 py-3",
-      ["normal" /* NORMAL */]: "text-[14px] leading-[1.5] px-2 py-[9px]",
-      ["compact" /* COMPACT */]: "text-[14px] leading-[1.5] px-2 py-[9px]"
+      ["large" /* LARGE */]: "text-[18px] leading-[1.5] px-3 py-3",
+      ["normal" /* NORMAL */]: "text-[14px] leading-[1.5] px-3 py-3",
+      ["compact" /* COMPACT */]: "text-[14px] leading-[1.5] px-2 py-2"
     };
     const resizeClasses = {
       none: "resize-none",
@@ -1110,7 +1110,8 @@ var CanarySelect = forwardRef3(
             ref,
             disabled: isDisabled || isReadonly,
             required: isRequired,
-            className: selectClasses
+            className: selectClasses,
+            style: { WebkitAppearance: "none" }
           }, selectProps), {
             children: [
               (placeholder || label) && /* @__PURE__ */ jsx6("option", { value: "", disabled: true, children: placeholder || label }),
@@ -1811,13 +1812,15 @@ var CanaryInputPhone = forwardRef10(
       inputRef.current.addEventListener("change", handleChange);
       inputRef.current.addEventListener("keyup", handleChange);
       return () => {
-        if (inputRef.current) {
-          inputRef.current.removeEventListener("blur", handleChange);
-          inputRef.current.removeEventListener("change", handleChange);
-          inputRef.current.removeEventListener("keyup", handleChange);
+        const currentInput = inputRef.current;
+        if (currentInput) {
+          currentInput.removeEventListener("blur", handleChange);
+          currentInput.removeEventListener("change", handleChange);
+          currentInput.removeEventListener("keyup", handleChange);
         }
         if (itiRef.current) {
           itiRef.current.destroy();
+          itiRef.current = null;
         }
       };
     }, [defaultCountry, onChange]);
@@ -2805,7 +2808,8 @@ var CanarySelectUnderline = forwardRef15(
             defaultValue,
             onFocus: handleFocus,
             onBlur: handleBlur,
-            onChange: handleChange
+            onChange: handleChange,
+            style: { WebkitAppearance: "none" }
           }, selectProps), {
             className: clsx16(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
@@ -2941,14 +2945,16 @@ var CanaryInputPhoneUnderline = forwardRef16(
       inputRef.current.addEventListener("change", handleChange);
       inputRef.current.addEventListener("keyup", handleChange);
       return () => {
-        if (inputRef.current) {
-          inputRef.current.removeEventListener("focus", handleFocus);
-          inputRef.current.removeEventListener("blur", handleBlur);
-          inputRef.current.removeEventListener("change", handleChange);
-          inputRef.current.removeEventListener("keyup", handleChange);
+        const currentInput = inputRef.current;
+        if (currentInput) {
+          currentInput.removeEventListener("focus", handleFocus);
+          currentInput.removeEventListener("blur", handleBlur);
+          currentInput.removeEventListener("change", handleChange);
+          currentInput.removeEventListener("keyup", handleChange);
         }
         if (itiRef.current) {
           itiRef.current.destroy();
+          itiRef.current = null;
         }
       };
     }, [defaultCountry, onChange]);
@@ -3023,7 +3029,7 @@ var CanaryInputPhoneUnderline = forwardRef16(
             bottom: 0;
             display: flex;
             align-items: center;
-            padding-left: 0;
+            padding-left: 8px;
             padding-right: 8px;
           }
 
@@ -4517,6 +4523,7 @@ function CanaryTabs({
   var _a, _b;
   const [activeTab, setActiveTab] = useState14(defaultTab || ((_a = tabs[0]) == null ? void 0 : _a.id));
   const [pressedTab, setPressedTab] = useState14(null);
+  const [hoveredTab, setHoveredTab] = useState14(null);
   const handleTabClick = (tabId, isDisabled) => {
     if (isDisabled) return;
     setActiveTab(tabId);
@@ -4528,27 +4535,32 @@ function CanaryTabs({
       /* @__PURE__ */ jsx32(
         "div",
         {
-          className: "inline-flex rounded-full p-1 gap-1",
+          className: "inline-flex rounded-full p-1 gap-1 overflow-visible",
           style: {
             backgroundColor: colors.colorBlack6
           },
           children: tabs.map((tab) => {
             const isActive = tab.id === activeTab;
+            const isHovered = hoveredTab === tab.id;
             return /* @__PURE__ */ jsxs29(
               "button",
               {
                 onClick: () => handleTabClick(tab.id, tab.disabled),
+                onMouseEnter: () => !tab.disabled && setHoveredTab(tab.id),
+                onMouseLeave: () => setHoveredTab(null),
                 disabled: tab.disabled,
                 className: clsx29(
                   "flex items-center gap-2 px-6 py-2",
                   "text-[14px] font-medium font-['Roboto',sans-serif]",
                   "rounded-full transition-all duration-200",
                   "focus:outline-none",
-                  tab.disabled ? "cursor-not-allowed canary-opacity-50" : isActive ? "cursor-pointer" : "cursor-pointer hover:shadow-[0px_4px_0px_0px_#CCCCCC]"
+                  tab.disabled ? "cursor-not-allowed canary-opacity-50" : isActive ? "cursor-pointer" : "cursor-pointer canary-tab-hover"
                 ),
                 style: {
                   backgroundColor: isActive ? colors.colorBlueDark1 : colors.colorBlack6,
-                  color: isActive ? colors.colorWhite : colors.colorBlack1
+                  color: isActive ? colors.colorWhite : colors.colorBlack1,
+                  boxShadow: isHovered && !isActive && !tab.disabled ? "0px 4px 0px 0px #CCCCCC" : void 0,
+                  WebkitTapHighlightColor: "transparent"
                 },
                 children: [
                   tab.icon && /* @__PURE__ */ jsx32("span", { children: tab.icon }),
@@ -4577,12 +4589,15 @@ function CanaryTabs({
           },
           children: tabs.map((tab, index) => {
             const isActive = tab.id === activeTab;
+            const isHovered = hoveredTab === tab.id;
             const isFirst = index === 0;
             const isLast = index === tabs.length - 1;
             return /* @__PURE__ */ jsx32(
               "button",
               {
                 onClick: () => handleTabClick(tab.id, tab.disabled),
+                onMouseEnter: () => !tab.disabled && setHoveredTab(tab.id),
+                onMouseLeave: () => setHoveredTab(null),
                 disabled: tab.disabled,
                 className: clsx29(
                   "flex items-center justify-center px-6 py-4",
@@ -4592,13 +4607,15 @@ function CanaryTabs({
                   isFirst && "rounded-l-lg",
                   isLast && "rounded-r-lg",
                   tab.disabled && "cursor-not-allowed canary-opacity-50",
-                  !tab.disabled && !isActive && "hover:shadow-[0px_4px_0px_0px_#CCCCCC]"
+                  !tab.disabled && !isActive && "canary-tab-hover"
                 ),
                 style: {
                   fontSize: segmentedFontSize,
                   backgroundColor: isActive ? colors.colorBlueDark1 : colors.colorWhite,
                   color: isActive ? colors.colorWhite : colors.colorBlack1,
-                  lineHeight: "1.5"
+                  lineHeight: "1.5",
+                  boxShadow: isHovered && !isActive && !tab.disabled ? "0px 4px 0px 0px #CCCCCC" : void 0,
+                  WebkitTapHighlightColor: "transparent"
                 },
                 children: tab.label
               },
@@ -4631,6 +4648,7 @@ function CanaryTabs({
             "focus:outline-none transition-all duration-200",
             tab.disabled && "cursor-not-allowed canary-opacity-50"
           ),
+          style: { WebkitTapHighlightColor: "transparent" },
           children: [
             /* @__PURE__ */ jsxs29(
               "div",

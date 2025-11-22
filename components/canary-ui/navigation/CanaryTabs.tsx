@@ -33,6 +33,7 @@ export default function CanaryTabs({
 }: CanaryTabsProps) {
   const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
   const [pressedTab, setPressedTab] = useState<string | null>(null);
+  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
   const handleTabClick = (tabId: string, isDisabled?: boolean) => {
     if (isDisabled) return;
@@ -48,17 +49,20 @@ export default function CanaryTabs({
       <div className={`w-full ${className}`}>
         {/* Tab Headers */}
         <div
-          className="inline-flex rounded-full p-1 gap-1"
+          className="inline-flex rounded-full p-1 gap-1 overflow-visible"
           style={{
             backgroundColor: colors.colorBlack6,
           }}
         >
           {tabs.map((tab) => {
             const isActive = tab.id === activeTab;
+            const isHovered = hoveredTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => handleTabClick(tab.id, tab.disabled)}
+                onMouseEnter={() => !tab.disabled && setHoveredTab(tab.id)}
+                onMouseLeave={() => setHoveredTab(null)}
                 disabled={tab.disabled}
                 className={clsx(
                   "flex items-center gap-2 px-6 py-2",
@@ -69,11 +73,13 @@ export default function CanaryTabs({
                     ? "cursor-not-allowed canary-opacity-50"
                     : isActive
                     ? "cursor-pointer"
-                    : "cursor-pointer hover:shadow-[0px_4px_0px_0px_#CCCCCC]"
+                    : "cursor-pointer canary-tab-hover"
                 )}
                 style={{
                   backgroundColor: isActive ? colors.colorBlueDark1 : colors.colorBlack6,
                   color: isActive ? colors.colorWhite : colors.colorBlack1,
+                  boxShadow: isHovered && !isActive && !tab.disabled ? '0px 4px 0px 0px #CCCCCC' : undefined,
+                  WebkitTapHighlightColor: 'transparent',
                 }}
               >
                 {tab.icon && <span>{tab.icon}</span>}
@@ -106,6 +112,7 @@ export default function CanaryTabs({
         >
           {tabs.map((tab, index) => {
             const isActive = tab.id === activeTab;
+            const isHovered = hoveredTab === tab.id;
             const isFirst = index === 0;
             const isLast = index === tabs.length - 1;
 
@@ -113,6 +120,8 @@ export default function CanaryTabs({
               <button
                 key={tab.id}
                 onClick={() => handleTabClick(tab.id, tab.disabled)}
+                onMouseEnter={() => !tab.disabled && setHoveredTab(tab.id)}
+                onMouseLeave={() => setHoveredTab(null)}
                 disabled={tab.disabled}
                 className={clsx(
                   "flex items-center justify-center px-6 py-4",
@@ -122,13 +131,15 @@ export default function CanaryTabs({
                   isFirst && "rounded-l-lg",
                   isLast && "rounded-r-lg",
                   tab.disabled && "cursor-not-allowed canary-opacity-50",
-                  !tab.disabled && !isActive && "hover:shadow-[0px_4px_0px_0px_#CCCCCC]"
+                  !tab.disabled && !isActive && "canary-tab-hover"
                 )}
                 style={{
                   fontSize: segmentedFontSize,
                   backgroundColor: isActive ? colors.colorBlueDark1 : colors.colorWhite,
                   color: isActive ? colors.colorWhite : colors.colorBlack1,
                   lineHeight: "1.5",
+                  boxShadow: isHovered && !isActive && !tab.disabled ? '0px 4px 0px 0px #CCCCCC' : undefined,
+                  WebkitTapHighlightColor: 'transparent',
                 }}
               >
                 {tab.label}
@@ -169,6 +180,7 @@ export default function CanaryTabs({
                 "focus:outline-none transition-all duration-200",
                 tab.disabled && "cursor-not-allowed canary-opacity-50"
               )}
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
               {/* Tab Label and Badge Container */}
               <div

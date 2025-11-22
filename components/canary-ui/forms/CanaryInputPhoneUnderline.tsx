@@ -89,14 +89,16 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
       inputRef.current.addEventListener("keyup", handleChange);
 
       return () => {
-        if (inputRef.current) {
-          inputRef.current.removeEventListener("focus", handleFocus);
-          inputRef.current.removeEventListener("blur", handleBlur);
-          inputRef.current.removeEventListener("change", handleChange);
-          inputRef.current.removeEventListener("keyup", handleChange);
+        const currentInput = inputRef.current;
+        if (currentInput) {
+          currentInput.removeEventListener("focus", handleFocus);
+          currentInput.removeEventListener("blur", handleBlur);
+          currentInput.removeEventListener("change", handleChange);
+          currentInput.removeEventListener("keyup", handleChange);
         }
         if (itiRef.current) {
           itiRef.current.destroy();
+          itiRef.current = null;
         }
       };
     }, [defaultCountry, onChange]);
@@ -199,7 +201,7 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
             bottom: 0;
             display: flex;
             align-items: center;
-            padding-left: 0;
+            padding-left: 8px;
             padding-right: 8px;
           }
 

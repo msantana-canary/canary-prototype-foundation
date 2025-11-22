@@ -27,9 +27,9 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
   ) => {
     const sizeClasses = {
       [InputSize.TABLET]: "text-[24px] leading-[1.5] px-4 py-3",
-      [InputSize.LARGE]: "text-[18px] leading-[1.5] px-2 py-3",
-      [InputSize.NORMAL]: "text-[14px] leading-[1.5] px-2 py-[9px]",
-      [InputSize.COMPACT]: "text-[14px] leading-[1.5] px-2 py-[9px]",
+      [InputSize.LARGE]: "text-[18px] leading-[1.5] px-3 py-3",
+      [InputSize.NORMAL]: "text-[14px] leading-[1.5] px-3 py-3",
+      [InputSize.COMPACT]: "text-[14px] leading-[1.5] px-2 py-2",
     };
 
     const resizeClasses = {

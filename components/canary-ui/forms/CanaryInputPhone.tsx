@@ -68,13 +68,15 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
       inputRef.current.addEventListener("keyup", handleChange);
 
       return () => {
-        if (inputRef.current) {
-          inputRef.current.removeEventListener("blur", handleChange);
-          inputRef.current.removeEventListener("change", handleChange);
-          inputRef.current.removeEventListener("keyup", handleChange);
+        const currentInput = inputRef.current;
+        if (currentInput) {
+          currentInput.removeEventListener("blur", handleChange);
+          currentInput.removeEventListener("change", handleChange);
+          currentInput.removeEventListener("keyup", handleChange);
         }
         if (itiRef.current) {
           itiRef.current.destroy();
+          itiRef.current = null;
         }
       };
     }, [defaultCountry, onChange]);

@@ -21,6 +21,12 @@
 
   /* Font family - Roboto is the standard font for all Canary components */
   --canary-font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Override intl-tel-input image paths to use CDN for phone input flag icons */
+  --iti-path-flags-1x: url("https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/img/flags.webp");
+  --iti-path-flags-2x: url("https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/img/flags@2x.webp");
+  --iti-path-globe-1x: url("https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/img/globe.webp");
+  --iti-path-globe-2x: url("https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/img/globe@2x.webp");
 }
 
 /* Apply Roboto font to all Canary components by default */
@@ -410,6 +416,11 @@ body {
 .canary-hover-primary-content:hover .button-content { opacity: 0.8; }
 .canary-active-primary-content:active .button-content { opacity: 0.6; }
 
+/* Tab hover states */
+.canary-tab-hover:hover {
+  box-shadow: 0px 4px 0px 0px #999999 !important;
+}
+
 /* Border radius with child selectors */
 .\[\&_\.button-bg\]\:rounded-\[4px\] .button-bg { border-radius: 4px; }
 .\[\&_\.button-bg\]\:rounded-full .button-bg { border-radius: 9999px; }
@@ -417,6 +428,7 @@ body {
 /* Additional utilities */
 .h-auto { height: auto; }
 .cursor-default { cursor: default; }
+.overflow-visible { overflow: visible; }
 .flex-row-reverse { flex-direction: row-reverse; }
 .outline-none { outline: 2px solid transparent; outline-offset: 2px; }
 
