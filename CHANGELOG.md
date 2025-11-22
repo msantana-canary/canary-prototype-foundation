@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.5] - 2025-11-21
+
+### Fixed
+- **CanaryTabs Hover States**: Fixed hover shadow effects for rounded and segmented tab variants using React state tracking
+- **Phone Input Flag Icons**: Fixed `CanaryInputPhoneUnderline` flag icons not loading due to React Strict Mode cleanup issue
+  - Properly reset `itiRef.current` to null in cleanup function
+  - Fixed country container padding to match regular variant
+- **CanaryTextArea Padding**: Improved text spacing by increasing padding from `py-[9px]` to `py-3` for better readability
+- **Safari Select Styling**: Added `WebkitAppearance: 'none'` to both `CanarySelect` and `CanarySelectUnderline` for consistent cross-browser appearance
+- **Phone Input CDN Assets**: Added CDN URLs for intl-tel-input flag icons to resolve broken relative paths in bundled library
+
+### Changed
+- Suppressed Chrome tap highlight on all tab variants for cleaner interaction
+- Improved phone input component padding consistency across variants
+
+### Developer Experience
+- Components now work consistently across Chrome and Safari
+- Phone input components properly initialize in React Strict Mode environments
+- Better visual consistency across all browsers
+
 ## [0.3.4] - 2025-11-21
 
 ### Fixed
