@@ -139,6 +139,8 @@ Open [http://localhost:3000](http://localhost:3000) to see the component showcas
 - `CanaryTag` - Status tags with color variants
 - `CanaryTable` - Data table with sorting and custom renderers
 - `CanaryCard` - Card container with header and footer
+- `CanaryListItem` - Flexible list item with title, subtitle, description, icons
+- `CanaryList` - List container with drag-and-drop, animations, and state management
 
 ### Layout
 - `CanaryContainer` - Responsive container with max-width options
@@ -356,6 +358,55 @@ export default function ModalExample() {
 }
 ```
 
+### Building Lists
+
+```tsx
+import { CanaryList, CanaryListItem } from '@canary-ui/components';
+import Icon from '@mdi/react';
+import { mdiAccountOutline, mdiDrag } from '@mdi/js';
+
+// Simple list
+<CanaryList hasOuterBorder>
+  <CanaryListItem
+    title="John Doe"
+    subtitle="john@example.com"
+    icon={<Icon path={mdiAccountOutline} size={1} />}
+    onClick={() => console.log('Clicked')}
+  />
+  <CanaryListItem
+    title="Jane Smith"
+    subtitle="jane@example.com"
+    icon={<Icon path={mdiAccountOutline} size={1} />}
+  />
+</CanaryList>
+
+// Draggable list with state management
+const [items, setItems] = useState([
+  { id: '1', name: 'Task 1' },
+  { id: '2', name: 'Task 2' },
+  { id: '3', name: 'Task 3' }
+]);
+
+<CanaryList
+  isDraggable
+  items={items}
+  onReorder={setItems}
+  hasOuterBorder
+>
+  {items.map(item => (
+    <CanaryListItem
+      key={item.id}
+      title={item.name}
+      isDraggable
+    />
+  ))}
+</CanaryList>
+
+// List with loading/empty states
+<CanaryList hasOuterBorder isLoading />
+<CanaryList hasOuterBorder isEmpty emptyContent="No items found" />
+```
+
 ### Working with Design Tokens
 
 Access design tokens directly for custom styling:
@@ -571,6 +622,122 @@ const [isOpen, setIsOpen] = useState(false);
     </CanaryButton>
   </div>
 </CanaryModal>
+```
+
+### CanaryListItem
+
+```tsx
+import { CanaryListItem } from '@canary-ui/components';
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `ReactNode` | - | Primary text content |
+| `subtitle` | `ReactNode` | - | Secondary text content |
+| `description` | `ReactNode` | - | Tertiary text content |
+| `icon` | `ReactNode` | - | Icon element to display |
+| `leftContent` | `ReactNode` | - | Custom content on the left |
+| `rightContent` | `ReactNode` | - | Custom content on the right |
+| `children` | `ReactNode` | - | Custom structure (overrides all convenience props) |
+| `onClick` | `function` | - | Click handler |
+| `href` | `string` | - | Navigation URL |
+| `isClickable` | `boolean` | `true` | Whether item responds to clicks |
+| `isDraggable` | `boolean` | `false` | Show drag handle |
+| `isSelected` | `boolean` | `false` | Selected state |
+| `padding` | `'normal' \| 'compact'` | `'normal'` | Vertical padding |
+| `alignment` | `'start' \| 'center'` | `'center'` | Vertical alignment |
+| `allowTextWrap` | `boolean` | `false` | Allow text to wrap vs truncate |
+| `className` | `string` | - | Additional CSS classes |
+
+**Common patterns:**
+```tsx
+// Simple list item
+<CanaryListItem
+  title="John Doe"
+  subtitle="john@example.com"
+  icon={<Icon path={mdiAccountOutline} size={1} />}
+  onClick={() => console.log('Clicked')}
+/>
+
+// List item with description and right content
+<CanaryListItem
+  title="Project Alpha"
+  subtitle="Updated 2 hours ago"
+  description="In progress - 3 tasks remaining"
+  rightContent={<CanaryTag color="blue">Active</CanaryTag>}
+/>
+
+// Custom layout using children
+<CanaryListItem>
+  <div className="flex items-center gap-4">
+    <img src="/avatar.jpg" className="w-10 h-10 rounded-full" />
+    <div>
+      <h4>Custom Content</h4>
+      <p>Complete flexibility</p>
+    </div>
+  </div>
+</CanaryListItem>
+```
+
+### CanaryList
+
+```tsx
+import { CanaryList } from '@canary-ui/components';
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | List items (CanaryListItem components) |
+| `items` | `any[]` | - | Array of items for controlled drag-and-drop |
+| `isDraggable` | `boolean` | `false` | Enable drag-and-drop reordering |
+| `onReorder` | `function` | - | Called when items are reordered |
+| `hasOuterBorder` | `boolean` | `false` | Show border around list |
+| `isLoading` | `boolean` | `false` | Show loading state |
+| `loadingContent` | `ReactNode` | `'Loading...'` | Custom loading content |
+| `isEmpty` | `boolean` | `false` | Show empty state |
+| `emptyContent` | `ReactNode` | `'No items to display'` | Custom empty content |
+| `hasError` | `boolean` | `false` | Show error state |
+| `errorContent` | `ReactNode` | `'Error loading list'` | Custom error content |
+| `className` | `string` | - | Additional CSS classes |
+
+**Common patterns:**
+```tsx
+// Static list
+<CanaryList hasOuterBorder>
+  <CanaryListItem title="Item 1" />
+  <CanaryListItem title="Item 2" />
+  <CanaryListItem title="Item 3" />
+</CanaryList>
+
+// Draggable list with state
+const [items, setItems] = useState([
+  { id: '1', name: 'Task 1' },
+  { id: '2', name: 'Task 2' }
+]);
+
+<CanaryList
+  isDraggable
+  items={items}
+  onReorder={setItems}
+  hasOuterBorder
+>
+  {items.map(item => (
+    <CanaryListItem key={item.id} title={item.name} isDraggable />
+  ))}
+</CanaryList>
+
+// List with loading/empty states
+<CanaryList hasOuterBorder isLoading />
+<CanaryList
+  hasOuterBorder
+  isEmpty
+  emptyContent={
+    <div>
+      <Icon path={mdiInboxOutline} size={2} />
+      <p>No tasks yet</p>
+    </div>
+  }
+/>
 ```
 
 ## Usage Example
