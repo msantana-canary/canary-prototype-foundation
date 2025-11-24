@@ -29,6 +29,8 @@ import {
   CanaryTag,
   CanaryTable,
   CanaryCard,
+  CanaryListItem,
+  CanaryList,
   CanaryContainer,
   CanaryGrid,
   CanaryModal,
@@ -91,6 +93,9 @@ import {
   mdiChatOutline,
   mdiCashMultiple,
   mdiNewspaperVariantOutline,
+  mdiInbox,
+  mdiAlertCircle,
+  mdiDrag,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -149,6 +154,35 @@ function Section({ title, children, id }: SectionProps) {
       </div>
       {isExpanded && children}
     </section>
+  );
+}
+
+// Draggable List Example Component
+function DraggableListExample() {
+  const [items, setItems] = useState([
+    { id: '1', title: 'Drag Me First', subtitle: 'Try dragging this item' },
+    { id: '2', title: 'Drag Me Second', subtitle: 'Reorder by dragging' },
+    { id: '3', title: 'Drag Me Third', subtitle: 'Items maintain state' },
+    { id: '4', title: 'Drag Me Fourth', subtitle: 'Smooth animations' },
+  ]);
+
+  return (
+    <CanaryList
+      hasOuterBorder={true}
+      isDraggable={true}
+      items={items}
+      onReorder={setItems}
+    >
+      {items.map((item) => (
+        <CanaryListItem
+          key={item.id}
+          isDraggable={true}
+          title={item.title}
+          subtitle={item.subtitle}
+          leftContent={<Icon path={mdiDrag} size={1} color={colors.colorBlack3} />}
+        />
+      ))}
+    </CanaryList>
   );
 }
 
@@ -1695,6 +1729,536 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
   data={data}
   onRowClick={(row) => alert(\`Clicked: \${row.name}\`)}
 />`}
+                />
+              </CanaryCard>
+
+              {/* List Item */}
+              <CanaryCard title="CanaryListItem">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Basic Usage</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        title="Simple List Item"
+                        subtitle="This is a subtitle"
+                      />
+                      <CanaryListItem
+                        title="With Left Content"
+                        leftContent={<Icon path={mdiAccount} size={1} />}
+                        subtitle="Has an icon on the left"
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">With Left & Right Content</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
+                            JD
+                          </div>
+                        }
+                        title="John Doe"
+                        subtitle="john.doe@example.com"
+                        rightContent={
+                          <CanaryButton type={ButtonType.OUTLINED} size={ButtonSize.COMPACT}>
+                            View
+                          </CanaryButton>
+                        }
+                      />
+                      <CanaryListItem
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white font-medium">
+                            JS
+                          </div>
+                        }
+                        title="Jane Smith"
+                        subtitle="jane.smith@example.com"
+                        rightContent={
+                          <CanaryTag label="Active" color={TagColor.SUCCESS} size={TagSize.COMPACT} />
+                        }
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Clickable & Selected States</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        title="Clickable Item"
+                        subtitle="Click me"
+                        onClick={() => alert('Item clicked!')}
+                        leftContent={<Icon path={mdiCheckCircle} size={1} />}
+                      />
+                      <CanaryListItem
+                        title="Selected Item"
+                        subtitle="This item is selected"
+                        isSelected={true}
+                        leftContent={<Icon path={mdiCheckCircle} size={1} />}
+                      />
+                      <CanaryListItem
+                        title="Link Item"
+                        subtitle="I'm a link"
+                        href="https://example.com"
+                        target="_blank"
+                        leftContent={<Icon path={mdiArrowRight} size={1} />}
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Non-Clickable Items</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        title="Read-Only Item"
+                        subtitle="No hover effect or cursor change"
+                        isClickable={false}
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-gray-400 flex items-center justify-center text-white font-medium">
+                            RO
+                          </div>
+                        }
+                      />
+                      <CanaryListItem
+                        title="Display Only"
+                        subtitle="Information display without interaction"
+                        isClickable={false}
+                        leftContent={<Icon path={mdiAccount} size={1} />}
+                      />
+                      <CanaryListItem
+                        title="Static Content"
+                        subtitle="No click handler"
+                        isClickable={false}
+                        rightContent={
+                          <CanaryTag label="Disabled" color={TagColor.DEFAULT} size={TagSize.COMPACT} />
+                        }
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Compact Padding</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        padding="compact"
+                        title="Compact Item 1"
+                        subtitle="Less padding"
+                      />
+                      <CanaryListItem
+                        padding="compact"
+                        title="Compact Item 2"
+                        subtitle="Less padding"
+                      />
+                      <CanaryListItem
+                        padding="compact"
+                        title="Compact Item 3"
+                        subtitle="Less padding"
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Start Alignment</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        alignment="start"
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-purple-500" />
+                        }
+                        title="Aligned to Start"
+                        subtitle="This is aligned to the start"
+                        rightContent={
+                          <Icon path={mdiChevronDown} size={1} />
+                        }
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">With Description Field</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
+                            JD
+                          </div>
+                        }
+                        title="John Doe"
+                        subtitle="Product Manager"
+                        description="This is additional description text"
+                      />
+                      <CanaryListItem
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white font-medium">
+                            JS
+                          </div>
+                        }
+                        title="Jane Smith"
+                        subtitle="Software Engineer"
+                        description="Another description here"
+                        isSelected={true}
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">With Icon (Separate from Left Content)</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        icon={<Icon path={mdiCheckCircle} size={1} />}
+                        title="Verified Account"
+                        subtitle="This has an icon before any left content"
+                      />
+                      <CanaryListItem
+                        icon={<Icon path={mdiCheckCircle} size={1} />}
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-medium">
+                            AB
+                          </div>
+                        }
+                        title="Both Icon and Left Content"
+                        subtitle="Icon renders first, then left content"
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Title with Badge (ReactNode)</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
+                            VIP
+                          </div>
+                        }
+                        title={
+                          <div className="flex items-center gap-2">
+                            <span>Premium User</span>
+                            <CanaryTag label="VIP" color={TagColor.SUCCESS} size={TagSize.COMPACT} />
+                          </div>
+                        }
+                        subtitle="Custom ReactNode in title with badge"
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Text Wrapping (Long Content)</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        title="Really long test title that should push the limits and wraps and wraps to the next line when allowTextWrap is enabled"
+                        subtitle="Really long test subtitle that should push the limits and wraps to the next line"
+                        allowTextWrap={true}
+                        leftContent={
+                          <div className="w-10 h-10 rounded-full bg-orange-500" />
+                        }
+                      />
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Custom Children (Maximum Flexibility)</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem>
+                        <div className="flex items-center gap-4 w-full">
+                          <Icon path={mdiCogOutline} size={1.5} />
+                          <div className="flex-1">
+                            <div className="font-semibold text-lg">Custom Layout</div>
+                            <div className="text-sm text-gray-500">Build any structure you want with children</div>
+                          </div>
+                          <div className="flex gap-2">
+                            <CanaryButton type={ButtonType.OUTLINED} size={ButtonSize.COMPACT}>
+                              <Icon path={mdiPencil} size={0.7} />
+                            </CanaryButton>
+                            <CanaryButton type={ButtonType.OUTLINED} size={ButtonSize.COMPACT} color={ButtonColor.DANGER}>
+                              <Icon path={mdiDelete} size={0.7} />
+                            </CanaryButton>
+                          </div>
+                        </div>
+                      </CanaryListItem>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Draggable</h4>
+                    <ul className="border rounded-lg overflow-hidden" style={{ borderColor: colors.colorBlack6 }}>
+                      <CanaryListItem
+                        isDraggable={true}
+                        title="Draggable Item 1"
+                        subtitle="I can be dragged"
+                      />
+                      <CanaryListItem
+                        isDraggable={true}
+                        title="Draggable Item 2"
+                        subtitle="I can be dragged too"
+                      />
+                    </ul>
+                  </div>
+                </div>
+                <CodeSnippet
+                  code={`// Basic usage
+<CanaryListItem
+  title="Simple List Item"
+  subtitle="This is a subtitle"
+/>
+
+// With left content (icon or any component)
+<CanaryListItem
+  title="With Icon"
+  subtitle="Subtitle text"
+  leftContent={<Icon path={mdiAccount} size={1} />}
+/>
+
+// With left and right content
+<CanaryListItem
+  leftContent={<div className="w-10 h-10 rounded-full bg-blue-500" />}
+  title="John Doe"
+  subtitle="john.doe@example.com"
+  rightContent={<CanaryButton>View</CanaryButton>}
+/>
+
+// Clickable
+<CanaryListItem
+  title="Click Me"
+  onClick={() => alert('Clicked!')}
+/>
+
+// As a link
+<CanaryListItem
+  title="Link Item"
+  href="https://example.com"
+  target="_blank"
+/>
+
+// Non-clickable (no hover effect)
+<CanaryListItem
+  title="Read-Only Item"
+  subtitle="Display only, no interaction"
+  isClickable={false}
+/>
+
+// Selected state
+<CanaryListItem
+  title="Selected"
+  isSelected={true}
+/>
+
+// Compact padding
+<CanaryListItem
+  padding="compact"
+  title="Compact Item"
+/>
+
+// Start alignment
+<CanaryListItem
+  alignment="start"
+  title="Aligned to Start"
+  subtitle="For multi-line content"
+/>
+
+// With description field
+<CanaryListItem
+  title="John Doe"
+  subtitle="Product Manager"
+  description="Additional description text"
+/>
+
+// With icon (separate from leftContent)
+<CanaryListItem
+  icon={<Icon path={mdiCheckCircle} size={1} />}
+  title="Verified Account"
+  subtitle="Has icon before left content"
+/>
+
+// Title with badge (ReactNode)
+<CanaryListItem
+  title={
+    <div className="flex items-center gap-2">
+      <span>Premium User</span>
+      <CanaryTag label="VIP" />
+    </div>
+  }
+  subtitle="Custom content in title"
+/>
+
+// Text wrapping (no truncation)
+<CanaryListItem
+  title="Really long title that wraps to next line"
+  subtitle="Really long subtitle that also wraps"
+  allowTextWrap={true}
+/>
+
+// Draggable
+<CanaryListItem
+  isDraggable={true}
+  title="Drag Me"
+/>
+
+// Maximum flexibility with children
+<CanaryListItem>
+  <div className="flex items-center gap-4 w-full">
+    <Icon path={mdiCog} size={1.5} />
+    <div className="flex-1">
+      <div className="font-semibold">Custom Layout</div>
+      <div>Build any structure you want</div>
+    </div>
+    <CanaryButton>Edit</CanaryButton>
+  </div>
+</CanaryListItem>`}
+                />
+              </CanaryCard>
+
+              {/* CanaryList */}
+              <CanaryCard title="CanaryList">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Basic List with Bordered Container</h4>
+                    <CanaryList hasOuterBorder={true}>
+                      <CanaryListItem
+                        title="First Item"
+                        subtitle="This is in a CanaryList container"
+                        leftContent={<Icon path={mdiAccount} size={1} />}
+                      />
+                      <CanaryListItem
+                        title="Second Item"
+                        subtitle="The list handles borders and styling"
+                        leftContent={<Icon path={mdiCheckCircle} size={1} />}
+                      />
+                      <CanaryListItem
+                        title="Third Item"
+                        subtitle="Clean and organized"
+                        leftContent={<Icon path={mdiCogOutline} size={1} />}
+                      />
+                    </CanaryList>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Draggable List (Try dragging items!)</h4>
+                    <DraggableListExample />
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Loading State</h4>
+                    <CanaryList hasOuterBorder={true} isLoading={true} />
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Empty State</h4>
+                    <CanaryList
+                      hasOuterBorder={true}
+                      isEmpty={true}
+                      emptyContent={
+                        <div className="flex flex-col items-center gap-2">
+                          <Icon path={mdiInbox} size={2} style={{ fill: colors.colorBlack4 }} />
+                          <div className="text-sm font-medium" style={{ color: colors.colorBlack3 }}>No items found</div>
+                          <div className="text-xs" style={{ color: colors.colorBlack4 }}>Try adding some items to get started</div>
+                        </div>
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Error State</h4>
+                    <CanaryList
+                      hasOuterBorder={true}
+                      hasError={true}
+                      errorContent={
+                        <div className="flex flex-col items-center gap-2">
+                          <Icon path={mdiAlertCircle} size={2} style={{ fill: colors.colorRed1 }} />
+                          <div className="text-sm font-medium" style={{ color: colors.colorRed1 }}>Failed to load items</div>
+                          <CanaryButton type={ButtonType.OUTLINED} size={ButtonSize.COMPACT}>
+                            Retry
+                          </CanaryButton>
+                        </div>
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">List without Border</h4>
+                    <CanaryList>
+                      <CanaryListItem
+                        title="Item 1"
+                        subtitle="No outer border"
+                      />
+                      <CanaryListItem
+                        title="Item 2"
+                        subtitle="Items still have separators"
+                      />
+                    </CanaryList>
+                  </div>
+                </div>
+                <CodeSnippet
+                  code={`// Basic list with bordered container
+<CanaryList hasOuterBorder={true}>
+  <CanaryListItem
+    title="First Item"
+    subtitle="Description"
+  />
+  <CanaryListItem
+    title="Second Item"
+    subtitle="Description"
+  />
+</CanaryList>
+
+// Draggable list with reordering
+const [items, setItems] = useState([
+  { id: '1', title: 'Item 1' },
+  { id: '2', title: 'Item 2' },
+  { id: '3', title: 'Item 3' }
+]);
+
+<CanaryList
+  hasOuterBorder={true}
+  isDraggable={true}
+  items={items}
+  onReorder={setItems}
+>
+  {items.map((item) => (
+    <CanaryListItem
+      key={item.id}
+      isDraggable={true}
+      title={item.title}
+    />
+  ))}
+</CanaryList>
+
+// Loading state
+<CanaryList
+  hasOuterBorder={true}
+  isLoading={true}
+/>
+
+// Empty state with custom content
+<CanaryList
+  hasOuterBorder={true}
+  isEmpty={true}
+  emptyContent={
+    <div>
+      <p>No items found</p>
+      <button>Add Item</button>
+    </div>
+  }
+/>
+
+// Error state with custom content
+<CanaryList
+  hasOuterBorder={true}
+  hasError={true}
+  errorContent={
+    <div>
+      <p>Failed to load</p>
+      <button>Retry</button>
+    </div>
+  }
+/>
+
+// List without outer border
+<CanaryList>
+  <CanaryListItem title="Item 1" />
+  <CanaryListItem title="Item 2" />
+</CanaryList>`}
                 />
               </CanaryCard>
             </div>

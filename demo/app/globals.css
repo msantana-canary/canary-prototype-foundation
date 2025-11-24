@@ -76,6 +76,16 @@ textarea::placeholder {
 }
 
 /* Component-specific utility classes - these won't be purged by Tailwind */
+
+/* CanaryListItem - Border handling */
+.canary-list-item {
+  border-bottom: 1px solid #D9D9D9; /* colors.colorBlack6 */
+}
+
+.canary-list-item:last-child {
+  border-bottom: none;
+}
+
 /* Button padding classes */
 .canary-button-px-15 {
   padding-left: 15px;

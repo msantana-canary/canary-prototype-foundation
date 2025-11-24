@@ -662,6 +662,52 @@ interface CanaryCardProps {
 }
 declare function CanaryCard({ children, title, subtitle, footer, padding, hasShadow, hasBorder, className, onClick, }: CanaryCardProps): react_jsx_runtime.JSX.Element;
 
+interface CanaryListItemProps {
+    children?: ReactNode;
+    title?: ReactNode;
+    subtitle?: ReactNode;
+    description?: ReactNode;
+    icon?: ReactNode;
+    leftContent?: ReactNode;
+    rightContent?: ReactNode;
+    onClick?: () => void;
+    href?: string;
+    target?: "_blank" | "_self" | "_parent" | "_top";
+    isClickable?: boolean;
+    isDraggable?: boolean;
+    className?: string;
+    padding?: "normal" | "compact";
+    alignment?: "start" | "center";
+    isSelected?: boolean;
+    backgroundColor?: string;
+    hoverColor?: string;
+    selectedBackgroundColor?: string;
+    selectedTitleColor?: string;
+    selectedSubtitleColor?: string;
+    selectedDescriptionColor?: string;
+    allowTextWrap?: boolean;
+}
+declare const CanaryListItem: react.ForwardRefExoticComponent<CanaryListItemProps & react.RefAttributes<HTMLLIElement>>;
+
+interface CanaryListProps {
+    children?: ReactNode;
+    items?: any[];
+    isDraggable?: boolean;
+    onReorder?: (items: any[]) => void;
+    className?: string;
+    hasOuterBorder?: boolean;
+    isLoading?: boolean;
+    loadingContent?: ReactNode;
+    isEmpty?: boolean;
+    emptyContent?: ReactNode;
+    hasError?: boolean;
+    errorContent?: ReactNode;
+}
+declare const CanaryList: {
+    ({ children, items, isDraggable, onReorder, className, hasOuterBorder, isLoading, loadingContent, isEmpty, emptyContent, hasError, errorContent, }: CanaryListProps): react_jsx_runtime.JSX.Element;
+    displayName: string;
+};
+
 interface CanaryContainerProps {
     children: ReactNode;
     maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
@@ -825,4 +871,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, iconPaths, shadows, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, iconPaths, shadows, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, zIndex };
