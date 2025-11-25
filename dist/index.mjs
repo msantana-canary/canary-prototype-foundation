@@ -4377,7 +4377,7 @@ var CanaryListItem = forwardRef22(
     const subtitleColor = isSelected ? selectedSubtitleColor || colors.colorWhite : colors.colorBlack3;
     const descriptionColor = isSelected ? selectedDescriptionColor || "#93ABE1" : "#707070";
     const content = children || /* @__PURE__ */ jsxs28(Fragment5, { children: [
-      isDraggable && /* @__PURE__ */ jsx29("div", { className: "flex items-center cursor-grab dragHandle", children: /* @__PURE__ */ jsx29(Icon10, { path: mdiDrag, size: 0.8, style: { fill: colors.colorBlack1 } }) }),
+      isDraggable && /* @__PURE__ */ jsx29("div", { className: "flex items-center cursor-grab dragHandle", children: /* @__PURE__ */ jsx29(Icon10, { path: mdiDrag, size: 0.8, color: colors.colorBlack1 }) }),
       icon && /* @__PURE__ */ jsx29("div", { className: "flex items-center", children: icon }),
       leftContent && /* @__PURE__ */ jsx29("div", { className: "flex items-center flex-shrink-0", children: leftContent }),
       /* @__PURE__ */ jsxs28("div", { className: "flex flex-col flex-1 min-w-0 gap-0.5", children: [

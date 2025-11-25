@@ -179,7 +179,6 @@ function DraggableListExample() {
           isDraggable={true}
           title={item.title}
           subtitle={item.subtitle}
-          leftContent={<Icon path={mdiDrag} size={1} color={colors.colorBlack3} />}
         />
       ))}
     </CanaryList>

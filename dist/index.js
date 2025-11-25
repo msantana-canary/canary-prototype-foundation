@@ -4415,7 +4415,7 @@ var CanaryListItem = (0, import_react31.forwardRef)(
     const subtitleColor = isSelected ? selectedSubtitleColor || colors.colorWhite : colors.colorBlack3;
     const descriptionColor = isSelected ? selectedDescriptionColor || "#93ABE1" : "#707070";
     const content = children || /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
-      isDraggable && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "flex items-center cursor-grab dragHandle", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react32.default, { path: import_js10.mdiDrag, size: 0.8, style: { fill: colors.colorBlack1 } }) }),
+      isDraggable && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "flex items-center cursor-grab dragHandle", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react32.default, { path: import_js10.mdiDrag, size: 0.8, color: colors.colorBlack1 }) }),
       icon && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "flex items-center", children: icon }),
       leftContent && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "flex items-center flex-shrink-0", children: leftContent }),
       /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex flex-col flex-1 min-w-0 gap-0.5", children: [

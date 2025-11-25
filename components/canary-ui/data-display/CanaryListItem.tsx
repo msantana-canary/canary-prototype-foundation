@@ -100,7 +100,7 @@ const CanaryListItem = forwardRef<HTMLLIElement, CanaryListItemProps>(
       <>
         {isDraggable && (
           <div className="flex items-center cursor-grab dragHandle">
-            <Icon path={mdiDrag} size={0.8} style={{ fill: colors.colorBlack1 }} />
+            <Icon path={mdiDrag} size={0.8} color={colors.colorBlack1} />
           </div>
         )}
 
