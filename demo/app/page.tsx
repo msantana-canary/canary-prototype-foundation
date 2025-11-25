@@ -95,10 +95,16 @@ import {
   mdiNewspaperVariantOutline,
   mdiInbox,
   mdiAlertCircle,
+  mdiAlertCircleOutline,
   mdiDrag,
   mdiViewDashboard,
+  mdiViewDashboardOutline,
   mdiMessage,
+  mdiMessageOutline,
   mdiHelpCircle,
+  mdiHelpCircleOutline,
+  mdiAccountOutline,
+  mdiCheckCircleOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -193,11 +199,11 @@ function SelectableListExample() {
   const [selectedId, setSelectedId] = useState<string | null>('1');
 
   const items = [
-    { id: '1', title: 'Dashboard', subtitle: 'View your overview', icon: mdiViewDashboard },
-    { id: '2', title: 'Messages', subtitle: '5 unread messages', icon: mdiMessage },
+    { id: '1', title: 'Dashboard', subtitle: 'View your overview', icon: mdiViewDashboardOutline },
+    { id: '2', title: 'Messages', subtitle: '5 unread messages', icon: mdiMessageOutline },
     { id: '3', title: 'Settings', subtitle: 'Configure your account', icon: mdiCogOutline },
-    { id: '4', title: 'Profile', subtitle: 'Edit your information', icon: mdiAccount },
-    { id: '5', title: 'Help', subtitle: 'Get support', icon: mdiHelpCircle },
+    { id: '4', title: 'Profile', subtitle: 'Edit your information', icon: mdiAccountOutline },
+    { id: '5', title: 'Help', subtitle: 'Get support', icon: mdiHelpCircleOutline },
   ];
 
   return (
@@ -2148,12 +2154,12 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                       <CanaryListItem
                         title="First Item"
                         subtitle="This is in a CanaryList container"
-                        leftContent={<Icon path={mdiAccount} size={1} />}
+                        leftContent={<Icon path={mdiAccountOutline} size={1} />}
                       />
                       <CanaryListItem
                         title="Second Item"
                         subtitle="The list handles borders and styling"
-                        leftContent={<Icon path={mdiCheckCircle} size={1} />}
+                        leftContent={<Icon path={mdiCheckCircleOutline} size={1} />}
                       />
                       <CanaryListItem
                         title="Third Item"
@@ -2185,7 +2191,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                       isEmpty={true}
                       emptyContent={
                         <div className="flex flex-col items-center gap-2">
-                          <Icon path={mdiInbox} size={2} style={{ fill: colors.colorBlack4 }} />
+                          <Icon path={mdiInbox} size={2} color={colors.colorBlack4} />
                           <div className="text-sm font-medium" style={{ color: colors.colorBlack3 }}>No items found</div>
                           <div className="text-xs" style={{ color: colors.colorBlack4 }}>Try adding some items to get started</div>
                         </div>
@@ -2200,7 +2206,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                       hasError={true}
                       errorContent={
                         <div className="flex flex-col items-center gap-2">
-                          <Icon path={mdiAlertCircle} size={2} style={{ fill: colors.colorRed1 }} />
+                          <Icon path={mdiAlertCircleOutline} size={2} color={colors.colorRed1} />
                           <div className="text-sm font-medium" style={{ color: colors.colorRed1 }}>Failed to load items</div>
                           <CanaryButton type={ButtonType.OUTLINED} size={ButtonSize.COMPACT}>
                             Retry
