@@ -96,6 +96,9 @@ import {
   mdiInbox,
   mdiAlertCircle,
   mdiDrag,
+  mdiViewDashboard,
+  mdiMessage,
+  mdiHelpCircle,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -179,6 +182,34 @@ function DraggableListExample() {
           isDraggable={true}
           title={item.title}
           subtitle={item.subtitle}
+        />
+      ))}
+    </CanaryList>
+  );
+}
+
+// Selectable List Example Component
+function SelectableListExample() {
+  const [selectedId, setSelectedId] = useState<string | null>('1');
+
+  const items = [
+    { id: '1', title: 'Dashboard', subtitle: 'View your overview', icon: mdiViewDashboard },
+    { id: '2', title: 'Messages', subtitle: '5 unread messages', icon: mdiMessage },
+    { id: '3', title: 'Settings', subtitle: 'Configure your account', icon: mdiCogOutline },
+    { id: '4', title: 'Profile', subtitle: 'Edit your information', icon: mdiAccount },
+    { id: '5', title: 'Help', subtitle: 'Get support', icon: mdiHelpCircle },
+  ];
+
+  return (
+    <CanaryList hasOuterBorder={true}>
+      {items.map((item) => (
+        <CanaryListItem
+          key={item.id}
+          title={item.title}
+          subtitle={item.subtitle}
+          icon={<Icon path={item.icon} size={1} color={selectedId === item.id ? colors.colorWhite : colors.colorBlack1} />}
+          isSelected={selectedId === item.id}
+          onClick={() => setSelectedId(item.id)}
         />
       ))}
     </CanaryList>
@@ -2135,6 +2166,11 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                   <div>
                     <h4 className="text-sm font-medium mb-3 text-gray-600">Draggable List (Try dragging items!)</h4>
                     <DraggableListExample />
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Selectable List (Click to select)</h4>
+                    <SelectableListExample />
                   </div>
 
                   <div>
