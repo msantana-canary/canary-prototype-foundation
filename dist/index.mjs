@@ -5073,6 +5073,7 @@ import { useState as useState16 } from "react";
 var SidebarVariant = /* @__PURE__ */ ((SidebarVariant2) => {
   SidebarVariant2["MAIN"] = "main";
   SidebarVariant2["SETTINGS"] = "settings";
+  SidebarVariant2["CUSTOM"] = "custom";
   return SidebarVariant2;
 })(SidebarVariant || {});
 var NavigationItemState = /* @__PURE__ */ ((NavigationItemState2) => {
@@ -5133,7 +5134,189 @@ function CanaryLogo({
 
 // components/canary-ui/navigation/CanarySidebar.tsx
 import clsx32 from "clsx";
-import { jsx as jsx36, jsxs as jsxs33 } from "react/jsx-runtime";
+
+// components/canary-ui/navigation/standard-sidebar-sections.tsx
+import Icon11 from "@mdi/react";
+import {
+  mdiCashMultiple as mdiCashMultiple2,
+  mdiLogin as mdiLogin2,
+  mdiLogout as mdiLogout2,
+  mdiMessageProcessingOutline as mdiMessageProcessingOutline2,
+  mdiPhoneOutline as mdiPhoneOutline2,
+  mdiCurrencyUsd as mdiCurrencyUsd2,
+  mdiShieldCheckOutline as mdiShieldCheckOutline2,
+  mdiFileSign,
+  mdiAccountCheckOutline as mdiAccountCheckOutline2,
+  mdiAccountBoxOutline,
+  mdiStoreOutline,
+  mdiCreditCardOutline as mdiCreditCardOutline4,
+  mdiCogOutline as mdiCogOutline2,
+  mdiHomeOutline as mdiHomeOutline2,
+  mdiPaletteOutline as mdiPaletteOutline2,
+  mdiAccountGroupOutline as mdiAccountGroupOutline2,
+  mdiShieldAccountOutline as mdiShieldAccountOutline2,
+  mdiPuzzleOutline as mdiPuzzleOutline2,
+  mdiTabletCellphone as mdiTabletCellphone2,
+  mdiNewspaperVariantOutline as mdiNewspaperVariantOutline2,
+  mdiMapMarker as mdiMapMarker2,
+  mdiChatOutline as mdiChatOutline2
+} from "@mdi/js";
+import { jsx as jsx36 } from "react/jsx-runtime";
+var standardMainSidebarSections = [
+  {
+    id: "main-section",
+    items: [
+      {
+        id: "upsells",
+        label: "Upsells",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiCashMultiple2, size: 1 })
+      },
+      {
+        id: "check-in",
+        label: "Check-in",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiLogin2, size: 1 })
+      },
+      {
+        id: "checkout",
+        label: "Checkout",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiLogout2, size: 1 })
+      },
+      {
+        id: "messages",
+        label: "Messages",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiMessageProcessingOutline2, size: 1 })
+      },
+      {
+        id: "calls",
+        label: "Calls",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiPhoneOutline2, size: 1 })
+      },
+      {
+        id: "digital-tips",
+        label: "Digital Tips",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiCurrencyUsd2, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "secondary-section",
+    items: [
+      {
+        id: "authorizations",
+        label: "Authorizations",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiShieldCheckOutline2, size: 1 })
+      },
+      {
+        id: "contracts",
+        label: "Contracts",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiFileSign, size: 1 })
+      },
+      {
+        id: "id-verification",
+        label: "ID Verification",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiAccountCheckOutline2, size: 1 })
+      },
+      {
+        id: "clients-on-file",
+        label: "Clients on File",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiAccountBoxOutline, size: 1 })
+      },
+      {
+        id: "amenities",
+        label: "Amenities",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiStoreOutline, size: 1 })
+      },
+      {
+        id: "payment-links",
+        label: "Payment Links",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiCreditCardOutline4, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "bottom-section",
+    items: [
+      {
+        id: "settings",
+        label: "Settings",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiCogOutline2, size: 1 })
+      }
+    ]
+  }
+];
+var standardSettingsSidebarSections = [
+  {
+    id: "settings-section",
+    title: "General",
+    items: [
+      {
+        id: "property-info",
+        label: "Property Info",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiHomeOutline2, size: 1 })
+      },
+      {
+        id: "branding",
+        label: "Branding",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiPaletteOutline2, size: 1 })
+      },
+      {
+        id: "billing-payment",
+        label: "Billing & Payment",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiCreditCardOutline4, size: 1 })
+      },
+      {
+        id: "staff-members",
+        label: "Staff Members",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiAccountGroupOutline2, size: 1 })
+      },
+      {
+        id: "security",
+        label: "Security",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiShieldAccountOutline2, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "integrations-section",
+    title: "Integrations",
+    items: [
+      {
+        id: "pms",
+        label: "PMS",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiPuzzleOutline2, size: 1 })
+      },
+      {
+        id: "devices",
+        label: "Devices",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiTabletCellphone2, size: 1 })
+      },
+      {
+        id: "compendium",
+        label: "Compendium",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiNewspaperVariantOutline2, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "location-section",
+    title: "Location",
+    items: [
+      {
+        id: "area-info",
+        label: "Area Info",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiMapMarker2, size: 1 })
+      },
+      {
+        id: "chat",
+        label: "Chat",
+        icon: /* @__PURE__ */ jsx36(Icon11, { path: mdiChatOutline2, size: 1 })
+      }
+    ]
+  }
+];
+
+// components/canary-ui/navigation/CanarySidebar.tsx
+import { jsx as jsx37, jsxs as jsxs33 } from "react/jsx-runtime";
 function CanarySidebar({
   variant = "main" /* MAIN */,
   sections,
@@ -5149,6 +5332,16 @@ function CanarySidebar({
   const [focusedItemId, setFocusedItemId] = useState16(null);
   const [pressedItemId, setPressedItemId] = useState16(null);
   const [hoveredItemId, setHoveredItemId] = useState16(null);
+  const getDefaultSections = () => {
+    if (variant === "custom" /* CUSTOM */) {
+      return [];
+    }
+    if (variant === "settings" /* SETTINGS */) {
+      return standardSettingsSidebarSections;
+    }
+    return standardMainSidebarSections;
+  };
+  const resolvedSections = sections != null ? sections : getDefaultSections();
   const getBackgroundColor = () => {
     switch (variant) {
       case "main" /* MAIN */:
@@ -5157,6 +5350,9 @@ function CanarySidebar({
       case "settings" /* SETTINGS */:
         return colors.colorBlack2;
       // $color-black-2 (#333333)
+      case "custom" /* CUSTOM */:
+        return "#375492";
+      // Default to MAIN color for CUSTOM variant
       default:
         return "#375492";
     }
@@ -5206,17 +5402,17 @@ function CanarySidebar({
         backgroundColor
       },
       children: [
-        backButton && variant === "settings" /* SETTINGS */ ? /* @__PURE__ */ jsx36("div", { className: "flex items-center pt-4 pb-4 px-4 shrink-0", children: backButton }) : /* @__PURE__ */ jsx36("div", { className: "flex items-center justify-center pt-6 pb-6 shrink-0", children: /* @__PURE__ */ jsx36("div", { style: { opacity: 0.35, width: "140px", height: "24px" }, children: logo !== void 0 ? logo : /* @__PURE__ */ jsx36(CanaryLogo, {}) }) }),
-        title && /* @__PURE__ */ jsx36("div", { className: "px-4 pb-4 shrink-0", children: /* @__PURE__ */ jsx36("h2", { className: "text-[16px] font-medium text-white", style: { fontFamily: "Roboto, sans-serif" }, children: title }) }),
-        /* @__PURE__ */ jsx36("nav", { className: "flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8", children: sections.map((section, sectionIndex) => /* @__PURE__ */ jsxs33("div", { children: [
-          sectionIndex > 0 && /* @__PURE__ */ jsx36(
+        backButton && variant === "settings" /* SETTINGS */ ? /* @__PURE__ */ jsx37("div", { className: "flex items-center pt-4 pb-4 px-4 shrink-0", children: backButton }) : /* @__PURE__ */ jsx37("div", { className: "flex items-center justify-center pt-6 pb-6 shrink-0", children: /* @__PURE__ */ jsx37("div", { style: { opacity: 0.35, width: "140px", height: "24px" }, children: logo !== void 0 ? logo : /* @__PURE__ */ jsx37(CanaryLogo, {}) }) }),
+        title && /* @__PURE__ */ jsx37("div", { className: "px-4 pb-4 shrink-0", children: /* @__PURE__ */ jsx37("h2", { className: "text-[16px] font-medium text-white", style: { fontFamily: "Roboto, sans-serif" }, children: title }) }),
+        /* @__PURE__ */ jsx37("nav", { className: "flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8", children: resolvedSections.map((section, sectionIndex) => /* @__PURE__ */ jsxs33("div", { children: [
+          sectionIndex > 0 && /* @__PURE__ */ jsx37(
             "div",
             {
               className: "h-[1px] mb-4",
               style: { backgroundColor: "rgba(255, 255, 255, 0.1)" }
             }
           ),
-          section.title && /* @__PURE__ */ jsx36(
+          section.title && /* @__PURE__ */ jsx37(
             "div",
             {
               className: "pl-4 pb-2 text-[14px] font-medium",
@@ -5228,7 +5424,7 @@ function CanarySidebar({
               children: section.title
             }
           ),
-          /* @__PURE__ */ jsx36("div", { className: "flex flex-col", children: section.items.map((item) => {
+          /* @__PURE__ */ jsx37("div", { className: "flex flex-col", children: section.items.map((item) => {
             const state = getItemState(item);
             const iconOpacity = getIconOpacity(state);
             const isSelected = state === "selected" /* SELECTED */;
@@ -5252,7 +5448,7 @@ function CanarySidebar({
                   cursor: item.isDisabled ? "not-allowed" : "pointer"
                 },
                 children: [
-                  state === "selected" /* SELECTED */ && /* @__PURE__ */ jsx36(
+                  state === "selected" /* SELECTED */ && /* @__PURE__ */ jsx37(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -5265,7 +5461,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  state === "focus" /* FOCUS */ && /* @__PURE__ */ jsx36(
+                  state === "focus" /* FOCUS */ && /* @__PURE__ */ jsx37(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -5278,7 +5474,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  state === "onPress" /* ON_PRESS */ && /* @__PURE__ */ jsx36(
+                  state === "onPress" /* ON_PRESS */ && /* @__PURE__ */ jsx37(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -5291,7 +5487,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  item.icon && /* @__PURE__ */ jsx36(
+                  item.icon && /* @__PURE__ */ jsx37(
                     "span",
                     {
                       className: "absolute left-4 flex items-center justify-center shrink-0 pointer-events-none",
@@ -5306,7 +5502,7 @@ function CanarySidebar({
                       children: item.icon
                     }
                   ),
-                  /* @__PURE__ */ jsx36(
+                  /* @__PURE__ */ jsx37(
                     "span",
                     {
                       className: "absolute left-12 text-[14px] font-normal whitespace-nowrap pointer-events-none",
@@ -5318,7 +5514,7 @@ function CanarySidebar({
                       children: item.label
                     }
                   ),
-                  item.badge && /* @__PURE__ */ jsx36(
+                  item.badge && /* @__PURE__ */ jsx37(
                     "span",
                     {
                       className: "absolute left-[148px] flex items-center justify-center pointer-events-none",
@@ -5329,7 +5525,7 @@ function CanarySidebar({
                         borderRadius: "8px",
                         zIndex: 1
                       },
-                      children: /* @__PURE__ */ jsx36(
+                      children: /* @__PURE__ */ jsx37(
                         "span",
                         {
                           className: "text-[12px] font-bold text-center",
@@ -5356,7 +5552,7 @@ function CanarySidebar({
 
 // components/canary-ui/navigation/CanaryHeader.tsx
 import clsx33 from "clsx";
-import { jsx as jsx37, jsxs as jsxs34 } from "react/jsx-runtime";
+import { jsx as jsx38, jsxs as jsxs34 } from "react/jsx-runtime";
 function CanaryHeader({
   logo,
   title,
@@ -5377,195 +5573,15 @@ function CanaryHeader({
       },
       children: [
         (logo || title) && /* @__PURE__ */ jsxs34("div", { className: "flex items-center gap-3", children: [
-          logo && /* @__PURE__ */ jsx37("div", { className: "shrink-0", children: logo }),
-          title && /* @__PURE__ */ jsx37("h1", { className: "text-[20px] font-semibold", style: { color: colors.colorBlack1 }, children: title })
+          logo && /* @__PURE__ */ jsx38("div", { className: "shrink-0", children: logo }),
+          title && /* @__PURE__ */ jsx38("h1", { className: "text-[20px] font-semibold", style: { color: colors.colorBlack1 }, children: title })
         ] }),
-        navigation && /* @__PURE__ */ jsx37("nav", { className: "flex-1 flex items-center justify-center px-6", children: navigation }),
-        actions && /* @__PURE__ */ jsx37("div", { className: "flex items-center gap-2 ml-auto", children: actions })
+        navigation && /* @__PURE__ */ jsx38("nav", { className: "flex-1 flex items-center justify-center px-6", children: navigation }),
+        actions && /* @__PURE__ */ jsx38("div", { className: "flex items-center gap-2 ml-auto", children: actions })
       ]
     }
   );
 }
-
-// components/canary-ui/navigation/standard-sidebar-sections.tsx
-import Icon11 from "@mdi/react";
-import {
-  mdiCashMultiple as mdiCashMultiple2,
-  mdiLogin as mdiLogin2,
-  mdiLogout as mdiLogout2,
-  mdiMessageProcessingOutline as mdiMessageProcessingOutline2,
-  mdiPhoneOutline as mdiPhoneOutline2,
-  mdiCurrencyUsd as mdiCurrencyUsd2,
-  mdiShieldCheckOutline as mdiShieldCheckOutline2,
-  mdiFileSign,
-  mdiAccountCheckOutline as mdiAccountCheckOutline2,
-  mdiAccountBoxOutline,
-  mdiStoreOutline,
-  mdiCreditCardOutline as mdiCreditCardOutline4,
-  mdiCogOutline as mdiCogOutline2,
-  mdiHomeOutline as mdiHomeOutline2,
-  mdiPaletteOutline as mdiPaletteOutline2,
-  mdiAccountGroupOutline as mdiAccountGroupOutline2,
-  mdiShieldAccountOutline as mdiShieldAccountOutline2,
-  mdiPuzzleOutline as mdiPuzzleOutline2,
-  mdiTabletCellphone as mdiTabletCellphone2,
-  mdiNewspaperVariantOutline as mdiNewspaperVariantOutline2,
-  mdiMapMarker as mdiMapMarker2,
-  mdiChatOutline as mdiChatOutline2
-} from "@mdi/js";
-import { jsx as jsx38 } from "react/jsx-runtime";
-var standardMainSidebarSections = [
-  {
-    id: "main-section",
-    items: [
-      {
-        id: "upsells",
-        label: "Upsells",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiCashMultiple2, size: 1 })
-      },
-      {
-        id: "check-in",
-        label: "Check-in",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiLogin2, size: 1 })
-      },
-      {
-        id: "checkout",
-        label: "Checkout",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiLogout2, size: 1 })
-      },
-      {
-        id: "messages",
-        label: "Messages",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiMessageProcessingOutline2, size: 1 })
-      },
-      {
-        id: "calls",
-        label: "Calls",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiPhoneOutline2, size: 1 })
-      },
-      {
-        id: "digital-tips",
-        label: "Digital Tips",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiCurrencyUsd2, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "secondary-section",
-    items: [
-      {
-        id: "authorizations",
-        label: "Authorizations",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiShieldCheckOutline2, size: 1 })
-      },
-      {
-        id: "contracts",
-        label: "Contracts",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiFileSign, size: 1 })
-      },
-      {
-        id: "id-verification",
-        label: "ID Verification",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiAccountCheckOutline2, size: 1 })
-      },
-      {
-        id: "clients-on-file",
-        label: "Clients on File",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiAccountBoxOutline, size: 1 })
-      },
-      {
-        id: "amenities",
-        label: "Amenities",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiStoreOutline, size: 1 })
-      },
-      {
-        id: "payment-links",
-        label: "Payment Links",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiCreditCardOutline4, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "bottom-section",
-    items: [
-      {
-        id: "settings",
-        label: "Settings",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiCogOutline2, size: 1 })
-      }
-    ]
-  }
-];
-var standardSettingsSidebarSections = [
-  {
-    id: "settings-section",
-    title: "General",
-    items: [
-      {
-        id: "property-info",
-        label: "Property Info",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiHomeOutline2, size: 1 })
-      },
-      {
-        id: "branding",
-        label: "Branding",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiPaletteOutline2, size: 1 })
-      },
-      {
-        id: "billing-payment",
-        label: "Billing & Payment",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiCreditCardOutline4, size: 1 })
-      },
-      {
-        id: "staff-members",
-        label: "Staff Members",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiAccountGroupOutline2, size: 1 })
-      },
-      {
-        id: "security",
-        label: "Security",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiShieldAccountOutline2, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "integrations-section",
-    title: "Integrations",
-    items: [
-      {
-        id: "pms",
-        label: "PMS",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiPuzzleOutline2, size: 1 })
-      },
-      {
-        id: "devices",
-        label: "Devices",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiTabletCellphone2, size: 1 })
-      },
-      {
-        id: "compendium",
-        label: "Compendium",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiNewspaperVariantOutline2, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "location-section",
-    title: "Location",
-    items: [
-      {
-        id: "area-info",
-        label: "Area Info",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiMapMarker2, size: 1 })
-      },
-      {
-        id: "chat",
-        label: "Chat",
-        icon: /* @__PURE__ */ jsx38(Icon11, { path: mdiChatOutline2, size: 1 })
-      }
-    ]
-  }
-];
 
 // components/canary-ui/feedback/CanaryToast.tsx
 import { useEffect as useEffect8, useState as useState17 } from "react";

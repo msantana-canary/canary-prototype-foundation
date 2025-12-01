@@ -40,6 +40,11 @@ import {
   CanaryAlert,
   CanaryToast,
   CanaryLoading,
+  // Flexible sidebar functionality
+  sidebarTabs,
+  hideProducts,
+  addProduct,
+  createCustomSection,
   ButtonType,
   ButtonSize,
   ButtonColor,

@@ -763,7 +763,8 @@ declare function CanaryTabs({ tabs, variant, size, defaultTab, onChange, classNa
  */
 declare enum SidebarVariant {
     MAIN = "main",
-    SETTINGS = "settings"
+    SETTINGS = "settings",
+    CUSTOM = "custom"
 }
 declare enum NavigationItemState {
     DEFAULT = "default",
@@ -788,7 +789,7 @@ interface SidebarSection {
 }
 interface CanarySidebarProps {
     variant?: SidebarVariant;
-    sections: SidebarSection[];
+    sections?: SidebarSection[];
     logo?: ReactNode;
     title?: string;
     backButton?: ReactNode;
