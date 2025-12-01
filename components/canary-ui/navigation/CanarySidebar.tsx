@@ -3,6 +3,7 @@ import { colors } from "../design-tokens";
 import { SidebarVariant, NavigationItemState } from "./types";
 import CanaryLogo from "./CanaryLogo";
 import clsx from "clsx";
+import { standardMainSidebarSections, standardSettingsSidebarSections } from "./standard-sidebar-sections";
 
 export interface SidebarNavigationItem {
   id: string;
@@ -21,7 +22,7 @@ export interface SidebarSection {
 
 export interface CanarySidebarProps {
   variant?: SidebarVariant;
-  sections: SidebarSection[];
+  sections?: SidebarSection[]; // Optional - auto-uses standard sections if not provided
   logo?: ReactNode;
   title?: string; // For Settings variant header (e.g., "General Settings")
   backButton?: ReactNode; // For Settings variant
@@ -46,6 +47,19 @@ export default function CanarySidebar({
   const [pressedItemId, setPressedItemId] = useState<string | null>(null);
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
 
+  // Auto-use standard sections if not provided (except for CUSTOM variant)
+  const getDefaultSections = (): SidebarSection[] => {
+    if (variant === SidebarVariant.CUSTOM) {
+      return []; // CUSTOM variant requires explicit sections
+    }
+    if (variant === SidebarVariant.SETTINGS) {
+      return standardSettingsSidebarSections;
+    }
+    return standardMainSidebarSections; // Default to MAIN
+  };
+
+  const resolvedSections = sections ?? getDefaultSections();
+
   // Variant colors based on Figma specs
   const getBackgroundColor = (): string => {
     switch (variant) {
@@ -53,6 +67,8 @@ export default function CanarySidebar({
         return "#375492"; // Custom blue for sidebar (not in design tokens)
       case SidebarVariant.SETTINGS:
         return colors.colorBlack2; // $color-black-2 (#333333)
+      case SidebarVariant.CUSTOM:
+        return "#375492"; // Default to MAIN color for CUSTOM variant
       default:
         return "#375492";
     }
@@ -130,7 +146,7 @@ export default function CanarySidebar({
 
       {/* Navigation Sections - scrollable area */}
       <nav className="flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8">
-        {sections.map((section, sectionIndex) => (
+        {resolvedSections.map((section, sectionIndex) => (
           <div key={section.id}>
             {/* Divider before section (except first) */}
             {sectionIndex > 0 && (

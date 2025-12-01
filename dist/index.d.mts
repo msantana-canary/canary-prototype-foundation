@@ -763,7 +763,8 @@ declare function CanaryTabs({ tabs, variant, size, defaultTab, onChange, classNa
  */
 declare enum SidebarVariant {
     MAIN = "main",
-    SETTINGS = "settings"
+    SETTINGS = "settings",
+    CUSTOM = "custom"
 }
 declare enum NavigationItemState {
     DEFAULT = "default",
@@ -788,7 +789,7 @@ interface SidebarSection {
 }
 interface CanarySidebarProps {
     variant?: SidebarVariant;
-    sections: SidebarSection[];
+    sections?: SidebarSection[];
     logo?: ReactNode;
     title?: string;
     backButton?: ReactNode;
@@ -840,6 +841,153 @@ declare const standardMainSidebarSections: SidebarSection[];
  */
 declare const standardSettingsSidebarSections: SidebarSection[];
 
+/**
+ * Pre-built Sidebar Tabs - Reusable Lego Pieces
+ *
+ * These are standardized sidebar navigation items that can be reused
+ * across different sidebar configurations. Ensures consistency and
+ * prevents teammates from having to remember icon names and labels.
+ */
+
+/**
+ * Pre-built sidebar tabs that can be used as lego pieces
+ * in custom sidebar configurations.
+ */
+declare const sidebarTabs: {
+    upsells: SidebarNavigationItem;
+    checkIn: SidebarNavigationItem;
+    checkout: SidebarNavigationItem;
+    messages: SidebarNavigationItem;
+    calls: SidebarNavigationItem;
+    digitalTips: SidebarNavigationItem;
+    authorizations: SidebarNavigationItem;
+    contracts: SidebarNavigationItem;
+    idVerification: SidebarNavigationItem;
+    clientsOnFile: SidebarNavigationItem;
+    amenities: SidebarNavigationItem;
+    paymentLinks: SidebarNavigationItem;
+    settings: SidebarNavigationItem;
+    propertyInfo: SidebarNavigationItem;
+    branding: SidebarNavigationItem;
+    billingPayment: SidebarNavigationItem;
+    staffMembers: SidebarNavigationItem;
+    security: SidebarNavigationItem;
+    pms: SidebarNavigationItem;
+    devices: SidebarNavigationItem;
+    compendium: SidebarNavigationItem;
+    areaInfo: SidebarNavigationItem;
+    chat: SidebarNavigationItem;
+    insights: SidebarNavigationItem;
+    properties: SidebarNavigationItem;
+    analytics: SidebarNavigationItem;
+    surveys: SidebarNavigationItem;
+    dashboard: SidebarNavigationItem;
+    tasks: SidebarNavigationItem;
+    calendar: SidebarNavigationItem;
+    reports: SidebarNavigationItem;
+    performance: SidebarNavigationItem;
+};
+/**
+ * Helper to create a custom tab with proper typing
+ */
+declare const createSidebarTab: (id: string, label: string, icon: React.ReactNode, options?: Partial<SidebarNavigationItem>) => SidebarNavigationItem;
+
+/**
+ * Sidebar Configuration Utilities
+ *
+ * Pure functions for modifying sidebar sections to support flexible
+ * sidebar configurations while maintaining type safety and immutability.
+ */
+
+/**
+ * Hide specific products from sidebar sections
+ * @param sections - Original sidebar sections
+ * @param productIds - Array of product IDs to hide
+ * @returns New sections array with specified products removed
+ */
+declare const hideProducts: (sections: SidebarSection[], productIds: string[]) => SidebarSection[];
+/**
+ * Add a product to sidebar sections at a specific position
+ * @param sections - Original sidebar sections
+ * @param product - Product to add
+ * @param options - Insertion options
+ * @returns New sections array with product added
+ */
+declare const addProduct: (sections: SidebarSection[], product: SidebarNavigationItem, options?: {
+    insertAfter?: string;
+    insertBefore?: string;
+    insertAtStart?: boolean;
+    insertAtEnd?: boolean;
+    sectionId?: string;
+}) => SidebarSection[];
+/**
+ * Reorder products within sidebar sections
+ * @param sections - Original sidebar sections
+ * @param productOrder - Array of product IDs in desired order
+ * @param sectionId - Which section to reorder (defaults to first section)
+ * @returns New sections array with products reordered
+ */
+declare const reorderProducts: (sections: SidebarSection[], productOrder: string[], sectionId?: string) => SidebarSection[];
+/**
+ * Create a custom section from an array of navigation items
+ * @param items - Navigation items for the section
+ * @param options - Section options
+ * @returns New sidebar section
+ */
+declare const createCustomSection: (items: SidebarNavigationItem[], options?: {
+    id?: string;
+    title?: string;
+}) => SidebarSection;
+/**
+ * Merge custom sections with standard sections
+ * @param customSections - Custom sections to add
+ * @param standardSections - Standard sections to merge with
+ * @param options - Merge options
+ * @returns New sections array with custom sections merged
+ */
+declare const mergeWithStandard: (customSections: SidebarSection[], standardSections: SidebarSection[], options?: {
+    insertAtStart?: boolean;
+    insertAtEnd?: boolean;
+    replaceStandard?: boolean;
+}) => SidebarSection[];
+/**
+ * Update a specific product in sidebar sections
+ * @param sections - Original sidebar sections
+ * @param productId - ID of product to update
+ * @param updates - Partial updates to apply
+ * @returns New sections array with product updated
+ */
+declare const updateProduct: (sections: SidebarSection[], productId: string, updates: Partial<SidebarNavigationItem>) => SidebarSection[];
+/**
+ * Add badge to a specific product
+ * @param sections - Original sidebar sections
+ * @param productId - ID of product to badge
+ * @param badge - Badge value (string or number)
+ * @returns New sections array with badge added
+ */
+declare const addBadge: (sections: SidebarSection[], productId: string, badge: string | number) => SidebarSection[];
+/**
+ * Remove badge from a specific product
+ * @param sections - Original sidebar sections
+ * @param productId - ID of product to remove badge from
+ * @returns New sections array with badge removed
+ */
+declare const removeBadge: (sections: SidebarSection[], productId: string) => SidebarSection[];
+/**
+ * Disable a specific product
+ * @param sections - Original sidebar sections
+ * @param productId - ID of product to disable
+ * @returns New sections array with product disabled
+ */
+declare const disableProduct: (sections: SidebarSection[], productId: string) => SidebarSection[];
+/**
+ * Enable a specific product
+ * @param sections - Original sidebar sections
+ * @param productId - ID of product to enable
+ * @returns New sections array with product enabled
+ */
+declare const enableProduct: (sections: SidebarSection[], productId: string) => SidebarSection[];
+
 type ToastType = "success" | "error" | "warning" | "info";
 interface CanaryToastProps {
     message: string;
@@ -871,4 +1019,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, borderRadius, breakpoints, colors, dimensions, easings, iconPaths, shadows, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };

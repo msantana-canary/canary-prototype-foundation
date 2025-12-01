@@ -40,6 +40,13 @@ import {
   CanaryAlert,
   CanaryToast,
   CanaryLoading,
+  // Flexible sidebar functionality
+  sidebarTabs,
+  hideProducts,
+  addProduct,
+  createCustomSection,
+  createSidebarTab,
+  standardMainSidebarSections,
   ButtonType,
   ButtonSize,
   ButtonColor,
@@ -105,6 +112,15 @@ import {
   mdiHelpCircleOutline,
   mdiAccountOutline,
   mdiCheckCircleOutline,
+  // Hotel operations icons
+  mdiDoorOpen,
+  mdiSprayBottle,
+  mdiWrench,
+  mdiCalendarClock,
+  mdiPartyPopper,
+  mdiPackageVariant,
+  mdiCommentTextOutline,
+  mdiBellOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -3107,6 +3123,146 @@ const [items, setItems] = useState([
     },
   ]}
 />`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="Flexible Sidebar System - Custom Hotel Scenarios">
+                <p className="text-sm text-gray-600 mb-6">
+                  The flexible sidebar system allows teams to create custom sidebars for different customer scenarios. 
+                  Here are examples showing how hotels might customize their dashboard beyond standard Canary products.
+                </p>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Basic Package - Minimal */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">Basic Package</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">Small hotel, limited products</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "400px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.MAIN}
+                        sections={hideProducts(standardMainSidebarSections, ['calls', 'digital-tips', 'authorizations', 'contracts', 'amenities', 'payment-links'])}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Hotel Operations Dashboard */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">Hotel Operations</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">Property management focused</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "400px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.CUSTOM}
+                        sections={[
+                          createCustomSection([
+                            sidebarTabs.checkIn,
+                            sidebarTabs.checkout,
+                            { ...createSidebarTab('rooms', 'Room Mgmt', <Icon path={mdiDoorOpen} size={1} />), badge: 3 },
+                            { ...createSidebarTab('housekeeping', 'Housekeeping', <Icon path={mdiSprayBottle} size={1} />), badge: 7 },
+                            createSidebarTab('maintenance', 'Maintenance', <Icon path={mdiWrench} size={1} />),
+                            createSidebarTab('staff', 'Staff Schedule', <Icon path={mdiCalendarClock} size={1} />),
+                          ], { id: 'operations' }),
+                          createCustomSection([
+                            sidebarTabs.settings,
+                          ], { id: 'settings' })
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Corporate Dashboard */}
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-center">Corporate Dashboard</h4>
+                    <p className="text-xs text-gray-500 mb-3 text-center">Above-property management</p>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "400px" }}>
+                      <CanarySidebar
+                        variant={SidebarVariant.CUSTOM}
+                        sections={[
+                          createCustomSection([
+                            sidebarTabs.dashboard,
+                            sidebarTabs.properties,
+                            sidebarTabs.analytics,
+                            createSidebarTab('revenue', 'Revenue Mgmt', <Icon path={mdiCashMultiple} size={1} />),
+                            createSidebarTab('guests', 'Guest Insights', <Icon path={mdiAccountGroupOutline} size={1} />),
+                            createSidebarTab('events', 'Events & Catering', <Icon path={mdiPartyPopper} size={1} />),
+                          ], { id: 'corporate' })
+                        ]}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6">
+                  <h4 className="text-sm font-semibold mb-3">Extended Hotel Operations Example</h4>
+                  <p className="text-xs text-gray-500 mb-3">Full-featured hotel with comprehensive operations dashboard</p>
+                  <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "600px" }}>
+                    <CanarySidebar
+                      variant={SidebarVariant.CUSTOM}
+                      sections={[
+                        createCustomSection([
+                          sidebarTabs.dashboard,
+                          sidebarTabs.upsells,
+                          sidebarTabs.checkIn,
+                          sidebarTabs.checkout,
+                        ], { id: 'guest-services', title: 'Guest Services' }),
+                        createCustomSection([
+                          { ...createSidebarTab('rooms', 'Room Mgmt', <Icon path={mdiDoorOpen} size={1} />), badge: 2 },
+                          { ...createSidebarTab('housekeeping', 'Housekeeping', <Icon path={mdiSprayBottle} size={1} />), badge: 5 },
+                          createSidebarTab('maintenance', 'Maintenance', <Icon path={mdiWrench} size={1} />),
+                          createSidebarTab('inventory', 'Inventory', <Icon path={mdiPackageVariant} size={1} />),
+                        ], { id: 'operations', title: 'Operations' }),
+                        createCustomSection([
+                          createSidebarTab('staff', 'Staff Schedule', <Icon path={mdiCalendarClock} size={1} />),
+                          createSidebarTab('feedback', 'Guest Feedback', <Icon path={mdiCommentTextOutline} size={1} />),
+                          createSidebarTab('concierge', 'Concierge', <Icon path={mdiBellOutline} size={1} />),
+                          createSidebarTab('events', 'Events & Catering', <Icon path={mdiPartyPopper} size={1} />),
+                        ], { id: 'services', title: 'Services' }),
+                        createCustomSection([
+                          sidebarTabs.reports,
+                          sidebarTabs.settings,
+                        ], { id: 'admin', title: 'Administration' })
+                      ]}
+                    />
+                  </div>
+                </div>
+
+                <CodeSnippet
+                  code={`// Basic Package - Hide products customer didn't purchase
+import { hideProducts, standardMainSidebarSections } from '@canary-ui/components';
+
+const basicSections = hideProducts(
+  standardMainSidebarSections, 
+  ['calls', 'digital-tips', 'authorizations', 'contracts']
+);
+
+<CanarySidebar sections={basicSections} />
+
+// Custom Hotel Operations - Using lego pieces + custom tabs
+import { sidebarTabs, createSidebarTab, createCustomSection } from '@canary-ui/components';
+
+const hotelSections = [
+  createCustomSection([
+    sidebarTabs.checkIn,
+    sidebarTabs.checkout,
+    createSidebarTab('rooms', 'Room Mgmt', <Icon path={mdiDoor} />),
+    createSidebarTab('housekeeping', 'Housekeeping', <Icon path={mdiSpray} />),
+  ])
+];
+
+<CanarySidebar variant={SidebarVariant.CUSTOM} sections={hotelSections} />
+
+// Corporate Dashboard - Above-property management
+const corporateSections = [
+  createCustomSection([
+    sidebarTabs.dashboard,
+    sidebarTabs.properties,
+    sidebarTabs.analytics,
+    createSidebarTab('revenue', 'Revenue Mgmt', <Icon path={mdiCash} />),
+  ])
+];
+
+<CanarySidebar variant={SidebarVariant.CUSTOM} sections={corporateSections} />`}
                 />
               </CanaryCard>
             </div>

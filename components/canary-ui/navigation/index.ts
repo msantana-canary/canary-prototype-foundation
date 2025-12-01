@@ -6,3 +6,16 @@ export { default as CanaryLogo } from "./CanaryLogo";
 export type { CanaryLogoProps } from "./CanaryLogo";
 export { SidebarVariant, NavigationItemState } from "./types";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./standard-sidebar-sections";
+export { sidebarTabs, createSidebarTab } from "./sidebar-tabs";
+export {
+  hideProducts,
+  addProduct,
+  reorderProducts,
+  createCustomSection,
+  mergeWithStandard,
+  updateProduct,
+  addBadge,
+  removeBadge,
+  disableProduct,
+  enableProduct,
+} from "./sidebar-utils";

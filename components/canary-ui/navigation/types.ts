@@ -6,6 +6,7 @@
 export enum SidebarVariant {
   MAIN = "main",
   SETTINGS = "settings",
+  CUSTOM = "custom",
 }
 
 export enum NavigationItemState {

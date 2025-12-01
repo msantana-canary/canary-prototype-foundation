@@ -112,18 +112,30 @@ __export(canary_ui_exports, {
   TagColor: () => TagColor,
   TagSize: () => TagSize,
   TagVariant: () => TagVariant,
+  addBadge: () => addBadge,
+  addProduct: () => addProduct,
   borderRadius: () => borderRadius,
   breakpoints: () => breakpoints,
   colors: () => colors,
+  createCustomSection: () => createCustomSection,
+  createSidebarTab: () => createSidebarTab,
   dimensions: () => dimensions,
+  disableProduct: () => disableProduct,
   easings: () => easings,
+  enableProduct: () => enableProduct,
+  hideProducts: () => hideProducts,
   iconPaths: () => iconPaths,
+  mergeWithStandard: () => mergeWithStandard,
+  removeBadge: () => removeBadge,
+  reorderProducts: () => reorderProducts,
   shadows: () => shadows,
+  sidebarTabs: () => sidebarTabs,
   spacing: () => spacing,
   standardMainSidebarSections: () => standardMainSidebarSections,
   standardSettingsSidebarSections: () => standardSettingsSidebarSections,
   transitions: () => transitions,
   typography: () => typography,
+  updateProduct: () => updateProduct,
   zIndex: () => zIndex
 });
 module.exports = __toCommonJS(canary_ui_exports);
@@ -5091,12 +5103,13 @@ function CanaryTabs({
 }
 
 // components/canary-ui/navigation/CanarySidebar.tsx
-var import_react36 = require("react");
+var import_react37 = require("react");
 
 // components/canary-ui/navigation/types.ts
 var SidebarVariant = /* @__PURE__ */ ((SidebarVariant2) => {
   SidebarVariant2["MAIN"] = "main";
   SidebarVariant2["SETTINGS"] = "settings";
+  SidebarVariant2["CUSTOM"] = "custom";
   return SidebarVariant2;
 })(SidebarVariant || {});
 var NavigationItemState = /* @__PURE__ */ ((NavigationItemState2) => {
@@ -5157,7 +5170,166 @@ function CanaryLogo({
 
 // components/canary-ui/navigation/CanarySidebar.tsx
 var import_clsx32 = __toESM(require("clsx"));
+
+// components/canary-ui/navigation/standard-sidebar-sections.tsx
+var import_react36 = __toESM(require("@mdi/react"));
+var import_js11 = require("@mdi/js");
 var import_jsx_runtime36 = require("react/jsx-runtime");
+var standardMainSidebarSections = [
+  {
+    id: "main-section",
+    items: [
+      {
+        id: "upsells",
+        label: "Upsells",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiCashMultiple, size: 1 })
+      },
+      {
+        id: "check-in",
+        label: "Check-in",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiLogin, size: 1 })
+      },
+      {
+        id: "checkout",
+        label: "Checkout",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiLogout, size: 1 })
+      },
+      {
+        id: "messages",
+        label: "Messages",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiMessageProcessingOutline, size: 1 })
+      },
+      {
+        id: "calls",
+        label: "Calls",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiPhoneOutline, size: 1 })
+      },
+      {
+        id: "digital-tips",
+        label: "Digital Tips",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiCurrencyUsd, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "secondary-section",
+    items: [
+      {
+        id: "authorizations",
+        label: "Authorizations",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiShieldCheckOutline, size: 1 })
+      },
+      {
+        id: "contracts",
+        label: "Contracts",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiFileSign, size: 1 })
+      },
+      {
+        id: "id-verification",
+        label: "ID Verification",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiAccountCheckOutline, size: 1 })
+      },
+      {
+        id: "clients-on-file",
+        label: "Clients on File",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiAccountBoxOutline, size: 1 })
+      },
+      {
+        id: "amenities",
+        label: "Amenities",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiStoreOutline, size: 1 })
+      },
+      {
+        id: "payment-links",
+        label: "Payment Links",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiCreditCardOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "bottom-section",
+    items: [
+      {
+        id: "settings",
+        label: "Settings",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiCogOutline, size: 1 })
+      }
+    ]
+  }
+];
+var standardSettingsSidebarSections = [
+  {
+    id: "settings-section",
+    title: "General",
+    items: [
+      {
+        id: "property-info",
+        label: "Property Info",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiHomeOutline, size: 1 })
+      },
+      {
+        id: "branding",
+        label: "Branding",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiPaletteOutline, size: 1 })
+      },
+      {
+        id: "billing-payment",
+        label: "Billing & Payment",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiCreditCardOutline, size: 1 })
+      },
+      {
+        id: "staff-members",
+        label: "Staff Members",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiAccountGroupOutline, size: 1 })
+      },
+      {
+        id: "security",
+        label: "Security",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiShieldAccountOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "integrations-section",
+    title: "Integrations",
+    items: [
+      {
+        id: "pms",
+        label: "PMS",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiPuzzleOutline, size: 1 })
+      },
+      {
+        id: "devices",
+        label: "Devices",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiTabletCellphone, size: 1 })
+      },
+      {
+        id: "compendium",
+        label: "Compendium",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiNewspaperVariantOutline, size: 1 })
+      }
+    ]
+  },
+  {
+    id: "location-section",
+    title: "Location",
+    items: [
+      {
+        id: "area-info",
+        label: "Area Info",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiMapMarker, size: 1 })
+      },
+      {
+        id: "chat",
+        label: "Chat",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react36.default, { path: import_js11.mdiChatOutline, size: 1 })
+      }
+    ]
+  }
+];
+
+// components/canary-ui/navigation/CanarySidebar.tsx
+var import_jsx_runtime37 = require("react/jsx-runtime");
 function CanarySidebar({
   variant = "main" /* MAIN */,
   sections,
@@ -5170,9 +5342,19 @@ function CanarySidebar({
   // Remove default, let it auto-size
   className = ""
 }) {
-  const [focusedItemId, setFocusedItemId] = (0, import_react36.useState)(null);
-  const [pressedItemId, setPressedItemId] = (0, import_react36.useState)(null);
-  const [hoveredItemId, setHoveredItemId] = (0, import_react36.useState)(null);
+  const [focusedItemId, setFocusedItemId] = (0, import_react37.useState)(null);
+  const [pressedItemId, setPressedItemId] = (0, import_react37.useState)(null);
+  const [hoveredItemId, setHoveredItemId] = (0, import_react37.useState)(null);
+  const getDefaultSections = () => {
+    if (variant === "custom" /* CUSTOM */) {
+      return [];
+    }
+    if (variant === "settings" /* SETTINGS */) {
+      return standardSettingsSidebarSections;
+    }
+    return standardMainSidebarSections;
+  };
+  const resolvedSections = sections != null ? sections : getDefaultSections();
   const getBackgroundColor = () => {
     switch (variant) {
       case "main" /* MAIN */:
@@ -5181,6 +5363,9 @@ function CanarySidebar({
       case "settings" /* SETTINGS */:
         return colors.colorBlack2;
       // $color-black-2 (#333333)
+      case "custom" /* CUSTOM */:
+        return "#375492";
+      // Default to MAIN color for CUSTOM variant
       default:
         return "#375492";
     }
@@ -5219,7 +5404,7 @@ function CanarySidebar({
         return 0.5;
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
     "aside",
     {
       className: (0, import_clsx32.default)(
@@ -5230,17 +5415,17 @@ function CanarySidebar({
         backgroundColor
       },
       children: [
-        backButton && variant === "settings" /* SETTINGS */ ? /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "flex items-center pt-4 pb-4 px-4 shrink-0", children: backButton }) : /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "flex items-center justify-center pt-6 pb-6 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { style: { opacity: 0.35, width: "140px", height: "24px" }, children: logo !== void 0 ? logo : /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CanaryLogo, {}) }) }),
-        title && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "px-4 pb-4 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("h2", { className: "text-[16px] font-medium text-white", style: { fontFamily: "Roboto, sans-serif" }, children: title }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("nav", { className: "flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8", children: sections.map((section, sectionIndex) => /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { children: [
-          sectionIndex > 0 && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+        backButton && variant === "settings" /* SETTINGS */ ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "flex items-center pt-4 pb-4 px-4 shrink-0", children: backButton }) : /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "flex items-center justify-center pt-6 pb-6 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { style: { opacity: 0.35, width: "140px", height: "24px" }, children: logo !== void 0 ? logo : /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CanaryLogo, {}) }) }),
+        title && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "px-4 pb-4 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h2", { className: "text-[16px] font-medium text-white", style: { fontFamily: "Roboto, sans-serif" }, children: title }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("nav", { className: "flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8", children: resolvedSections.map((section, sectionIndex) => /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { children: [
+          sectionIndex > 0 && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
             "div",
             {
               className: "h-[1px] mb-4",
               style: { backgroundColor: "rgba(255, 255, 255, 0.1)" }
             }
           ),
-          section.title && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+          section.title && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
             "div",
             {
               className: "pl-4 pb-2 text-[14px] font-medium",
@@ -5252,11 +5437,11 @@ function CanarySidebar({
               children: section.title
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "flex flex-col", children: section.items.map((item) => {
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "flex flex-col", children: section.items.map((item) => {
             const state = getItemState(item);
             const iconOpacity = getIconOpacity(state);
             const isSelected = state === "selected" /* SELECTED */;
-            return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+            return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
               "button",
               {
                 onClick: () => handleItemClick(item),
@@ -5276,7 +5461,7 @@ function CanarySidebar({
                   cursor: item.isDisabled ? "not-allowed" : "pointer"
                 },
                 children: [
-                  state === "selected" /* SELECTED */ && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  state === "selected" /* SELECTED */ && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -5289,7 +5474,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  state === "focus" /* FOCUS */ && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  state === "focus" /* FOCUS */ && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -5302,7 +5487,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  state === "onPress" /* ON_PRESS */ && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  state === "onPress" /* ON_PRESS */ && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -5315,7 +5500,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  item.icon && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  item.icon && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "span",
                     {
                       className: "absolute left-4 flex items-center justify-center shrink-0 pointer-events-none",
@@ -5330,7 +5515,7 @@ function CanarySidebar({
                       children: item.icon
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "span",
                     {
                       className: "absolute left-12 text-[14px] font-normal whitespace-nowrap pointer-events-none",
@@ -5342,7 +5527,7 @@ function CanarySidebar({
                       children: item.label
                     }
                   ),
-                  item.badge && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  item.badge && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "span",
                     {
                       className: "absolute left-[148px] flex items-center justify-center pointer-events-none",
@@ -5353,7 +5538,7 @@ function CanarySidebar({
                         borderRadius: "8px",
                         zIndex: 1
                       },
-                      children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                      children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                         "span",
                         {
                           className: "text-[12px] font-bold text-center",
@@ -5380,7 +5565,7 @@ function CanarySidebar({
 
 // components/canary-ui/navigation/CanaryHeader.tsx
 var import_clsx33 = __toESM(require("clsx"));
-var import_jsx_runtime37 = require("react/jsx-runtime");
+var import_jsx_runtime38 = require("react/jsx-runtime");
 function CanaryHeader({
   logo,
   title,
@@ -5388,7 +5573,7 @@ function CanaryHeader({
   navigation,
   className = ""
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(
     "header",
     {
       className: (0, import_clsx33.default)(
@@ -5400,178 +5585,304 @@ function CanaryHeader({
         borderColor: colors.colorBlack6
       },
       children: [
-        (logo || title) && /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex items-center gap-3", children: [
-          logo && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "shrink-0", children: logo }),
-          title && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h1", { className: "text-[20px] font-semibold", style: { color: colors.colorBlack1 }, children: title })
+        (logo || title) && /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex items-center gap-3", children: [
+          logo && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "shrink-0", children: logo }),
+          title && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h1", { className: "text-[20px] font-semibold", style: { color: colors.colorBlack1 }, children: title })
         ] }),
-        navigation && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("nav", { className: "flex-1 flex items-center justify-center px-6", children: navigation }),
-        actions && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "flex items-center gap-2 ml-auto", children: actions })
+        navigation && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("nav", { className: "flex-1 flex items-center justify-center px-6", children: navigation }),
+        actions && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "flex items-center gap-2 ml-auto", children: actions })
       ]
     }
   );
 }
 
-// components/canary-ui/navigation/standard-sidebar-sections.tsx
-var import_react37 = __toESM(require("@mdi/react"));
-var import_js11 = require("@mdi/js");
-var import_jsx_runtime38 = require("react/jsx-runtime");
-var standardMainSidebarSections = [
-  {
-    id: "main-section",
-    items: [
-      {
-        id: "upsells",
-        label: "Upsells",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiCashMultiple, size: 1 })
-      },
-      {
-        id: "check-in",
-        label: "Check-in",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiLogin, size: 1 })
-      },
-      {
-        id: "checkout",
-        label: "Checkout",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiLogout, size: 1 })
-      },
-      {
-        id: "messages",
-        label: "Messages",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiMessageProcessingOutline, size: 1 })
-      },
-      {
-        id: "calls",
-        label: "Calls",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiPhoneOutline, size: 1 })
-      },
-      {
-        id: "digital-tips",
-        label: "Digital Tips",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiCurrencyUsd, size: 1 })
-      }
-    ]
+// components/canary-ui/navigation/sidebar-tabs.tsx
+var import_react38 = __toESM(require("@mdi/react"));
+var import_js12 = require("@mdi/js");
+var import_jsx_runtime39 = require("react/jsx-runtime");
+var sidebarTabs = {
+  // Main Product Tabs
+  upsells: {
+    id: "upsells",
+    label: "Upsells",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiCashMultiple, size: 1 })
   },
-  {
-    id: "secondary-section",
-    items: [
-      {
-        id: "authorizations",
-        label: "Authorizations",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiShieldCheckOutline, size: 1 })
-      },
-      {
-        id: "contracts",
-        label: "Contracts",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiFileSign, size: 1 })
-      },
-      {
-        id: "id-verification",
-        label: "ID Verification",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiAccountCheckOutline, size: 1 })
-      },
-      {
-        id: "clients-on-file",
-        label: "Clients on File",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiAccountBoxOutline, size: 1 })
-      },
-      {
-        id: "amenities",
-        label: "Amenities",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiStoreOutline, size: 1 })
-      },
-      {
-        id: "payment-links",
-        label: "Payment Links",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiCreditCardOutline, size: 1 })
-      }
-    ]
+  checkIn: {
+    id: "check-in",
+    label: "Check-in",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiLogin, size: 1 })
   },
-  {
-    id: "bottom-section",
-    items: [
-      {
-        id: "settings",
-        label: "Settings",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiCogOutline, size: 1 })
-      }
-    ]
+  checkout: {
+    id: "checkout",
+    label: "Checkout",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiLogout, size: 1 })
+  },
+  messages: {
+    id: "messages",
+    label: "Messages",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiMessageProcessingOutline, size: 1 })
+  },
+  calls: {
+    id: "calls",
+    label: "Calls",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiPhoneOutline, size: 1 })
+  },
+  digitalTips: {
+    id: "digital-tips",
+    label: "Digital Tips",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiCurrencyUsd, size: 1 })
+  },
+  authorizations: {
+    id: "authorizations",
+    label: "Authorizations",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiShieldCheckOutline, size: 1 })
+  },
+  contracts: {
+    id: "contracts",
+    label: "Contracts",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiFileSign, size: 1 })
+  },
+  idVerification: {
+    id: "id-verification",
+    label: "ID Verification",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiAccountCheckOutline, size: 1 })
+  },
+  clientsOnFile: {
+    id: "clients-on-file",
+    label: "Clients on File",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiAccountBoxOutline, size: 1 })
+  },
+  amenities: {
+    id: "amenities",
+    label: "Amenities",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiStoreOutline, size: 1 })
+  },
+  paymentLinks: {
+    id: "payment-links",
+    label: "Payment Links",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
+  },
+  settings: {
+    id: "settings",
+    label: "Settings",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiCogOutline, size: 1 })
+  },
+  // Settings Tabs
+  propertyInfo: {
+    id: "property-info",
+    label: "Property Info",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiHomeOutline, size: 1 })
+  },
+  branding: {
+    id: "branding",
+    label: "Branding",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiPaletteOutline, size: 1 })
+  },
+  billingPayment: {
+    id: "billing-payment",
+    label: "Billing & Payment",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
+  },
+  staffMembers: {
+    id: "staff-members",
+    label: "Staff Members",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiAccountGroupOutline, size: 1 })
+  },
+  security: {
+    id: "security",
+    label: "Security",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiShieldAccountOutline, size: 1 })
+  },
+  pms: {
+    id: "pms",
+    label: "PMS",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiPuzzleOutline, size: 1 })
+  },
+  devices: {
+    id: "devices",
+    label: "Devices",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiTabletCellphone, size: 1 })
+  },
+  compendium: {
+    id: "compendium",
+    label: "Compendium",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiNewspaperVariantOutline, size: 1 })
+  },
+  areaInfo: {
+    id: "area-info",
+    label: "Area Info",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiMapMarker, size: 1 })
+  },
+  chat: {
+    id: "chat",
+    label: "Chat",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiChatOutline, size: 1 })
+  },
+  // Custom/Above-Property Tabs
+  insights: {
+    id: "insights",
+    label: "Insights",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiChartLine, size: 1 })
+  },
+  properties: {
+    id: "properties",
+    label: "Properties",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiDomain, size: 1 })
+  },
+  analytics: {
+    id: "analytics",
+    label: "Analytics",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiChartBar, size: 1 })
+  },
+  surveys: {
+    id: "surveys",
+    label: "Surveys",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiPoll, size: 1 })
+  },
+  dashboard: {
+    id: "dashboard",
+    label: "Dashboard",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiViewDashboard, size: 1 })
+  },
+  tasks: {
+    id: "tasks",
+    label: "Tasks",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiClipboardList, size: 1 })
+  },
+  calendar: {
+    id: "calendar",
+    label: "Calendar",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiCalendar, size: 1 })
+  },
+  reports: {
+    id: "reports",
+    label: "Reports",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiNotebook, size: 1 })
+  },
+  performance: {
+    id: "performance",
+    label: "Performance",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_react38.default, { path: import_js12.mdiTrendingUp, size: 1 })
   }
-];
-var standardSettingsSidebarSections = [
-  {
-    id: "settings-section",
-    title: "General",
-    items: [
-      {
-        id: "property-info",
-        label: "Property Info",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiHomeOutline, size: 1 })
-      },
-      {
-        id: "branding",
-        label: "Branding",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiPaletteOutline, size: 1 })
-      },
-      {
-        id: "billing-payment",
-        label: "Billing & Payment",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiCreditCardOutline, size: 1 })
-      },
-      {
-        id: "staff-members",
-        label: "Staff Members",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiAccountGroupOutline, size: 1 })
-      },
-      {
-        id: "security",
-        label: "Security",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiShieldAccountOutline, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "integrations-section",
-    title: "Integrations",
-    items: [
-      {
-        id: "pms",
-        label: "PMS",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiPuzzleOutline, size: 1 })
-      },
-      {
-        id: "devices",
-        label: "Devices",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiTabletCellphone, size: 1 })
-      },
-      {
-        id: "compendium",
-        label: "Compendium",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiNewspaperVariantOutline, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "location-section",
-    title: "Location",
-    items: [
-      {
-        id: "area-info",
-        label: "Area Info",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiMapMarker, size: 1 })
-      },
-      {
-        id: "chat",
-        label: "Chat",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiChatOutline, size: 1 })
-      }
-    ]
+};
+var createSidebarTab = (id, label, icon, options) => __spreadValues({
+  id,
+  label,
+  icon
+}, options);
+
+// components/canary-ui/navigation/sidebar-utils.ts
+var hideProducts = (sections, productIds) => {
+  return sections.map((section) => __spreadProps(__spreadValues({}, section), {
+    items: section.items.filter((item) => !productIds.includes(item.id))
+  })).filter((section) => section.items.length > 0);
+};
+var addProduct = (sections, product, options = {}) => {
+  const { insertAfter, insertBefore, insertAtStart, insertAtEnd, sectionId } = options;
+  if (!sections.length) {
+    return [{
+      id: "main-section",
+      items: [product]
+    }];
   }
-];
+  return sections.map((section) => {
+    if (sectionId && section.id !== sectionId) {
+      return section;
+    }
+    if (!sectionId && section !== sections[0]) {
+      return section;
+    }
+    let newItems = [...section.items];
+    if (insertAfter) {
+      const index = newItems.findIndex((item) => item.id === insertAfter);
+      if (index !== -1) {
+        newItems.splice(index + 1, 0, product);
+      } else {
+        newItems.push(product);
+      }
+    } else if (insertBefore) {
+      const index = newItems.findIndex((item) => item.id === insertBefore);
+      if (index !== -1) {
+        newItems.splice(index, 0, product);
+      } else {
+        newItems.unshift(product);
+      }
+    } else if (insertAtStart) {
+      newItems.unshift(product);
+    } else {
+      newItems.push(product);
+    }
+    return __spreadProps(__spreadValues({}, section), {
+      items: newItems
+    });
+  });
+};
+var reorderProducts = (sections, productOrder, sectionId) => {
+  return sections.map((section) => {
+    if (sectionId && section.id !== sectionId) {
+      return section;
+    }
+    if (!sectionId && section !== sections[0]) {
+      return section;
+    }
+    const itemMap = new Map(section.items.map((item) => [item.id, item]));
+    const reorderedItems = [];
+    productOrder.forEach((productId) => {
+      const item = itemMap.get(productId);
+      if (item) {
+        reorderedItems.push(item);
+        itemMap.delete(productId);
+      }
+    });
+    itemMap.forEach((item) => {
+      reorderedItems.push(item);
+    });
+    return __spreadProps(__spreadValues({}, section), {
+      items: reorderedItems
+    });
+  });
+};
+var createCustomSection = (items, options = {}) => {
+  return {
+    id: options.id || "custom-section",
+    title: options.title,
+    items
+  };
+};
+var mergeWithStandard = (customSections, standardSections, options = {}) => {
+  const { insertAtStart, insertAtEnd, replaceStandard } = options;
+  if (replaceStandard) {
+    return customSections;
+  }
+  if (insertAtStart) {
+    return [...customSections, ...standardSections];
+  }
+  return [...standardSections, ...customSections];
+};
+var updateProduct = (sections, productId, updates) => {
+  return sections.map((section) => __spreadProps(__spreadValues({}, section), {
+    items: section.items.map(
+      (item) => item.id === productId ? __spreadValues(__spreadValues({}, item), updates) : item
+    )
+  }));
+};
+var addBadge = (sections, productId, badge) => {
+  return updateProduct(sections, productId, { badge });
+};
+var removeBadge = (sections, productId) => {
+  return updateProduct(sections, productId, { badge: void 0 });
+};
+var disableProduct = (sections, productId) => {
+  return updateProduct(sections, productId, { isDisabled: true });
+};
+var enableProduct = (sections, productId) => {
+  return updateProduct(sections, productId, { isDisabled: false });
+};
 
 // components/canary-ui/feedback/CanaryToast.tsx
-var import_react38 = require("react");
+var import_react39 = require("react");
 var import_clsx34 = __toESM(require("clsx"));
-var import_jsx_runtime39 = require("react/jsx-runtime");
+var import_jsx_runtime40 = require("react/jsx-runtime");
 function CanaryToast({
   message,
   type = "info",
@@ -5582,8 +5893,8 @@ function CanaryToast({
   position = "top-right",
   className = ""
 }) {
-  const [visible, setVisible] = (0, import_react38.useState)(isOpen);
-  (0, import_react38.useEffect)(() => {
+  const [visible, setVisible] = (0, import_react39.useState)(isOpen);
+  (0, import_react39.useEffect)(() => {
     setVisible(isOpen);
     if (isOpen && duration > 0) {
       const timer = setTimeout(() => {
@@ -5629,7 +5940,7 @@ function CanaryToast({
     setVisible(false);
     onClose == null ? void 0 : onClose();
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
     "div",
     {
       className: (0, import_clsx34.default)(
@@ -5647,14 +5958,14 @@ function CanaryToast({
         zIndex: zIndex.toast
       },
       children: [
-        icon && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "shrink-0", children: icon }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("p", { className: "text-[14px] font-medium flex-1", children: message }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+        icon && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "shrink-0", children: icon }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-[14px] font-medium flex-1", children: message }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
           "button",
           {
             onClick: handleClose,
             className: "shrink-0 hover:opacity-70 transition-opacity",
-            children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
+            children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
           }
         )
       ]
@@ -5664,7 +5975,7 @@ function CanaryToast({
 
 // components/canary-ui/feedback/CanaryAlert.tsx
 var import_clsx35 = __toESM(require("clsx"));
-var import_jsx_runtime40 = require("react/jsx-runtime");
+var import_jsx_runtime41 = require("react/jsx-runtime");
 function CanaryAlert({
   message,
   type = "info",
@@ -5696,7 +6007,7 @@ function CanaryAlert({
     }
   };
   const colorScheme = typeColors[type];
-  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(
     "div",
     {
       className: (0, import_clsx35.default)(
@@ -5709,17 +6020,17 @@ function CanaryAlert({
         color: colorScheme.text
       },
       children: [
-        icon && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "shrink-0 mt-0.5", children: icon }),
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex-1", children: [
-          title && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("h4", { className: "text-[14px] font-semibold mb-1", children: title }),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-[14px]", children: message })
+        icon && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "shrink-0 mt-0.5", children: icon }),
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex-1", children: [
+          title && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h4", { className: "text-[14px] font-semibold mb-1", children: title }),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-[14px]", children: message })
         ] }),
-        onClose && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
+        onClose && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
           "button",
           {
             onClick: onClose,
             className: "shrink-0 hover:opacity-70 transition-opacity",
-            children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
+            children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
           }
         )
       ]
@@ -5779,18 +6090,30 @@ function CanaryAlert({
   TagColor,
   TagSize,
   TagVariant,
+  addBadge,
+  addProduct,
   borderRadius,
   breakpoints,
   colors,
+  createCustomSection,
+  createSidebarTab,
   dimensions,
+  disableProduct,
   easings,
+  enableProduct,
+  hideProducts,
   iconPaths,
+  mergeWithStandard,
+  removeBadge,
+  reorderProducts,
   shadows,
+  sidebarTabs,
   spacing,
   standardMainSidebarSections,
   standardSettingsSidebarSections,
   transitions,
   typography,
+  updateProduct,
   zIndex
 });
 //# sourceMappingURL=index.js.map
