@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2025-12-01
+
+### Added
+- **Flexible Sidebar System**: Comprehensive sidebar customization while maintaining backward compatibility
+  - **CUSTOM variant**: New `SidebarVariant.CUSTOM` for fully customizable sidebars
+  - **Pre-built sidebar tabs**: Reusable "lego pieces" in `sidebarTabs` object for consistent icons and labels
+  - **Sidebar utility functions**: Complete toolkit for sidebar manipulation
+    - `hideProducts()` - Hide products for customers who didn't purchase them
+    - `addProduct()` - Add new products anywhere in the sidebar
+    - `createCustomSection()` - Create custom sections for "above property" dashboards
+    - `reorderProducts()`, `updateProduct()`, `addBadge()`, `removeBadge()`, etc.
+  - **Auto-resolution**: Optional `sections` prop with intelligent defaults for MAIN/SETTINGS variants
+  - **Hotel-focused demo examples**: Basic Package, Operations Dashboard, and Corporate Dashboard scenarios
+  - **Backward compatibility**: Existing MAIN and SETTINGS variants remain unchanged
+- **Sidebar configuration utilities**: Pure functions for immutable sidebar modifications
+- **TypeScript support**: Full type definitions for all new customization features
+
+### Changed  
+- **CanarySidebar**: `sections` prop now optional with auto-resolution based on variant
+- **Demo**: Updated demo labels from "Management" to "Mgmt" for brevity
+- **Demo**: Default port changed to 3001 to avoid conflicts
+
+### Fixed
+- **MDI icons**: Corrected import issues with Material Design Icons
+- **Build**: Updated exports to include all new sidebar utilities
+
 ## [0.4.0] - 2025-12-01
 
 ### Added
