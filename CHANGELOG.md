@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2025-12-01
+
+### Added
+- **CanaryList Component**: Container component for lists with drag-and-drop, animations, and state management
+  - Drag-and-drop reordering with @dnd-kit/sortable
+  - Smooth animations with framer-motion
+  - Loading, empty, and error states with customizable content
+  - Optional outer border styling
+  - Support for both controlled (items prop) and uncontrolled (children) modes
+- **CanaryListItem Component**: Flexible list item with extensive customization options
+  - Support for title, subtitle, description
+  - Icon and leftContent/rightContent slots
+  - Full children override for custom layouts
+  - Click handling with onClick and href support
+  - Draggable items with automatic drag handle
+  - Selection states with customizable colors
+  - Flexible padding (normal/compact) and alignment (start/center)
+  - Text wrapping control (wrap/truncate)
+- **Selectable List Example**: Interactive demo showing selection state management
+- **Complete API Documentation**: Added comprehensive prop tables and usage examples to README
+
+### Fixed
+- **Duplicate Drag Icons**: Removed duplicate drag icons when isDraggable={true} - component now handles it automatically
+- **Border Separators**: Fixed border separators between list items
+  - Added inline styles to motion.div wrappers in CanaryList
+  - Added canary-list-item CSS rule to demo globals.css
+  - Borders work in both CanaryList-wrapped and standalone scenarios
+- **Icon Component API**: Changed from style={{ fill }} to color prop for @mdi/react compatibility
+- **Optional Children**: Made children prop optional in CanaryListProps for state rendering
+
+### Changed
+- **All List Icons Use Outline Variants**: Updated all icons in CanaryList examples to use MDI outline variants
+  - mdiAccount → mdiAccountOutline
+  - mdiCheckCircle → mdiCheckCircleOutline
+  - mdiViewDashboard → mdiViewDashboardOutline
+  - mdiMessage → mdiMessageOutline
+  - mdiHelpCircle → mdiHelpCircleOutline
+  - mdiAlertCircle → mdiAlertCircleOutline
+
+### Developer Experience
+- Complete list components ready for production use
+
 ## [0.3.5] - 2025-11-21
 
 ### Fixed
