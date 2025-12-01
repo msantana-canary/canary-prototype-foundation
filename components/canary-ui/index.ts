@@ -60,6 +60,19 @@ export { CanaryTabs, CanarySidebar, CanaryHeader, CanaryLogo } from "./navigatio
 export { SidebarVariant, NavigationItemState } from "./navigation";
 export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps } from "./navigation";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./navigation";
+export { sidebarTabs, createSidebarTab } from "./navigation";
+export {
+  hideProducts,
+  addProduct,
+  reorderProducts,
+  createCustomSection,
+  mergeWithStandard,
+  updateProduct,
+  addBadge,
+  removeBadge,
+  disableProduct,
+  enableProduct,
+} from "./navigation";
 
 // Feedback
 export { CanaryToast, CanaryAlert } from "./feedback";

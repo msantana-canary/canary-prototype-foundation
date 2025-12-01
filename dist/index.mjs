@@ -5583,10 +5583,325 @@ function CanaryHeader({
   );
 }
 
+// components/canary-ui/navigation/sidebar-tabs.tsx
+import Icon12 from "@mdi/react";
+import {
+  mdiCashMultiple as mdiCashMultiple3,
+  mdiLogin as mdiLogin3,
+  mdiLogout as mdiLogout3,
+  mdiMessageProcessingOutline as mdiMessageProcessingOutline3,
+  mdiPhoneOutline as mdiPhoneOutline3,
+  mdiCurrencyUsd as mdiCurrencyUsd3,
+  mdiShieldCheckOutline as mdiShieldCheckOutline3,
+  mdiFileSign as mdiFileSign2,
+  mdiAccountCheckOutline as mdiAccountCheckOutline3,
+  mdiAccountBoxOutline as mdiAccountBoxOutline2,
+  mdiStoreOutline as mdiStoreOutline2,
+  mdiCreditCardOutline as mdiCreditCardOutline5,
+  mdiCogOutline as mdiCogOutline3,
+  mdiHomeOutline as mdiHomeOutline3,
+  mdiPaletteOutline as mdiPaletteOutline3,
+  mdiAccountGroupOutline as mdiAccountGroupOutline3,
+  mdiShieldAccountOutline as mdiShieldAccountOutline3,
+  mdiPuzzleOutline as mdiPuzzleOutline3,
+  mdiTabletCellphone as mdiTabletCellphone3,
+  mdiNewspaperVariantOutline as mdiNewspaperVariantOutline3,
+  mdiMapMarker as mdiMapMarker3,
+  mdiChatOutline as mdiChatOutline3,
+  mdiChartLine as mdiChartLine2,
+  mdiDomain,
+  mdiChartBar,
+  mdiPoll,
+  mdiViewDashboard,
+  mdiClipboardList,
+  mdiCalendar,
+  mdiNotebook,
+  mdiTrendingUp as mdiTrendingUp2
+} from "@mdi/js";
+import { jsx as jsx39 } from "react/jsx-runtime";
+var sidebarTabs = {
+  // Main Product Tabs
+  upsells: {
+    id: "upsells",
+    label: "Upsells",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiCashMultiple3, size: 1 })
+  },
+  checkIn: {
+    id: "check-in",
+    label: "Check-in",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiLogin3, size: 1 })
+  },
+  checkout: {
+    id: "checkout",
+    label: "Checkout",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiLogout3, size: 1 })
+  },
+  messages: {
+    id: "messages",
+    label: "Messages",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiMessageProcessingOutline3, size: 1 })
+  },
+  calls: {
+    id: "calls",
+    label: "Calls",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiPhoneOutline3, size: 1 })
+  },
+  digitalTips: {
+    id: "digital-tips",
+    label: "Digital Tips",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiCurrencyUsd3, size: 1 })
+  },
+  authorizations: {
+    id: "authorizations",
+    label: "Authorizations",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiShieldCheckOutline3, size: 1 })
+  },
+  contracts: {
+    id: "contracts",
+    label: "Contracts",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiFileSign2, size: 1 })
+  },
+  idVerification: {
+    id: "id-verification",
+    label: "ID Verification",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiAccountCheckOutline3, size: 1 })
+  },
+  clientsOnFile: {
+    id: "clients-on-file",
+    label: "Clients on File",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiAccountBoxOutline2, size: 1 })
+  },
+  amenities: {
+    id: "amenities",
+    label: "Amenities",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiStoreOutline2, size: 1 })
+  },
+  paymentLinks: {
+    id: "payment-links",
+    label: "Payment Links",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiCreditCardOutline5, size: 1 })
+  },
+  settings: {
+    id: "settings",
+    label: "Settings",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiCogOutline3, size: 1 })
+  },
+  // Settings Tabs
+  propertyInfo: {
+    id: "property-info",
+    label: "Property Info",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiHomeOutline3, size: 1 })
+  },
+  branding: {
+    id: "branding",
+    label: "Branding",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiPaletteOutline3, size: 1 })
+  },
+  billingPayment: {
+    id: "billing-payment",
+    label: "Billing & Payment",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiCreditCardOutline5, size: 1 })
+  },
+  staffMembers: {
+    id: "staff-members",
+    label: "Staff Members",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiAccountGroupOutline3, size: 1 })
+  },
+  security: {
+    id: "security",
+    label: "Security",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiShieldAccountOutline3, size: 1 })
+  },
+  pms: {
+    id: "pms",
+    label: "PMS",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiPuzzleOutline3, size: 1 })
+  },
+  devices: {
+    id: "devices",
+    label: "Devices",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiTabletCellphone3, size: 1 })
+  },
+  compendium: {
+    id: "compendium",
+    label: "Compendium",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiNewspaperVariantOutline3, size: 1 })
+  },
+  areaInfo: {
+    id: "area-info",
+    label: "Area Info",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiMapMarker3, size: 1 })
+  },
+  chat: {
+    id: "chat",
+    label: "Chat",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiChatOutline3, size: 1 })
+  },
+  // Custom/Above-Property Tabs
+  insights: {
+    id: "insights",
+    label: "Insights",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiChartLine2, size: 1 })
+  },
+  properties: {
+    id: "properties",
+    label: "Properties",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiDomain, size: 1 })
+  },
+  analytics: {
+    id: "analytics",
+    label: "Analytics",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiChartBar, size: 1 })
+  },
+  surveys: {
+    id: "surveys",
+    label: "Surveys",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiPoll, size: 1 })
+  },
+  dashboard: {
+    id: "dashboard",
+    label: "Dashboard",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiViewDashboard, size: 1 })
+  },
+  tasks: {
+    id: "tasks",
+    label: "Tasks",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiClipboardList, size: 1 })
+  },
+  calendar: {
+    id: "calendar",
+    label: "Calendar",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiCalendar, size: 1 })
+  },
+  reports: {
+    id: "reports",
+    label: "Reports",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiNotebook, size: 1 })
+  },
+  performance: {
+    id: "performance",
+    label: "Performance",
+    icon: /* @__PURE__ */ jsx39(Icon12, { path: mdiTrendingUp2, size: 1 })
+  }
+};
+var createSidebarTab = (id, label, icon, options) => __spreadValues({
+  id,
+  label,
+  icon
+}, options);
+
+// components/canary-ui/navigation/sidebar-utils.ts
+var hideProducts = (sections, productIds) => {
+  return sections.map((section) => __spreadProps(__spreadValues({}, section), {
+    items: section.items.filter((item) => !productIds.includes(item.id))
+  })).filter((section) => section.items.length > 0);
+};
+var addProduct = (sections, product, options = {}) => {
+  const { insertAfter, insertBefore, insertAtStart, insertAtEnd, sectionId } = options;
+  if (!sections.length) {
+    return [{
+      id: "main-section",
+      items: [product]
+    }];
+  }
+  return sections.map((section) => {
+    if (sectionId && section.id !== sectionId) {
+      return section;
+    }
+    if (!sectionId && section !== sections[0]) {
+      return section;
+    }
+    let newItems = [...section.items];
+    if (insertAfter) {
+      const index = newItems.findIndex((item) => item.id === insertAfter);
+      if (index !== -1) {
+        newItems.splice(index + 1, 0, product);
+      } else {
+        newItems.push(product);
+      }
+    } else if (insertBefore) {
+      const index = newItems.findIndex((item) => item.id === insertBefore);
+      if (index !== -1) {
+        newItems.splice(index, 0, product);
+      } else {
+        newItems.unshift(product);
+      }
+    } else if (insertAtStart) {
+      newItems.unshift(product);
+    } else {
+      newItems.push(product);
+    }
+    return __spreadProps(__spreadValues({}, section), {
+      items: newItems
+    });
+  });
+};
+var reorderProducts = (sections, productOrder, sectionId) => {
+  return sections.map((section) => {
+    if (sectionId && section.id !== sectionId) {
+      return section;
+    }
+    if (!sectionId && section !== sections[0]) {
+      return section;
+    }
+    const itemMap = new Map(section.items.map((item) => [item.id, item]));
+    const reorderedItems = [];
+    productOrder.forEach((productId) => {
+      const item = itemMap.get(productId);
+      if (item) {
+        reorderedItems.push(item);
+        itemMap.delete(productId);
+      }
+    });
+    itemMap.forEach((item) => {
+      reorderedItems.push(item);
+    });
+    return __spreadProps(__spreadValues({}, section), {
+      items: reorderedItems
+    });
+  });
+};
+var createCustomSection = (items, options = {}) => {
+  return {
+    id: options.id || "custom-section",
+    title: options.title,
+    items
+  };
+};
+var mergeWithStandard = (customSections, standardSections, options = {}) => {
+  const { insertAtStart, insertAtEnd, replaceStandard } = options;
+  if (replaceStandard) {
+    return customSections;
+  }
+  if (insertAtStart) {
+    return [...customSections, ...standardSections];
+  }
+  return [...standardSections, ...customSections];
+};
+var updateProduct = (sections, productId, updates) => {
+  return sections.map((section) => __spreadProps(__spreadValues({}, section), {
+    items: section.items.map(
+      (item) => item.id === productId ? __spreadValues(__spreadValues({}, item), updates) : item
+    )
+  }));
+};
+var addBadge = (sections, productId, badge) => {
+  return updateProduct(sections, productId, { badge });
+};
+var removeBadge = (sections, productId) => {
+  return updateProduct(sections, productId, { badge: void 0 });
+};
+var disableProduct = (sections, productId) => {
+  return updateProduct(sections, productId, { isDisabled: true });
+};
+var enableProduct = (sections, productId) => {
+  return updateProduct(sections, productId, { isDisabled: false });
+};
+
 // components/canary-ui/feedback/CanaryToast.tsx
 import { useEffect as useEffect8, useState as useState17 } from "react";
 import clsx34 from "clsx";
-import { jsx as jsx39, jsxs as jsxs35 } from "react/jsx-runtime";
+import { jsx as jsx40, jsxs as jsxs35 } from "react/jsx-runtime";
 function CanaryToast({
   message,
   type = "info",
@@ -5662,14 +5977,14 @@ function CanaryToast({
         zIndex: zIndex.toast
       },
       children: [
-        icon && /* @__PURE__ */ jsx39("div", { className: "shrink-0", children: icon }),
-        /* @__PURE__ */ jsx39("p", { className: "text-[14px] font-medium flex-1", children: message }),
-        /* @__PURE__ */ jsx39(
+        icon && /* @__PURE__ */ jsx40("div", { className: "shrink-0", children: icon }),
+        /* @__PURE__ */ jsx40("p", { className: "text-[14px] font-medium flex-1", children: message }),
+        /* @__PURE__ */ jsx40(
           "button",
           {
             onClick: handleClose,
             className: "shrink-0 hover:opacity-70 transition-opacity",
-            children: /* @__PURE__ */ jsx39("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ jsx39("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
+            children: /* @__PURE__ */ jsx40("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ jsx40("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
           }
         )
       ]
@@ -5679,7 +5994,7 @@ function CanaryToast({
 
 // components/canary-ui/feedback/CanaryAlert.tsx
 import clsx35 from "clsx";
-import { jsx as jsx40, jsxs as jsxs36 } from "react/jsx-runtime";
+import { jsx as jsx41, jsxs as jsxs36 } from "react/jsx-runtime";
 function CanaryAlert({
   message,
   type = "info",
@@ -5724,17 +6039,17 @@ function CanaryAlert({
         color: colorScheme.text
       },
       children: [
-        icon && /* @__PURE__ */ jsx40("div", { className: "shrink-0 mt-0.5", children: icon }),
+        icon && /* @__PURE__ */ jsx41("div", { className: "shrink-0 mt-0.5", children: icon }),
         /* @__PURE__ */ jsxs36("div", { className: "flex-1", children: [
-          title && /* @__PURE__ */ jsx40("h4", { className: "text-[14px] font-semibold mb-1", children: title }),
-          /* @__PURE__ */ jsx40("p", { className: "text-[14px]", children: message })
+          title && /* @__PURE__ */ jsx41("h4", { className: "text-[14px] font-semibold mb-1", children: title }),
+          /* @__PURE__ */ jsx41("p", { className: "text-[14px]", children: message })
         ] }),
-        onClose && /* @__PURE__ */ jsx40(
+        onClose && /* @__PURE__ */ jsx41(
           "button",
           {
             onClick: onClose,
             className: "shrink-0 hover:opacity-70 transition-opacity",
-            children: /* @__PURE__ */ jsx40("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ jsx40("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
+            children: /* @__PURE__ */ jsx41("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ jsx41("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
           }
         )
       ]
@@ -5793,18 +6108,30 @@ export {
   TagColor,
   TagSize,
   TagVariant,
+  addBadge,
+  addProduct,
   borderRadius,
   breakpoints,
   colors,
+  createCustomSection,
+  createSidebarTab,
   dimensions,
+  disableProduct,
   easings,
+  enableProduct,
+  hideProducts,
   iconPaths,
+  mergeWithStandard,
+  removeBadge,
+  reorderProducts,
   shadows,
+  sidebarTabs,
   spacing,
   standardMainSidebarSections,
   standardSettingsSidebarSections,
   transitions,
   typography,
+  updateProduct,
   zIndex
 };
 //# sourceMappingURL=index.mjs.map

@@ -117,7 +117,6 @@ import {
   mdiSprayBottle,
   mdiWrench,
   mdiCalendarClock,
-  mdiCashUsdOutline,
   mdiPartyPopper,
   mdiPackageVariant,
   mdiCommentTextOutline,
@@ -3159,7 +3158,7 @@ const [items, setItems] = useState([
                           createCustomSection([
                             sidebarTabs.checkIn,
                             sidebarTabs.checkout,
-                            { ...createSidebarTab('rooms', 'Room Management', <Icon path={mdiDoorOpen} size={1} />), badge: 3 },
+                            { ...createSidebarTab('rooms', 'Room Mgmt', <Icon path={mdiDoorOpen} size={1} />), badge: 3 },
                             { ...createSidebarTab('housekeeping', 'Housekeeping', <Icon path={mdiSprayBottle} size={1} />), badge: 7 },
                             createSidebarTab('maintenance', 'Maintenance', <Icon path={mdiWrench} size={1} />),
                             createSidebarTab('staff', 'Staff Schedule', <Icon path={mdiCalendarClock} size={1} />),
@@ -3184,7 +3183,7 @@ const [items, setItems] = useState([
                             sidebarTabs.dashboard,
                             sidebarTabs.properties,
                             sidebarTabs.analytics,
-                            createSidebarTab('revenue', 'Revenue Management', <Icon path={mdiCashUsdOutline} size={1} />),
+                            createSidebarTab('revenue', 'Revenue Mgmt', <Icon path={mdiCashMultiple} size={1} />),
                             createSidebarTab('guests', 'Guest Insights', <Icon path={mdiAccountGroupOutline} size={1} />),
                             createSidebarTab('events', 'Events & Catering', <Icon path={mdiPartyPopper} size={1} />),
                           ], { id: 'corporate' })
@@ -3208,7 +3207,7 @@ const [items, setItems] = useState([
                           sidebarTabs.checkout,
                         ], { id: 'guest-services', title: 'Guest Services' }),
                         createCustomSection([
-                          { ...createSidebarTab('rooms', 'Room Management', <Icon path={mdiDoorOpen} size={1} />), badge: 2 },
+                          { ...createSidebarTab('rooms', 'Room Mgmt', <Icon path={mdiDoorOpen} size={1} />), badge: 2 },
                           { ...createSidebarTab('housekeeping', 'Housekeeping', <Icon path={mdiSprayBottle} size={1} />), badge: 5 },
                           createSidebarTab('maintenance', 'Maintenance', <Icon path={mdiWrench} size={1} />),
                           createSidebarTab('inventory', 'Inventory', <Icon path={mdiPackageVariant} size={1} />),
@@ -3246,7 +3245,7 @@ const hotelSections = [
   createCustomSection([
     sidebarTabs.checkIn,
     sidebarTabs.checkout,
-    createSidebarTab('rooms', 'Room Management', <Icon path={mdiDoor} />),
+    createSidebarTab('rooms', 'Room Mgmt', <Icon path={mdiDoor} />),
     createSidebarTab('housekeeping', 'Housekeeping', <Icon path={mdiSpray} />),
   ])
 ];
@@ -3259,7 +3258,7 @@ const corporateSections = [
     sidebarTabs.dashboard,
     sidebarTabs.properties,
     sidebarTabs.analytics,
-    createSidebarTab('revenue', 'Revenue Management', <Icon path={mdiCash} />),
+    createSidebarTab('revenue', 'Revenue Mgmt', <Icon path={mdiCash} />),
   ])
 ];
 
