@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.2] - 2025-12-08
+
+### Added
+- **CanaryPageHeader Component**: Standard Canary page header for applications
+  - Property selector with blue dropdown chevron (left side)
+  - Reservation status badge with connected/disconnected states (green/gray pill)
+  - User profile section with avatar (or initials fallback), name, role, and dropdown
+  - Customizable click handlers for property, reservation status, and user profile
+  - Optional actions slot for additional header items
+- **CanaryAppShell Component**: Complete application scaffolding for prototypes
+  - Combines sidebar, page header, and scrollable content area
+  - Support for MAIN, SETTINGS, and CUSTOM sidebar variants
+  - Configurable content padding (none, small, medium, large)
+  - Customizable content background color
+  - Options to hide sidebar or header independently
+  - Recommended starting point for building Canary prototypes
+- **AI Reference Documentation**: Updated AI_REFERENCE.md with new component APIs and examples
+- **Demo Section**: Added "App Shell & Scaffolding" section to component showcase
+
+### Changed
+- Avatar fallback now uses colorBlack7 (#F0F0F0) background for initials display
+
 ## [0.4.1] - 2025-12-01
 
 ### Added

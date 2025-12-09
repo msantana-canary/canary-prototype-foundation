@@ -54,11 +54,11 @@ The library ships with pre-built CSS, so you don't need to configure Tailwind to
 ### Step 1: Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.1
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.2
 # or
-yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.1
+yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.2
 # or
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.1
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.2
 ```
 
 Or install from npm (once published):
@@ -905,7 +905,7 @@ export function MyCustomButton({ children, ...props }) {
 
 ## Keeping Up to Date
 
-### Current Version: v0.4.1
+### Current Version: v0.4.2
 
 **📋 [View Changelog](./CHANGELOG.md)** - See what's new in each release
 
@@ -918,7 +918,7 @@ To update the library in your project:
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
 # Or update to a specific version
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.1
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.2
 ```
 
 **After updating:**
@@ -928,7 +928,8 @@ npm install git+https://github.com/msantana-canary/canary-prototype-foundation.g
 
 ### Version History
 
-- **v0.4.1** (Latest) - Flexible sidebar system with customization utilities, pre-built tabs, and hotel-focused examples
+- **v0.4.2** (Latest) - CanaryPageHeader and CanaryAppShell components for complete app scaffolding
+- **v0.4.1** - Flexible sidebar system with customization utilities, pre-built tabs, and hotel-focused examples
 - **v0.4.0** - CanaryList and CanaryListItem components with drag-and-drop, animations, and comprehensive state management
 - **v0.3.5** - Fixed CanaryTabs hover states, phone input flag icons, cross-browser compatibility improvements  
 - **v0.3.4** - React Strict Mode fix, opacity class fixes, improved docs, outline button padding
