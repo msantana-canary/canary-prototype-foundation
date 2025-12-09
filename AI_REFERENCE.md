@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.1
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.2
 ```
 
 2. **Import styles** in root layout:
@@ -69,19 +69,21 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 | `CanaryList` | `import { CanaryList } from '@canary-ui/components'` | List container with drag-and-drop |
 | `CanaryListItem` | `import { CanaryListItem } from '@canary-ui/components'` | Flexible list item |
 
-### Layout (3 components)
+### Layout (4 components)
 | Component | Import | Description |
 |-----------|--------|-------------|
 | `CanaryContainer` | `import { CanaryContainer } from '@canary-ui/components'` | Responsive container |
 | `CanaryGrid` | `import { CanaryGrid } from '@canary-ui/components'` | CSS Grid layout |
 | `CanaryModal` | `import { CanaryModal } from '@canary-ui/components'` | Modal dialog with overlay |
+| `CanaryAppShell` | `import { CanaryAppShell } from '@canary-ui/components'` | **Complete app scaffolding with sidebar + header + content area** |
 
-### Navigation (4 components + utilities)
+### Navigation (5 components + utilities)
 | Component | Import | Description |
 |-----------|--------|-------------|
 | `CanaryTabs` | `import { CanaryTabs } from '@canary-ui/components'` | Tabbed navigation |
 | `CanarySidebar` | `import { CanarySidebar } from '@canary-ui/components'` | Side navigation |
-| `CanaryHeader` | `import { CanaryHeader } from '@canary-ui/components'` | Application header |
+| `CanaryHeader` | `import { CanaryHeader } from '@canary-ui/components'` | Generic application header |
+| `CanaryPageHeader` | `import { CanaryPageHeader } from '@canary-ui/components'` | **Standard Canary page header with property selector, user profile, reservation status** |
 | `CanaryLogo` | `import { CanaryLogo } from '@canary-ui/components'` | Canary logo component |
 
 ### Feedback (3 components)
@@ -433,6 +435,136 @@ const [isOpen, setIsOpen] = useState(false);
     </CanaryButton>
   </div>
 </CanaryModal>
+```
+
+### CanaryPageHeader
+
+The standard Canary page header with property selector, reservation status badge, and user profile.
+
+```tsx
+interface CanaryPageHeaderProps {
+  propertyName: string;                    // Property/Hotel name (left side)
+  onPropertyClick?: () => void;            // Property selector click handler
+  userProfile?: {
+    name: string;
+    role: string;
+    avatarUrl?: string;                    // Optional - shows initials if not provided
+  };
+  onUserProfileClick?: () => void;
+  reservationStatus?: {
+    label: string;                         // e.g., "Reservations"
+    isConnected: boolean;                  // Green when true, gray when false
+  };
+  onReservationStatusClick?: () => void;
+  actions?: ReactNode;                     // Additional actions before user profile
+  className?: string;
+}
+```
+
+**Example:**
+```tsx
+<CanaryPageHeader
+  propertyName="Statler New York"
+  onPropertyClick={() => openPropertySelector()}
+  reservationStatus={{
+    label: "Reservations",
+    isConnected: true
+  }}
+  userProfile={{
+    name: "Theresa Webb",
+    role: "Front Desk",
+    avatarUrl: "https://..."
+  }}
+  onUserProfileClick={() => openUserMenu()}
+/>
+```
+
+### CanaryAppShell
+
+**RECOMMENDED FOR PROTOTYPES** - Complete application scaffolding that combines sidebar, page header, and content area. Use this as your starting point.
+
+```tsx
+interface CanaryAppShellProps {
+  children: ReactNode;                     // Your page content goes here
+
+  // Sidebar props
+  sidebarVariant?: SidebarVariant;         // MAIN | SETTINGS | CUSTOM
+  sidebarSections?: SidebarSection[];      // Custom sections (optional)
+  selectedSidebarItemId?: string;
+  onSidebarItemClick?: (itemId: string) => void;
+  sidebarTitle?: string;                   // For SETTINGS variant
+  sidebarBackButton?: ReactNode;           // For SETTINGS variant
+  hideSidebar?: boolean;                   // Hide sidebar entirely
+
+  // Header props
+  propertyName?: string;                   // Default: "Property Name"
+  onPropertyClick?: () => void;
+  userProfile?: { name: string; role: string; avatarUrl?: string };
+  onUserProfileClick?: () => void;
+  reservationStatus?: { label: string; isConnected: boolean };
+  onReservationStatusClick?: () => void;
+  headerActions?: ReactNode;
+  hideHeader?: boolean;                    // Hide header entirely
+
+  // Content area props
+  contentPadding?: "none" | "small" | "medium" | "large";  // Default: "medium"
+  contentBackground?: string;              // Default: colorBlack7 (#F0F0F0)
+  contentClassName?: string;
+
+  className?: string;
+}
+```
+
+**Basic Example:**
+```tsx
+<CanaryAppShell
+  propertyName="My Hotel"
+  userProfile={{ name: "John Doe", role: "Manager" }}
+  reservationStatus={{ label: "Reservations", isConnected: true }}
+  onSidebarItemClick={(id) => router.push(`/${id}`)}
+>
+  <YourPageContent />
+</CanaryAppShell>
+```
+
+**Settings Page Example:**
+```tsx
+<CanaryAppShell
+  sidebarVariant={SidebarVariant.SETTINGS}
+  sidebarTitle="Settings"
+  sidebarBackButton={
+    <CanaryButton
+      type={ButtonType.TEXT}
+      color={ButtonColor.WHITE}
+      icon={<Icon path={mdiArrowLeft} size={1} />}
+      iconPosition={IconPosition.LEFT}
+    >
+      Back
+    </CanaryButton>
+  }
+  propertyName="My Hotel"
+  userProfile={{ name: "Admin", role: "Administrator" }}
+>
+  <SettingsContent />
+</CanaryAppShell>
+```
+
+**Custom Sidebar Example:**
+```tsx
+<CanaryAppShell
+  sidebarVariant={SidebarVariant.CUSTOM}
+  sidebarSections={[
+    createCustomSection([
+      sidebarTabs.dashboard,
+      sidebarTabs.properties,
+      sidebarTabs.analytics
+    ], { title: 'Overview' })
+  ]}
+  propertyName="Corporate HQ"
+  contentPadding="none"
+>
+  <DashboardContent />
+</CanaryAppShell>
 ```
 
 ### CanaryTag
@@ -1231,6 +1363,6 @@ const abovePropertySections = [
 
 ## Version
 
-**Current Version:** v0.4.1
+**Current Version:** v0.4.2
 
 Last updated: December 2024

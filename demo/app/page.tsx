@@ -37,6 +37,8 @@ import {
   CanaryTabs,
   CanarySidebar,
   CanaryHeader,
+  CanaryPageHeader,
+  CanaryAppShell,
   CanaryAlert,
   CanaryToast,
   CanaryLoading,
@@ -283,6 +285,7 @@ export default function ComponentShowcase() {
     { id: "forms", label: "Form Components" },
     { id: "data-display", label: "Data Display" },
     { id: "layout", label: "Layout & Navigation" },
+    { id: "app-shell", label: "App Shell" },
     { id: "feedback", label: "Feedback" },
   ];
 
@@ -3318,6 +3321,198 @@ const corporateSections = [
 >
   <p>Modal content goes here</p>
 </CanaryModal>`}
+                />
+              </CanaryCard>
+            </div>
+          </Section>
+
+          {/* App Shell */}
+          <Section title="App Shell & Scaffolding" id="app-shell">
+            <div className="space-y-6">
+              <CanaryCard title="CanaryPageHeader">
+                <p className="text-sm text-gray-600 mb-4">
+                  The standard page header for Canary applications. Features property selector,
+                  reservation status badge, and user profile section.
+                </p>
+
+                <div className="border border-gray-200 rounded-lg overflow-hidden mb-4">
+                  <CanaryPageHeader
+                    propertyName="Statler New York"
+                    onPropertyClick={() => alert('Property selector clicked')}
+                    reservationStatus={{
+                      label: "Reservations",
+                      isConnected: true
+                    }}
+                    onReservationStatusClick={() => alert('Reservation status clicked')}
+                    userProfile={{
+                      name: "Theresa Webb",
+                      role: "Front Desk",
+                      avatarUrl: "https://i.pravatar.cc/150?img=5"
+                    }}
+                    onUserProfileClick={() => alert('User profile clicked')}
+                  />
+                </div>
+
+                <h4 className="text-sm font-semibold mb-2 mt-6">Disconnected State</h4>
+                <div className="border border-gray-200 rounded-lg overflow-hidden mb-4">
+                  <CanaryPageHeader
+                    propertyName="Grand Hotel Chicago"
+                    reservationStatus={{
+                      label: "Reservations",
+                      isConnected: false
+                    }}
+                    userProfile={{
+                      name: "Miguel Santana",
+                      role: "Admin"
+                    }}
+                  />
+                </div>
+
+                <CodeSnippet
+                  code={`import { CanaryPageHeader } from '@canary-ui/components';
+
+<CanaryPageHeader
+  propertyName="Statler New York"
+  onPropertyClick={() => {}}
+  reservationStatus={{
+    label: "Reservations",
+    isConnected: true
+  }}
+  userProfile={{
+    name: "Theresa Webb",
+    role: "Front Desk",
+    avatarUrl: "https://i.pravatar.cc/150?img=5"
+  }}
+  onUserProfileClick={() => {}}
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title="CanaryAppShell">
+                <p className="text-sm text-gray-600 mb-4">
+                  Complete application scaffolding that combines sidebar, page header, and content area.
+                  This is the recommended starting point for building Canary prototypes.
+                </p>
+
+                <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "500px" }}>
+                  <CanaryAppShell
+                    propertyName="Statler New York"
+                    userProfile={{
+                      name: "Theresa Webb",
+                      role: "Front Desk",
+                      avatarUrl: "https://i.pravatar.cc/150?img=5"
+                    }}
+                    reservationStatus={{
+                      label: "Reservations",
+                      isConnected: true
+                    }}
+                    onSidebarItemClick={(id) => alert(`Clicked: ${id}`)}
+                    contentPadding="medium"
+                  >
+                    <div className="space-y-4">
+                      <CanaryCard title="Dashboard">
+                        <p className="text-gray-600">
+                          Your page content goes here. The CanaryAppShell provides the complete
+                          application frame with sidebar and header already configured.
+                        </p>
+                      </CanaryCard>
+                      <div className="grid grid-cols-3 gap-4">
+                        <CanaryCard title="Check-ins Today">
+                          <p className="text-3xl font-bold" style={{ color: colors.colorBlueDark1 }}>24</p>
+                        </CanaryCard>
+                        <CanaryCard title="Checkouts Today">
+                          <p className="text-3xl font-bold" style={{ color: colors.colorLightGreen1 }}>18</p>
+                        </CanaryCard>
+                        <CanaryCard title="Messages">
+                          <p className="text-3xl font-bold" style={{ color: colors.colorWheat1 }}>7</p>
+                        </CanaryCard>
+                      </div>
+                    </div>
+                  </CanaryAppShell>
+                </div>
+
+                <h4 className="text-sm font-semibold mb-2 mt-6">Settings Variant</h4>
+                <p className="text-sm text-gray-600 mb-4">
+                  Use the SETTINGS variant for settings pages with a back button.
+                </p>
+
+                <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "400px" }}>
+                  <CanaryAppShell
+                    sidebarVariant={SidebarVariant.SETTINGS}
+                    sidebarTitle="Settings"
+                    sidebarBackButton={
+                      <CanaryButton
+                        type={ButtonType.TEXT}
+                        color={ButtonColor.WHITE}
+                        icon={<Icon path={mdiArrowLeft} size={1} />}
+                        iconPosition={IconPosition.LEFT}
+                      >
+                        Back
+                      </CanaryButton>
+                    }
+                    propertyName="Statler New York"
+                    userProfile={{
+                      name: "Admin User",
+                      role: "Administrator"
+                    }}
+                    contentPadding="medium"
+                  >
+                    <CanaryCard title="Property Information">
+                      <div className="space-y-4">
+                        <CanaryInput label="Hotel Name" value="Statler New York" />
+                        <CanaryInput label="Address" value="123 Main Street, New York, NY" />
+                        <CanaryInput label="Phone" value="+1 (555) 123-4567" />
+                      </div>
+                    </CanaryCard>
+                  </CanaryAppShell>
+                </div>
+
+                <CodeSnippet
+                  code={`import { CanaryAppShell, SidebarVariant } from '@canary-ui/components';
+
+// Basic usage - wraps your content with sidebar + header
+<CanaryAppShell
+  propertyName="My Hotel"
+  userProfile={{
+    name: "John Doe",
+    role: "Manager",
+    avatarUrl: "https://..."
+  }}
+  reservationStatus={{
+    label: "Reservations",
+    isConnected: true
+  }}
+  onSidebarItemClick={(id) => router.push(\`/\${id}\`)}
+>
+  <YourPageContent />
+</CanaryAppShell>
+
+// Settings page variant
+<CanaryAppShell
+  sidebarVariant={SidebarVariant.SETTINGS}
+  sidebarTitle="Settings"
+  sidebarBackButton={<BackButton />}
+  propertyName="My Hotel"
+  userProfile={{ name: "Admin", role: "Admin" }}
+>
+  <SettingsContent />
+</CanaryAppShell>
+
+// Custom sidebar with specific tabs
+<CanaryAppShell
+  sidebarVariant={SidebarVariant.CUSTOM}
+  sidebarSections={[
+    createCustomSection([
+      sidebarTabs.dashboard,
+      sidebarTabs.properties,
+      sidebarTabs.analytics
+    ], { title: 'Overview' })
+  ]}
+  propertyName="Corporate HQ"
+  hideHeader={false}
+>
+  <DashboardContent />
+</CanaryAppShell>`}
                 />
               </CanaryCard>
             </div>
