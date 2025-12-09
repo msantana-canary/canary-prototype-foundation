@@ -4,6 +4,29 @@ A comprehensive React component library implementing the Canary design system fo
 
 **📚 [View Live Demo & Component Gallery](https://canary-prototype-foundation.vercel.app/)**
 
+---
+
+## For AI Agents (Claude, Cursor, Copilot, etc.)
+
+> **STOP! Before generating any code using this library, read [`AI_REFERENCE.md`](./AI_REFERENCE.md) first.**
+
+The `AI_REFERENCE.md` file contains:
+- Complete list of all available components and their exact names
+- All TypeScript enums and their values
+- Every available icon name (don't guess - use only what's listed)
+- All color tokens and their hex values
+- Pre-built sidebar tabs and utility functions
+- Copy-paste code examples for common patterns
+
+**Why this matters:** This library uses specific component names, enums, and icon names. Guessing will result in errors. The reference file gives you everything you need to generate working code on the first try.
+
+```bash
+# Quick reference location (relative to project root):
+./AI_REFERENCE.md
+```
+
+---
+
 ## Features
 
 - ✨ **Complete Component Library** - 30+ pre-built components matching Canary UI
