@@ -53,12 +53,13 @@ export { TagColor, TagVariant, TagSize } from "./data-display/types";
 export type { CustomTagColor, CanaryTableColumn, CanaryListItemProps, CanaryListProps } from "./data-display";
 
 // Layout
-export { CanaryContainer, CanaryGrid, CanaryModal } from "./layout";
+export { CanaryContainer, CanaryGrid, CanaryModal, CanaryAppShell } from "./layout";
+export type { CanaryAppShellProps } from "./layout";
 
 // Navigation
-export { CanaryTabs, CanarySidebar, CanaryHeader, CanaryLogo } from "./navigation";
+export { CanaryTabs, CanarySidebar, CanaryHeader, CanaryPageHeader, CanaryLogo } from "./navigation";
 export { SidebarVariant, NavigationItemState } from "./navigation";
-export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps } from "./navigation";
+export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps, CanaryPageHeaderProps, UserProfile, ReservationStatus } from "./navigation";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./navigation";
 export { sidebarTabs, createSidebarTab } from "./navigation";
 export {
