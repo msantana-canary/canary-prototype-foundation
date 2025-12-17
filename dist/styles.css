@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 /**
  * Canary UI Component Library - Complete Styles
  *
@@ -11,9 +12,6 @@
  *
  * All component styles, utilities, and animations are included below.
  */
-
-/* Import Roboto font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
   /* Base Canary colors - defined in design-tokens.ts */
