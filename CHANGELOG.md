@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.3] - 2025-12-17
+
+### Fixed
+- **Tailwind CSS 4 Compatibility**: Fixed CSS `@import` ordering issue that caused parsing errors
+  - Replaced `@import url()` for Google Fonts with inline `@font-face` declarations
+  - Font loading still works identically but is now compatible with Tailwind CSS 4's CSS processing
+  - Roboto font (weights 300, 400, 500, 700) continues to load from Google Fonts CDN
+
 ## [0.4.2] - 2025-12-08
 
 ### Added

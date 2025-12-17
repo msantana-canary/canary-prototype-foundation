@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.2
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.3
 ```
 
 2. **Import styles** in root layout:
@@ -1363,6 +1363,6 @@ const abovePropertySections = [
 
 ## Version
 
-**Current Version:** v0.4.2
+**Current Version:** v0.4.3
 
-Last updated: December 2024
+Last updated: December 2025
