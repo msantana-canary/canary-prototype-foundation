@@ -6,7 +6,6 @@ import CanaryPageHeader, {
   ReservationStatus,
 } from "../navigation/CanaryPageHeader";
 import { SidebarVariant } from "../navigation/types";
-import { standardMainSidebarSections } from "../navigation/standard-sidebar-sections";
 import { colors } from "../design-tokens";
 
 export interface CanaryAppShellProps {
@@ -16,7 +15,7 @@ export interface CanaryAppShellProps {
   // ===== Sidebar Props =====
   /** Sidebar variant - MAIN, SETTINGS, or CUSTOM */
   sidebarVariant?: SidebarVariant;
-  /** Custom sidebar sections (defaults to standardMainSidebarSections) */
+  /** Custom sidebar sections (defaults based on sidebarVariant if not provided) */
   sidebarSections?: SidebarSection[];
   /** Currently selected sidebar item ID */
   selectedSidebarItemId?: string;
@@ -111,16 +110,13 @@ export default function CanaryAppShell({
   // Container
   className,
 }: CanaryAppShellProps) {
-  // Use standard sections based on variant if not provided
-  const resolvedSections = sidebarSections ?? standardMainSidebarSections;
-
   return (
-    <div className={clsx("flex h-screen w-full overflow-hidden", className)}>
+    <div className={clsx("flex h-screen min-h-screen w-full overflow-hidden", className)}>
       {/* Sidebar */}
       {!hideSidebar && (
         <CanarySidebar
           variant={sidebarVariant}
-          sections={resolvedSections}
+          sections={sidebarSections}
           selectedItemId={selectedSidebarItemId}
           onItemClick={onSidebarItemClick}
           title={sidebarTitle}

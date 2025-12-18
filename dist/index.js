@@ -5571,13 +5571,12 @@ function CanaryAppShell({
   // Container
   className
 }) {
-  const resolvedSections = sidebarSections != null ? sidebarSections : standardMainSidebarSections;
-  return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: (0, import_clsx33.default)("flex h-screen w-full overflow-hidden", className), children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: (0, import_clsx33.default)("flex h-screen min-h-screen w-full overflow-hidden", className), children: [
     !hideSidebar && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
       CanarySidebar,
       {
         variant: sidebarVariant,
-        sections: resolvedSections,
+        sections: sidebarSections,
         selectedItemId: selectedSidebarItemId,
         onItemClick: onSidebarItemClick,
         title: sidebarTitle,

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.5] - 2025-12-18
+
+### Fixed
+- **CanaryAppShell**: Fixed SETTINGS variant showing MAIN sidebar tabs
+  - Removed hardcoded `standardMainSidebarSections` fallback
+  - Now correctly lets CanarySidebar resolve sections based on variant
+  - SETTINGS variant now properly shows General Settings + Product Settings sections
+- **CanaryAppShell**: Fixed viewport height issue (added `min-h-screen`)
+
 ## [0.4.4] - 2025-12-18
 
 ### Fixed

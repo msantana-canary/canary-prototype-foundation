@@ -23,7 +23,7 @@ npx create-next-app@latest my-prototype --typescript --tailwind --app --src-dir=
 cd my-prototype
 
 # 3. Install Canary UI
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.4
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.5
 ```
 
 ### Required Configuration

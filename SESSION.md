@@ -1,8 +1,12 @@
 # Canary Prototype Foundation - Session State
 
-**Last Updated**: October 31, 2024
+**Last Updated**: December 1, 2025
+**Current Version**: v0.4.1 
 **Project Status**: ✅ Complete and Production Ready
 **Build Status**: ✅ Passing (`pnpm build` successful)
+**Latest Release**: 🎛️ Flexible Sidebar System
+
+> **📝 Latest Session**: See [SESSION-2025-12-01.md](./SESSION-2025-12-01.md) for comprehensive details on the flexible sidebar system implementation.
 
 ## Project Overview
 

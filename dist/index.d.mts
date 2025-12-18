@@ -825,7 +825,7 @@ interface CanaryAppShellProps {
     children: ReactNode;
     /** Sidebar variant - MAIN, SETTINGS, or CUSTOM */
     sidebarVariant?: SidebarVariant;
-    /** Custom sidebar sections (defaults to standardMainSidebarSections) */
+    /** Custom sidebar sections (defaults based on sidebarVariant if not provided) */
     sidebarSections?: SidebarSection[];
     /** Currently selected sidebar item ID */
     selectedSidebarItemId?: string;
