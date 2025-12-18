@@ -54,11 +54,11 @@ The library ships with pre-built CSS, so you don't need to configure Tailwind to
 ### Step 1: Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.5
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.6
 # or
-yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.5
+yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.6
 # or
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.5
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.6
 ```
 
 Or install from npm (once published):
@@ -905,7 +905,7 @@ export function MyCustomButton({ children, ...props }) {
 
 ## Keeping Up to Date
 
-### Current Version: v0.4.5
+### Current Version: v0.4.6
 
 **📋 [View Changelog](./CHANGELOG.md)** - See what's new in each release
 
@@ -918,7 +918,7 @@ To update the library in your project:
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
 # Or update to a specific version
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.5
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.6
 ```
 
 **After updating:**
@@ -928,7 +928,8 @@ npm install git+https://github.com/msantana-canary/canary-prototype-foundation.g
 
 ### Version History
 
-- **v0.4.5** (Latest) - CanaryAppShell SETTINGS variant fix + viewport height fix
+- **v0.4.6** (Latest) - Added missing CSS height utilities (h-screen, h-full, min-h-screen)
+- **v0.4.5** - CanaryAppShell SETTINGS variant fix + viewport height fix
 - **v0.4.4** - Settings sidebar fix + CLAUDE.md for AI agent scaffolding
 - **v0.4.3** - Tailwind CSS 4 compatibility fix (replaced @import with @font-face)
 - **v0.4.2** - CanaryPageHeader and CanaryAppShell components for complete app scaffolding

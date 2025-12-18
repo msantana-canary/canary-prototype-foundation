@@ -546,6 +546,14 @@ body {
 .h-20 { height: 5rem; }
 .h-24 { height: 6rem; }
 
+/* Viewport and percentage height utilities */
+.h-full { height: 100%; }
+.h-screen { height: 100vh; }
+.min-h-screen { min-height: 100vh; }
+.max-h-screen { max-height: 100vh; }
+.min-h-full { min-height: 100%; }
+.max-h-full { max-height: 100%; }
+
 /* Additional gap utilities */
 .gap-8 { gap: 2rem; }
 

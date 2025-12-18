@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.6] - 2025-12-18
+
+### Fixed
+- **CSS Height Utilities**: Added missing viewport/percentage height utilities to styles.css
+  - Added `h-full`, `h-screen`, `min-h-screen`, `max-h-screen`, `min-h-full`, `max-h-full`
+  - Fixes CanaryAppShell not filling full viewport height in projects without Tailwind
+
 ## [0.4.5] - 2025-12-18
 
 ### Fixed
