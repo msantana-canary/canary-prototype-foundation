@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.4] - 2025-12-18
+
+### Fixed
+- **Settings Sidebar**: Updated `standardSettingsSidebarSections` to match actual Canary product
+  - **General Settings**: Property Info, Branding, Billing & Payment, Staff Members, Security, Integrations, Devices
+  - **Product Settings** (NEW): Compendium, Guest Journey, Upsells, Check-in, Checkout, Messages, Calls, Authorizations, Digital Tips, Contracts, Payment Links
+  - Removed incorrect "Location" section (Area Info, Chat)
+  - Moved Integrations/Devices from separate section to items under General Settings
+
+### Added
+- **CLAUDE.md**: AI agent scaffolding guide for new prototype projects
+  - Tech stack requirements (Next.js 15, TypeScript, Tailwind CSS 4)
+  - Project setup commands and configuration
+  - Pointer to AI_REFERENCE.md for component documentation
+  - Hotel/hospitality context for prototypes
+
 ## [0.4.3] - 2025-12-17
 
 ### Fixed
