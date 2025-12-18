@@ -5055,8 +5055,8 @@ var standardMainSidebarSections = [
 ];
 var standardSettingsSidebarSections = [
   {
-    id: "settings-section",
-    title: "General",
+    id: "general-settings-section",
+    title: "General Settings",
     items: [
       {
         id: "property-info",
@@ -5082,43 +5082,77 @@ var standardSettingsSidebarSections = [
         id: "security",
         label: "Security",
         icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiShieldAccountOutline, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "integrations-section",
-    title: "Integrations",
-    items: [
+      },
       {
-        id: "pms",
-        label: "PMS",
+        id: "integrations",
+        label: "Integrations",
         icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiPuzzleOutline, size: 1 })
       },
       {
         id: "devices",
         label: "Devices",
         icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiTabletCellphone, size: 1 })
-      },
-      {
-        id: "compendium",
-        label: "Compendium",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiNewspaperVariantOutline, size: 1 })
       }
     ]
   },
   {
-    id: "location-section",
-    title: "Location",
+    id: "product-settings-section",
+    title: "Product Settings",
     items: [
       {
-        id: "area-info",
-        label: "Area Info",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiMapMarker, size: 1 })
+        id: "compendium",
+        label: "Compendium",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiNewspaperVariantOutline, size: 1 })
       },
       {
-        id: "chat",
-        label: "Chat",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiChatOutline, size: 1 })
+        id: "guest-journey",
+        label: "Guest Journey",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiAccountCheckOutline, size: 1 })
+      },
+      {
+        id: "upsells",
+        label: "Upsells",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiCashMultiple, size: 1 })
+      },
+      {
+        id: "check-in",
+        label: "Check-in",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiLogin, size: 1 })
+      },
+      {
+        id: "checkout",
+        label: "Checkout",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiLogout, size: 1 })
+      },
+      {
+        id: "messages",
+        label: "Messages",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiMessageProcessingOutline, size: 1 })
+      },
+      {
+        id: "calls",
+        label: "Calls",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiPhoneOutline, size: 1 })
+      },
+      {
+        id: "authorizations",
+        label: "Authorizations",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiShieldCheckOutline, size: 1 })
+      },
+      {
+        id: "digital-tips",
+        label: "Digital Tips",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiCurrencyUsd, size: 1 })
+      },
+      {
+        id: "contracts",
+        label: "Contracts",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiFileSign, size: 1 })
+      },
+      {
+        id: "payment-links",
+        label: "Payment Links",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react35.default, { path: import_js11.mdiCreditCardOutline, size: 1 })
       }
     ]
   }

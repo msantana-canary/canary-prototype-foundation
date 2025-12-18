@@ -940,6 +940,7 @@ declare const standardMainSidebarSections: SidebarSection[];
 /**
  * Standard Settings Sidebar Sections
  * Used for settings/configuration pages
+ * Matches the actual Canary product settings navigation
  */
 declare const standardSettingsSidebarSections: SidebarSection[];
 

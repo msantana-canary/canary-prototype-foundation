@@ -4951,9 +4951,7 @@ import {
   mdiShieldAccountOutline as mdiShieldAccountOutline2,
   mdiPuzzleOutline as mdiPuzzleOutline2,
   mdiTabletCellphone as mdiTabletCellphone2,
-  mdiNewspaperVariantOutline as mdiNewspaperVariantOutline2,
-  mdiMapMarker as mdiMapMarker2,
-  mdiChatOutline as mdiChatOutline2
+  mdiNewspaperVariantOutline as mdiNewspaperVariantOutline2
 } from "@mdi/js";
 import { jsx as jsx35 } from "react/jsx-runtime";
 var standardMainSidebarSections = [
@@ -5040,8 +5038,8 @@ var standardMainSidebarSections = [
 ];
 var standardSettingsSidebarSections = [
   {
-    id: "settings-section",
-    title: "General",
+    id: "general-settings-section",
+    title: "General Settings",
     items: [
       {
         id: "property-info",
@@ -5067,43 +5065,77 @@ var standardSettingsSidebarSections = [
         id: "security",
         label: "Security",
         icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiShieldAccountOutline2, size: 1 })
-      }
-    ]
-  },
-  {
-    id: "integrations-section",
-    title: "Integrations",
-    items: [
+      },
       {
-        id: "pms",
-        label: "PMS",
+        id: "integrations",
+        label: "Integrations",
         icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiPuzzleOutline2, size: 1 })
       },
       {
         id: "devices",
         label: "Devices",
         icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiTabletCellphone2, size: 1 })
-      },
-      {
-        id: "compendium",
-        label: "Compendium",
-        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiNewspaperVariantOutline2, size: 1 })
       }
     ]
   },
   {
-    id: "location-section",
-    title: "Location",
+    id: "product-settings-section",
+    title: "Product Settings",
     items: [
       {
-        id: "area-info",
-        label: "Area Info",
-        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiMapMarker2, size: 1 })
+        id: "compendium",
+        label: "Compendium",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiNewspaperVariantOutline2, size: 1 })
       },
       {
-        id: "chat",
-        label: "Chat",
-        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiChatOutline2, size: 1 })
+        id: "guest-journey",
+        label: "Guest Journey",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiAccountCheckOutline2, size: 1 })
+      },
+      {
+        id: "upsells",
+        label: "Upsells",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiCashMultiple2, size: 1 })
+      },
+      {
+        id: "check-in",
+        label: "Check-in",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiLogin2, size: 1 })
+      },
+      {
+        id: "checkout",
+        label: "Checkout",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiLogout2, size: 1 })
+      },
+      {
+        id: "messages",
+        label: "Messages",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiMessageProcessingOutline2, size: 1 })
+      },
+      {
+        id: "calls",
+        label: "Calls",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiPhoneOutline2, size: 1 })
+      },
+      {
+        id: "authorizations",
+        label: "Authorizations",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiShieldCheckOutline2, size: 1 })
+      },
+      {
+        id: "digital-tips",
+        label: "Digital Tips",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiCurrencyUsd2, size: 1 })
+      },
+      {
+        id: "contracts",
+        label: "Contracts",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiFileSign, size: 1 })
+      },
+      {
+        id: "payment-links",
+        label: "Payment Links",
+        icon: /* @__PURE__ */ jsx35(Icon11, { path: mdiCreditCardOutline4, size: 1 })
       }
     ]
   }
@@ -5831,8 +5863,8 @@ import {
   mdiPuzzleOutline as mdiPuzzleOutline3,
   mdiTabletCellphone as mdiTabletCellphone3,
   mdiNewspaperVariantOutline as mdiNewspaperVariantOutline3,
-  mdiMapMarker as mdiMapMarker3,
-  mdiChatOutline as mdiChatOutline3,
+  mdiMapMarker as mdiMapMarker2,
+  mdiChatOutline as mdiChatOutline2,
   mdiChartLine as mdiChartLine2,
   mdiDomain,
   mdiChartBar,
@@ -5955,12 +5987,12 @@ var sidebarTabs = {
   areaInfo: {
     id: "area-info",
     label: "Area Info",
-    icon: /* @__PURE__ */ jsx41(Icon13, { path: mdiMapMarker3, size: 1 })
+    icon: /* @__PURE__ */ jsx41(Icon13, { path: mdiMapMarker2, size: 1 })
   },
   chat: {
     id: "chat",
     label: "Chat",
-    icon: /* @__PURE__ */ jsx41(Icon13, { path: mdiChatOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx41(Icon13, { path: mdiChatOutline2, size: 1 })
   },
   // Custom/Above-Property Tabs
   insights: {

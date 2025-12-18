@@ -27,8 +27,6 @@ import {
   mdiPuzzleOutline,
   mdiTabletCellphone,
   mdiNewspaperVariantOutline,
-  mdiMapMarker,
-  mdiChatOutline,
 } from "@mdi/js";
 import { SidebarSection } from "./CanarySidebar";
 
@@ -122,11 +120,12 @@ export const standardMainSidebarSections: SidebarSection[] = [
 /**
  * Standard Settings Sidebar Sections
  * Used for settings/configuration pages
+ * Matches the actual Canary product settings navigation
  */
 export const standardSettingsSidebarSections: SidebarSection[] = [
   {
-    id: "settings-section",
-    title: "General",
+    id: "general-settings-section",
+    title: "General Settings",
     items: [
       {
         id: "property-info",
@@ -153,15 +152,9 @@ export const standardSettingsSidebarSections: SidebarSection[] = [
         label: "Security",
         icon: <Icon path={mdiShieldAccountOutline} size={1} />,
       },
-    ],
-  },
-  {
-    id: "integrations-section",
-    title: "Integrations",
-    items: [
       {
-        id: "pms",
-        label: "PMS",
+        id: "integrations",
+        label: "Integrations",
         icon: <Icon path={mdiPuzzleOutline} size={1} />,
       },
       {
@@ -169,26 +162,66 @@ export const standardSettingsSidebarSections: SidebarSection[] = [
         label: "Devices",
         icon: <Icon path={mdiTabletCellphone} size={1} />,
       },
+    ],
+  },
+  {
+    id: "product-settings-section",
+    title: "Product Settings",
+    items: [
       {
         id: "compendium",
         label: "Compendium",
         icon: <Icon path={mdiNewspaperVariantOutline} size={1} />,
       },
-    ],
-  },
-  {
-    id: "location-section",
-    title: "Location",
-    items: [
       {
-        id: "area-info",
-        label: "Area Info",
-        icon: <Icon path={mdiMapMarker} size={1} />,
+        id: "guest-journey",
+        label: "Guest Journey",
+        icon: <Icon path={mdiAccountCheckOutline} size={1} />,
       },
       {
-        id: "chat",
-        label: "Chat",
-        icon: <Icon path={mdiChatOutline} size={1} />,
+        id: "upsells",
+        label: "Upsells",
+        icon: <Icon path={mdiCashMultiple} size={1} />,
+      },
+      {
+        id: "check-in",
+        label: "Check-in",
+        icon: <Icon path={mdiLogin} size={1} />,
+      },
+      {
+        id: "checkout",
+        label: "Checkout",
+        icon: <Icon path={mdiLogout} size={1} />,
+      },
+      {
+        id: "messages",
+        label: "Messages",
+        icon: <Icon path={mdiMessageProcessingOutline} size={1} />,
+      },
+      {
+        id: "calls",
+        label: "Calls",
+        icon: <Icon path={mdiPhoneOutline} size={1} />,
+      },
+      {
+        id: "authorizations",
+        label: "Authorizations",
+        icon: <Icon path={mdiShieldCheckOutline} size={1} />,
+      },
+      {
+        id: "digital-tips",
+        label: "Digital Tips",
+        icon: <Icon path={mdiCurrencyUsd} size={1} />,
+      },
+      {
+        id: "contracts",
+        label: "Contracts",
+        icon: <Icon path={mdiFileSign} size={1} />,
+      },
+      {
+        id: "payment-links",
+        label: "Payment Links",
+        icon: <Icon path={mdiCreditCardOutline} size={1} />,
       },
     ],
   },
