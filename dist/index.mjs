@@ -868,7 +868,7 @@ var CanaryInput = forwardRef(
       "placeholder:text-gray-500 placeholder:opacity-100",
       // Size
       sizeClasses[size],
-      // Border and focus states
+      // Border and focus states - use dynamic outline color based on error state
       "focus:outline focus:outline-2 focus:outline-offset-[-1px]",
       isDisabled && "cursor-not-allowed",
       isReadonly && "cursor-default",
@@ -878,15 +878,14 @@ var CanaryInput = forwardRef(
       rightAddon && "pr-10",
       className
     );
-    const inputStyles = __spreadValues(__spreadValues({
+    const inputStyles = {
       borderColor: error ? colors.error : isDisabled ? colors.colorBlack1 : colors.colorBlack3,
       backgroundColor: isDisabled ? colors.colorBlack6 : isReadonly ? colors.colorBlack8 : "white",
-      color: colors.colorBlack1
-    }, !error && {
-      "--tw-ring-color": colors.colorBlueDark1
-    }), error && {
-      "--tw-ring-color": colors.error
-    });
+      color: colors.colorBlack1,
+      // Ensure text is visible
+      // Set outline color for focus state
+      outlineColor: error ? colors.error : colors.colorBlueDark1
+    };
     return /* @__PURE__ */ jsxs3("div", { className: "w-full", children: [
       label && /* @__PURE__ */ jsxs3(
         "label",

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.7] - 2025-12-18
+
+### Fixed
+- **CanaryInput**: Fixed focus outline color showing orange instead of blue
+  - Replaced incorrect `--tw-ring-color` CSS variable with `outlineColor` property
+  - Focus outline now correctly shows blue (#2858C4) or red for error states
+  - Note: CanaryTextArea already had correct focus colors
+
 ## [0.4.6] - 2025-12-18
 
 ### Fixed
