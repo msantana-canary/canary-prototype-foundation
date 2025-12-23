@@ -834,7 +834,7 @@ var CanaryInput = forwardRef(
       isRequired = false,
       error,
       helperText,
-      size = "large" /* LARGE */,
+      size = "normal" /* NORMAL */,
       leftAddon,
       rightAddon,
       className = ""

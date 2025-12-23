@@ -21,7 +21,7 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
       isRequired = false,
       error,
       helperText,
-      size = InputSize.LARGE,
+      size = InputSize.NORMAL,
       leftAddon,
       rightAddon,
       className = "",

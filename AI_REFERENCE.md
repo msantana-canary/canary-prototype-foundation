@@ -180,8 +180,8 @@ InputType.DATETIME_LOCAL // DateTime input
 ### InputSize
 ```tsx
 InputSize.TABLET   // Largest
-InputSize.LARGE    // Large (default)
-InputSize.NORMAL   // Normal
+InputSize.LARGE    // Large
+InputSize.NORMAL   // Normal (default)
 InputSize.COMPACT  // Small
 ```
 
@@ -1390,6 +1390,6 @@ const abovePropertySections = [
 
 ## Version
 
-**Current Version:** v0.4.8
+**Current Version:** v0.4.9
 
 Last updated: December 2025

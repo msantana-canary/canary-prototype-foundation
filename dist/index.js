@@ -886,7 +886,7 @@ var CanaryInput = (0, import_react2.forwardRef)(
       isRequired = false,
       error,
       helperText,
-      size = "large" /* LARGE */,
+      size = "normal" /* NORMAL */,
       leftAddon,
       rightAddon,
       className = ""

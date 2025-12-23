@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.9] - 2025-12-18
+
+### Changed
+- **CanaryInput**: Changed default size from `InputSize.LARGE` to `InputSize.NORMAL`
+  - **BREAKING**: Existing inputs without explicit size prop will now render smaller
+  - Updated AI_REFERENCE.md to reflect NORMAL as the default size
+  - CanaryTextArea already had correct default (no change)
+
 ## [0.4.8] - 2025-12-18
 
 ### Improved
