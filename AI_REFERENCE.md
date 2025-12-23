@@ -733,27 +733,52 @@ import {
 } from '@canary-ui/components';
 ```
 
+### Settings Sidebar Content (standardSettingsSidebarSections)
+
+**IMPORTANT:** When using `SidebarVariant.SETTINGS`, the sidebar automatically uses these exact sections. Do NOT guess or modify these - they match the actual Canary product:
+
+**General Settings Section:**
+- Property Info (mdiHomeOutline)
+- Branding (mdiPaletteOutline) 
+- Billing & Payment (mdiCreditCardOutline)
+- Staff Members (mdiAccountGroupOutline)
+- Security (mdiShieldAccountOutline)
+- Integrations (mdiPuzzleOutline)
+- Devices (mdiTabletCellphone)
+
+**Product Settings Section:**
+- Compendium (mdiNewspaperVariantOutline)
+- Guest Journey (mdiAccountCheckOutline)
+- Upsells (mdiCashMultiple)
+- Check-in (mdiLogin)
+- Checkout (mdiLogout)
+- Messages (mdiMessageProcessingOutline)
+- Calls (mdiPhoneOutline)
+- Authorizations (mdiShieldCheckOutline)
+- Digital Tips (mdiCurrencyUsd)
+- Contracts (mdiFileSign)
+- Payment Links (mdiCreditCardOutline)
+
 **Usage:**
 ```tsx
 // Main sidebar
 <CanarySidebar sections={standardMainSidebarSections} />
 
-// Settings sidebar
+// Settings sidebar - automatically uses correct sections
 <CanarySidebar
   variant={SidebarVariant.SETTINGS}
-  sections={standardSettingsSidebarSections}
   title="Settings"
-  backButton={
-    <CanaryButton
-      type={ButtonType.TEXT}
-      color={ButtonColor.WHITE}
-      icon={<Icon path={mdiArrowLeft} size={1} />}
-      iconPosition={IconPosition.LEFT}
-    >
-      Back
-    </CanaryButton>
-  }
+  backButton={<BackButton />}
 />
+
+// With CanaryAppShell (RECOMMENDED)
+<CanaryAppShell
+  sidebarVariant={SidebarVariant.SETTINGS}
+  sidebarTitle="Settings"
+  sidebarBackButton={<BackButton />}
+>
+  <SettingsContent />
+</CanaryAppShell>
 ```
 
 ---
@@ -1352,17 +1377,19 @@ const abovePropertySections = [
 - Use `className` prop for additional styling with Tailwind
 
 ### Don'ts
-- Don't guess component names - only use what's listed here
-- Don't guess icon names - use the exact names from @mdi/js
-- Don't create custom sidebar items from scratch - use `sidebarTabs` or `createSidebarTab`
-- Don't hardcode colors - use the color tokens
-- Don't use filled icons - use outline variants by default
-- Don't create new components when existing ones work
+- **NEVER guess component names** - only use what's listed here
+- **NEVER guess icon names** - use the exact names from @mdi/js
+- **NEVER pass custom sidebarSections to CanaryAppShell with SidebarVariant.SETTINGS** - it has the correct defaults
+- **NEVER create custom sidebar items from scratch** - use `sidebarTabs` or `createSidebarTab`
+- **NEVER hardcode colors** - use the color tokens
+- **NEVER use filled icons** - use outline variants by default
+- **NEVER create new components** when existing ones work
+- **NEVER modify the standardSettingsSidebarSections content** - it matches the actual product
 
 ---
 
 ## Version
 
-**Current Version:** v0.4.6
+**Current Version:** v0.4.8
 
 Last updated: December 2025

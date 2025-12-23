@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.8] - 2025-12-18
+
+### Improved
+- **AI_REFERENCE.md**: Added explicit Settings Sidebar documentation to prevent AI agents from guessing
+  - Documented exact contents of `standardSettingsSidebarSections` (General Settings + Product Settings sections)
+  - Added specific icon names for each settings tab to prevent guessing
+  - Strengthened Do's and Don'ts with explicit NEVER rules
+  - Added warning against passing custom `sidebarSections` to SETTINGS variant
+
 ## [0.4.7] - 2025-12-18
 
 ### Fixed
