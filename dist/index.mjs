@@ -4044,18 +4044,15 @@ var SIZE_CONFIG = {
   compact: { height: 32, fontSize: 12, lineHeight: "18px", iconSize: 20, padding: 16 }
 };
 function CloseIcon({ size }) {
-  return /* @__PURE__ */ jsxs25("svg", { width: size, height: size, viewBox: "0 0 20 20", fill: "none", children: [
-    /* @__PURE__ */ jsx26("circle", { cx: "10", cy: "10", r: "10", fill: "rgba(0,0,0,0.1)" }),
-    /* @__PURE__ */ jsx26(
-      "path",
-      {
-        d: "M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5",
-        stroke: "currentColor",
-        strokeWidth: "1.5",
-        strokeLinecap: "round"
-      }
-    )
-  ] });
+  return /* @__PURE__ */ jsx26("svg", { width: size, height: size, viewBox: "0 0 20 20", fill: "none", children: /* @__PURE__ */ jsx26(
+    "path",
+    {
+      d: "M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round"
+    }
+  ) });
 }
 function CanaryChip({
   label,
