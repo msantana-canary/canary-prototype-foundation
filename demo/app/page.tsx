@@ -16,6 +16,7 @@ import {
   CanaryInputPhone,
   CanaryInputDate,
   CanaryInputDateRange,
+  CanaryInputMultiple,
   // Underline variants
   CanaryInputUnderline,
   CanaryTextAreaUnderline,
@@ -127,6 +128,31 @@ import {
   mdiBellOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
+
+// Input multiple demo
+function InputMultipleDemo() {
+  const [emails, setEmails] = useState<string[]>([]);
+  const [rooms, setRooms] = useState<string[]>(["101", "204", "315"]);
+
+  return (
+    <div className="space-y-4">
+      <CanaryInputMultiple
+        label="Email Recipients"
+        placeholder="Type an email and press Enter"
+        values={emails}
+        onChange={setEmails}
+        inputType={InputType.EMAIL}
+        helperText="Press Enter to add each email"
+      />
+      <CanaryInputMultiple
+        label="Room Numbers"
+        placeholder="Add room numbers"
+        values={rooms}
+        onChange={setRooms}
+      />
+    </div>
+  );
+}
 
 // Chip dropdown demo
 function ChipDropdownDemo() {
@@ -1382,6 +1408,35 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
     setEndDate(end);
   }}
   helperText="Choose start and end dates"
+/>`}
+                />
+              </CanaryCard>
+
+              <CanaryCard title="CanaryInputMultiple">
+                <InputMultipleDemo />
+                <CodeSnippet
+                  code={`const [emails, setEmails] = useState<string[]>([]);
+
+<CanaryInputMultiple
+  label="Email Recipients"
+  placeholder="Type an email and press Enter"
+  values={emails}
+  onChange={setEmails}
+  inputType={InputType.EMAIL}
+/>
+
+// With pre-filled values
+<CanaryInputMultiple
+  label="Room Numbers"
+  values={["101", "204", "315"]}
+  onChange={setRoomNumbers}
+/>
+
+// Disabled
+<CanaryInputMultiple
+  label="Locked"
+  values={["admin@hotel.com"]}
+  isDisabled
 />`}
                 />
               </CanaryCard>

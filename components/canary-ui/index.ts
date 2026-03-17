@@ -33,6 +33,7 @@ export {
   CanaryInputPhone,
   CanaryInputDate,
   CanaryInputDateRange,
+  CanaryInputMultiple,
   // Underline variants (floating label with bottom border)
   CanaryInputUnderline,
   CanaryTextAreaUnderline,
@@ -45,7 +46,7 @@ export {
   CanaryInputDateRangeUnderline,
 } from "./forms";
 export { InputSize, InputType } from "./forms/types";
-export type { BaseFormProps, CanarySelectOption } from "./forms";
+export type { BaseFormProps, CanarySelectOption, CanaryInputMultipleProps, CanaryInputMultipleRef } from "./forms";
 
 // Data Display
 export { CanaryChip, CanaryTag, CanaryTable, CanaryCard, CanaryListItem, CanaryList } from "./data-display";

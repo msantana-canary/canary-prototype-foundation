@@ -12,6 +12,8 @@ export { default as CanaryInputCreditCard } from "./CanaryInputCreditCard";
 export { default as CanaryInputPhone } from "./CanaryInputPhone";
 export { default as CanaryInputDate } from "./CanaryInputDate";
 export { default as CanaryInputDateRange } from "./CanaryInputDateRange";
+export { default as CanaryInputMultiple } from "./CanaryInputMultiple";
+export type { CanaryInputMultipleProps, CanaryInputMultipleRef } from "./CanaryInputMultiple";
 
 // Underline variants (floating label with bottom border)
 export { default as CanaryInputUnderline } from "./CanaryInputUnderline";
