@@ -4825,10 +4825,9 @@ function CanaryModal({
             (title || showCloseButton) && /* @__PURE__ */ jsxs30(
               "div",
               {
-                className: "flex items-center justify-between px-6 py-4 border-b shrink-0",
-                style: { borderColor: colors.colorBlack6 },
+                className: "flex items-center justify-between px-6 py-4 shrink-0",
                 children: [
-                  title && /* @__PURE__ */ jsx33("h2", { className: "text-[20px] font-semibold", style: { color: colors.colorBlack1 }, children: title }),
+                  title && /* @__PURE__ */ jsx33("h2", { className: "text-[20px] font-medium", style: { color: colors.colorBlack1 }, children: title }),
                   showCloseButton && /* @__PURE__ */ jsx33(
                     CanaryButton,
                     {
@@ -4844,8 +4843,7 @@ function CanaryModal({
             footer && /* @__PURE__ */ jsx33(
               "div",
               {
-                className: "px-6 py-4 border-t shrink-0",
-                style: { borderColor: colors.colorBlack6 },
+                className: "px-6 py-4 shrink-0",
                 children: footer
               }
             )
