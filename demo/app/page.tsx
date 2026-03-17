@@ -126,6 +126,33 @@ import {
 } from "@mdi/js";
 import Icon from "@mdi/react";
 
+// Text-checkbox tabs demo
+function TextCheckboxTabsDemo() {
+  const [channels, setChannels] = useState({
+    email: true,
+    sms: true,
+    whatsapp: false,
+    booking: true,
+    expedia: false,
+  });
+
+  return (
+    <CanaryTabs
+      variant="text-checkbox"
+      tabs={[
+        { id: "email", label: "Email", checked: channels.email, content: <p className="py-4 text-sm text-gray-600">Email message editor content...</p> },
+        { id: "sms", label: "SMS", checked: channels.sms, content: <p className="py-4 text-sm text-gray-600">SMS message editor content...</p> },
+        { id: "whatsapp", label: "WhatsApp", checked: channels.whatsapp, content: <p className="py-4 text-sm text-gray-600">WhatsApp message editor content...</p> },
+        { id: "booking", label: "Booking.com", checked: channels.booking, content: <p className="py-4 text-sm text-gray-600">Booking.com message content...</p> },
+        { id: "expedia", label: "Expedia", checked: channels.expedia, content: <p className="py-4 text-sm text-gray-600">Expedia message content...</p> },
+      ]}
+      onCheckboxChange={(tabId, checked) =>
+        setChannels((prev) => ({ ...prev, [tabId]: checked }))
+      }
+    />
+  );
+}
+
 // Code snippet component
 interface CodeSnippetProps {
   code: string;
@@ -2446,6 +2473,29 @@ const [items, setItems] = useState([
     { id: "tab3", label: "Reports", content: <p>Reports content</p> },
     { id: "tab4", label: "Settings", content: <p>Settings content</p> },
   ]}
+/>`}
+                />
+              </CanaryCard>
+            </div>
+
+            <div className="mt-6">
+              <CanaryCard title="CanaryTabs - Text-Checkbox Variant">
+                <TextCheckboxTabsDemo />
+                <CodeSnippet
+                  code={`const [channels, setChannels] = useState({
+  email: true, sms: true, whatsapp: false, booking: true, expedia: false,
+});
+
+<CanaryTabs
+  variant="text-checkbox"
+  tabs={[
+    { id: "email", label: "Email", checked: channels.email, content: <p>Email content</p> },
+    { id: "sms", label: "SMS", checked: channels.sms, content: <p>SMS content</p> },
+    { id: "whatsapp", label: "WhatsApp", checked: channels.whatsapp, content: <p>WhatsApp content</p> },
+  ]}
+  onCheckboxChange={(tabId, checked) =>
+    setChannels((prev) => ({ ...prev, [tabId]: checked }))
+  }
 />`}
                 />
               </CanaryCard>
