@@ -1,3 +1,6 @@
+export { default as CanaryChip } from "./CanaryChip";
+export type { CanaryChipProps, ChipSize } from "./CanaryChip";
+export { ChipType } from "./CanaryChip";
 export { default as CanaryTag } from "./CanaryTag";
 export { default as CanaryTable } from "./CanaryTable";
 export type { CanaryTableColumn } from "./CanaryTable";

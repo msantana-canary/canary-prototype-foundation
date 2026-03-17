@@ -26,6 +26,7 @@ import {
   CanaryInputCreditCardUnderline,
   CanaryInputDateUnderline,
   CanaryInputDateRangeUnderline,
+  CanaryChip,
   CanaryTag,
   CanaryTable,
   CanaryCard,
@@ -53,6 +54,7 @@ import {
   ButtonSize,
   ButtonColor,
   IconPosition,
+  ChipType,
   TagColor,
   TagVariant,
   TagSize,
@@ -125,6 +127,36 @@ import {
   mdiBellOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
+
+// Chip dropdown demo
+function ChipDropdownDemo() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <CanaryChip label="Guest Full Name" onClick={() => alert('Inserted: Guest Full Name')} />
+      <CanaryChip label="Hotel Name" onClick={() => alert('Inserted: Hotel Name')} />
+      <div className="relative inline-block">
+        <CanaryChip
+          label="Check-in URL"
+          trailingIcon={<Icon path={open ? mdiChevronUp : mdiChevronDown} size={0.7} />}
+          onClick={() => setOpen(!open)}
+          isActive={open}
+        />
+        {open && (
+          <div
+            className="absolute left-0 top-full mt-2 bg-white rounded-2xl border border-gray-200 p-2 z-50 flex flex-col gap-2"
+            style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.08)" }}
+          >
+            <CanaryChip label="Button Link" onClick={() => { alert('Inserted: Button Link'); setOpen(false); }} />
+            <CanaryChip label="Text Link" onClick={() => { alert('Inserted: Text Link'); setOpen(false); }} />
+          </div>
+        )}
+      </div>
+      <CanaryChip label="Room Number" onClick={() => alert('Inserted: Room Number')} />
+    </div>
+  );
+}
 
 // Code snippet component
 interface CodeSnippetProps {
@@ -1757,6 +1789,100 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 // Tag sizes
 <CanaryTag label="Compact" size={TagSize.COMPACT} />
 <CanaryTag label="Medium" size={TagSize.MEDIUM} />`}
+                />
+              </CanaryCard>
+
+              {/* Chips */}
+              <CanaryCard title="CanaryChip">
+                <div className="space-y-6">
+                  {/* Selectable - Sizes */}
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Selectable — Sizes</h4>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <CanaryChip label="Large" size="large" />
+                      <CanaryChip label="Normal" size="normal" />
+                      <CanaryChip label="Compact" size="compact" />
+                    </div>
+                  </div>
+
+                  {/* Selectable - Selected state */}
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Selectable — Selected</h4>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <CanaryChip label="Large" size="large" isSelected />
+                      <CanaryChip label="Normal" size="normal" isSelected />
+                      <CanaryChip label="Compact" size="compact" isSelected />
+                    </div>
+                  </div>
+
+                  {/* Selectable - Disabled */}
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Selectable — Disabled</h4>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <CanaryChip label="Disabled" isDisabled />
+                      <CanaryChip label="Selected Disabled" isSelected isDisabled />
+                    </div>
+                  </div>
+
+                  {/* Selectable - With dropdown chevron */}
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Selectable — Dropdown (Trailing Icon)</h4>
+                    <ChipDropdownDemo />
+                  </div>
+
+                  {/* Removable - Sizes */}
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Removable — Sizes</h4>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <CanaryChip label="Large" chipType={ChipType.REMOVABLE} size="large" onRemove={() => alert('Remove large')} />
+                      <CanaryChip label="Normal" chipType={ChipType.REMOVABLE} size="normal" onRemove={() => alert('Remove normal')} />
+                      <CanaryChip label="Compact" chipType={ChipType.REMOVABLE} size="compact" onRemove={() => alert('Remove compact')} />
+                    </div>
+                  </div>
+
+                  {/* Removable - Realistic example */}
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Removable — Email Tags Example</h4>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <CanaryChip label="john@hotel.com" chipType={ChipType.REMOVABLE} size="compact" onRemove={() => alert('Remove')} />
+                      <CanaryChip label="jane@hotel.com" chipType={ChipType.REMOVABLE} size="compact" onRemove={() => alert('Remove')} />
+                      <CanaryChip label="admin@canarytech.com" chipType={ChipType.REMOVABLE} size="compact" onRemove={() => alert('Remove')} />
+                    </div>
+                  </div>
+
+                  {/* Removable - Disabled */}
+                  <div>
+                    <h4 className="text-sm font-medium mb-3 text-gray-600">Removable — Disabled</h4>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <CanaryChip label="Can't remove" chipType={ChipType.REMOVABLE} isDisabled />
+                    </div>
+                  </div>
+                </div>
+                <CodeSnippet
+                  code={`// Selectable chips (default)
+<CanaryChip label="Selection" size="large" />
+<CanaryChip label="Selection" size="normal" />
+<CanaryChip label="Selection" size="compact" />
+
+// Selected state
+<CanaryChip label="Selected" isSelected />
+
+// Dropdown chip with trailing icon
+<CanaryChip
+  label="Select Tag"
+  trailingIcon={<Icon path={mdiChevronDown} size={0.7} />}
+/>
+
+// Removable chips
+<CanaryChip
+  label="john@hotel.com"
+  chipType={ChipType.REMOVABLE}
+  onRemove={() => handleRemove()}
+/>
+
+// Disabled
+<CanaryChip label="Disabled" isDisabled />
+<CanaryChip label="Can't remove" chipType={ChipType.REMOVABLE} isDisabled />`}
                 />
               </CanaryCard>
 

@@ -48,7 +48,9 @@ export { InputSize, InputType } from "./forms/types";
 export type { BaseFormProps, CanarySelectOption } from "./forms";
 
 // Data Display
-export { CanaryTag, CanaryTable, CanaryCard, CanaryListItem, CanaryList } from "./data-display";
+export { CanaryChip, CanaryTag, CanaryTable, CanaryCard, CanaryListItem, CanaryList } from "./data-display";
+export type { CanaryChipProps, ChipSize } from "./data-display";
+export { ChipType } from "./data-display";
 export { TagColor, TagVariant, TagSize } from "./data-display/types";
 export type { CustomTagColor, CanaryTableColumn, CanaryListItemProps, CanaryListProps } from "./data-display";
 

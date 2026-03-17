@@ -585,6 +585,27 @@ interface CanaryInputDateRangeUnderlineProps extends Omit<BaseFormProps, "size">
 }
 declare const CanaryInputDateRangeUnderline: react.ForwardRefExoticComponent<CanaryInputDateRangeUnderlineProps & react.RefAttributes<HTMLDivElement>>;
 
+declare enum ChipType {
+    SELECTABLE = "selectable",
+    REMOVABLE = "removable"
+}
+type ChipSize = "large" | "normal" | "compact";
+interface CanaryChipProps {
+    label: string;
+    chipType?: ChipType;
+    onClick?: () => void;
+    onRemove?: () => void;
+    leadingIcon?: ReactNode;
+    trailingIcon?: ReactNode;
+    size?: ChipSize;
+    isDisabled?: boolean;
+    isSelected?: boolean;
+    isActive?: boolean;
+    isRounded?: boolean;
+    className?: string;
+}
+declare function CanaryChip({ label, chipType, onClick, onRemove, leadingIcon, trailingIcon, size, isDisabled, isSelected, isActive, isRounded, className, }: CanaryChipProps): react_jsx_runtime.JSX.Element;
+
 /**
  * Data Display Component Types
  */
@@ -1122,4 +1143,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryButton, CanaryCard, CanaryCheckbox, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryPageHeader, type CanaryPageHeaderProps, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type ReservationStatus, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, type UserProfile, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryButton, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryPageHeader, type CanaryPageHeaderProps, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type ChipSize, ChipType, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type ReservationStatus, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, type UserProfile, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };
