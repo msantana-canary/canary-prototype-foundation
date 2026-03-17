@@ -5737,6 +5737,8 @@ function CanaryAppShell({
 // components/canary-ui/navigation/CanaryTabs.tsx
 import { useState as useState17 } from "react";
 import clsx35 from "clsx";
+import Icon13 from "@mdi/react";
+import { mdiCheckboxMarked as mdiCheckboxMarked2, mdiCheckboxBlankOutline as mdiCheckboxBlankOutline2 } from "@mdi/js";
 import { jsx as jsx40, jsxs as jsxs36 } from "react/jsx-runtime";
 function CanaryTabs({
   tabs,
@@ -5744,6 +5746,7 @@ function CanaryTabs({
   size = "normal",
   defaultTab,
   onChange,
+  onCheckboxChange,
   className = ""
 }) {
   var _a, _b;
@@ -5850,6 +5853,97 @@ function CanaryTabs({
           })
         }
       ),
+      /* @__PURE__ */ jsx40("div", { children: activeTabContent })
+    ] });
+  }
+  if (variant === "text-checkbox") {
+    const isCompactCb = size === "compact";
+    const fontSizeCb = isCompactCb ? "14px" : "16px";
+    const lineHeightCb = isCompactCb ? "1.5" : "24px";
+    const verticalPaddingCb = isCompactCb ? "py-1" : "py-2";
+    return /* @__PURE__ */ jsxs36("div", { className: `w-full ${className}`, children: [
+      /* @__PURE__ */ jsx40("div", { className: "flex items-start", children: tabs.map((tab) => {
+        const isActive = tab.id === activeTab;
+        const isPressed = pressedTab === tab.id;
+        return /* @__PURE__ */ jsxs36(
+          "button",
+          {
+            onClick: () => handleTabClick(tab.id, tab.disabled),
+            onMouseDown: () => !tab.disabled && setPressedTab(tab.id),
+            onMouseUp: () => setPressedTab(null),
+            onMouseLeave: () => setPressedTab(null),
+            disabled: tab.disabled,
+            className: clsx35(
+              "flex flex-col items-start overflow-clip relative shrink-0",
+              "focus:outline-none transition-all duration-200",
+              tab.disabled && "cursor-not-allowed canary-opacity-50"
+            ),
+            style: { WebkitTapHighlightColor: "transparent" },
+            children: [
+              /* @__PURE__ */ jsxs36(
+                "div",
+                {
+                  className: clsx35(
+                    "flex gap-2 items-center justify-center px-4",
+                    verticalPaddingCb,
+                    !tab.disabled && "cursor-pointer transition-colors duration-200",
+                    !tab.disabled && !isActive && !isPressed && "hover:bg-black/5 focus-within:bg-black/5",
+                    !tab.disabled && !isActive && isPressed && "bg-black/10"
+                  ),
+                  children: [
+                    /* @__PURE__ */ jsx40(
+                      "span",
+                      {
+                        className: "font-medium font-['Roboto',sans-serif] text-center whitespace-nowrap",
+                        style: {
+                          fontSize: fontSizeCb,
+                          color: isActive ? colors.colorBlueDark1 : colors.colorBlack2,
+                          lineHeight: lineHeightCb
+                        },
+                        children: tab.label
+                      }
+                    ),
+                    tab.checked !== void 0 && /* @__PURE__ */ jsx40(
+                      "span",
+                      {
+                        className: clsx35(
+                          "flex items-center justify-center shrink-0",
+                          tab.disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+                        ),
+                        onClick: (e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          if (!tab.disabled) {
+                            onCheckboxChange == null ? void 0 : onCheckboxChange(tab.id, !tab.checked);
+                          }
+                        },
+                        children: /* @__PURE__ */ jsx40(
+                          Icon13,
+                          {
+                            path: tab.checked ? mdiCheckboxMarked2 : mdiCheckboxBlankOutline2,
+                            size: 1,
+                            color: colors.colorBlueDark1
+                          }
+                        )
+                      }
+                    )
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsx40(
+                "div",
+                {
+                  className: "w-full h-1",
+                  style: {
+                    backgroundColor: isActive ? colors.colorBlueDark1 : "transparent"
+                  }
+                }
+              )
+            ]
+          },
+          tab.id
+        );
+      }) }),
       /* @__PURE__ */ jsx40("div", { children: activeTabContent })
     ] });
   }
@@ -5977,7 +6071,7 @@ function CanaryHeader({
 }
 
 // components/canary-ui/navigation/sidebar-tabs.tsx
-import Icon13 from "@mdi/react";
+import Icon14 from "@mdi/react";
 import {
   mdiCashMultiple as mdiCashMultiple3,
   mdiLogin as mdiLogin3,
@@ -6017,164 +6111,164 @@ var sidebarTabs = {
   upsells: {
     id: "upsells",
     label: "Upsells",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiCashMultiple3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiCashMultiple3, size: 1 })
   },
   checkIn: {
     id: "check-in",
     label: "Check-in",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiLogin3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiLogin3, size: 1 })
   },
   checkout: {
     id: "checkout",
     label: "Checkout",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiLogout3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiLogout3, size: 1 })
   },
   messages: {
     id: "messages",
     label: "Messages",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiMessageProcessingOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiMessageProcessingOutline3, size: 1 })
   },
   calls: {
     id: "calls",
     label: "Calls",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiPhoneOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiPhoneOutline3, size: 1 })
   },
   digitalTips: {
     id: "digital-tips",
     label: "Digital Tips",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiCurrencyUsd3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiCurrencyUsd3, size: 1 })
   },
   authorizations: {
     id: "authorizations",
     label: "Authorizations",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiShieldCheckOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiShieldCheckOutline3, size: 1 })
   },
   contracts: {
     id: "contracts",
     label: "Contracts",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiFileSign2, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiFileSign2, size: 1 })
   },
   idVerification: {
     id: "id-verification",
     label: "ID Verification",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiAccountCheckOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiAccountCheckOutline3, size: 1 })
   },
   clientsOnFile: {
     id: "clients-on-file",
     label: "Clients on File",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiAccountBoxOutline2, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiAccountBoxOutline2, size: 1 })
   },
   amenities: {
     id: "amenities",
     label: "Amenities",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiStoreOutline2, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiStoreOutline2, size: 1 })
   },
   paymentLinks: {
     id: "payment-links",
     label: "Payment Links",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiCreditCardOutline5, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiCreditCardOutline5, size: 1 })
   },
   settings: {
     id: "settings",
     label: "Settings",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiCogOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiCogOutline3, size: 1 })
   },
   // Settings Tabs
   propertyInfo: {
     id: "property-info",
     label: "Property Info",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiHomeOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiHomeOutline3, size: 1 })
   },
   branding: {
     id: "branding",
     label: "Branding",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiPaletteOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiPaletteOutline3, size: 1 })
   },
   billingPayment: {
     id: "billing-payment",
     label: "Billing & Payment",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiCreditCardOutline5, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiCreditCardOutline5, size: 1 })
   },
   staffMembers: {
     id: "staff-members",
     label: "Staff Members",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiAccountGroupOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiAccountGroupOutline3, size: 1 })
   },
   security: {
     id: "security",
     label: "Security",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiShieldAccountOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiShieldAccountOutline3, size: 1 })
   },
   pms: {
     id: "pms",
     label: "PMS",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiPuzzleOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiPuzzleOutline3, size: 1 })
   },
   devices: {
     id: "devices",
     label: "Devices",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiTabletCellphone3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiTabletCellphone3, size: 1 })
   },
   compendium: {
     id: "compendium",
     label: "Compendium",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiNewspaperVariantOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiNewspaperVariantOutline3, size: 1 })
   },
   areaInfo: {
     id: "area-info",
     label: "Area Info",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiMapMarker2, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiMapMarker2, size: 1 })
   },
   chat: {
     id: "chat",
     label: "Chat",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiChatOutline2, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiChatOutline2, size: 1 })
   },
   // Custom/Above-Property Tabs
   insights: {
     id: "insights",
     label: "Insights",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiChartLine2, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiChartLine2, size: 1 })
   },
   properties: {
     id: "properties",
     label: "Properties",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiDomain, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiDomain, size: 1 })
   },
   analytics: {
     id: "analytics",
     label: "Analytics",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiChartBar, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiChartBar, size: 1 })
   },
   surveys: {
     id: "surveys",
     label: "Surveys",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiPoll, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiPoll, size: 1 })
   },
   dashboard: {
     id: "dashboard",
     label: "Dashboard",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiViewDashboard, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiViewDashboard, size: 1 })
   },
   tasks: {
     id: "tasks",
     label: "Tasks",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiClipboardList, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiClipboardList, size: 1 })
   },
   calendar: {
     id: "calendar",
     label: "Calendar",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiCalendar, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiCalendar, size: 1 })
   },
   reports: {
     id: "reports",
     label: "Reports",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiNotebook, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiNotebook, size: 1 })
   },
   performance: {
     id: "performance",
     label: "Performance",
-    icon: /* @__PURE__ */ jsx42(Icon13, { path: mdiTrendingUp2, size: 1 })
+    icon: /* @__PURE__ */ jsx42(Icon14, { path: mdiTrendingUp2, size: 1 })
   }
 };
 var createSidebarTab = (id, label, icon, options) => __spreadValues({

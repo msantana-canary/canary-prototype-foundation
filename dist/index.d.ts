@@ -904,7 +904,7 @@ interface CanaryAppShellProps {
  */
 declare function CanaryAppShell({ children, sidebarVariant, sidebarSections, selectedSidebarItemId, onSidebarItemClick, sidebarTitle, sidebarBackButton, hideSidebar, propertyName, onPropertyClick, userProfile, onUserProfileClick, reservationStatus, onReservationStatusClick, headerActions, hideHeader, contentBackground, contentPadding, contentClassName, className, }: CanaryAppShellProps): react_jsx_runtime.JSX.Element;
 
-type TabVariant = "rounded" | "text" | "segmented";
+type TabVariant = "rounded" | "text" | "segmented" | "text-checkbox";
 type TabSize = "normal" | "compact";
 interface CanaryTab {
     id: string;
@@ -913,6 +913,7 @@ interface CanaryTab {
     icon?: ReactNode;
     badge?: string | number;
     disabled?: boolean;
+    checked?: boolean;
 }
 interface CanaryTabsProps {
     tabs: CanaryTab[];
@@ -920,9 +921,10 @@ interface CanaryTabsProps {
     size?: TabSize;
     defaultTab?: string;
     onChange?: (tabId: string) => void;
+    onCheckboxChange?: (tabId: string, checked: boolean) => void;
     className?: string;
 }
-declare function CanaryTabs({ tabs, variant, size, defaultTab, onChange, className, }: CanaryTabsProps): react_jsx_runtime.JSX.Element;
+declare function CanaryTabs({ tabs, variant, size, defaultTab, onChange, onCheckboxChange, className, }: CanaryTabsProps): react_jsx_runtime.JSX.Element;
 
 interface CanaryHeaderProps {
     logo?: ReactNode;

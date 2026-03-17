@@ -1,8 +1,10 @@
 import { ReactNode, useState } from "react";
 import { colors } from "../design-tokens";
 import clsx from "clsx";
+import Icon from "@mdi/react";
+import { mdiCheckboxMarked, mdiCheckboxBlankOutline } from "@mdi/js";
 
-export type TabVariant = "rounded" | "text" | "segmented";
+export type TabVariant = "rounded" | "text" | "segmented" | "text-checkbox";
 export type TabSize = "normal" | "compact";
 
 export interface CanaryTab {
@@ -12,6 +14,7 @@ export interface CanaryTab {
   icon?: ReactNode;
   badge?: string | number;
   disabled?: boolean;
+  checked?: boolean;
 }
 
 export interface CanaryTabsProps {
@@ -20,6 +23,7 @@ export interface CanaryTabsProps {
   size?: TabSize;
   defaultTab?: string;
   onChange?: (tabId: string) => void;
+  onCheckboxChange?: (tabId: string, checked: boolean) => void;
   className?: string;
 }
 
@@ -29,6 +33,7 @@ export default function CanaryTabs({
   size = "normal",
   defaultTab,
   onChange,
+  onCheckboxChange,
   className = "",
 }: CanaryTabsProps) {
   const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
@@ -149,6 +154,90 @@ export default function CanaryTabs({
         </div>
 
         {/* Tab Content */}
+        <div>{activeTabContent}</div>
+      </div>
+    );
+  }
+
+  // Text-Checkbox Tabs Variant
+  if (variant === "text-checkbox") {
+    const isCompactCb = size === "compact";
+    const fontSizeCb = isCompactCb ? "14px" : "16px";
+    const lineHeightCb = isCompactCb ? "1.5" : "24px";
+    const verticalPaddingCb = isCompactCb ? "py-1" : "py-2";
+
+    return (
+      <div className={`w-full ${className}`}>
+        <div className="flex items-start">
+          {tabs.map((tab) => {
+            const isActive = tab.id === activeTab;
+            const isPressed = pressedTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleTabClick(tab.id, tab.disabled)}
+                onMouseDown={() => !tab.disabled && setPressedTab(tab.id)}
+                onMouseUp={() => setPressedTab(null)}
+                onMouseLeave={() => setPressedTab(null)}
+                disabled={tab.disabled}
+                className={clsx(
+                  "flex flex-col items-start overflow-clip relative shrink-0",
+                  "focus:outline-none transition-all duration-200",
+                  tab.disabled && "cursor-not-allowed canary-opacity-50"
+                )}
+                style={{ WebkitTapHighlightColor: "transparent" }}
+              >
+                <div
+                  className={clsx(
+                    "flex gap-2 items-center justify-center px-4",
+                    verticalPaddingCb,
+                    !tab.disabled && "cursor-pointer transition-colors duration-200",
+                    !tab.disabled && !isActive && !isPressed && "hover:bg-black/5 focus-within:bg-black/5",
+                    !tab.disabled && !isActive && isPressed && "bg-black/10"
+                  )}
+                >
+                  <span
+                    className="font-medium font-['Roboto',sans-serif] text-center whitespace-nowrap"
+                    style={{
+                      fontSize: fontSizeCb,
+                      color: isActive ? colors.colorBlueDark1 : colors.colorBlack2,
+                      lineHeight: lineHeightCb,
+                    }}
+                  >
+                    {tab.label}
+                  </span>
+                  {tab.checked !== undefined && (
+                    <span
+                      className={clsx(
+                        "flex items-center justify-center shrink-0",
+                        tab.disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+                      )}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        if (!tab.disabled) {
+                          onCheckboxChange?.(tab.id, !tab.checked);
+                        }
+                      }}
+                    >
+                      <Icon
+                        path={tab.checked ? mdiCheckboxMarked : mdiCheckboxBlankOutline}
+                        size={1}
+                        color={colors.colorBlueDark1}
+                      />
+                    </span>
+                  )}
+                </div>
+                <div
+                  className="w-full h-1"
+                  style={{
+                    backgroundColor: isActive ? colors.colorBlueDark1 : "transparent",
+                  }}
+                />
+              </button>
+            );
+          })}
+        </div>
         <div>{activeTabContent}</div>
       </div>
     );
