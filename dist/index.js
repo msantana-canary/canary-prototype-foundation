@@ -2250,10 +2250,8 @@ function CanaryCalendar({
           borderRadius2 = "6px";
         }
       }
-      if (today && !selected && !inRange && !inHoverRange) {
-        backgroundColor = colors.colorBlueDark1;
-        color = colors.white;
-        fontWeight = "500";
+      if (today && !selected) {
+        border = `2px solid ${colors.colorBlueDark1}`;
       }
       return { backgroundColor, color, border, fontWeight, borderRadius: borderRadius2, cursor: disabled ? "default" : "pointer" };
     },
