@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-03-17
+
+### Added
+- **CanaryChip**: New interactive chip component with two types
+  - `ChipType.SELECTABLE` — blue outlined pill for toggle/merge tag selection with hover (8% opacity), press (16% opacity), and selected (solid blue) states
+  - `ChipType.REMOVABLE` — gray pill with X close button for email tags, filters, and multi-value inputs
+  - 3 sizes (large 48px, normal 40px, compact 32px) matching Figma spec
+  - `isActive` prop for locking hover state (dropdown use case)
+  - `isRounded` prop (default true = pill, false = 4px corners) matching CanaryButton
+  - `leadingIcon`, `trailingIcon` support, keyboard accessibility (Enter/Space)
+- **CanaryTabs `text-checkbox` variant**: Tabs with inline checkboxes for independent enable/disable
+  - New `checked` field on `CanaryTab` interface
+  - New `onCheckboxChange` callback — checkbox click toggles independently from tab switching
+  - Uses same MDI checkbox icons as CanaryCheckbox (blue for both states)
+  - Supports normal and compact sizes
+- **CanaryInputMultiple**: Multi-value input displaying values as removable chips
+  - Chips stack above full-width input field (vertical layout matching Figma)
+  - Enter to add, blur to add, X to remove
+  - Built-in email validation when `inputType={InputType.EMAIL}`
+  - Required field validation
+  - Error icon and error message styling matching CanaryInput
+  - All InputSize variants (TABLET, LARGE, NORMAL, COMPACT)
+  - Uses `CanaryChip` REMOVABLE with `isRounded={false}` (4px corners)
+- **CanaryTextArea `autoExpand` prop**: Auto-expanding textarea
+  - Starts at CanaryInput height for the given size, grows vertically to hug content
+  - Works on mount for pre-filled text and on input as user types
+  - Disables manual resize and hides scrollbar when enabled
+
+### Changed
+- **CanaryModal**: Lighter title weight (`font-medium` / 500) and removed header/footer border lines
+
+### Fixed
+- Fixed React `value` without `onChange` console warning in demo page (switched to `defaultValue`)
+
 ## [0.4.9] - 2025-12-18
 
 ### Changed

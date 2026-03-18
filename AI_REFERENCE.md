@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.4.6
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.0
 ```
 
 2. **Import styles** in root layout:
@@ -33,7 +33,7 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 |-----------|--------|-------------|
 | `CanaryButton` | `import { CanaryButton } from '@canary-ui/components'` | Full-featured button with types, sizes, icons, loading states |
 
-### Forms (16 components)
+### Forms (17 components)
 | Component | Import | Description |
 |-----------|--------|-------------|
 | `CanaryInput` | `import { CanaryInput } from '@canary-ui/components'` | Standard text input |
@@ -58,11 +58,13 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 | `CanaryInputDateUnderline` | `import { CanaryInputDateUnderline } from '@canary-ui/components'` | Date with floating label |
 | `CanaryInputDateRange` | `import { CanaryInputDateRange } from '@canary-ui/components'` | Date range picker |
 | `CanaryInputDateRangeUnderline` | `import { CanaryInputDateRangeUnderline } from '@canary-ui/components'` | Date range with floating label |
+| `CanaryInputMultiple` | `import { CanaryInputMultiple } from '@canary-ui/components'` | Multi-value input with removable chips |
 | `CanarySegmentedControl` | `import { CanarySegmentedControl } from '@canary-ui/components'` | Segmented button group |
 
-### Data Display (5 components)
+### Data Display (6 components)
 | Component | Import | Description |
 |-----------|--------|-------------|
+| `CanaryChip` | `import { CanaryChip } from '@canary-ui/components'` | Interactive chip (selectable toggle or removable tag) |
 | `CanaryTag` | `import { CanaryTag } from '@canary-ui/components'` | Status tags with color variants |
 | `CanaryTable` | `import { CanaryTable } from '@canary-ui/components'` | Data table with sorting |
 | `CanaryCard` | `import { CanaryCard } from '@canary-ui/components'` | Card container with header/footer |
@@ -110,6 +112,9 @@ import {
   // Input
   InputType,
   InputSize,
+
+  // Chip
+  ChipType,
 
   // Tag
   TagColor,
@@ -1390,6 +1395,6 @@ const abovePropertySections = [
 
 ## Version
 
-**Current Version:** v0.4.9
+**Current Version:** v0.5.0
 
-Last updated: December 2025
+Last updated: March 2026
