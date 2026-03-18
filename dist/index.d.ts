@@ -541,6 +541,25 @@ interface CanaryInputMultipleRef {
 }
 declare const CanaryInputMultiple: react.ForwardRefExoticComponent<CanaryInputMultipleProps & react.RefAttributes<CanaryInputMultipleRef>>;
 
+type CalendarSelectionMode = "date" | "range";
+interface CalendarSelection {
+    start: Date | null;
+    end: Date | null;
+}
+interface CanaryCalendarProps {
+    value?: CalendarSelection | null;
+    onChange?: (selection: CalendarSelection) => void;
+    selectionMode?: CalendarSelectionMode;
+    minDate?: Date | null;
+    maxDate?: Date | null;
+    startOfWeek?: "sunday" | "monday";
+    onClear?: () => void;
+    showClear?: boolean;
+    showQuickButtons?: boolean;
+    className?: string;
+}
+declare function CanaryCalendar({ value, onChange, selectionMode, minDate, maxDate, startOfWeek, onClear, showClear, showQuickButtons, className, }: CanaryCalendarProps): react_jsx_runtime.JSX.Element;
+
 interface CanaryInputUnderlineProps extends Omit<BaseFormProps, "size">, Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
     size?: InputSize;
 }
@@ -1164,4 +1183,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryButton, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryPageHeader, type CanaryPageHeaderProps, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type ChipSize, ChipType, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type ReservationStatus, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, type UserProfile, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, type CalendarSelection, type CalendarSelectionMode, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryButton, CanaryCalendar, type CanaryCalendarProps, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryPageHeader, type CanaryPageHeaderProps, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type ChipSize, ChipType, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type ReservationStatus, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, type UserProfile, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };

@@ -17,6 +17,7 @@ import {
   CanaryInputDate,
   CanaryInputDateRange,
   CanaryInputMultiple,
+  CanaryCalendar,
   // Underline variants
   CanaryInputUnderline,
   CanaryTextAreaUnderline,
@@ -128,6 +129,43 @@ import {
   mdiBellOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
+
+// Calendar demo
+function CalendarDemo() {
+  const [singleDate, setSingleDate] = useState<{ start: Date | null; end: Date | null }>({ start: new Date(2023, 7, 23), end: null });
+  const [rangeDate, setRangeDate] = useState<{ start: Date | null; end: Date | null }>({ start: new Date(2023, 7, 14), end: new Date(2023, 7, 20) });
+  const [quickDate, setQuickDate] = useState<{ start: Date | null; end: Date | null }>({ start: null, end: null });
+
+  return (
+    <div className="flex flex-wrap gap-6">
+      <div>
+        <h4 className="text-sm font-medium mb-3 text-gray-600">Single Date</h4>
+        <CanaryCalendar
+          value={singleDate}
+          onChange={setSingleDate}
+          selectionMode="date"
+        />
+      </div>
+      <div>
+        <h4 className="text-sm font-medium mb-3 text-gray-600">Date Range</h4>
+        <CanaryCalendar
+          value={rangeDate}
+          onChange={setRangeDate}
+          selectionMode="range"
+        />
+      </div>
+      <div>
+        <h4 className="text-sm font-medium mb-3 text-gray-600">With Quick Buttons (Range)</h4>
+        <CanaryCalendar
+          value={quickDate}
+          onChange={setQuickDate}
+          selectionMode="range"
+          showQuickButtons
+        />
+      </div>
+    </div>
+  );
+}
 
 // Input multiple demo
 function InputMultipleDemo() {
@@ -1324,6 +1362,32 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 />
               </CanaryCard>
 
+              <CanaryCard title="CanaryCalendar">
+                <CalendarDemo />
+                <CodeSnippet
+                  code={`// Single date selection
+<CanaryCalendar
+  value={{ start: selectedDate, end: null }}
+  onChange={(sel) => setSelectedDate(sel.start)}
+  selectionMode="date"
+/>
+
+// Date range selection
+<CanaryCalendar
+  value={{ start: startDate, end: endDate }}
+  onChange={({ start, end }) => { setStartDate(start); setEndDate(end); }}
+  selectionMode="range"
+/>
+
+// With constraints
+<CanaryCalendar
+  minDate={new Date()}
+  maxDate={new Date(2024, 11, 31)}
+  startOfWeek="sunday"
+/>`}
+                />
+              </CanaryCard>
+
               <CanaryCard title={useUnderlineInputs ? "CanaryInputDateUnderline" : "CanaryInputDate"}>
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
@@ -1466,6 +1530,16 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                       ]}
                     />
                   )}
+
+                  <CanarySelect
+                    label="Disabled Select"
+                    size={InputSize.NORMAL}
+                    isDisabled
+                    options={[
+                      { label: "United States", value: "us" },
+                      { label: "Canada", value: "ca" },
+                    ]}
+                  />
 
                   <div className="col-span-2">
                     {useUnderlineInputs ? (

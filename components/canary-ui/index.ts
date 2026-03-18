@@ -34,6 +34,7 @@ export {
   CanaryInputDate,
   CanaryInputDateRange,
   CanaryInputMultiple,
+  CanaryCalendar,
   // Underline variants (floating label with bottom border)
   CanaryInputUnderline,
   CanaryTextAreaUnderline,
@@ -46,7 +47,7 @@ export {
   CanaryInputDateRangeUnderline,
 } from "./forms";
 export { InputSize, InputType } from "./forms/types";
-export type { BaseFormProps, CanarySelectOption, CanaryInputMultipleProps, CanaryInputMultipleRef } from "./forms";
+export type { BaseFormProps, CanarySelectOption, CanaryInputMultipleProps, CanaryInputMultipleRef, CanaryCalendarProps, CalendarSelection, CalendarSelectionMode } from "./forms";
 
 // Data Display
 export { CanaryChip, CanaryTag, CanaryTable, CanaryCard, CanaryListItem, CanaryList } from "./data-display";

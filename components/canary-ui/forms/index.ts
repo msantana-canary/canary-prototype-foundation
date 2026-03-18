@@ -14,6 +14,8 @@ export { default as CanaryInputDate } from "./CanaryInputDate";
 export { default as CanaryInputDateRange } from "./CanaryInputDateRange";
 export { default as CanaryInputMultiple } from "./CanaryInputMultiple";
 export type { CanaryInputMultipleProps, CanaryInputMultipleRef } from "./CanaryInputMultiple";
+export { default as CanaryCalendar } from "./CanaryCalendar";
+export type { CanaryCalendarProps, CalendarSelection, CalendarSelectionMode } from "./CanaryCalendar";
 
 // Underline variants (floating label with bottom border)
 export { default as CanaryInputUnderline } from "./CanaryInputUnderline";
