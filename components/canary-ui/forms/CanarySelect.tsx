@@ -45,7 +45,7 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
       "w-full rounded border font-['Roboto',sans-serif]",
       // Transitions - matches original Canary (border-color 200ms, background-color 200ms)
       "transition-[border-color,background-color] duration-200",
-      "outline-none appearance-none bg-white",
+      "outline-none appearance-none",
       "pr-10", // Space for dropdown arrow
       // Size
       sizeClasses[size],
@@ -53,8 +53,7 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
       error
         ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]"
         : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
-      isDisabled && "bg-[#E5E5E5] cursor-not-allowed",
-      isReadonly && "bg-[#FAFAFA] cursor-default",
+      isDisabled ? "bg-[#E5E5E5] cursor-not-allowed" : isReadonly ? "bg-[#FAFAFA] cursor-default" : "bg-white",
       className
     );
 
