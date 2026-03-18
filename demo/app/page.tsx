@@ -3690,9 +3690,9 @@ const corporateSections = [
                   >
                     <CanaryCard title="Property Information">
                       <div className="space-y-4">
-                        <CanaryInput label="Hotel Name" value="Statler New York" />
-                        <CanaryInput label="Address" value="123 Main Street, New York, NY" />
-                        <CanaryInput label="Phone" value="+1 (555) 123-4567" />
+                        <CanaryInput label="Hotel Name" defaultValue="Statler New York" />
+                        <CanaryInput label="Address" defaultValue="123 Main Street, New York, NY" />
+                        <CanaryInput label="Phone" defaultValue="+1 (555) 123-4567" />
                       </div>
                     </CanaryCard>
                   </CanaryAppShell>
