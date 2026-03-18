@@ -944,9 +944,15 @@ CanaryInput.displayName = "CanaryInput";
 var CanaryInput_default = CanaryInput;
 
 // components/canary-ui/forms/CanaryTextArea.tsx
-import { forwardRef as forwardRef2 } from "react";
+import { forwardRef as forwardRef2, useRef, useEffect, useCallback } from "react";
 import clsx3 from "clsx";
 import { jsx as jsx5, jsxs as jsxs4 } from "react/jsx-runtime";
+var AUTO_EXPAND_MIN_HEIGHT = {
+  ["tablet" /* TABLET */]: 64,
+  ["large" /* LARGE */]: 48,
+  ["normal" /* NORMAL */]: 40,
+  ["compact" /* COMPACT */]: 32
+};
 var CanaryTextArea = forwardRef2(
   (_a, ref) => {
     var _b = _a, {
@@ -958,8 +964,12 @@ var CanaryTextArea = forwardRef2(
       helperText,
       size = "normal" /* NORMAL */,
       resize = "both",
+      autoExpand = false,
       className = "",
-      rows = 4
+      rows = 4,
+      onChange,
+      value,
+      defaultValue
     } = _b, textareaProps = __objRest(_b, [
       "label",
       "isDisabled",
@@ -969,9 +979,35 @@ var CanaryTextArea = forwardRef2(
       "helperText",
       "size",
       "resize",
+      "autoExpand",
       "className",
-      "rows"
+      "rows",
+      "onChange",
+      "value",
+      "defaultValue"
     ]);
+    const internalRef = useRef(null);
+    const setRefs = useCallback(
+      (node) => {
+        internalRef.current = node;
+        if (typeof ref === "function") {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      },
+      [ref]
+    );
+    const adjustHeight = useCallback(() => {
+      const textarea = internalRef.current;
+      if (!textarea || !autoExpand) return;
+      const minHeight = AUTO_EXPAND_MIN_HEIGHT[size];
+      textarea.style.height = "auto";
+      textarea.style.height = `${Math.max(textarea.scrollHeight, minHeight)}px`;
+    }, [autoExpand, size]);
+    useEffect(() => {
+      adjustHeight();
+    }, [adjustHeight, value, defaultValue]);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "text-[24px] leading-[1.5] px-4 py-3",
       ["large" /* LARGE */]: "text-[18px] leading-[1.5] px-3 py-3",
@@ -989,17 +1025,21 @@ var CanaryTextArea = forwardRef2(
       "w-full rounded border font-['Roboto',sans-serif]",
       // Transitions - matches original Canary
       "transition-[border-color,background-color] duration-200",
-      "outline-none min-h-[80px]",
+      "outline-none",
+      autoExpand ? "resize-none overflow-hidden" : resizeClasses[resize],
+      !autoExpand && "min-h-[80px]",
       // Size
       sizeClasses[size],
-      // Resize
-      resizeClasses[resize],
       // Border and focus states
       error ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]" : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
       isDisabled && "bg-[#E5E5E5] cursor-not-allowed",
       isReadonly && "bg-[#FAFAFA] cursor-default",
       className
     );
+    const handleChange = (e) => {
+      onChange == null ? void 0 : onChange(e);
+      adjustHeight();
+    };
     return /* @__PURE__ */ jsxs4("div", { className: "w-full", children: [
       label && /* @__PURE__ */ jsxs4(
         "label",
@@ -1019,12 +1059,16 @@ var CanaryTextArea = forwardRef2(
       /* @__PURE__ */ jsx5(
         "textarea",
         __spreadValues({
-          ref,
+          ref: setRefs,
           disabled: isDisabled,
           readOnly: isReadonly,
           required: isRequired,
-          rows,
-          className: textareaClasses
+          rows: autoExpand ? 1 : rows,
+          onChange: handleChange,
+          value,
+          defaultValue,
+          className: textareaClasses,
+          style: autoExpand ? { minHeight: AUTO_EXPAND_MIN_HEIGHT[size] } : void 0
         }, textareaProps)
       ),
       error && /* @__PURE__ */ jsx5("div", { className: "mt-1 inline-block bg-[#fce6ed] px-2 py-[2px] rounded", children: /* @__PURE__ */ jsx5("p", { className: "text-[12px] text-[#E40046] leading-[1.5]", children: error }) }),
@@ -1648,7 +1692,7 @@ CanaryInputSearch.displayName = "CanaryInputSearch";
 var CanaryInputSearch_default = CanaryInputSearch;
 
 // components/canary-ui/forms/CanaryInputCreditCard.tsx
-import { forwardRef as forwardRef9, useState as useState2, useCallback } from "react";
+import { forwardRef as forwardRef9, useState as useState2, useCallback as useCallback2 } from "react";
 import clsx10 from "clsx";
 import { usePaymentInputs } from "react-payment-inputs";
 import Icon4 from "@mdi/react";
@@ -1698,7 +1742,7 @@ var CanaryInputCreditCard = forwardRef9(
       isReadonly && "bg-[#FAFAFA] cursor-default",
       className
     );
-    const handleCardNumberChange = useCallback((e) => {
+    const handleCardNumberChange = useCallback2((e) => {
       var _a2;
       const value = e.target.value;
       setCardNumber(value);
@@ -1764,7 +1808,7 @@ CanaryInputCreditCard.displayName = "CanaryInputCreditCard";
 var CanaryInputCreditCard_default = CanaryInputCreditCard;
 
 // components/canary-ui/forms/CanaryInputPhone.tsx
-import { forwardRef as forwardRef10, useEffect, useRef, useImperativeHandle } from "react";
+import { forwardRef as forwardRef10, useEffect as useEffect2, useRef as useRef2, useImperativeHandle } from "react";
 import clsx11 from "clsx";
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
@@ -1783,8 +1827,8 @@ var CanaryInputPhone = forwardRef10(
     placeholder = "",
     className = ""
   }, ref) => {
-    const inputRef = useRef(null);
-    const itiRef = useRef(null);
+    const inputRef = useRef2(null);
+    const itiRef = useRef2(null);
     useImperativeHandle(ref, () => inputRef.current);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "h-[64px] text-[24px]",
@@ -1792,7 +1836,7 @@ var CanaryInputPhone = forwardRef10(
       ["normal" /* NORMAL */]: "h-[40px] text-[14px]",
       ["compact" /* COMPACT */]: "h-[32px] text-[14px]"
     };
-    useEffect(() => {
+    useEffect2(() => {
       if (!inputRef.current || itiRef.current) return;
       itiRef.current = intlTelInput(inputRef.current, {
         initialCountry: defaultCountry,
@@ -1823,7 +1867,7 @@ var CanaryInputPhone = forwardRef10(
         }
       };
     }, [defaultCountry, onChange]);
-    useEffect(() => {
+    useEffect2(() => {
       if (inputRef.current && value !== void 0 && inputRef.current.value !== value) {
         inputRef.current.value = value;
       }
@@ -1912,7 +1956,7 @@ CanaryInputPhone.displayName = "CanaryInputPhone";
 var CanaryInputPhone_default = CanaryInputPhone;
 
 // components/canary-ui/forms/CanaryInputDate.tsx
-import { forwardRef as forwardRef11, useState as useState3, useRef as useRef2, useEffect as useEffect2 } from "react";
+import { forwardRef as forwardRef11, useState as useState3, useRef as useRef3, useEffect as useEffect3 } from "react";
 import clsx12 from "clsx";
 import { jsx as jsx15, jsxs as jsxs14 } from "react/jsx-runtime";
 var CanaryInputDate = forwardRef11(
@@ -1930,10 +1974,10 @@ var CanaryInputDate = forwardRef11(
     const [month, setMonth] = useState3("");
     const [day, setDay] = useState3("");
     const [year, setYear] = useState3("");
-    const monthRef = useRef2(null);
-    const dayRef = useRef2(null);
-    const yearRef = useRef2(null);
-    useEffect2(() => {
+    const monthRef = useRef3(null);
+    const dayRef = useRef3(null);
+    const yearRef = useRef3(null);
+    useEffect3(() => {
       if (value) {
         const parts = value.split("/");
         if (parts.length === 3) {
@@ -2144,7 +2188,7 @@ CanaryInputDate.displayName = "CanaryInputDate";
 var CanaryInputDate_default = CanaryInputDate;
 
 // components/canary-ui/forms/CanaryInputDateRange.tsx
-import { forwardRef as forwardRef12, useState as useState4, useRef as useRef3, useEffect as useEffect3 } from "react";
+import { forwardRef as forwardRef12, useState as useState4, useRef as useRef4, useEffect as useEffect4 } from "react";
 import clsx13 from "clsx";
 import { jsx as jsx16, jsxs as jsxs15 } from "react/jsx-runtime";
 var CanaryInputDateRange = forwardRef12(
@@ -2166,13 +2210,13 @@ var CanaryInputDateRange = forwardRef12(
     const [endMonth, setEndMonth] = useState4("");
     const [endDay, setEndDay] = useState4("");
     const [endYear, setEndYear] = useState4("");
-    const startMonthRef = useRef3(null);
-    const startDayRef = useRef3(null);
-    const startYearRef = useRef3(null);
-    const endMonthRef = useRef3(null);
-    const endDayRef = useRef3(null);
-    const endYearRef = useRef3(null);
-    useEffect3(() => {
+    const startMonthRef = useRef4(null);
+    const startDayRef = useRef4(null);
+    const startYearRef = useRef4(null);
+    const endMonthRef = useRef4(null);
+    const endDayRef = useRef4(null);
+    const endYearRef = useRef4(null);
+    useEffect4(() => {
       if (initialStartDate) {
         const parts = initialStartDate.split("/");
         if (parts.length === 3) {
@@ -2482,7 +2526,7 @@ CanaryInputDateRange.displayName = "CanaryInputDateRange";
 var CanaryInputDateRange_default = CanaryInputDateRange;
 
 // components/canary-ui/forms/CanaryInputMultiple.tsx
-import { useState as useState6, useRef as useRef4, forwardRef as forwardRef13, useImperativeHandle as useImperativeHandle2 } from "react";
+import { useState as useState6, useRef as useRef5, forwardRef as forwardRef13, useImperativeHandle as useImperativeHandle2 } from "react";
 
 // components/canary-ui/data-display/CanaryChip.tsx
 import { useState as useState5 } from "react";
@@ -2663,7 +2707,7 @@ var CanaryInputMultiple = forwardRef13(
     const [inputValue, setInputValue] = useState6("");
     const [isFocused, setIsFocused] = useState6(false);
     const [internalError, setInternalError] = useState6("");
-    const inputRef = useRef4(null);
+    const inputRef = useRef5(null);
     useImperativeHandle2(ref, () => ({
       focus: () => {
         var _a;
@@ -3197,7 +3241,7 @@ CanarySelectUnderline.displayName = "CanarySelectUnderline";
 var CanarySelectUnderline_default = CanarySelectUnderline;
 
 // components/canary-ui/forms/CanaryInputPhoneUnderline.tsx
-import { forwardRef as forwardRef17, useEffect as useEffect4, useRef as useRef5, useState as useState10, useImperativeHandle as useImperativeHandle3 } from "react";
+import { forwardRef as forwardRef17, useEffect as useEffect5, useRef as useRef6, useState as useState10, useImperativeHandle as useImperativeHandle3 } from "react";
 import clsx19 from "clsx";
 import intlTelInput2 from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
@@ -3218,8 +3262,8 @@ var CanaryInputPhoneUnderline = forwardRef17(
     placeholder = "",
     className = ""
   }, ref) => {
-    const inputRef = useRef5(null);
-    const itiRef = useRef5(null);
+    const inputRef = useRef6(null);
+    const itiRef = useRef6(null);
     const [isFocused, setIsFocused] = useState10(false);
     const [hasValue, setHasValue] = useState10(!!value);
     useImperativeHandle3(ref, () => inputRef.current);
@@ -3230,7 +3274,7 @@ var CanaryInputPhoneUnderline = forwardRef17(
       ["compact" /* COMPACT */]: "h-[32px] text-[14px]"
     };
     const showLabelAbove = isFocused || hasValue;
-    useEffect4(() => {
+    useEffect5(() => {
       if (!inputRef.current || itiRef.current) return;
       itiRef.current = intlTelInput2(inputRef.current, {
         initialCountry: defaultCountry,
@@ -3274,7 +3318,7 @@ var CanaryInputPhoneUnderline = forwardRef17(
         }
       };
     }, [defaultCountry, onChange]);
-    useEffect4(() => {
+    useEffect5(() => {
       if (inputRef.current && value !== void 0 && inputRef.current.value !== value) {
         inputRef.current.value = value;
         setHasValue(!!value);
@@ -3631,7 +3675,7 @@ CanaryInputSearchUnderline.displayName = "CanaryInputSearchUnderline";
 var CanaryInputSearchUnderline_default = CanaryInputSearchUnderline;
 
 // components/canary-ui/forms/CanaryInputCreditCardUnderline.tsx
-import { forwardRef as forwardRef20, useState as useState13, useCallback as useCallback2 } from "react";
+import { forwardRef as forwardRef20, useState as useState13, useCallback as useCallback3 } from "react";
 import clsx22 from "clsx";
 import { usePaymentInputs as usePaymentInputs2 } from "react-payment-inputs";
 import Icon9 from "@mdi/react";
@@ -3680,7 +3724,7 @@ var CanaryInputCreditCardUnderline = forwardRef20(
       setHasValue(!!e.target.value);
       onBlur == null ? void 0 : onBlur(e);
     };
-    const handleCardNumberChange = useCallback2((e) => {
+    const handleCardNumberChange = useCallback3((e) => {
       var _a3;
       const value2 = e.target.value;
       setCardNumber(value2);
@@ -3762,7 +3806,7 @@ CanaryInputCreditCardUnderline.displayName = "CanaryInputCreditCardUnderline";
 var CanaryInputCreditCardUnderline_default = CanaryInputCreditCardUnderline;
 
 // components/canary-ui/forms/CanaryInputDateUnderline.tsx
-import { forwardRef as forwardRef21, useState as useState14, useRef as useRef6, useEffect as useEffect5 } from "react";
+import { forwardRef as forwardRef21, useState as useState14, useRef as useRef7, useEffect as useEffect6 } from "react";
 import clsx23 from "clsx";
 import { Fragment as Fragment3, jsx as jsx26, jsxs as jsxs25 } from "react/jsx-runtime";
 var CanaryInputDateUnderline = forwardRef21(
@@ -3781,10 +3825,10 @@ var CanaryInputDateUnderline = forwardRef21(
     const [day, setDay] = useState14("");
     const [year, setYear] = useState14("");
     const [isFocused, setIsFocused] = useState14(false);
-    const monthRef = useRef6(null);
-    const dayRef = useRef6(null);
-    const yearRef = useRef6(null);
-    useEffect5(() => {
+    const monthRef = useRef7(null);
+    const dayRef = useRef7(null);
+    const yearRef = useRef7(null);
+    useEffect6(() => {
       if (value) {
         const parts = value.split("/");
         if (parts.length === 3) {
@@ -3993,7 +4037,7 @@ CanaryInputDateUnderline.displayName = "CanaryInputDateUnderline";
 var CanaryInputDateUnderline_default = CanaryInputDateUnderline;
 
 // components/canary-ui/forms/CanaryInputDateRangeUnderline.tsx
-import { forwardRef as forwardRef22, useState as useState15, useRef as useRef7, useEffect as useEffect6 } from "react";
+import { forwardRef as forwardRef22, useState as useState15, useRef as useRef8, useEffect as useEffect7 } from "react";
 import clsx24 from "clsx";
 import { Fragment as Fragment4, jsx as jsx27, jsxs as jsxs26 } from "react/jsx-runtime";
 var CanaryInputDateRangeUnderline = forwardRef22(
@@ -4016,13 +4060,13 @@ var CanaryInputDateRangeUnderline = forwardRef22(
     const [endDay, setEndDay] = useState15("");
     const [endYear, setEndYear] = useState15("");
     const [isFocused, setIsFocused] = useState15(false);
-    const startMonthRef = useRef7(null);
-    const startDayRef = useRef7(null);
-    const startYearRef = useRef7(null);
-    const endMonthRef = useRef7(null);
-    const endDayRef = useRef7(null);
-    const endYearRef = useRef7(null);
-    useEffect6(() => {
+    const startMonthRef = useRef8(null);
+    const startDayRef = useRef8(null);
+    const startYearRef = useRef8(null);
+    const endMonthRef = useRef8(null);
+    const endDayRef = useRef8(null);
+    const endYearRef = useRef8(null);
+    useEffect7(() => {
       if (initialStartDate) {
         const parts = initialStartDate.split("/");
         if (parts.length === 3) {
@@ -5077,7 +5121,7 @@ function CanaryGrid({
 }
 
 // components/canary-ui/layout/CanaryModal.tsx
-import { useEffect as useEffect7 } from "react";
+import { useEffect as useEffect8 } from "react";
 import clsx32 from "clsx";
 import { jsx as jsx35, jsxs as jsxs32 } from "react/jsx-runtime";
 function CanaryModal({
@@ -5091,7 +5135,7 @@ function CanaryModal({
   showCloseButton = true,
   className = ""
 }) {
-  useEffect7(() => {
+  useEffect8(() => {
     const handleEsc = (event) => {
       if (event.key === "Escape" && isOpen) {
         onClose();
@@ -6563,7 +6607,7 @@ var enableProduct = (sections, productId) => {
 };
 
 // components/canary-ui/feedback/CanaryToast.tsx
-import { useEffect as useEffect8, useState as useState19 } from "react";
+import { useEffect as useEffect9, useState as useState19 } from "react";
 import clsx38 from "clsx";
 import { jsx as jsx44, jsxs as jsxs39 } from "react/jsx-runtime";
 function CanaryToast({
@@ -6577,7 +6621,7 @@ function CanaryToast({
   className = ""
 }) {
   const [visible, setVisible] = useState19(isOpen);
-  useEffect8(() => {
+  useEffect9(() => {
     setVisible(isOpen);
     if (isOpen && duration > 0) {
       const timer = setTimeout(() => {

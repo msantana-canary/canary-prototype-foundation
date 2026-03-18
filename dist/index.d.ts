@@ -430,6 +430,7 @@ declare const CanaryInput: react.ForwardRefExoticComponent<CanaryInputProps & re
 
 interface CanaryTextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size">, BaseFormProps {
     resize?: "none" | "vertical" | "horizontal" | "both";
+    autoExpand?: boolean;
 }
 declare const CanaryTextArea: react.ForwardRefExoticComponent<CanaryTextAreaProps & react.RefAttributes<HTMLTextAreaElement>>;
 

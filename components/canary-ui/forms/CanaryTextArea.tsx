@@ -1,4 +1,4 @@
-import { forwardRef, TextareaHTMLAttributes } from "react";
+import { forwardRef, TextareaHTMLAttributes, useRef, useEffect, useCallback } from "react";
 import { BaseFormProps, InputSize } from "./types";
 import clsx from "clsx";
 
@@ -6,7 +6,16 @@ export interface CanaryTextAreaProps
   extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size">,
     BaseFormProps {
   resize?: "none" | "vertical" | "horizontal" | "both";
+  autoExpand?: boolean;
 }
+
+// Min heights matching CanaryInput sizes (for autoExpand)
+const AUTO_EXPAND_MIN_HEIGHT: Record<InputSize, number> = {
+  [InputSize.TABLET]: 64,
+  [InputSize.LARGE]: 48,
+  [InputSize.NORMAL]: 40,
+  [InputSize.COMPACT]: 32,
+};
 
 const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
   (
@@ -19,12 +28,44 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
       helperText,
       size = InputSize.NORMAL,
       resize = "both",
+      autoExpand = false,
       className = "",
       rows = 4,
+      onChange,
+      value,
+      defaultValue,
       ...textareaProps
     },
     ref
   ) => {
+    const internalRef = useRef<HTMLTextAreaElement | null>(null);
+
+    const setRefs = useCallback(
+      (node: HTMLTextAreaElement | null) => {
+        internalRef.current = node;
+        if (typeof ref === "function") {
+          ref(node);
+        } else if (ref) {
+          (ref as React.MutableRefObject<HTMLTextAreaElement | null>).current = node;
+        }
+      },
+      [ref]
+    );
+
+    const adjustHeight = useCallback(() => {
+      const textarea = internalRef.current;
+      if (!textarea || !autoExpand) return;
+
+      const minHeight = AUTO_EXPAND_MIN_HEIGHT[size];
+      textarea.style.height = "auto";
+      textarea.style.height = `${Math.max(textarea.scrollHeight, minHeight)}px`;
+    }, [autoExpand, size]);
+
+    // Adjust on mount (for pre-filled content) and when value changes
+    useEffect(() => {
+      adjustHeight();
+    }, [adjustHeight, value, defaultValue]);
+
     const sizeClasses = {
       [InputSize.TABLET]: "text-[24px] leading-[1.5] px-4 py-3",
       [InputSize.LARGE]: "text-[18px] leading-[1.5] px-3 py-3",
@@ -44,11 +85,11 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
       "w-full rounded border font-['Roboto',sans-serif]",
       // Transitions - matches original Canary
       "transition-[border-color,background-color] duration-200",
-      "outline-none min-h-[80px]",
+      "outline-none",
+      autoExpand ? "resize-none overflow-hidden" : resizeClasses[resize],
+      !autoExpand && "min-h-[80px]",
       // Size
       sizeClasses[size],
-      // Resize
-      resizeClasses[resize],
       // Border and focus states
       error
         ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]"
@@ -57,6 +98,11 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
       isReadonly && "bg-[#FAFAFA] cursor-default",
       className
     );
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      onChange?.(e);
+      adjustHeight();
+    };
 
     return (
       <div className="w-full">
@@ -75,12 +121,16 @@ const CanaryTextArea = forwardRef<HTMLTextAreaElement, CanaryTextAreaProps>(
         )}
 
         <textarea
-          ref={ref}
+          ref={setRefs}
           disabled={isDisabled}
           readOnly={isReadonly}
           required={isRequired}
-          rows={rows}
+          rows={autoExpand ? 1 : rows}
+          onChange={handleChange}
+          value={value}
+          defaultValue={defaultValue}
           className={textareaClasses}
+          style={autoExpand ? { minHeight: AUTO_EXPAND_MIN_HEIGHT[size] } : undefined}
           {...textareaProps}
         />
 

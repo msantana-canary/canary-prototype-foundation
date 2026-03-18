@@ -1002,6 +1002,12 @@ var CanaryInput_default = CanaryInput;
 var import_react3 = require("react");
 var import_clsx3 = __toESM(require("clsx"));
 var import_jsx_runtime5 = require("react/jsx-runtime");
+var AUTO_EXPAND_MIN_HEIGHT = {
+  ["tablet" /* TABLET */]: 64,
+  ["large" /* LARGE */]: 48,
+  ["normal" /* NORMAL */]: 40,
+  ["compact" /* COMPACT */]: 32
+};
 var CanaryTextArea = (0, import_react3.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -1013,8 +1019,12 @@ var CanaryTextArea = (0, import_react3.forwardRef)(
       helperText,
       size = "normal" /* NORMAL */,
       resize = "both",
+      autoExpand = false,
       className = "",
-      rows = 4
+      rows = 4,
+      onChange,
+      value,
+      defaultValue
     } = _b, textareaProps = __objRest(_b, [
       "label",
       "isDisabled",
@@ -1024,9 +1034,35 @@ var CanaryTextArea = (0, import_react3.forwardRef)(
       "helperText",
       "size",
       "resize",
+      "autoExpand",
       "className",
-      "rows"
+      "rows",
+      "onChange",
+      "value",
+      "defaultValue"
     ]);
+    const internalRef = (0, import_react3.useRef)(null);
+    const setRefs = (0, import_react3.useCallback)(
+      (node) => {
+        internalRef.current = node;
+        if (typeof ref === "function") {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      },
+      [ref]
+    );
+    const adjustHeight = (0, import_react3.useCallback)(() => {
+      const textarea = internalRef.current;
+      if (!textarea || !autoExpand) return;
+      const minHeight = AUTO_EXPAND_MIN_HEIGHT[size];
+      textarea.style.height = "auto";
+      textarea.style.height = `${Math.max(textarea.scrollHeight, minHeight)}px`;
+    }, [autoExpand, size]);
+    (0, import_react3.useEffect)(() => {
+      adjustHeight();
+    }, [adjustHeight, value, defaultValue]);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "text-[24px] leading-[1.5] px-4 py-3",
       ["large" /* LARGE */]: "text-[18px] leading-[1.5] px-3 py-3",
@@ -1044,17 +1080,21 @@ var CanaryTextArea = (0, import_react3.forwardRef)(
       "w-full rounded border font-['Roboto',sans-serif]",
       // Transitions - matches original Canary
       "transition-[border-color,background-color] duration-200",
-      "outline-none min-h-[80px]",
+      "outline-none",
+      autoExpand ? "resize-none overflow-hidden" : resizeClasses[resize],
+      !autoExpand && "min-h-[80px]",
       // Size
       sizeClasses[size],
-      // Resize
-      resizeClasses[resize],
       // Border and focus states
       error ? "border-[#E40046] focus:outline focus:outline-2 focus:outline-[#E40046] focus:outline-offset-[-1px]" : "border-[#666666] focus:outline focus:outline-2 focus:outline-[#2858c4] focus:outline-offset-[-1px]",
       isDisabled && "bg-[#E5E5E5] cursor-not-allowed",
       isReadonly && "bg-[#FAFAFA] cursor-default",
       className
     );
+    const handleChange = (e) => {
+      onChange == null ? void 0 : onChange(e);
+      adjustHeight();
+    };
     return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-full", children: [
       label && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
         "label",
@@ -1074,12 +1114,16 @@ var CanaryTextArea = (0, import_react3.forwardRef)(
       /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
         "textarea",
         __spreadValues({
-          ref,
+          ref: setRefs,
           disabled: isDisabled,
           readOnly: isReadonly,
           required: isRequired,
-          rows,
-          className: textareaClasses
+          rows: autoExpand ? 1 : rows,
+          onChange: handleChange,
+          value,
+          defaultValue,
+          className: textareaClasses,
+          style: autoExpand ? { minHeight: AUTO_EXPAND_MIN_HEIGHT[size] } : void 0
         }, textareaProps)
       ),
       error && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mt-1 inline-block bg-[#fce6ed] px-2 py-[2px] rounded", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5]", children: error }) }),

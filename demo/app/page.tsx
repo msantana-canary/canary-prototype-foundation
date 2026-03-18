@@ -1483,6 +1483,39 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                     )}
                   </div>
 
+                  {/* Auto-expanding TextArea */}
+                  <div className="col-span-2">
+                    <CanaryCard title="CanaryTextArea — Auto Expand">
+                      <div className="space-y-4">
+                        <CanaryTextArea
+                          label="Auto-expanding (pre-filled)"
+                          autoExpand
+                          defaultValue={"Dear Guest,\n\nThank you for choosing to stay with us at the Statler New York. We're delighted to confirm your reservation for a Deluxe King Room arriving on March 20th. Our concierge team is available 24/7 to assist with any special requests you may have prior to your arrival.\n\nWe look forward to welcoming you."}
+                        />
+                        <CanaryTextArea
+                          label="Auto-expanding (empty — try typing)"
+                          autoExpand
+                          placeholder="Start typing and watch it grow..."
+                        />
+                      </div>
+                      <CodeSnippet
+                        code={`// Auto-expands to hug content, starts at input height
+<CanaryTextArea
+  label="Message"
+  autoExpand
+  defaultValue="Pre-filled text that sets initial height..."
+/>
+
+// Empty — grows as you type
+<CanaryTextArea
+  label="Notes"
+  autoExpand
+  placeholder="Start typing..."
+/>`}
+                      />
+                    </CanaryCard>
+                  </div>
+
                   {/* Checkboxes */}
                   <div className="col-span-2">
                     <CanaryCard title="CanaryCheckbox">
