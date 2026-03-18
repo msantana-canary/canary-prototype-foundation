@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.0
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.1
 ```
 
 2. **Import styles** in root layout:
@@ -33,7 +33,7 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 |-----------|--------|-------------|
 | `CanaryButton` | `import { CanaryButton } from '@canary-ui/components'` | Full-featured button with types, sizes, icons, loading states |
 
-### Forms (17 components)
+### Forms (18 components)
 | Component | Import | Description |
 |-----------|--------|-------------|
 | `CanaryInput` | `import { CanaryInput } from '@canary-ui/components'` | Standard text input |
@@ -59,6 +59,7 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 | `CanaryInputDateRange` | `import { CanaryInputDateRange } from '@canary-ui/components'` | Date range picker |
 | `CanaryInputDateRangeUnderline` | `import { CanaryInputDateRangeUnderline } from '@canary-ui/components'` | Date range with floating label |
 | `CanaryInputMultiple` | `import { CanaryInputMultiple } from '@canary-ui/components'` | Multi-value input with removable chips |
+| `CanaryCalendar` | `import { CanaryCalendar } from '@canary-ui/components'` | Calendar picker (single date or range, popup or inline) |
 | `CanarySegmentedControl` | `import { CanarySegmentedControl } from '@canary-ui/components'` | Segmented button group |
 
 ### Data Display (6 components)
@@ -1395,6 +1396,6 @@ const abovePropertySections = [
 
 ## Version
 
-**Current Version:** v0.5.0
+**Current Version:** v0.5.1
 
 Last updated: March 2026

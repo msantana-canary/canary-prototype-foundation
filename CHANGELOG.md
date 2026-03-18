@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-03-18
+
+### Added
+- **CanaryCalendar**: Standalone calendar picker component
+  - Month grid view (7x6) with Monday or Sunday start
+  - Single date and date range selection modes
+  - Month/year picker overlay (two-column list with Cancel/Save)
+  - Quick date buttons (Today, Tomorrow, Next 7 Days) — hidden by default via `showQuickButtons` prop
+  - Today highlighted as solid blue, hover state on day cells
+  - Range selection as continuous band (rounded only on endpoints)
+  - Min/max date constraints, Clear button
+  - Uses CanaryButton throughout for consistent interactions
+- **CanaryInputDate**: Calendar popup integration — clicking calendar icon opens CanaryCalendar in single date mode
+- **CanaryInputDateRange**: Calendar popup integration — clicking calendar icon opens CanaryCalendar in range mode
+- Click outside closes calendar popup
+
+### Fixed
+- **CanarySelect**: Fixed disabled background not showing (bg-white was overriding bg-[#E5E5E5])
+- **CanaryTextArea**: Added `autoExpand` prop for auto-growing textarea
+
 ## [0.5.0] - 2026-03-17
 
 ### Added
