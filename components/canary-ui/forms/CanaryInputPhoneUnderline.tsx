@@ -35,8 +35,13 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const itiRef = useRef<any>(null);
+    const onChangeRef = useRef(onChange);
     const [isFocused, setIsFocused] = useState(false);
     const [hasValue, setHasValue] = useState(!!value);
+
+    useEffect(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
 
     useImperativeHandle(ref, () => inputRef.current!);
 
@@ -65,10 +70,10 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
 
       // Handle changes
       const handleChange = () => {
-        if (onChange && inputRef.current) {
+        if (onChangeRef.current && inputRef.current) {
           const val = inputRef.current.value;
           setHasValue(!!val);
-          onChange(val);
+          onChangeRef.current(val);
         }
       };
 
@@ -101,7 +106,7 @@ const CanaryInputPhoneUnderline = forwardRef<HTMLInputElement, CanaryInputPhoneU
           itiRef.current = null;
         }
       };
-    }, [defaultCountry, onChange]);
+    }, [defaultCountry]);
 
     // Update value when prop changes
     useEffect(() => {

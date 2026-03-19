@@ -33,6 +33,12 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const itiRef = useRef<any>(null);
+    const onChangeRef = useRef(onChange);
+
+    // Keep the callback ref up to date without re-running the init effect
+    useEffect(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
 
     useImperativeHandle(ref, () => inputRef.current!);
 
@@ -56,10 +62,10 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/js/utils.js",
       });
 
-      // Handle changes
+      // Handle changes — use ref so we don't re-init on callback changes
       const handleChange = () => {
-        if (onChange && inputRef.current) {
-          onChange(inputRef.current.value);
+        if (onChangeRef.current && inputRef.current) {
+          onChangeRef.current(inputRef.current.value);
         }
       };
 
@@ -79,7 +85,7 @@ const CanaryInputPhone = forwardRef<HTMLInputElement, CanaryInputPhoneProps>(
           itiRef.current = null;
         }
       };
-    }, [defaultCountry, onChange]);
+    }, [defaultCountry]);
 
     // Update value when prop changes
     useEffect(() => {

@@ -1884,6 +1884,10 @@ var CanaryInputPhone = (0, import_react14.forwardRef)(
   }, ref) => {
     const inputRef = (0, import_react14.useRef)(null);
     const itiRef = (0, import_react14.useRef)(null);
+    const onChangeRef = (0, import_react14.useRef)(onChange);
+    (0, import_react14.useEffect)(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
     (0, import_react14.useImperativeHandle)(ref, () => inputRef.current);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "h-[64px] text-[24px]",
@@ -1902,8 +1906,8 @@ var CanaryInputPhone = (0, import_react14.forwardRef)(
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/js/utils.js"
       });
       const handleChange = () => {
-        if (onChange && inputRef.current) {
-          onChange(inputRef.current.value);
+        if (onChangeRef.current && inputRef.current) {
+          onChangeRef.current(inputRef.current.value);
         }
       };
       inputRef.current.addEventListener("blur", handleChange);
@@ -1921,7 +1925,7 @@ var CanaryInputPhone = (0, import_react14.forwardRef)(
           itiRef.current = null;
         }
       };
-    }, [defaultCountry, onChange]);
+    }, [defaultCountry]);
     (0, import_react14.useEffect)(() => {
       if (inputRef.current && value !== void 0 && inputRef.current.value !== value) {
         inputRef.current.value = value;
@@ -3599,8 +3603,12 @@ var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
   }, ref) => {
     const inputRef = (0, import_react27.useRef)(null);
     const itiRef = (0, import_react27.useRef)(null);
+    const onChangeRef = (0, import_react27.useRef)(onChange);
     const [isFocused, setIsFocused] = (0, import_react27.useState)(false);
     const [hasValue, setHasValue] = (0, import_react27.useState)(!!value);
+    (0, import_react27.useEffect)(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
     (0, import_react27.useImperativeHandle)(ref, () => inputRef.current);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "h-[64px] text-[24px]",
@@ -3620,10 +3628,10 @@ var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/js/utils.js"
       });
       const handleChange = () => {
-        if (onChange && inputRef.current) {
+        if (onChangeRef.current && inputRef.current) {
           const val = inputRef.current.value;
           setHasValue(!!val);
-          onChange(val);
+          onChangeRef.current(val);
         }
       };
       const handleFocus = () => {
@@ -3652,7 +3660,7 @@ var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
           itiRef.current = null;
         }
       };
-    }, [defaultCountry, onChange]);
+    }, [defaultCountry]);
     (0, import_react27.useEffect)(() => {
       if (inputRef.current && value !== void 0 && inputRef.current.value !== value) {
         inputRef.current.value = value;

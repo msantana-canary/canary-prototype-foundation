@@ -1828,6 +1828,10 @@ var CanaryInputPhone = forwardRef10(
   }, ref) => {
     const inputRef = useRef2(null);
     const itiRef = useRef2(null);
+    const onChangeRef = useRef2(onChange);
+    useEffect2(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
     useImperativeHandle(ref, () => inputRef.current);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "h-[64px] text-[24px]",
@@ -1846,8 +1850,8 @@ var CanaryInputPhone = forwardRef10(
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/js/utils.js"
       });
       const handleChange = () => {
-        if (onChange && inputRef.current) {
-          onChange(inputRef.current.value);
+        if (onChangeRef.current && inputRef.current) {
+          onChangeRef.current(inputRef.current.value);
         }
       };
       inputRef.current.addEventListener("blur", handleChange);
@@ -1865,7 +1869,7 @@ var CanaryInputPhone = forwardRef10(
           itiRef.current = null;
         }
       };
-    }, [defaultCountry, onChange]);
+    }, [defaultCountry]);
     useEffect2(() => {
       if (inputRef.current && value !== void 0 && inputRef.current.value !== value) {
         inputRef.current.value = value;
@@ -3543,8 +3547,12 @@ var CanaryInputPhoneUnderline = forwardRef17(
   }, ref) => {
     const inputRef = useRef6(null);
     const itiRef = useRef6(null);
+    const onChangeRef = useRef6(onChange);
     const [isFocused, setIsFocused] = useState11(false);
     const [hasValue, setHasValue] = useState11(!!value);
+    useEffect5(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
     useImperativeHandle3(ref, () => inputRef.current);
     const sizeClasses = {
       ["tablet" /* TABLET */]: "h-[64px] text-[24px]",
@@ -3564,10 +3572,10 @@ var CanaryInputPhoneUnderline = forwardRef17(
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.5/build/js/utils.js"
       });
       const handleChange = () => {
-        if (onChange && inputRef.current) {
+        if (onChangeRef.current && inputRef.current) {
           const val = inputRef.current.value;
           setHasValue(!!val);
-          onChange(val);
+          onChangeRef.current(val);
         }
       };
       const handleFocus = () => {
@@ -3596,7 +3604,7 @@ var CanaryInputPhoneUnderline = forwardRef17(
           itiRef.current = null;
         }
       };
-    }, [defaultCountry, onChange]);
+    }, [defaultCountry]);
     useEffect5(() => {
       if (inputRef.current && value !== void 0 && inputRef.current.value !== value) {
         inputRef.current.value = value;
