@@ -100,51 +100,52 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 
 ## Component Selection Guide
 
-Use this section to quickly find the right component for your use case.
+Use this section to quickly find the right component for your use case. Examples are drawn from real Canary product patterns.
 
 ### "I need the user to enter text"
-- **Single-line text** → `CanaryInput` (bordered) or `CanaryInputUnderline` (floating label)
-- **Multi-line text** → `CanaryTextArea` (bordered) or `CanaryTextAreaUnderline` (floating label). Use `autoExpand` for growing text areas.
-- **Search field** → `CanaryInputSearch` — has a built-in search icon. Don't use `CanaryInput` with a manual icon addon.
-- **Password** → `CanaryInputPassword` — has built-in show/hide toggle. Don't use `CanaryInput` with `InputType.PASSWORD`.
-- **Phone number** → `CanaryInputPhone` — has country code selector. Don't build a custom phone input.
-- **Credit card** → `CanaryInputCreditCard` — has card type detection and formatting. Don't use a plain text input.
-- **Date** → `CanaryInputDate` — split MM/DD/YYYY fields with calendar picker. Don't use `CanaryInput` with `InputType.DATE`.
-- **Date range** → `CanaryInputDateRange` — start + end date with range calendar picker.
-- **Multiple values** (emails, tags) → `CanaryInputMultiple` — chip-based entry with Enter to add, backspace to remove.
+- **Single-line text** → `CanaryInput` (bordered) or `CanaryInputUnderline` (floating label). Used in production for: hotel names, guest names, email addresses, confirmation codes, cohort labels.
+- **Multi-line text** → `CanaryTextArea` (bordered) or `CanaryTextAreaUnderline` (floating label). Use `autoExpand` for growing text areas. Used for: internal notes on reservations, broadcast messages, tip customization copy, cohort notes.
+- **Search field** → `CanaryInputSearch` — has a built-in search icon. Don't use `CanaryInput` with a manual icon addon. Used for: reservation search, check-in/check-out dashboards, cohort hotel filtering. Typically connected to server-side search with debounced queries.
+- **Password** → `CanaryInputPassword` — has built-in show/hide toggle. Don't use `CanaryInput` with `InputType.PASSWORD`. Used for: password creation/reset flows (with confirmation field), PMS credential setup (Opera, Synxis), session re-authentication.
+- **Phone number** → `CanaryInputPhone` — has country code selector. Don't build a custom phone input. Used for: wallet login (phone → OTP), guest check-in contact info, authorization client details, digital tip wallet user setup.
+- **Credit card** → `CanaryInputCreditCard` — has card type detection and formatting. Don't use a plain text input. Used for: authorization forms, payment collection during check-in, e-folio charges.
+- **Currency amount** → `CanaryInputCurrency` — formats monetary values with currency symbol. Used for: payment schedule splits, upsell pricing, contract charges, custom tip amounts.
+- **Date** → `CanaryInputDate` — split MM/DD/YYYY fields with calendar picker. Don't use `CanaryInput` with `InputType.DATE`. Used for: date of birth in wallet setup, report date filters, process order dates.
+- **Date range** → `CanaryInputDateRange` — start + end date with range calendar picker. Used for: stay dates, report date ranges, reservation filters.
+- **Multiple values** (emails, tags) → `CanaryInputMultiple` — chip-based entry with Enter to add, backspace to remove. Used for: report email recipients (with email validation), notification settings, guest journey segment selection.
 
 ### "I need the user to pick from options"
-- **Dropdown list** → `CanarySelect` / `CanarySelectUnderline` — for 4+ options, or when screen space is limited.
-- **A few visible choices (single select)** → `CanaryRadioGroup` — for 2–5 options that should all be visible. Use `CanarySegmentedControl` for inline toggle-style selection.
-- **Binary on/off** → `CanarySwitch` for settings/toggles, `CanaryCheckbox` for form agreement/consent.
+- **Dropdown list** → `CanarySelect` / `CanarySelectUnderline` — for 4+ options, or when screen space is limited. Used for: cohort state changes (inline in table rows), brand/onboarding type selection, country selection, room type filters.
+- **A few visible choices (single select)** → `CanaryRadioGroup` — for 2–5 options that should all be visible. Used for: payment type selection (credit card vs bank), check-out time options, messaging channel selection. Use `CanarySegmentedControl` for inline toggle-style selection.
+- **Binary on/off** → `CanarySwitch` for settings/toggles, `CanaryCheckbox` for form agreement/consent. In production, `CanaryCheckbox` is used for: e-folio authorization acknowledgment, terms acceptance during check-in.
 - **Multiple selections** → Render multiple `CanaryCheckbox` components.
 - **Tags/filters** → `CanaryChip` with `ChipType.SELECTABLE` — for toggling filter states or category selection.
 - **Calendar date** → `CanaryCalendar` — full inline or popup calendar. Use for dashboards or date-heavy UIs. Use `CanaryInputDate` for form fields.
 
 ### "I need to show data"
-- **Tabular data** → `CanaryTable` — with columns, sorting, and custom cell rendering.
-- **List of items** → `CanaryList` + `CanaryListItem` — supports drag-and-drop, loading, empty, and error states. Use for task lists, contact lists, settings lists.
-- **Status indicator** → `CanaryTag` — colored label (success/warning/error/info). Use `TagVariant.OUTLINE` for subtle indicators, `TagVariant.FILLED` for prominent ones.
-- **Content section** → `CanaryCard` — for grouping related content with optional title, subtitle, and footer.
+- **Tabular data** → `CanaryTable` — with columns, sorting, and custom cell rendering. In production, tables are used for: authorization forms (with status tags, amounts, dates), food & beverage orders (with time elapsed tags and action buttons), guest reservations (11+ columns with sorting and load-more pagination), cohort management (with inline select dropdowns in cells), tipping orders.
+- **List of items** → `CanaryList` + `CanaryListItem` — supports drag-and-drop, loading, empty, and error states. Used for: food & beverage menu items (with images, modifiers, pricing, quantity counters), settings lists, contact details. Uses scoped slots for rich content in left/title/subtitle/right areas.
+- **Status indicator** → `CanaryTag` — colored label. In production: `TagColor.ERROR` for "Blocked", "Declined", "Failed"; `TagColor.WARNING` for "In Transit", "Expiring Soon", time elapsed indicators; `TagColor.SUCCESS` for "Active", "Confirmed", "Fulfilled"; `TagColor.INFO` for "Submitted", "In Progress", "New". Custom colors for payment intent statuses.
+- **Content section** → `CanaryCard` — for grouping related content with optional title, subtitle, and footer. Used for: upsell carousel items, settings sections, dashboard widgets, form grouping.
 - **Toggleable tags/filters** → `CanaryChip` with `ChipType.SELECTABLE`. Don't use `CanaryTag` for interactive elements (tags are display-only).
-- **Removable items** → `CanaryChip` with `ChipType.REMOVABLE` — for selected filters, email recipients, etc.
+- **Removable items** → `CanaryChip` with `ChipType.REMOVABLE` — in production, used for: applied reservation filters (each chip shows filter label with X to remove individual filters).
 
 ### "I need layout structure"
 - **Full app with sidebar + header** → `CanaryAppShell` — the recommended starting point for any prototype. Includes sidebar, page header, and content area.
-- **Page-level container** → `CanaryContainer` — centers content with responsive max-width. Use inside `CanaryAppShell` content area.
+- **Page-level container** → `CanaryContainer` — centers content with responsive max-width. Use inside `CanaryAppShell` content area. Used for: dashboard layouts, settings pages, form sections with standardized padding.
 - **Grid of items** → `CanaryGrid` — responsive CSS grid with configurable columns and gaps.
-- **Overlay/dialog** → `CanaryModal` — for confirmations, forms, or detail views. Handles ESC key and overlay click.
+- **Overlay/dialog** → `CanaryModal` — for confirmations, forms, or detail views. Handles ESC key and overlay click. In production, modals are used for: creating demo hotels (form with inputs + selects), session re-authentication (password input), advanced reservation filters (complex filter form), payment options, image crop dialogs.
 
 ### "I need navigation"
 - **App sidebar** → Use `CanaryAppShell` (includes sidebar). Only use `CanarySidebar` directly if you need a custom layout without `CanaryAppShell`.
-- **Tab switching** → `CanaryTabs` — supports rounded, text, segmented, and checkbox variants.
+- **Tab switching** → `CanaryTabs` — supports rounded, text, segmented, and checkbox variants. In production: tabs with badge counts for order status filtering (Pending/In Progress/Processed/Canceled with dynamic counts), round tabs for switching lookup methods (Email vs App), status filter tabs on dashboards.
 - **Page title bar** → `CanaryPageHeader` — standard Canary header with property selector, user profile, and connection status.
 - **Generic header** → `CanaryHeader` — simple header without Canary-specific features. Use `CanaryPageHeader` for Canary product prototypes.
 
 ### "I need to give feedback"
 - **Inline message** → `CanaryAlert` — for persistent messages within page content (success, error, warning, info).
-- **Temporary notification** → `CanaryToast` — auto-dismissing notification that appears in a corner. Use for transient confirmations ("Saved!", "Deleted").
-- **Loading state** → `CanaryLoading` — spinner. Use while data is being fetched.
+- **Temporary notification** → `CanaryToast` — auto-dismissing notification that appears in a corner. In production, toasts are used globally via a ToastStore singleton — success for "Changes saved", error for "Unexpected error", triggered after async operations complete.
+- **Loading state** → `CanaryLoading` — spinner. Use while data is being fetched. In production, `CanaryLoadingContainer` wraps content sections and replaces them with a spinner during async operations (password reset, reservation loading, guest verification).
 
 ---
 
@@ -312,11 +313,15 @@ AlertType.INFO     // Blue info message
 Interactive button for triggering actions. Supports primary, secondary, outlined, text, and icon-only variants with loading states.
 
 **When to use:**
-- Primary actions: submit forms, confirm dialogs, save changes (`ButtonType.PRIMARY`)
-- Secondary actions alongside a primary button: cancel, go back (`ButtonType.OUTLINED` or `ButtonType.TEXT`)
-- Destructive actions: delete, remove (`ButtonColor.DANGER`)
-- Icon-only actions in toolbars or compact spaces (`ButtonType.ICON_PRIMARY` / `ButtonType.ICON_SECONDARY`)
-- Links that should look like buttons (use the `href` prop — renders as `<a>` tag)
+- `ButtonType.PRIMARY` — main call-to-action: submit forms, confirm dialogs, save changes. Use one per section. In production: "Approve" order buttons, authorization form submit, e-folio charge submission.
+- `ButtonType.OUTLINED` — secondary actions alongside a primary: cancel, go back. In production: filter buttons with icon and badge count on reservation dashboards.
+- `ButtonType.SHADED` + `ButtonSize.COMPACT` — tertiary actions in table rows. In production: "View Details", "Approve", "Deny" buttons in food & beverage order rows.
+- `ButtonType.TEXT` — minimal actions that look like links: "View all", "Skip", "Edit". In production: card header actions, modal close alternatives.
+- `ButtonType.TEXT` + `ButtonColor.WHITE` — buttons on dark backgrounds like the sidebar. In production: "Back" button with left arrow icon on settings sidebar.
+- `ButtonType.ICON_PRIMARY` / `ICON_SECONDARY` — icon-only buttons in toolbars, table rows, or compact spaces.
+- `ButtonColor.DANGER` — destructive actions: delete, remove, cancel. Always pair with a confirmation modal.
+- `isLoading` — set during async operations to show spinner and prevent double-clicks. In production: set while API requests are in-flight, disabled when another action is loading.
+- `isExpanded` — full-width buttons in modals, mobile views, or single-action cards. In production: submit buttons at bottom of modal forms.
 
 **When NOT to use:**
 - Navigation to another page without button styling — use a regular `<a>` or Next.js `<Link>`
@@ -383,16 +388,25 @@ interface CanaryButtonProps {
 Standard bordered text input with label, validation, and optional left/right addons.
 
 **When to use:**
-- Single-line text entry in admin/staff forms (name, email, address, etc.)
-- Any text field that needs a visible border and label above
+- Single-line text entry in admin/staff forms. In production: hotel names, guest names, email addresses, confirmation codes, cohort labels, membership lookup by email.
+- `InputSize.TABLET` (64px) — touch-friendly kiosk/tablet interfaces
+- `InputSize.LARGE` (48px) — prominent form fields, hero forms
+- `InputSize.NORMAL` (40px) — standard form fields (default)
+- `InputSize.COMPACT` (32px) — dense forms, inline editing, table filters
+- `leftAddon` / `rightAddon` — icons, currency symbols, or unit labels inside the input
+- `error` prop — inline validation messages shown below the field in red
+- `helperText` prop — persistent help text below the field
+- Use with `CanaryForm` wrapper for form submission handling
 
 **When NOT to use:**
-- Multi-line text — use `CanaryTextArea`
+- Multi-line text — use `CanaryTextArea` (supports auto-expand)
 - Password entry — use `CanaryInputPassword` (has built-in show/hide toggle)
 - Search field — use `CanaryInputSearch` (has built-in search icon)
 - Phone number — use `CanaryInputPhone` (has country code picker)
 - Credit card — use `CanaryInputCreditCard` (has formatting and card detection)
+- Currency amount — use `CanaryInputCurrency` (formats with currency symbol)
 - Date entry — use `CanaryInputDate` (has split fields and calendar picker)
+- Multiple values — use `CanaryInputMultiple` (chip-based entry)
 - Guest-facing forms — use `CanaryInputUnderline` (floating label style)
 
 ```tsx
@@ -543,9 +557,13 @@ Fixed-position modal dialog with overlay, title bar, and optional footer. Handle
 
 **When to use:**
 - Confirmation dialogs ("Are you sure you want to delete?")
-- Forms that should overlay the current page (edit profile, add item)
-- Detail views that shouldn't navigate away from the current page
-- Any action that requires focused user attention
+- Forms that overlay the current page. In production, modals are used for: creating demo hotels (form with CanaryInput + CanarySelect + CanaryButton), session re-authentication (password input for PCI operations), advanced reservation filters (complex filter form with date ranges, statuses, room types), payment schedule configuration, image cropping.
+- `size="small"` — simple confirmations and quick actions
+- `size="medium"` — standard forms and detail views (default)
+- `size="large"` — complex forms with tables, multi-section content
+- `size="full"` — fullscreen takeover for immersive experiences or mobile
+- `footer` — place Save/Cancel action buttons in a consistent footer area
+- `closeOnOverlayClick={false}` — prevent accidental dismissal for forms with unsaved changes
 
 **When NOT to use:**
 - Full-page forms — navigate to a new page instead
@@ -741,13 +759,18 @@ interface CanaryAppShellProps {
 
 ### CanaryTag
 
-Non-interactive colored label for displaying status, categories, or metadata.
+Non-interactive colored label for displaying status, categories, or metadata. Purely visual — no click handlers.
 
-**When to use:**
-- Status indicators in tables or lists (Active, Pending, Error, Connected)
-- Category labels (Room Type, Guest Tier)
-- Metadata display alongside other content
-- Use `TagVariant.OUTLINE` for subtle/secondary indicators, `TagVariant.FILLED` for prominent status
+**When to use (with production status examples):**
+- `TagColor.ERROR` (red) — "Blocked", "Declined", "Failed", "Expired", "Overdue"
+- `TagColor.WARNING` (yellow) — "In Transit", "Expiring Soon", "Pending Review", time elapsed indicators (e.g., "15m ago" that turns red after threshold)
+- `TagColor.SUCCESS` (green) — "Active", "Confirmed", "Fulfilled", "Connected", "Paid"
+- `TagColor.INFO` (blue) — "Submitted", "In Progress", "New", "Scheduled"
+- `TagColor.DEFAULT` (gray) — "Archived", "Draft", "N/A", "Inactive"
+- `TagVariant.FILLED` — prominent status in dashboards, headers, key metrics
+- `TagVariant.OUTLINE` — subtle indicators in table cells, secondary context
+- `TagSize.COMPACT` — inside table cells or dense layouts
+- `customColor` — for payment intent statuses or brand-specific colors not covered by the standard palette
 
 **When NOT to use:**
 - Interactive/clickable tags — use `CanaryChip` with `ChipType.SELECTABLE` instead
@@ -821,9 +844,10 @@ interface CanaryAlertProps {
 List container with built-in support for drag-and-drop reordering, loading, empty, and error states.
 
 **When to use:**
-- Displaying ordered items (tasks, contacts, settings, rooms)
+- Displaying ordered items (tasks, contacts, settings, rooms). In production, lists are used for: food & beverage menu items (with images, modifiers, pricing, and quantity counters in left/title/subtitle/right slots), settings sections, contact details.
 - Reorderable lists (priority ordering, custom sort) — set `isDraggable` and provide `onReorder`
-- Lists that need loading/empty/error state handling built-in
+- Lists with state handling: `isLoading` + `loadingContent` for async data, `isEmpty` + `emptyContent` for zero-state, `hasError` + `errorContent` for failures.
+- Rich list items: use scoped content areas (`leftContent` for avatars/images, `title`/`subtitle` for text, `rightContent` for action buttons, quantity counters, or status indicators).
 
 **When NOT to use:**
 - Tabular data with columns — use `CanaryTable`
@@ -1475,9 +1499,11 @@ The following components are documented in the Component Inventory above but ben
 Data table with configurable columns, custom cell rendering, optional sorting, and row click handlers.
 
 **When to use:**
-- Displaying structured data with multiple columns (guest lists, transaction logs, room assignments)
-- Data that benefits from sorting or column alignment
-- Rows that need custom rendering (e.g., rendering a `CanaryTag` in a status column)
+- Displaying structured data with multiple columns. In production, tables are the primary UI for: authorization forms (status tags + amounts + dates + action buttons), food & beverage orders (time elapsed tags + delivery location + guest info + approve/deny buttons), guest reservations (11+ columns with sorting and load-more pagination), cohort management (with inline CanarySelect dropdowns in cells), tipping orders.
+- Custom cell rendering: use column `render` functions to embed `CanaryTag` for status, `CanaryButton` for row actions, `CanarySelect` for inline edits, or formatted values (currency, dates).
+- Column alignment: right-align currency columns, center status columns.
+- Row click handling: navigate to detail views (e.g., click reservation row → open reservation detail).
+- Combine with `CanarySearch` above the table for filtering, `CanaryChip` below the search for active filter badges.
 
 **When NOT to use:**
 - Simple vertical lists without columns — use `CanaryList` + `CanaryListItem`
@@ -1503,25 +1529,26 @@ Interactive chip component with two modes: selectable (toggle on/off) and remova
 Tab navigation with multiple visual variants: rounded, text (with underline), segmented, and text-checkbox.
 
 **When to use:**
-- Switching between content views on the same page (e.g., "Overview" / "Details" / "History")
-- `variant="text"` — standard underlined tabs for page sections
-- `variant="rounded"` — pill-style tabs for filters or modes
-- `variant="segmented"` — bordered button group for toggling between 2–4 views
-- `variant="text-checkbox"` — tabs with optional checkboxes for multi-select scenarios
+- Switching between content views on the same page. In production, tabs are used for: order status filtering with badge counts (Pending (3) / In Progress / Processed / Canceled / All), membership lookup method switching (Email / App), dashboard section navigation.
+- `variant="text"` — standard underlined tabs for page content sections (Overview, Details, History). Use `size="normal"` for main sections, `size="compact"` for secondary areas.
+- `variant="rounded"` — pill-style tabs for filter modes or category switching. In production: switching between lookup methods on kiosk check-in.
+- `variant="segmented"` — bordered button group for toggling between 2–4 mutually exclusive views (Day/Week/Month, Grid/List).
+- `variant="text-checkbox"` — tabs with optional checkboxes for enabling/disabling sections while navigating.
+- `badge` prop — show dynamic notification counts on tabs. In production: pending order count, unread message count.
 
 **When NOT to use:**
 - App-level navigation — use `CanarySidebar` via `CanaryAppShell`
 - Selecting a form value — use `CanarySegmentedControl` or `CanaryRadioGroup`
-- Step-by-step wizards — build a custom stepper or use sequential pages
+- More than 6–8 tabs — consider `CanarySelect` or a sidebar with sections
 
 ### CanaryToast
 
 Temporary notification that auto-dismisses after a configurable duration (default 5 seconds).
 
 **When to use:**
-- Transient success confirmations ("Changes saved", "Guest checked in")
-- Brief error notifications ("Failed to save — please try again")
-- Any notification that doesn't require user action
+- Transient success confirmations ("Changes saved", "Guest checked in"). In production, toasts are managed by a global ToastStore singleton — every app (hotels, guest, admin, check-in) has a CanaryToastContainer at the root level.
+- Brief error notifications ("Unexpected error" after a failed API call).
+- Triggered after async operations complete: order approval, settings save, payment processing.
 
 **When NOT to use:**
 - Persistent messages that need to stay visible — use `CanaryAlert`
@@ -1661,9 +1688,11 @@ Container for radio button options — ensures only one can be selected at a tim
 Chip-based input for entering multiple values (emails, tags, keywords). Press Enter to add, backspace to remove.
 
 **When to use:**
-- Email recipient fields (multiple email addresses)
+- Email recipient fields. In production: report distribution lists (tip reports sent to multiple email addresses), notification settings (multiple admin emails for food & beverage alerts).
 - Tag entry (add multiple tags to an item)
+- Guest journey segment selection
 - Any field where the user enters a list of discrete text values
+- Built-in email validation when used with `InputType.EMAIL`
 
 **When NOT to use:**
 - Single text value — use `CanaryInput`
