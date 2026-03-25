@@ -755,16 +755,16 @@ export default function MyComponent() {
               <UsageNote
                 description="Interactive button for triggering actions. Supports primary, secondary, outlined, text, and icon-only variants with loading states."
                 whenToUse={[
-                  "ButtonType.PRIMARY — main call-to-action: submit forms, confirm dialogs, save changes. Use one per section.",
-                  "ButtonType.OUTLINED — secondary actions alongside a primary button: cancel, go back, \"Learn more\"",
-                  "ButtonType.SHADED — tertiary actions with subtle emphasis: filter toggles, secondary toolbar actions",
-                  "ButtonType.TEXT — minimal actions that look like links but behave as buttons: \"View all\", \"Skip\"",
-                  "ButtonType.ICON_PRIMARY / ICON_SECONDARY — icon-only buttons in toolbars, table rows, or compact spaces",
-                  "ButtonColor.DANGER — destructive actions: delete, remove, cancel subscription. Always use with confirmation.",
-                  "ButtonColor.WHITE — buttons on dark backgrounds like the sidebar. Pair with ButtonType.TEXT.",
-                  "isLoading — set during async operations to show spinner and prevent double-clicks",
-                  "isExpanded — full-width buttons in modals, mobile views, or single-action cards",
-                  "href prop — renders as <a> tag for links that need button styling",
+                  "ButtonType.PRIMARY — main CTA: submit, confirm, save. One per section. Production: 'Approve' order buttons, auth form submit, e-folio charges.",
+                  "ButtonType.OUTLINED — secondary actions: cancel, go back. Production: filter buttons with icon + badge count on reservation dashboards.",
+                  "ButtonType.SHADED + ButtonSize.COMPACT — tertiary table row actions. Production: 'View Details', 'Approve', 'Deny' in F&B order rows.",
+                  "ButtonType.TEXT — minimal link-like buttons: 'View all', 'Skip', 'Edit'. Production: card header actions, modal dismiss alternatives.",
+                  "ButtonType.TEXT + ButtonColor.WHITE — dark background buttons. Production: 'Back' button with arrow icon on settings sidebar.",
+                  "ButtonType.ICON_PRIMARY / ICON_SECONDARY — icon-only in toolbars, table rows, compact spaces.",
+                  "ButtonColor.DANGER — destructive: delete, remove. Always pair with confirmation modal.",
+                  "isLoading — during async ops, shows spinner, prevents double-clicks. Production: set while API requests are in-flight.",
+                  "isExpanded — full-width in modals/mobile. Production: submit buttons at bottom of modal forms.",
+                  "href — renders as <a> for links needing button styling.",
                 ]}
                 whenNotToUse={[
                   "Navigation without button styling — use <a> or Next.js <Link>",
@@ -1125,15 +1125,15 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                     : "Standard bordered text input with label above, validation, error display, and optional left/right addons. Use for admin/staff forms."
                   }
                   whenToUse={[
-                    "Single-line text entry: names, emails, addresses, room numbers, confirmation codes",
-                    useUnderlineInputs ? "Guest-facing check-in/checkout flows and modern minimal forms" : "Admin dashboards, settings pages, staff-facing forms, back-office tools",
+                    "Single-line text entry. Production examples: hotel names, guest names, emails, confirmation codes, cohort labels, membership lookup by email.",
+                    useUnderlineInputs ? "Guest-facing check-in/checkout flows. Production: wallet setup, booking info forms, kiosk check-in steps." : "Admin dashboards, settings pages, staff tools. Production: demo hotel creation, PMS config, cohort management.",
                     "InputSize.TABLET (64px) — touch-friendly kiosk/tablet interfaces",
                     "InputSize.LARGE (48px) — prominent form fields, hero forms",
                     "InputSize.NORMAL (40px) — standard form fields (default)",
                     "InputSize.COMPACT (32px) — dense forms, inline editing, table filters",
                     "leftAddon / rightAddon — icons, currency symbols, or unit labels inside the input",
-                    "error prop — inline validation messages shown below the field in red",
-                    "helperText prop — persistent help text below the field (hidden when error is shown)",
+                    "error prop — inline validation messages below the field. Production: API error responses displayed per-field.",
+                    "Wrap with CanaryForm for form submission handling.",
                   ]}
                   whenNotToUse={[
                     "Multi-line text — use CanaryTextArea (supports auto-expand)",
@@ -1286,7 +1286,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               <CanaryCard title="CanaryInputPassword">
                 <UsageNote
                   description="Password input with built-in show/hide visibility toggle."
-                  whenToUse={["Login forms, registration, password change screens"]}
+                  whenToUse={["Login forms, registration, password change screens. Production: password creation with confirmation field, PMS credential setup (Opera, Synxis), PCI session re-authentication."]}
                   whenNotToUse={["Non-secret text fields — use CanaryInput"]}
                 />
                 <div className="space-y-4">
@@ -1332,7 +1332,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               <CanaryCard title="CanaryInputSearch">
                 <UsageNote
                   description="Search input with a built-in search icon on the left."
-                  whenToUse={["Search/filter fields in tables, lists, or sidebars"]}
+                  whenToUse={["Search/filter fields. Production: reservation search dashboards, check-in/check-out search, cohort hotel filtering. Typically connected to server-side search with debounced queries."]}
                   whenNotToUse={["General text input — use CanaryInput"]}
                 />
                 <div className="space-y-4">
@@ -1373,8 +1373,8 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               <CanaryCard title="CanaryInputCreditCard">
                 <UsageNote
                   description="Credit card input with automatic card type detection (Visa, Mastercard, etc.) and number formatting."
-                  whenToUse={["Payment forms, authorization flows"]}
-                  whenNotToUse={["Non-payment number fields — use CanaryInput"]}
+                  whenToUse={["Payment forms. Production: authorization forms, payment collection during check-in, e-folio charges."]}
+                  whenNotToUse={["Non-payment number fields — use CanaryInput", "Currency amounts — use CanaryInputCurrency"]}
                 />
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
@@ -1416,7 +1416,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               <CanaryCard title={useUnderlineInputs ? "CanaryInputPhoneUnderline" : "CanaryInputPhone"}>
                 <UsageNote
                   description="International phone input with country code selector and flag display."
-                  whenToUse={["Guest contact forms, registration, check-in flows"]}
+                  whenToUse={["Guest contact forms. Production: wallet login (phone → OTP), check-in contact info, authorization client details, digital tip wallet user setup."]}
                   whenNotToUse={["Simple numeric input — use CanaryInput with InputType.TEL"]}
                 />
                 <div className="space-y-4">
@@ -1593,7 +1593,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               <CanaryCard title="CanaryInputMultiple">
                 <UsageNote
                   description="Chip-based input for entering multiple values. Press Enter to add, backspace to remove."
-                  whenToUse={["Email recipient fields, tag entry, keyword lists"]}
+                  whenToUse={["Email recipients. Production: report distribution lists (tip reports to multiple emails), notification settings (F&B alert emails), guest journey segment selection.", "Built-in email validation when used with InputType.EMAIL."]}
                   whenNotToUse={["Single text value — use CanaryInput", "Selecting from predefined options — use CanarySelect or CanaryChip"]}
                 />
                 <InputMultipleDemo />
@@ -1629,11 +1629,11 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 <UsageNote
                   description="CanarySelect: Native HTML dropdown with custom styling. CanaryTextArea: Multi-line text input with optional auto-expand."
                   whenToUse={[
-                    "Select: form fields with 4+ predefined options (country, room type, status, language)",
-                    "Select: when screen space is limited and options shouldn't all be visible",
-                    "TextArea: multi-line input for notes, descriptions, comments, guest messages",
-                    "TextArea with autoExpand: grows vertically as the user types — great for messaging or notes",
-                    "TextArea resize prop: 'none' for fixed size, 'vertical' for manual resize (default), 'both' for full resize",
+                    "Select: dropdowns with 4+ options. Production: cohort state changes (inline in table rows with per-state styling), brand/onboarding type selection, country, room type filters.",
+                    "Select: production pattern — dependent selects where one dropdown filters another's options (e.g., onboarding type → available brands).",
+                    "TextArea: multi-line input. Production: internal notes on reservations, broadcast messages, tip customization copy, cohort notes.",
+                    "TextArea with autoExpand: grows as user types — great for messaging or notes fields.",
+                    "TextArea resize prop: 'none' for fixed, 'vertical' for manual resize (default), 'both' for full resize.",
                   ]}
                   whenNotToUse={[
                     "Select with 2–3 visible options — use CanaryRadioGroup or CanarySegmentedControl instead",
@@ -2050,11 +2050,11 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 <UsageNote
                   description="Non-interactive colored label for displaying status, categories, or metadata. Purely visual — no click handlers."
                   whenToUse={[
-                    "TagColor.SUCCESS (green) — positive states: Active, Connected, Confirmed, Paid",
-                    "TagColor.WARNING (yellow) — attention needed: Pending, Expiring Soon, Low Stock",
-                    "TagColor.ERROR (red) — negative states: Failed, Disconnected, Overdue, Declined",
-                    "TagColor.INFO (blue) — neutral informational: New, In Progress, Scheduled",
-                    "TagColor.DEFAULT (gray) — inactive or neutral: Archived, Draft, N/A",
+                    "TagColor.SUCCESS (green) — Production: 'Active', 'Confirmed', 'Fulfilled', 'Connected', 'Paid'",
+                    "TagColor.WARNING (yellow) — Production: 'In Transit', 'Expiring Soon', time elapsed indicators (e.g., '15m ago' turning red after threshold)",
+                    "TagColor.ERROR (red) — Production: 'Blocked', 'Declined', 'Failed', 'Expired', 'Overdue'",
+                    "TagColor.INFO (blue) — Production: 'Submitted', 'In Progress', 'New', 'Scheduled'",
+                    "TagColor.DEFAULT (gray) — Production: 'Archived', 'Draft', 'N/A', 'Inactive'",
                     "TagVariant.FILLED — prominent status in dashboards, headers, key metrics",
                     "TagVariant.OUTLINE — subtle indicators in tables, lists, secondary context",
                     "TagSize.COMPACT — inside table cells or dense layouts",
@@ -2156,8 +2156,8 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 <UsageNote
                   description="Interactive chip component with two distinct modes determined by ChipType."
                   whenToUse={[
-                    "ChipType.SELECTABLE — filter toggles: click to toggle on/off. Use for category filters (\"VIP\", \"Late Checkout\"), tag selection, or multi-select options displayed inline.",
-                    "ChipType.REMOVABLE — dismissible items: shows an X button to remove. Use for selected email recipients, applied search filters, or tags the user can clear.",
+                    "ChipType.SELECTABLE — filter toggles: click to toggle on/off. Use for category filters ('VIP', 'Late Checkout'), tag selection, multi-select displayed inline.",
+                    "ChipType.REMOVABLE — dismissible items. Production: applied reservation filter chips (each shows filter label with X to remove individual filters). Pattern: CanarySearch + CanaryChip row below it.",
                     "Size.LARGE — prominent chip groups, touch-friendly interfaces",
                     "Size.NORMAL — standard chip rows, filter bars (default)",
                     "Size.COMPACT — dense layouts, inline within text or table cells",
@@ -2268,11 +2268,11 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 <UsageNote
                   description="Data table with configurable columns, custom cell rendering via column render functions, and optional row click handlers."
                   whenToUse={[
-                    "Structured data with multiple columns: guest lists, transaction logs, room assignments, staff schedules",
-                    "Custom cell rendering: pass a render function to columns to render CanaryTag status labels, action buttons, or formatted values",
-                    "Column alignment: set align to 'left', 'center', or 'right' per column (e.g., right-align currency values)",
-                    "Row click handling: onRowClick for navigating to detail views",
-                    "isLoading — show loading state while data is fetched",
+                    "Structured data with columns. Production: authorization forms (status tags + amounts + dates + actions), F&B orders (time elapsed tags + location + approve/deny buttons), reservations (11+ columns with sorting + pagination), cohorts (inline CanarySelect for state changes in cells), tipping orders.",
+                    "Custom cell rendering: render functions for CanaryTag status, CanaryButton row actions, CanarySelect inline edits, formatted currency/dates.",
+                    "Combine with CanarySearch above for filtering + CanaryChip below for active filter badges (production pattern).",
+                    "Column alignment: right-align currency, center status columns.",
+                    "onRowClick: navigate to detail views (e.g., click reservation → open detail).",
                   ]}
                   whenNotToUse={[
                     "Simple vertical lists without columns — use CanaryList + CanaryListItem",
@@ -2311,8 +2311,8 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 <UsageNote
                   description="Flexible list item with structured layout: icon, title, subtitle, description, and left/right content areas."
                   whenToUse={[
-                    "Inside CanaryList for consistent list rendering with borders between items",
-                    "title + subtitle + icon pattern: contacts, reservations, settings items, staff members",
+                    "Inside CanaryList for consistent list rendering with borders between items.",
+                    "title + subtitle + icon pattern. Production: F&B menu items (image in leftContent, name as title, modifiers+price as subtitle, quantity counter in rightContent).",
                     "onClick / href — clickable items that navigate to detail views or trigger actions",
                     "isDraggable — items in a reorderable list (pair with CanaryList isDraggable)",
                     "leftContent / rightContent — custom content areas (avatars on left, action buttons on right)",
@@ -2883,12 +2883,12 @@ const [items, setItems] = useState([
               <UsageNote
                 description="Tab navigation with multiple visual variants. Each tab can have an icon, a badge count, and a disabled state."
                 whenToUse={[
-                  "variant=\"text\" — standard underlined tabs for page content sections (Overview, Details, History). Use size=\"normal\" for main sections, size=\"compact\" for secondary areas.",
-                  "variant=\"rounded\" — pill-style tabs for filter modes or category switching. Good for dashboard filters and visual mode toggles.",
-                  "variant=\"segmented\" — bordered button group for toggling between 2–4 mutually exclusive views (Day/Week/Month, Grid/List).",
-                  "variant=\"text-checkbox\" — tabs with optional checkboxes for enabling/disabling sections while navigating between them.",
-                  "badge prop — show notification counts on tabs (e.g., Messages (3))",
-                  "icon prop — add visual context to tab labels (e.g., chart icon for Analytics tab)",
+                  "variant=\"text\" — standard underlined tabs for page sections. Production: reservation detail sections, settings pages.",
+                  "variant=\"rounded\" — pill-style filter/mode tabs. Production: kiosk membership lookup switching between Email and App methods.",
+                  "variant=\"segmented\" — bordered toggle for 2–4 views (Day/Week/Month, Grid/List).",
+                  "variant=\"text-checkbox\" — tabs with checkboxes for enabling/disabling sections while navigating.",
+                  "badge prop — dynamic notification counts. Production: Pending order count (Pending (3)), unread messages. Tabs auto-show badge with pink background.",
+                  "Production pattern: tabs with two rows for status filtering — Pending / In Progress / Processed / Canceled / All — each with live badge counts.",
                 ]}
                 whenNotToUse={[
                   "App-level navigation — use CanarySidebar via CanaryAppShell",
@@ -3873,10 +3873,10 @@ const corporateSections = [
                   description="Fixed-position modal dialog with overlay, title bar, and optional footer. Handles ESC key, overlay click, and prevents body scrolling."
                   whenToUse={[
                     "size=\"small\" — simple confirmations (\"Delete this guest?\"), quick actions",
-                    "size=\"medium\" — forms (edit profile, add payment method), detail views (default)",
-                    "size=\"large\" — complex forms, multi-step flows, or content with tables/lists",
+                    "size=\"medium\" — forms and detail views (default). Production: creating demo hotels (inputs + selects), PCI session re-auth (password input).",
+                    "size=\"large\" — complex forms. Production: advanced reservation filters (date ranges + statuses + room types), payment schedule config.",
                     "size=\"full\" — fullscreen takeover for immersive experiences or mobile views",
-                    "footer prop — place action buttons (Save/Cancel) in a consistent footer area",
+                    "footer prop — place Save/Cancel buttons. Production pattern: primary button right-aligned, outlined cancel left.",
                     "closeOnOverlayClick={false} — prevent accidental dismissal for forms with unsaved changes",
                   ]}
                   whenNotToUse={[
@@ -4180,7 +4180,7 @@ const corporateSections = [
               <CanaryCard title="CanaryToast">
                 <UsageNote
                   description="Temporary notification that auto-dismisses after a configurable duration (default 5 seconds)."
-                  whenToUse={["Transient confirmations (\"Saved\", \"Checked in\")", "Brief error notifications"]}
+                  whenToUse={["Transient confirmations. Production: managed globally via ToastStore singleton — every app has a toast container at root level.", "Triggered after async ops: order approval, settings save, payment processing. Production: success for 'Changes saved', error for 'Unexpected error'."]}
                   whenNotToUse={["Persistent messages — use CanaryAlert", "Critical errors requiring action — use CanaryModal"]}
                 />
                 <CanaryButton onClick={() => setShowToast(true)}>
