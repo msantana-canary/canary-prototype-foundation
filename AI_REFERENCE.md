@@ -98,6 +98,82 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 
 ---
 
+## Component Selection Guide
+
+Use this section to quickly find the right component for your use case.
+
+### "I need the user to enter text"
+- **Single-line text** → `CanaryInput` (bordered) or `CanaryInputUnderline` (floating label)
+- **Multi-line text** → `CanaryTextArea` (bordered) or `CanaryTextAreaUnderline` (floating label). Use `autoExpand` for growing text areas.
+- **Search field** → `CanaryInputSearch` — has a built-in search icon. Don't use `CanaryInput` with a manual icon addon.
+- **Password** → `CanaryInputPassword` — has built-in show/hide toggle. Don't use `CanaryInput` with `InputType.PASSWORD`.
+- **Phone number** → `CanaryInputPhone` — has country code selector. Don't build a custom phone input.
+- **Credit card** → `CanaryInputCreditCard` — has card type detection and formatting. Don't use a plain text input.
+- **Date** → `CanaryInputDate` — split MM/DD/YYYY fields with calendar picker. Don't use `CanaryInput` with `InputType.DATE`.
+- **Date range** → `CanaryInputDateRange` — start + end date with range calendar picker.
+- **Multiple values** (emails, tags) → `CanaryInputMultiple` — chip-based entry with Enter to add, backspace to remove.
+
+### "I need the user to pick from options"
+- **Dropdown list** → `CanarySelect` / `CanarySelectUnderline` — for 4+ options, or when screen space is limited.
+- **A few visible choices (single select)** → `CanaryRadioGroup` — for 2–5 options that should all be visible. Use `CanarySegmentedControl` for inline toggle-style selection.
+- **Binary on/off** → `CanarySwitch` for settings/toggles, `CanaryCheckbox` for form agreement/consent.
+- **Multiple selections** → Render multiple `CanaryCheckbox` components.
+- **Tags/filters** → `CanaryChip` with `ChipType.SELECTABLE` — for toggling filter states or category selection.
+- **Calendar date** → `CanaryCalendar` — full inline or popup calendar. Use for dashboards or date-heavy UIs. Use `CanaryInputDate` for form fields.
+
+### "I need to show data"
+- **Tabular data** → `CanaryTable` — with columns, sorting, and custom cell rendering.
+- **List of items** → `CanaryList` + `CanaryListItem` — supports drag-and-drop, loading, empty, and error states. Use for task lists, contact lists, settings lists.
+- **Status indicator** → `CanaryTag` — colored label (success/warning/error/info). Use `TagVariant.OUTLINE` for subtle indicators, `TagVariant.FILLED` for prominent ones.
+- **Content section** → `CanaryCard` — for grouping related content with optional title, subtitle, and footer.
+- **Toggleable tags/filters** → `CanaryChip` with `ChipType.SELECTABLE`. Don't use `CanaryTag` for interactive elements (tags are display-only).
+- **Removable items** → `CanaryChip` with `ChipType.REMOVABLE` — for selected filters, email recipients, etc.
+
+### "I need layout structure"
+- **Full app with sidebar + header** → `CanaryAppShell` — the recommended starting point for any prototype. Includes sidebar, page header, and content area.
+- **Page-level container** → `CanaryContainer` — centers content with responsive max-width. Use inside `CanaryAppShell` content area.
+- **Grid of items** → `CanaryGrid` — responsive CSS grid with configurable columns and gaps.
+- **Overlay/dialog** → `CanaryModal` — for confirmations, forms, or detail views. Handles ESC key and overlay click.
+
+### "I need navigation"
+- **App sidebar** → Use `CanaryAppShell` (includes sidebar). Only use `CanarySidebar` directly if you need a custom layout without `CanaryAppShell`.
+- **Tab switching** → `CanaryTabs` — supports rounded, text, segmented, and checkbox variants.
+- **Page title bar** → `CanaryPageHeader` — standard Canary header with property selector, user profile, and connection status.
+- **Generic header** → `CanaryHeader` — simple header without Canary-specific features. Use `CanaryPageHeader` for Canary product prototypes.
+
+### "I need to give feedback"
+- **Inline message** → `CanaryAlert` — for persistent messages within page content (success, error, warning, info).
+- **Temporary notification** → `CanaryToast` — auto-dismissing notification that appears in a corner. Use for transient confirmations ("Saved!", "Deleted").
+- **Loading state** → `CanaryLoading` — spinner. Use while data is being fetched.
+
+---
+
+## Bordered vs. Underline Input Variants
+
+Many form components come in two styles:
+
+- **Bordered** (`CanaryInput`, `CanarySelect`, `CanaryTextArea`, etc.) — Standard inputs with a visible border and label above. Use for admin interfaces, settings pages, and staff-facing forms.
+- **Underline** (`CanaryInputUnderline`, `CanarySelectUnderline`, `CanaryTextAreaUnderline`, etc.) — Floating label inputs with an underline style. Use for guest-facing flows, check-in forms, and modern/minimal designs.
+
+**Rule of thumb:** Use **bordered** for hotel staff / admin UIs. Use **underline** for guest-facing UIs.
+
+**Available underline variants:**
+| Bordered | Underline |
+|----------|-----------|
+| `CanaryInput` | `CanaryInputUnderline` |
+| `CanaryTextArea` | `CanaryTextAreaUnderline` |
+| `CanarySelect` | `CanarySelectUnderline` |
+| `CanaryInputPassword` | `CanaryInputPasswordUnderline` |
+| `CanaryInputSearch` | `CanaryInputSearchUnderline` |
+| `CanaryInputCreditCard` | `CanaryInputCreditCardUnderline` |
+| `CanaryInputPhone` | `CanaryInputPhoneUnderline` |
+| `CanaryInputDate` | `CanaryInputDateUnderline` |
+| `CanaryInputDateRange` | `CanaryInputDateRangeUnderline` |
+
+Both variants share the same props interface — switching between them only changes the visual style.
+
+---
+
 ## Enums Reference
 
 Always import and use these enums for type safety:
@@ -233,6 +309,20 @@ AlertType.INFO     // Blue info message
 
 ### CanaryButton
 
+Interactive button for triggering actions. Supports primary, secondary, outlined, text, and icon-only variants with loading states.
+
+**When to use:**
+- Primary actions: submit forms, confirm dialogs, save changes (`ButtonType.PRIMARY`)
+- Secondary actions alongside a primary button: cancel, go back (`ButtonType.OUTLINED` or `ButtonType.TEXT`)
+- Destructive actions: delete, remove (`ButtonColor.DANGER`)
+- Icon-only actions in toolbars or compact spaces (`ButtonType.ICON_PRIMARY` / `ButtonType.ICON_SECONDARY`)
+- Links that should look like buttons (use the `href` prop — renders as `<a>` tag)
+
+**When NOT to use:**
+- Navigation to another page without button styling — use a regular `<a>` or Next.js `<Link>`
+- Toggling a boolean state — use `CanarySwitch` or `CanaryCheckbox`
+- Selecting from options — use `CanaryChip`, `CanarySegmentedControl`, or `CanaryRadioGroup`
+
 ```tsx
 interface CanaryButtonProps {
   children?: ReactNode;
@@ -290,6 +380,21 @@ interface CanaryButtonProps {
 
 ### CanaryInput
 
+Standard bordered text input with label, validation, and optional left/right addons.
+
+**When to use:**
+- Single-line text entry in admin/staff forms (name, email, address, etc.)
+- Any text field that needs a visible border and label above
+
+**When NOT to use:**
+- Multi-line text — use `CanaryTextArea`
+- Password entry — use `CanaryInputPassword` (has built-in show/hide toggle)
+- Search field — use `CanaryInputSearch` (has built-in search icon)
+- Phone number — use `CanaryInputPhone` (has country code picker)
+- Credit card — use `CanaryInputCreditCard` (has formatting and card detection)
+- Date entry — use `CanaryInputDate` (has split fields and calendar picker)
+- Guest-facing forms — use `CanaryInputUnderline` (floating label style)
+
 ```tsx
 interface CanaryInputProps {
   label?: string;
@@ -336,6 +441,19 @@ interface CanaryInputProps {
 
 ### CanarySelect
 
+Dropdown select using native HTML `<select>` with custom styling and a dropdown arrow icon.
+
+**When to use:**
+- Choosing one option from a list of 4+ items
+- When screen space is limited and options shouldn't all be visible at once
+- Form fields like country, state, room type, status
+
+**When NOT to use:**
+- 2–3 visible choices — use `CanaryRadioGroup` or `CanarySegmentedControl` instead
+- Multi-select — render multiple `CanaryCheckbox` components or use `CanaryInputMultiple`
+- Searchable/autocomplete dropdown — this component uses native browser dropdown; consider building a custom solution if you need filtering
+- Guest-facing forms — use `CanarySelectUnderline`
+
 ```tsx
 interface CanarySelectProps {
   label?: string;
@@ -374,6 +492,19 @@ interface CanarySelectOption {
 
 ### CanaryCard
 
+Container component for grouping related content with optional title, subtitle, header actions, and footer.
+
+**When to use:**
+- Grouping related form fields (e.g., "Payment Info", "Guest Details")
+- Dashboard widgets or summary panels
+- Settings sections with a title and save button in the footer
+- Any content that needs visual separation with a border/shadow
+
+**When NOT to use:**
+- Full-page layout — use `CanaryContainer` or `CanaryAppShell`
+- Modal/overlay content — use `CanaryModal`
+- List items — use `CanaryListItem` inside `CanaryList`
+
 ```tsx
 interface CanaryCardProps {
   children: ReactNode;
@@ -407,6 +538,20 @@ interface CanaryCardProps {
 ```
 
 ### CanaryModal
+
+Fixed-position modal dialog with overlay, title bar, and optional footer. Handles ESC key and prevents body scrolling.
+
+**When to use:**
+- Confirmation dialogs ("Are you sure you want to delete?")
+- Forms that should overlay the current page (edit profile, add item)
+- Detail views that shouldn't navigate away from the current page
+- Any action that requires focused user attention
+
+**When NOT to use:**
+- Full-page forms — navigate to a new page instead
+- Inline alerts or messages — use `CanaryAlert`
+- Temporary notifications — use `CanaryToast`
+- Side panels — this library doesn't include a drawer component; use `CanaryModal` with `size="large"` as an alternative
 
 ```tsx
 interface CanaryModalProps {
@@ -446,6 +591,16 @@ const [isOpen, setIsOpen] = useState(false);
 ### CanaryPageHeader
 
 The standard Canary page header with property selector, reservation status badge, and user profile.
+
+**When to use:**
+- Any prototype that represents a Canary product page — this is the standard header
+- When you need to show hotel/property context, user identity, and connection status
+- Usually used via `CanaryAppShell` (which includes it automatically), not directly
+
+**When NOT to use:**
+- Non-Canary product prototypes — use `CanaryHeader` for generic apps
+- Landing pages or guest-facing screens — these typically don't have a page header
+- When using `CanaryAppShell` — it already includes `CanaryPageHeader`; pass header props to `CanaryAppShell` instead
 
 ```tsx
 interface CanaryPageHeaderProps {
@@ -487,7 +642,18 @@ interface CanaryPageHeaderProps {
 
 ### CanaryAppShell
 
-**RECOMMENDED FOR PROTOTYPES** - Complete application scaffolding that combines sidebar, page header, and content area. Use this as your starting point.
+**RECOMMENDED FOR PROTOTYPES** — Complete application scaffolding that combines sidebar, page header, and content area. Use this as your starting point.
+
+**When to use:**
+- Starting any new prototype — this should be your first component
+- Any page that needs a sidebar + header + content layout (most admin/staff UIs)
+- Both main product views (`SidebarVariant.MAIN`) and settings pages (`SidebarVariant.SETTINGS`)
+- Custom dashboard layouts (`SidebarVariant.CUSTOM` with custom sidebar sections)
+
+**When NOT to use:**
+- Guest-facing pages (check-in flows, surveys) — these typically don't have a sidebar
+- Login/authentication screens — use a centered layout without sidebar
+- Fullscreen or embedded views — use `CanaryContainer` or plain layout instead
 
 ```tsx
 interface CanaryAppShellProps {
@@ -575,6 +741,19 @@ interface CanaryAppShellProps {
 
 ### CanaryTag
 
+Non-interactive colored label for displaying status, categories, or metadata.
+
+**When to use:**
+- Status indicators in tables or lists (Active, Pending, Error, Connected)
+- Category labels (Room Type, Guest Tier)
+- Metadata display alongside other content
+- Use `TagVariant.OUTLINE` for subtle/secondary indicators, `TagVariant.FILLED` for prominent status
+
+**When NOT to use:**
+- Interactive/clickable tags — use `CanaryChip` with `ChipType.SELECTABLE` instead
+- Removable items — use `CanaryChip` with `ChipType.REMOVABLE`
+- Action buttons — use `CanaryButton`
+
 ```tsx
 interface CanaryTagProps {
   label: string;
@@ -603,6 +782,19 @@ interface CanaryTagProps {
 
 ### CanaryAlert
 
+Inline alert banner for displaying persistent messages within page content.
+
+**When to use:**
+- Form validation summaries at the top of a form
+- Important notices that should stay visible until dismissed
+- Success confirmations that appear inline (e.g., "Settings saved")
+- Warning messages about system state (e.g., "PMS connection lost")
+
+**When NOT to use:**
+- Temporary notifications — use `CanaryToast` (auto-dismisses after a few seconds)
+- Per-field validation errors — use the `error` prop on individual form components
+- Empty state messages — use custom empty state content or `CanaryList` with `isEmpty`
+
 ```tsx
 interface CanaryAlertProps {
   message: string;
@@ -626,6 +818,18 @@ interface CanaryAlertProps {
 
 ### CanaryList
 
+List container with built-in support for drag-and-drop reordering, loading, empty, and error states.
+
+**When to use:**
+- Displaying ordered items (tasks, contacts, settings, rooms)
+- Reorderable lists (priority ordering, custom sort) — set `isDraggable` and provide `onReorder`
+- Lists that need loading/empty/error state handling built-in
+
+**When NOT to use:**
+- Tabular data with columns — use `CanaryTable`
+- Simple vertical stacking without list semantics — use plain `div` with flexbox/gap
+- Navigation menus — use `CanarySidebar` or `CanaryTabs`
+
 ```tsx
 interface CanaryListProps {
   children: ReactNode;
@@ -644,6 +848,19 @@ interface CanaryListProps {
 ```
 
 ### CanaryListItem
+
+Flexible list item with structured layout (icon, title, subtitle, description, left/right content areas).
+
+**When to use:**
+- Inside `CanaryList` for consistent list item rendering
+- Items with title + subtitle + icon pattern (contacts, reservations, settings)
+- Clickable items that navigate or trigger actions
+- Draggable items in a reorderable list (set `isDraggable`)
+
+**When NOT to use:**
+- Table rows — use `CanaryTable` with column definitions
+- Card-style content — use `CanaryCard`
+- Custom layouts that don't follow the title/subtitle/icon pattern — use `children` prop for fully custom content
 
 ```tsx
 interface CanaryListItemProps {
@@ -696,6 +913,15 @@ const [items, setItems] = useState([
 ```
 
 ### CanarySidebar
+
+Side navigation panel with pre-built sections for Canary product navigation and settings.
+
+**When to use:**
+- Only when building a custom layout without `CanaryAppShell`
+- When you need direct control over sidebar rendering separate from the page layout
+
+**When NOT to use:**
+- Most prototypes — use `CanaryAppShell` instead, which includes `CanarySidebar` and handles layout automatically. Pass sidebar props (`sidebarVariant`, `sidebarSections`, etc.) to `CanaryAppShell`.
 
 ```tsx
 interface CanarySidebarProps {
@@ -1237,6 +1463,211 @@ import { spacing } from '@canary-ui/components';
 | `spacing[16]` | `4rem` (64px) |
 | `spacing[20]` | `5rem` (80px) |
 | `spacing[24]` | `6rem` (96px) |
+
+---
+
+## Additional Component Usage Guidance
+
+The following components are documented in the Component Inventory above but benefit from additional usage guidance.
+
+### CanaryTable
+
+Data table with configurable columns, custom cell rendering, optional sorting, and row click handlers.
+
+**When to use:**
+- Displaying structured data with multiple columns (guest lists, transaction logs, room assignments)
+- Data that benefits from sorting or column alignment
+- Rows that need custom rendering (e.g., rendering a `CanaryTag` in a status column)
+
+**When NOT to use:**
+- Simple vertical lists without columns — use `CanaryList` + `CanaryListItem`
+- Key-value pairs — use a simple layout or `CanaryCard`
+- Editable data grids — this is display-only; build custom edit interactions
+
+### CanaryChip
+
+Interactive chip component with two modes: selectable (toggle on/off) and removable (click X to remove).
+
+**When to use:**
+- Filter toggles — `ChipType.SELECTABLE` for on/off filter states (e.g., "Checked In", "VIP", "Late Checkout")
+- Category selection — selectable chips for choosing categories
+- Removable items — `ChipType.REMOVABLE` for selected email recipients, applied filters, or tags that can be dismissed
+
+**When NOT to use:**
+- Display-only status labels — use `CanaryTag` (not interactive)
+- Form inputs — use `CanaryInputMultiple` for chip-based text entry
+- Navigation items — use `CanaryTabs` or `CanarySegmentedControl`
+
+### CanaryTabs
+
+Tab navigation with multiple visual variants: rounded, text (with underline), segmented, and text-checkbox.
+
+**When to use:**
+- Switching between content views on the same page (e.g., "Overview" / "Details" / "History")
+- `variant="text"` — standard underlined tabs for page sections
+- `variant="rounded"` — pill-style tabs for filters or modes
+- `variant="segmented"` — bordered button group for toggling between 2–4 views
+- `variant="text-checkbox"` — tabs with optional checkboxes for multi-select scenarios
+
+**When NOT to use:**
+- App-level navigation — use `CanarySidebar` via `CanaryAppShell`
+- Selecting a form value — use `CanarySegmentedControl` or `CanaryRadioGroup`
+- Step-by-step wizards — build a custom stepper or use sequential pages
+
+### CanaryToast
+
+Temporary notification that auto-dismisses after a configurable duration (default 5 seconds).
+
+**When to use:**
+- Transient success confirmations ("Changes saved", "Guest checked in")
+- Brief error notifications ("Failed to save — please try again")
+- Any notification that doesn't require user action
+
+**When NOT to use:**
+- Persistent messages that need to stay visible — use `CanaryAlert`
+- Critical errors that require user action — use `CanaryModal` or `CanaryAlert`
+- Per-field form validation — use the `error` prop on form components
+
+### CanaryLoading
+
+Simple animated spinner for indicating loading states.
+
+**When to use:**
+- While fetching data from an API
+- During form submission processing
+- Page-level or section-level loading states
+
+**When NOT to use:**
+- List loading states — use `CanaryList` with `isLoading` prop (has built-in loading content)
+- Skeleton screens — this is a spinner, not a skeleton loader
+
+### CanaryContainer
+
+Responsive max-width container that centers content horizontally.
+
+**When to use:**
+- Wrapping page content inside `CanaryAppShell` to constrain width
+- Centering forms, cards, or content sections with consistent max-width
+- Available widths: `sm`, `md`, `lg`, `xl`, `2xl`, `full`
+
+**When NOT to use:**
+- Full-width layouts — just use a plain `div`
+- Grid layouts — use `CanaryGrid` for column-based layouts
+
+### CanaryGrid
+
+Responsive CSS grid layout with configurable columns and gap sizes.
+
+**When to use:**
+- Dashboard layouts with multiple cards or widgets
+- Form layouts with side-by-side fields
+- Any responsive grid of items (1–12 columns)
+
+**When NOT to use:**
+- Simple two-column layouts — Tailwind's `flex` with `gap` may be simpler
+- Lists of items — use `CanaryList` for semantic list rendering
+
+### CanaryHeader
+
+Generic application header without Canary-specific features.
+
+**When to use:**
+- Non-Canary product prototypes that need a simple header
+- Custom header layouts where `CanaryPageHeader` is too opinionated
+
+**When NOT to use:**
+- Canary product prototypes — use `CanaryPageHeader` (or `CanaryAppShell` which includes it)
+
+### CanaryLogo
+
+Renders the Canary Technologies logo.
+
+**When to use:**
+- Login screens, landing pages, or splash screens
+- Custom headers where you need the Canary logo
+
+**When NOT to use:**
+- Inside `CanarySidebar` or `CanaryAppShell` — the logo is already included automatically
+
+### CanaryCalendar
+
+Full calendar component supporting single date and date range selection with month/year navigation.
+
+**When to use:**
+- Inline calendar views on dashboards or booking pages
+- Date selection that benefits from seeing the full month context
+- Quick selection buttons (Today, Tomorrow, Next 7 Days) for common date shortcuts
+
+**When NOT to use:**
+- Date entry in forms — use `CanaryInputDate` (compact field with popup calendar)
+- Date range in forms — use `CanaryInputDateRange` (compact fields with popup)
+
+### CanarySegmentedControl
+
+Inline button group where one option is selected at a time, with a sliding highlight indicator.
+
+**When to use:**
+- Toggling between 2–4 view modes (e.g., "Day" / "Week" / "Month")
+- Switching between display formats (e.g., "Grid" / "List")
+- Quick filter selection with a small number of options
+
+**When NOT to use:**
+- More than 4 options — use `CanarySelect` or `CanaryRadioGroup`
+- Multi-select — use `CanaryChip` with `ChipType.SELECTABLE` or multiple `CanaryCheckbox`
+- Tab navigation with content panels — use `CanaryTabs`
+
+### CanarySwitch
+
+Toggle switch for binary on/off states with smooth animation.
+
+**When to use:**
+- Settings toggles (enable/disable features, notifications on/off)
+- Preferences that take effect immediately (no save button needed)
+- Binary state that reads as "on/off" rather than "checked/unchecked"
+
+**When NOT to use:**
+- Form consent/agreement — use `CanaryCheckbox` (checkbox semantics are more appropriate)
+- Selecting from multiple options — use `CanaryRadioGroup` or `CanarySelect`
+
+### CanaryCheckbox
+
+Custom checkbox with support for checked, unchecked, and indeterminate states.
+
+**When to use:**
+- Form agreement/consent (terms of service, privacy policy)
+- Multi-select in forms (select amenities, select features)
+- "Select all" with indeterminate state for partial selection
+
+**When NOT to use:**
+- Binary toggles for settings — use `CanarySwitch` (toggle semantics)
+- Single selection from options — use `CanaryRadioGroup`
+- Filter chips — use `CanaryChip` with `ChipType.SELECTABLE`
+
+### CanaryRadioGroup
+
+Container for radio button options — ensures only one can be selected at a time.
+
+**When to use:**
+- Single selection from 2–5 visible options (room type, payment method, priority level)
+- When all options should be visible to the user at once
+
+**When NOT to use:**
+- More than 5 options — use `CanarySelect` (dropdown)
+- Multi-select — use multiple `CanaryCheckbox` components
+- Inline toggle between 2–3 options — use `CanarySegmentedControl`
+
+### CanaryInputMultiple
+
+Chip-based input for entering multiple values (emails, tags, keywords). Press Enter to add, backspace to remove.
+
+**When to use:**
+- Email recipient fields (multiple email addresses)
+- Tag entry (add multiple tags to an item)
+- Any field where the user enters a list of discrete text values
+
+**When NOT to use:**
+- Single text value — use `CanaryInput`
+- Selecting from predefined options — use `CanarySelect` or `CanaryChip`
 
 ---
 

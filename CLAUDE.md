@@ -78,7 +78,10 @@ export default function Home() {
 📖 **[AI_REFERENCE.md](./AI_REFERENCE.md)** - Complete component inventory, props, icons, and color tokens
 
 This file contains:
+- **Component Selection Guide** — "I need X" → use this component (start here to pick the right component)
+- **Bordered vs. Underline guidance** — when to use each input variant
 - All 40+ available components with exact import names
+- **Per-component usage guidance** — when to use, when NOT to use, and what to use instead
 - TypeScript enums and types
 - 50+ icon names (use ONLY these, do not guess)
 - Color tokens and design values

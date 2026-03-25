@@ -152,6 +152,39 @@ function Section({ title, children, id }: SectionProps) {
   );
 }
 
+// Usage guidance component for component documentation
+interface UsageNoteProps {
+  description: string;
+  whenToUse: string[];
+  whenNotToUse: string[];
+}
+
+function UsageNote({ description, whenToUse, whenNotToUse }: UsageNoteProps) {
+  return (
+    <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
+      <p className="text-sm text-gray-700 mb-3">{description}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h5 className="text-xs font-semibold text-green-700 uppercase tracking-wide mb-1">When to use</h5>
+          <ul className="text-xs text-gray-600 space-y-1">
+            {whenToUse.map((item, i) => (
+              <li key={i} className="flex gap-1.5"><span className="text-green-500 mt-0.5">&#10003;</span>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h5 className="text-xs font-semibold text-red-700 uppercase tracking-wide mb-1">When NOT to use</h5>
+          <ul className="text-xs text-gray-600 space-y-1">
+            {whenNotToUse.map((item, i) => (
+              <li key={i} className="flex gap-1.5"><span className="text-red-500 mt-0.5">&#10007;</span>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentShowcase() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -507,6 +540,21 @@ export default function MyComponent() {
           {/* Buttons */}
           <Section title="Buttons" id="buttons">
             <CanaryCard title="CanaryButton">
+              <UsageNote
+                description="Interactive button for triggering actions. Supports primary, secondary, outlined, text, and icon-only variants with loading states."
+                whenToUse={[
+                  "Primary actions: submit forms, confirm dialogs, save changes (ButtonType.PRIMARY)",
+                  "Secondary actions: cancel, go back (ButtonType.OUTLINED or ButtonType.TEXT)",
+                  "Destructive actions: delete, remove (ButtonColor.DANGER)",
+                  "Icon-only actions in toolbars (ButtonType.ICON_PRIMARY / ICON_SECONDARY)",
+                  "Links styled as buttons (use the href prop)",
+                ]}
+                whenNotToUse={[
+                  "Navigation without button styling — use <a> or Next.js <Link>",
+                  "Toggling a boolean state — use CanarySwitch or CanaryCheckbox",
+                  "Selecting from options — use CanaryChip, CanarySegmentedControl, or CanaryRadioGroup",
+                ]}
+              />
               <div className="space-y-6">
                 <div>
                   <h4 className="text-sm font-medium mb-3 text-gray-600">Button Types</h4>
@@ -854,6 +902,24 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
             <div className="space-y-6">
               {/* Inputs */}
               <CanaryCard title={useUnderlineInputs ? "CanaryInputUnderline" : "CanaryInput"}>
+                <UsageNote
+                  description={useUnderlineInputs
+                    ? "Floating label input with underline style. Use for guest-facing flows, check-in forms, and modern/minimal designs."
+                    : "Standard bordered text input with label, validation, and optional left/right addons. Use for admin/staff forms."
+                  }
+                  whenToUse={[
+                    "Single-line text entry (name, email, address, etc.)",
+                    useUnderlineInputs ? "Guest-facing forms and check-in flows" : "Admin interfaces, settings pages, staff-facing forms",
+                  ]}
+                  whenNotToUse={[
+                    "Multi-line text — use CanaryTextArea",
+                    "Passwords — use CanaryInputPassword (has show/hide toggle)",
+                    "Search — use CanaryInputSearch (has built-in icon)",
+                    "Phone numbers — use CanaryInputPhone (has country code picker)",
+                    "Credit cards — use CanaryInputCreditCard (has card detection)",
+                    "Dates — use CanaryInputDate (has split fields + calendar)",
+                  ]}
+                />
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-sm font-medium mb-3 text-gray-600">Input Sizes</h4>
@@ -993,6 +1059,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 
               {/* Specialized Inputs */}
               <CanaryCard title="CanaryInputPassword">
+                <UsageNote
+                  description="Password input with built-in show/hide visibility toggle."
+                  whenToUse={[
+                    "Login forms, registration, password change screens",
+                    "Any field where the user enters a secret value",
+                  ]}
+                  whenNotToUse={[
+                    "Non-secret text fields — use CanaryInput",
+                    "API keys or tokens — consider a read-only field with copy button instead",
+                  ]}
+                />
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
                     <>
@@ -1034,6 +1111,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               </CanaryCard>
 
               <CanaryCard title="CanaryInputSearch">
+                <UsageNote
+                  description="Search input with a built-in search icon on the left."
+                  whenToUse={[
+                    "Search/filter fields in tables, lists, or sidebars",
+                    "Any text field with search semantics",
+                  ]}
+                  whenNotToUse={[
+                    "General text input — use CanaryInput",
+                    "Autocomplete with dropdown results — build a custom solution",
+                  ]}
+                />
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
                     <>
@@ -1070,6 +1158,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               </CanaryCard>
 
               <CanaryCard title="CanaryInputCreditCard">
+                <UsageNote
+                  description="Credit card input with automatic card type detection (Visa, Mastercard, etc.) and number formatting."
+                  whenToUse={[
+                    "Payment forms for collecting credit card numbers",
+                    "Authorization and pre-auth flows",
+                  ]}
+                  whenNotToUse={[
+                    "Non-payment number fields — use CanaryInput",
+                    "Full payment forms — combine with other inputs for expiry, CVV, etc.",
+                  ]}
+                />
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
                     <>
@@ -1108,6 +1207,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               </CanaryCard>
 
               <CanaryCard title={useUnderlineInputs ? "CanaryInputPhoneUnderline" : "CanaryInputPhone"}>
+                <UsageNote
+                  description="International phone input with country code selector and flag display."
+                  whenToUse={[
+                    "Guest contact forms, registration, check-in flows",
+                    "Any field that collects phone numbers with international support",
+                  ]}
+                  whenNotToUse={[
+                    "Simple numeric input — use CanaryInput with InputType.TEL",
+                    "Non-phone numbers — use CanaryInput with InputType.NUMBER",
+                  ]}
+                />
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
                     <>
@@ -1151,6 +1261,18 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               </CanaryCard>
 
               <CanaryCard title={useUnderlineInputs ? "CanaryInputDateUnderline" : "CanaryInputDate"}>
+                <UsageNote
+                  description="Split date input with separate MM/DD/YYYY fields and an optional calendar picker popup."
+                  whenToUse={[
+                    "Date fields in forms (birth date, check-in date, expiry date)",
+                    "Any single-date entry that benefits from a calendar picker",
+                  ]}
+                  whenNotToUse={[
+                    "Date ranges — use CanaryInputDateRange",
+                    "Inline calendar display — use CanaryCalendar",
+                    "Date/time combined — build a custom solution",
+                  ]}
+                />
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
                     <>
@@ -1193,6 +1315,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               </CanaryCard>
 
               <CanaryCard title={useUnderlineInputs ? "CanaryInputDateRangeUnderline" : "CanaryInputDateRange"}>
+                <UsageNote
+                  description="Dual date input for selecting a start and end date, with range selection in a calendar popup."
+                  whenToUse={[
+                    "Booking date ranges, stay duration selection",
+                    "Report date range filters",
+                  ]}
+                  whenNotToUse={[
+                    "Single dates — use CanaryInputDate",
+                    "Inline calendar — use CanaryCalendar with selectionMode='range'",
+                  ]}
+                />
                 <div className="space-y-4">
                   {useUnderlineInputs ? (
                     <>
@@ -1240,6 +1373,18 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 
               {/* Other Form Components */}
               <CanaryCard title={useUnderlineInputs ? "CanarySelectUnderline & CanaryTextAreaUnderline" : "CanarySelect & CanaryTextArea"}>
+                <UsageNote
+                  description="CanarySelect: Dropdown for choosing one option from a list. CanaryTextArea: Multi-line text input with optional auto-expand."
+                  whenToUse={[
+                    "Select: dropdown lists with 4+ options (country, room type, status)",
+                    "TextArea: multi-line input (notes, descriptions, comments)",
+                  ]}
+                  whenNotToUse={[
+                    "Select with 2–3 visible options — use CanaryRadioGroup or CanarySegmentedControl",
+                    "Multi-select — use multiple CanaryCheckbox components",
+                    "Single-line text — use CanaryInput",
+                  ]}
+                />
                 <CanaryGrid columns={2} gap="large">
                   {useUnderlineInputs ? (
                     <CanarySelectUnderline
@@ -1283,6 +1428,19 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                   {/* Checkboxes */}
                   <div className="col-span-2">
                     <CanaryCard title="CanaryCheckbox">
+                      <UsageNote
+                        description="Custom checkbox with checked, unchecked, and indeterminate states."
+                        whenToUse={[
+                          "Form consent/agreement (terms of service)",
+                          "Multi-select lists (select amenities, features)",
+                          "\"Select all\" with indeterminate state",
+                        ]}
+                        whenNotToUse={[
+                          "Binary settings toggles — use CanarySwitch",
+                          "Single selection from options — use CanaryRadioGroup",
+                          "Filter chips — use CanaryChip",
+                        ]}
+                      />
                       <div className="space-y-8">
                         {/* Interactive Example */}
                         <div>
@@ -1352,6 +1510,18 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                   {/* Radio Buttons */}
                   <div className="col-span-2">
                     <CanaryCard title="CanaryRadio">
+                      <UsageNote
+                        description="Radio button group for single selection from 2–5 visible options."
+                        whenToUse={[
+                          "Single selection from a small set (room type, payment method)",
+                          "When all options should be visible at once",
+                        ]}
+                        whenNotToUse={[
+                          "More than 5 options — use CanarySelect",
+                          "Multi-select — use CanaryCheckbox",
+                          "Inline toggle between 2–3 options — use CanarySegmentedControl",
+                        ]}
+                      />
                       <div className="space-y-8">
                         {/* Interactive Example */}
                         <div>
@@ -1426,6 +1596,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 {/* Switch Component Demos */}
                 <div className="mt-6">
                   <CanaryCard title="CanarySwitch - Interactive Examples">
+                    <UsageNote
+                      description="Toggle switch for binary on/off states with smooth animation."
+                      whenToUse={[
+                        "Settings toggles (enable/disable features, notifications)",
+                        "Preferences that take effect immediately",
+                      ]}
+                      whenNotToUse={[
+                        "Form consent/agreement — use CanaryCheckbox",
+                        "Selecting from multiple options — use CanaryRadioGroup or CanarySelect",
+                      ]}
+                    />
                     <p className="text-sm text-gray-600 mb-4">
                       Toggle switches for on/off states. Supports two sizes: Normal (Desktop) and Large (Mobile).
                     </p>
@@ -1587,6 +1768,19 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
             <div className="space-y-6">
               {/* Tags */}
               <CanaryCard title="CanaryTag">
+                <UsageNote
+                  description="Non-interactive colored label for displaying status, categories, or metadata."
+                  whenToUse={[
+                    "Status indicators in tables or lists (Active, Pending, Error)",
+                    "Category labels (Room Type, Guest Tier)",
+                    "OUTLINE variant for subtle indicators, FILLED for prominent ones",
+                  ]}
+                  whenNotToUse={[
+                    "Interactive/clickable tags — use CanaryChip with ChipType.SELECTABLE",
+                    "Removable items — use CanaryChip with ChipType.REMOVABLE",
+                    "Action buttons — use CanaryButton",
+                  ]}
+                />
                 <div className="space-y-4">
                   <div>
                     <h4 className="text-sm font-medium mb-3 text-gray-600">Outline Variant (Default)</h4>
@@ -1673,6 +1867,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 
               {/* Table */}
               <CanaryCard title="CanaryTable">
+                <UsageNote
+                  description="Data table with configurable columns, custom cell rendering, and optional row click handlers."
+                  whenToUse={[
+                    "Structured data with multiple columns (guest lists, transactions, rooms)",
+                    "Data that needs sorting or custom column rendering (e.g., CanaryTag in a status column)",
+                  ]}
+                  whenNotToUse={[
+                    "Simple vertical lists — use CanaryList + CanaryListItem",
+                    "Key-value pairs — use a simple layout or CanaryCard",
+                  ]}
+                />
                 <CanaryTable
                   columns={tableColumns}
                   data={sampleTableData}
@@ -1703,6 +1908,19 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
           {/* Layout Components */}
           <Section title="Layout & Navigation" id="layout">
             <CanaryCard title="CanaryTabs - Rounded Variant">
+              <UsageNote
+                description="Tab navigation with multiple visual variants: rounded (pill-style), text (underlined), segmented (bordered group), and text-checkbox."
+                whenToUse={[
+                  "Switching between content views on the same page",
+                  "Text variant: standard page section tabs",
+                  "Rounded variant: filter or mode toggles",
+                  "Segmented variant: 2–4 view mode options",
+                ]}
+                whenNotToUse={[
+                  "App-level navigation — use CanarySidebar via CanaryAppShell",
+                  "Selecting a form value — use CanarySegmentedControl or CanaryRadioGroup",
+                ]}
+              />
               <CanaryTabs
                 variant="rounded"
                 tabs={[
@@ -1829,6 +2047,16 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 
             <div className="mt-6">
               <CanaryCard title="CanarySidebar - Main Variant">
+                <UsageNote
+                  description="Side navigation panel with pre-built sections for Canary product navigation. Usually accessed via CanaryAppShell rather than directly."
+                  whenToUse={[
+                    "Custom layouts that need a sidebar without CanaryAppShell",
+                    "Standalone sidebar demos or testing",
+                  ]}
+                  whenNotToUse={[
+                    "Most prototypes — use CanaryAppShell instead (includes sidebar automatically)",
+                  ]}
+                />
                 <p className="text-sm text-gray-600 mb-4">
                   A navigation sidebar with two variants: Main (blue) and Settings (dark gray).
                   Supports sections, icons, badges, and interactive states (default, selected, focus, onPress, disabled).
@@ -2508,6 +2736,19 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 
             <div className="mt-6">
               <CanaryCard title="CanaryModal">
+                <UsageNote
+                  description="Fixed-position modal dialog with overlay, title bar, and optional footer. Handles ESC key and prevents body scrolling."
+                  whenToUse={[
+                    "Confirmation dialogs (\"Are you sure you want to delete?\")",
+                    "Forms that overlay the current page (edit profile, add item)",
+                    "Detail views that shouldn't navigate away",
+                  ]}
+                  whenNotToUse={[
+                    "Full-page forms — navigate to a new page instead",
+                    "Inline messages — use CanaryAlert",
+                    "Temporary notifications — use CanaryToast",
+                  ]}
+                />
                 <CanaryButton onClick={() => setIsModalOpen(true)}>
                   Open Modal
                 </CanaryButton>
@@ -2566,6 +2807,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
           <Section title="Feedback Components" id="feedback">
             <div className="space-y-6">
               <CanaryCard title="CanaryAlert">
+                <UsageNote
+                  description="Inline alert banner for persistent messages within page content (success, error, warning, info)."
+                  whenToUse={[
+                    "Form validation summaries, important notices, success confirmations",
+                    "Warning messages about system state (e.g., \"PMS connection lost\")",
+                  ]}
+                  whenNotToUse={[
+                    "Temporary notifications — use CanaryToast",
+                    "Per-field validation — use the error prop on form components",
+                  ]}
+                />
                 <div className="space-y-3">
                   <CanaryAlert type="success" message="This is a success alert!" />
                   <CanaryAlert type="error" message="This is an error alert!" />
@@ -2581,6 +2833,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               </CanaryCard>
 
               <CanaryCard title="CanaryToast">
+                <UsageNote
+                  description="Temporary notification that auto-dismisses after a configurable duration (default 5 seconds)."
+                  whenToUse={[
+                    "Transient confirmations (\"Changes saved\", \"Guest checked in\")",
+                    "Brief error notifications (\"Failed to save — please try again\")",
+                  ]}
+                  whenNotToUse={[
+                    "Persistent messages — use CanaryAlert",
+                    "Critical errors requiring action — use CanaryModal or CanaryAlert",
+                  ]}
+                />
                 <CanaryButton onClick={() => setShowToast(true)}>
                   Show Toast
                 </CanaryButton>
@@ -2609,6 +2872,17 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
               </CanaryCard>
 
               <CanaryCard title="CanaryLoading">
+                <UsageNote
+                  description="Animated spinner for indicating loading states."
+                  whenToUse={[
+                    "While fetching data from an API",
+                    "During form submission processing",
+                    "Page-level or section-level loading states",
+                  ]}
+                  whenNotToUse={[
+                    "List loading — use CanaryList with isLoading prop instead",
+                  ]}
+                />
                 <div className="flex items-center gap-4">
                   <CanaryLoading />
                   <CanaryLoading size={32} color="#e40046" />
