@@ -1169,23 +1169,30 @@ var CanarySelect = forwardRef3(
             ]
           })
         ),
-        /* @__PURE__ */ jsx6("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none", children: /* @__PURE__ */ jsx6(
-          "svg",
+        /* @__PURE__ */ jsx6(
+          "div",
           {
-            width: "24",
-            height: "24",
-            viewBox: "0 0 24 24",
-            fill: "none",
-            xmlns: "http://www.w3.org/2000/svg",
+            className: "absolute right-2 top-0 flex items-center pointer-events-none",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
             children: /* @__PURE__ */ jsx6(
-              "path",
+              "svg",
               {
-                d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
-                fill: "#000000"
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                xmlns: "http://www.w3.org/2000/svg",
+                children: /* @__PURE__ */ jsx6(
+                  "path",
+                  {
+                    d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
+                    fill: "#000000"
+                  }
+                )
               }
             )
           }
-        ) })
+        )
       ] }),
       error && /* @__PURE__ */ jsx6("div", { className: "mt-1 inline-block bg-[#fce6ed] px-2 py-[2px] rounded", children: /* @__PURE__ */ jsx6("p", { className: "text-[12px] text-[#E40046] leading-[1.5]", children: error }) }),
       helperText && !error && /* @__PURE__ */ jsx6("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5]", children: helperText })

@@ -99,7 +99,10 @@ const CanarySelect = forwardRef<HTMLSelectElement, CanarySelectProps>(
           </select>
 
           {/* Dropdown arrow - unfold_more icon from Figma */}
-          <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
+          <div
+            className="absolute right-2 top-0 flex items-center pointer-events-none"
+            style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+          >
             <svg
               width="24"
               height="24"
