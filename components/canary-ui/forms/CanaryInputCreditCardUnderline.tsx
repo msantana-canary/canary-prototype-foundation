@@ -98,7 +98,10 @@ const CanaryInputCreditCardUnderline = forwardRef<HTMLInputElement, CanaryInputC
         <div className="relative">
           <div className="relative flex items-center">
             {/* Credit Card Icon */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center w-6 h-6">
+            <div
+              className="absolute left-0 top-0 flex items-center"
+              style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+            >
               <Icon
                 path={meta.cardType?.type ? mdiCreditCard : mdiCreditCardOutline}
                 size="24px"

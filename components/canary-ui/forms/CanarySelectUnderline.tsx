@@ -147,10 +147,13 @@ const CanarySelectUnderline = forwardRef<
             </select>
 
             {/* Dropdown arrow */}
-            <div className={clsx(
-              "absolute top-1/2 -translate-y-1/2 pointer-events-none",
-              error ? "right-8" : "right-2"
-            )}>
+            <div
+              className={clsx(
+                "absolute top-0 flex items-center pointer-events-none",
+                error ? "right-8" : "right-2"
+              )}
+              style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+            >
               <svg
                 width="24"
                 height="24"
@@ -167,7 +170,10 @@ const CanarySelectUnderline = forwardRef<
 
             {/* Error icon */}
             {error && (
-              <div className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center">
+              <div
+                className="absolute right-2 top-0 flex items-center justify-center"
+                style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+              >
                 <Icon
                   path={mdiAlertCircleOutline}
                   size="24px"

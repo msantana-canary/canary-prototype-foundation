@@ -903,7 +903,14 @@ var CanaryInput = forwardRef(
         }
       ),
       /* @__PURE__ */ jsxs3("div", { className: "relative", children: [
-        leftAddon && /* @__PURE__ */ jsx4("div", { className: "absolute left-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20", children: leftAddon }),
+        leftAddon && /* @__PURE__ */ jsx4(
+          "div",
+          {
+            className: "absolute left-3 top-0 flex items-center pointer-events-none z-20",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: leftAddon
+          }
+        ),
         /* @__PURE__ */ jsx4(
           "input",
           __spreadValues({
@@ -916,24 +923,38 @@ var CanaryInput = forwardRef(
             style: inputStyles
           }, inputProps)
         ),
-        error && /* @__PURE__ */ jsx4("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20", children: /* @__PURE__ */ jsx4(
-          "svg",
+        error && /* @__PURE__ */ jsx4(
+          "div",
           {
-            width: "24",
-            height: "24",
-            viewBox: "0 0 24 24",
-            fill: "none",
-            xmlns: "http://www.w3.org/2000/svg",
+            className: "absolute right-2 top-0 flex items-center pointer-events-none z-20",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
             children: /* @__PURE__ */ jsx4(
-              "path",
+              "svg",
               {
-                d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
-                fill: colors.error
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                xmlns: "http://www.w3.org/2000/svg",
+                children: /* @__PURE__ */ jsx4(
+                  "path",
+                  {
+                    d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
+                    fill: colors.error
+                  }
+                )
               }
             )
           }
-        ) }),
-        rightAddon && !error && /* @__PURE__ */ jsx4("div", { className: "absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20", children: rightAddon })
+        ),
+        rightAddon && !error && /* @__PURE__ */ jsx4(
+          "div",
+          {
+            className: "absolute right-3 top-0 flex items-center pointer-events-none z-20",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: rightAddon
+          }
+        )
       ] }),
       error && /* @__PURE__ */ jsx4("div", { className: "mt-1 inline-block px-2 py-[2px] rounded", style: { backgroundColor: colors.colorRed5 }, children: /* @__PURE__ */ jsx4("p", { className: "text-[12px] leading-[1.5]", style: { color: colors.error }, children: error }) }),
       helperText && !error && /* @__PURE__ */ jsx4("p", { className: "text-[12px] mt-1 leading-[1.5]", style: { color: colors.colorBlack3 }, children: helperText })
@@ -1578,7 +1599,8 @@ var CanaryInputPassword = forwardRef7(
           {
             type: "button",
             onClick: () => setShowPassword(!showPassword),
-            className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center cursor-pointer",
+            className: "absolute right-2 top-0 flex items-center cursor-pointer",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
             disabled: isDisabled || isReadonly,
             tabIndex: -1,
             children: showPassword ? (
@@ -1670,13 +1692,20 @@ var CanaryInputSearch = forwardRef8(
         }
       ),
       /* @__PURE__ */ jsxs11("div", { className: "relative", children: [
-        /* @__PURE__ */ jsx12("div", { className: "absolute left-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none", children: /* @__PURE__ */ jsx12("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ jsx12(
-          "path",
+        /* @__PURE__ */ jsx12(
+          "div",
           {
-            d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
-            fill: "#000000"
+            className: "absolute left-2 top-0 flex items-center pointer-events-none",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: /* @__PURE__ */ jsx12("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ jsx12(
+              "path",
+              {
+                d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
+                fill: "#000000"
+              }
+            ) })
           }
-        ) }) }),
+        ),
         /* @__PURE__ */ jsx12(
           "input",
           __spreadValues({
@@ -1788,7 +1817,14 @@ var CanaryInputCreditCard = forwardRef9(
         }
       ),
       /* @__PURE__ */ jsxs12("div", { className: "relative", children: [
-        /* @__PURE__ */ jsx13("div", { className: "absolute left-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none", children: getCardIcon() }),
+        /* @__PURE__ */ jsx13(
+          "div",
+          {
+            className: "absolute left-2 top-0 flex items-center pointer-events-none",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: getCardIcon()
+          }
+        ),
         /* @__PURE__ */ jsx13(
           "input",
           __spreadValues(__spreadProps(__spreadValues({
@@ -3113,13 +3149,20 @@ var CanaryInputMultiple = forwardRef13(
                   style: { color: colors.colorBlack1 }
                 }
               ),
-              error && /* @__PURE__ */ jsx19("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none", children: /* @__PURE__ */ jsx19("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ jsx19(
-                "path",
+              error && /* @__PURE__ */ jsx19(
+                "div",
                 {
-                  d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
-                  fill: colors.error
+                  className: "absolute right-2 top-0 flex items-center pointer-events-none",
+                  style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+                  children: /* @__PURE__ */ jsx19("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ jsx19(
+                    "path",
+                    {
+                      d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
+                      fill: colors.error
+                    }
+                  ) })
                 }
-              ) }) })
+              )
             ] })
           ]
         }
@@ -3237,7 +3280,14 @@ var CanaryInputUnderline = forwardRef14(
             )
           })
         ),
-        error && /* @__PURE__ */ jsx20("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center", children: /* @__PURE__ */ jsx20(Icon6, { path: mdiAlertCircleOutline2, size: "24px", color: "#E40046" }) })
+        error && /* @__PURE__ */ jsx20(
+          "div",
+          {
+            className: "absolute right-2 top-0 flex items-center justify-center",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: /* @__PURE__ */ jsx20(Icon6, { path: mdiAlertCircleOutline2, size: "24px", color: "#E40046" })
+          }
+        )
       ] }) }),
       error && /* @__PURE__ */ jsx20("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ jsx20("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
       helperText && !error && /* @__PURE__ */ jsx20("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
@@ -3493,34 +3543,48 @@ var CanarySelectUnderline = forwardRef16(
             ]
           })
         ),
-        /* @__PURE__ */ jsx22("div", { className: clsx19(
-          "absolute top-1/2 -translate-y-1/2 pointer-events-none",
-          error ? "right-8" : "right-2"
-        ), children: /* @__PURE__ */ jsx22(
-          "svg",
+        /* @__PURE__ */ jsx22(
+          "div",
           {
-            width: "24",
-            height: "24",
-            viewBox: "0 0 24 24",
-            fill: "none",
-            xmlns: "http://www.w3.org/2000/svg",
+            className: clsx19(
+              "absolute top-0 flex items-center pointer-events-none",
+              error ? "right-8" : "right-2"
+            ),
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
             children: /* @__PURE__ */ jsx22(
-              "path",
+              "svg",
               {
-                d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
-                fill: "#000000"
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                xmlns: "http://www.w3.org/2000/svg",
+                children: /* @__PURE__ */ jsx22(
+                  "path",
+                  {
+                    d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
+                    fill: "#000000"
+                  }
+                )
               }
             )
           }
-        ) }),
-        error && /* @__PURE__ */ jsx22("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center", children: /* @__PURE__ */ jsx22(
-          Icon8,
+        ),
+        error && /* @__PURE__ */ jsx22(
+          "div",
           {
-            path: mdiAlertCircleOutline4,
-            size: "24px",
-            color: "#E40046"
+            className: "absolute right-2 top-0 flex items-center justify-center",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: /* @__PURE__ */ jsx22(
+              Icon8,
+              {
+                path: mdiAlertCircleOutline4,
+                size: "24px",
+                color: "#E40046"
+              }
+            )
           }
-        ) })
+        )
       ] }) }),
       error && /* @__PURE__ */ jsx22("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ jsx22("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
       helperText && !error && /* @__PURE__ */ jsx22("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
@@ -3659,7 +3723,14 @@ var CanaryInputPhoneUnderline = forwardRef17(
             )
           }
         ),
-        error && /* @__PURE__ */ jsx23("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center z-10", children: /* @__PURE__ */ jsx23(Icon9, { path: mdiAlertCircleOutline5, size: "24px", color: "#E40046" }) })
+        error && /* @__PURE__ */ jsx23(
+          "div",
+          {
+            className: "absolute right-2 top-0 flex items-center justify-center z-10",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: /* @__PURE__ */ jsx23(Icon9, { path: mdiAlertCircleOutline5, size: "24px", color: "#E40046" })
+          }
+        )
       ] }),
       error && /* @__PURE__ */ jsx23("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ jsx23("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
       helperText && !error && /* @__PURE__ */ jsx23("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText }),
@@ -3819,7 +3890,8 @@ var CanaryInputPasswordUnderline = forwardRef18(
           {
             type: "button",
             onClick: () => setShowPassword(!showPassword),
-            className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center cursor-pointer",
+            className: "absolute right-2 top-0 flex items-center cursor-pointer",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
             disabled: isDisabled,
             tabIndex: -1,
             children: showPassword ? (
@@ -3922,13 +3994,20 @@ var CanaryInputSearchUnderline = forwardRef19(
         }
       ),
       /* @__PURE__ */ jsx25("div", { className: "relative", children: /* @__PURE__ */ jsxs24("div", { className: "relative flex items-center", children: [
-        /* @__PURE__ */ jsx25("div", { className: "absolute left-0 top-1/2 -translate-y-1/2 flex items-center w-6 h-6", children: /* @__PURE__ */ jsx25("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ jsx25(
-          "path",
+        /* @__PURE__ */ jsx25(
+          "div",
           {
-            d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
-            fill: colors.colorBlack1
+            className: "absolute left-0 top-0 flex items-center",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: /* @__PURE__ */ jsx25("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ jsx25(
+              "path",
+              {
+                d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
+                fill: colors.colorBlack1
+              }
+            ) })
           }
-        ) }) }),
+        ),
         /* @__PURE__ */ jsx25(
           "input",
           __spreadProps(__spreadValues({
@@ -4057,14 +4136,21 @@ var CanaryInputCreditCardUnderline = forwardRef20(
         }
       ),
       /* @__PURE__ */ jsx26("div", { className: "relative", children: /* @__PURE__ */ jsxs25("div", { className: "relative flex items-center", children: [
-        /* @__PURE__ */ jsx26("div", { className: "absolute left-0 top-1/2 -translate-y-1/2 flex items-center w-6 h-6", children: /* @__PURE__ */ jsx26(
-          Icon10,
+        /* @__PURE__ */ jsx26(
+          "div",
           {
-            path: ((_a2 = meta.cardType) == null ? void 0 : _a2.type) ? mdiCreditCard3 : mdiCreditCardOutline3,
-            size: "24px",
-            color: colors.colorBlack1
+            className: "absolute left-0 top-0 flex items-center",
+            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            children: /* @__PURE__ */ jsx26(
+              Icon10,
+              {
+                path: ((_a2 = meta.cardType) == null ? void 0 : _a2.type) ? mdiCreditCard3 : mdiCreditCardOutline3,
+                size: "24px",
+                color: colors.colorBlack1
+              }
+            )
           }
-        ) }),
+        ),
         /* @__PURE__ */ jsx26(
           "input",
           __spreadProps(__spreadValues({

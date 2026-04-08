@@ -84,7 +84,10 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
 
         <div className="relative">
           {leftAddon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20">
+            <div
+              className="absolute left-3 top-0 flex items-center pointer-events-none z-20"
+              style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+            >
               {leftAddon}
             </div>
           )}
@@ -101,7 +104,10 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
           />
 
           {error && (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20">
+            <div
+              className="absolute right-2 top-0 flex items-center pointer-events-none z-20"
+              style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+            >
               <svg
                 width="24"
                 height="24"
@@ -118,7 +124,10 @@ const CanaryInput = forwardRef<HTMLInputElement, CanaryInputProps>(
           )}
 
           {rightAddon && !error && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20">
+            <div
+              className="absolute right-3 top-0 flex items-center pointer-events-none z-20"
+              style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+            >
               {rightAddon}
             </div>
           )}

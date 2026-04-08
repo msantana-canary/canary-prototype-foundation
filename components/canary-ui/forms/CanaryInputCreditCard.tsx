@@ -99,7 +99,10 @@ const CanaryInputCreditCard = forwardRef<HTMLInputElement, CanaryInputCreditCard
         )}
 
         <div className="relative">
-          <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
+          <div
+            className="absolute left-2 top-0 flex items-center pointer-events-none"
+            style={{ height: { [InputSize.TABLET]: 64, [InputSize.LARGE]: 48, [InputSize.NORMAL]: 40, [InputSize.COMPACT]: 32 }[size] }}
+          >
             {getCardIcon()}
           </div>
 
