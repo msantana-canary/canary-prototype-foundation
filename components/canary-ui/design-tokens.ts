@@ -237,47 +237,11 @@ export const dimensions = {
 } as const;
 
 // ============================================================================
-// INPUT & BUTTON SIZES
+// INPUT & BUTTON SIZES (canonical definitions in buttons/types.ts and forms/types.ts)
+// Re-exported here for convenience - do NOT duplicate definitions
 // ============================================================================
-
-/**
- * Size variants for inputs and buttons
- */
-export enum InputSize {
-  TABLET = "tablet",
-  LARGE = "large",
-  NORMAL = "normal",
-  COMPACT = "compact",
-  TINY = "tiny",
-}
-
-export enum ButtonSize {
-  TABLET = "tablet",
-  LARGE = "large",
-  NORMAL = "normal",
-  COMPACT = "compact",
-  TINY = "tiny",
-}
-
-export enum ButtonType {
-  PRIMARY = "primary",
-  OUTLINED = "outlined",
-  SHADED = "shaded",
-  TEXT = "text",
-  ICON_PRIMARY = "icon_primary",
-  ICON_SECONDARY = "icon_secondary",
-}
-
-export enum ButtonColor {
-  NORMAL = "normal",
-  HEADING_TEXT = "heading_text",
-  DANGER = "danger",
-  WARNING = "warning",
-  SUCCESS = "success",
-  FONT = "font",
-  FONT_SECONDARY = "font_secondary",
-  WHITE = "white",
-}
+export { InputSize, InputType } from "./forms/types";
+export { ButtonSize, ButtonType, ButtonColor, IconPosition } from "./buttons/types";
 
 // ============================================================================
 // BREAKPOINTS

@@ -1,11 +1,12 @@
 import { ReactNode, useState } from "react";
 import { colors } from "../design-tokens";
+import { TabSize as TabSizeEnum, TabType as TabTypeEnum } from "./types";
 import clsx from "clsx";
 import Icon from "@mdi/react";
 import { mdiCheckboxMarked, mdiCheckboxBlankOutline } from "@mdi/js";
 
 export type TabVariant = "rounded" | "text" | "segmented" | "text-checkbox";
-export type TabSize = "normal" | "compact";
+export type TabSizeLegacy = "normal" | "compact";
 
 export interface CanaryTab {
   id: string;
@@ -20,22 +21,45 @@ export interface CanaryTab {
 export interface CanaryTabsProps {
   tabs: CanaryTab[];
   variant?: TabVariant;
-  size?: TabSize;
+  /** Production-aligned tab type enum. Maps: ROUND→"rounded", PRIMARY→"segmented", TEXT→"text" */
+  tabType?: TabTypeEnum;
+  size?: TabSizeLegacy;
+  /** Production-aligned tab size enum. Maps: LARGE→"normal", NORMAL→"normal", COMPACT→"compact" */
+  tabSize?: TabSizeEnum;
   defaultTab?: string;
   onChange?: (tabId: string) => void;
   onCheckboxChange?: (tabId: string, checked: boolean) => void;
   className?: string;
 }
 
+// Map production TabType enum to internal variant strings
+const tabTypeToVariant: Record<TabTypeEnum, TabVariant> = {
+  [TabTypeEnum.ROUND]: "rounded",
+  [TabTypeEnum.PRIMARY]: "segmented",
+  [TabTypeEnum.TEXT]: "text",
+};
+
+// Map production TabSize enum to internal size strings
+const tabSizeToSize: Record<TabSizeEnum, TabSizeLegacy> = {
+  [TabSizeEnum.LARGE]: "normal",
+  [TabSizeEnum.NORMAL]: "normal",
+  [TabSizeEnum.COMPACT]: "compact",
+};
+
 export default function CanaryTabs({
   tabs,
-  variant = "rounded",
-  size = "normal",
+  variant: variantProp = "rounded",
+  tabType,
+  size: sizeProp = "normal",
+  tabSize,
   defaultTab,
   onChange,
   onCheckboxChange,
   className = "",
 }: CanaryTabsProps) {
+  // Enum props override legacy string props
+  const variant: TabVariant = tabType ? tabTypeToVariant[tabType] : variantProp;
+  const size: TabSizeLegacy = tabSize ? tabSizeToSize[tabSize] : sizeProp;
   const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
   const [pressedTab, setPressedTab] = useState<string | null>(null);
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);

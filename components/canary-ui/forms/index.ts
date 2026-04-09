@@ -16,6 +16,12 @@ export { default as CanaryInputMultiple } from "./CanaryInputMultiple";
 export type { CanaryInputMultipleProps, CanaryInputMultipleRef } from "./CanaryInputMultiple";
 export { default as CanaryCalendar } from "./CanaryCalendar";
 export type { CanaryCalendarProps, CalendarSelection, CalendarSelectionMode } from "./CanaryCalendar";
+export { default as CanarySegmentedControl } from "./CanarySegmentedControl";
+export { default as CanaryNote } from "./CanaryNote";
+export { default as CanaryFormLabel } from "./CanaryFormLabel";
+export { default as CanaryValidationError } from "./CanaryValidationError";
+export { default as CanaryCounter } from "./CanaryCounter";
+export type { CanaryCounterProps } from "./CanaryCounter";
 
 // Underline variants (floating label with bottom border)
 export { default as CanaryInputUnderline } from "./CanaryInputUnderline";
@@ -28,4 +34,6 @@ export { default as CanaryInputCreditCardUnderline } from "./CanaryInputCreditCa
 export { default as CanaryInputDateUnderline } from "./CanaryInputDateUnderline";
 export { default as CanaryInputDateRangeUnderline } from "./CanaryInputDateRangeUnderline";
 
+export { default as CanaryAutocomplete } from "./CanaryAutocomplete";
+export type { CanaryAutocompleteProps } from "./CanaryAutocomplete";
 export * from "./types";

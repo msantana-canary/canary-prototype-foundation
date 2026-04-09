@@ -108,6 +108,7 @@ export default function CanaryButton({
     [ButtonSize.LARGE]: "h-12 text-[18px]",
     [ButtonSize.NORMAL]: "h-10 text-[14px]",
     [ButtonSize.COMPACT]: "h-8 text-[12px]",
+    [ButtonSize.TINY]: "h-6 text-[10px]",
   };
 
   // Padding classes for text buttons
@@ -153,6 +154,7 @@ export default function CanaryButton({
       [ButtonSize.LARGE]: "w-12",
       [ButtonSize.NORMAL]: "w-10",
       [ButtonSize.COMPACT]: "w-8",
+      [ButtonSize.TINY]: "w-6",
     }[size];
   };
 

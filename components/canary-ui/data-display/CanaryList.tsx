@@ -22,6 +22,8 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { ListStyle } from "./types";
+
 export interface CanaryListProps {
   // Content
   children?: ReactNode;
@@ -34,6 +36,7 @@ export interface CanaryListProps {
   // Styling
   className?: string;
   hasOuterBorder?: boolean;
+  listStyle?: ListStyle;
 
   // States
   isLoading?: boolean;
@@ -92,6 +95,7 @@ const CanaryList = ({
   onReorder,
   className = "",
   hasOuterBorder = false,
+  listStyle,
   isLoading = false,
   loadingContent,
   isEmpty = false,
@@ -279,7 +283,12 @@ const CanaryList = ({
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
             style={{
-              borderBottom: index === childArray.length - 1 ? 'none' : `1px solid ${colors.colorBlack6}`,
+              borderBottom: listStyle === ListStyle.STRIPES
+                ? 'none'
+                : index === childArray.length - 1 ? 'none' : `1px solid ${colors.colorBlack6}`,
+              backgroundColor: listStyle === ListStyle.STRIPES && index % 2 === 1
+                ? colors.colorBlack8
+                : undefined,
             }}
           >
             {child}

@@ -6,7 +6,13 @@ export { default as CanaryPageHeader } from "./CanaryPageHeader";
 export type { CanaryPageHeaderProps, UserProfile, ReservationStatus } from "./CanaryPageHeader";
 export { default as CanaryLogo } from "./CanaryLogo";
 export type { CanaryLogoProps } from "./CanaryLogo";
-export { SidebarVariant, NavigationItemState } from "./types";
+export { default as CanaryProgressBar } from "./CanaryProgressBar";
+export type { CanaryProgressBarProps } from "./CanaryProgressBar";
+export { default as CanaryOverflowMenu } from "./CanaryOverflowMenu";
+export type { CanaryOverflowMenuProps } from "./CanaryOverflowMenu";
+export { default as CanarySteps } from "./CanarySteps";
+export type { CanaryStepsProps } from "./CanarySteps";
+export { SidebarVariant, NavigationItemState, TabSize, TabType, ProgressBarVariant, StepsOrientation } from "./types";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./standard-sidebar-sections";
 export { sidebarTabs, createSidebarTab } from "./sidebar-tabs";
 export {

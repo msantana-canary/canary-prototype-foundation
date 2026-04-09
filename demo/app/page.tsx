@@ -45,6 +45,40 @@ import {
   CanaryAlert,
   CanaryToast,
   CanaryLoading,
+  // New v0.6.0 components
+  CanaryBadge,
+  CanaryDivider,
+  CanaryNote,
+  CanaryTimestamp,
+  CanaryFormLabel,
+  CanaryValidationError,
+  CanaryProfileImage,
+  CanaryTooltip,
+  CanaryTooltipIcon,
+  CanaryExpand,
+  CanaryCounter,
+  CanaryProgressBar,
+  CanaryOverflowMenu,
+  CanaryDialog,
+  CanarySideSheet,
+  CanarySteps,
+  CanarySettingsCard,
+  CanaryAutocomplete,
+  // New enums
+  BadgeType,
+  BadgeSize,
+  DividerDirection,
+  NoteColor,
+  TooltipPosition,
+  TooltipIconColor,
+  TimestampFormat,
+  TimestampColor,
+  ProfileImageSize,
+  ProgressBarVariant,
+  StepsOrientation,
+  DialogStretch,
+  SettingsCardState,
+  LabelSize,
   // Flexible sidebar functionality
   sidebarTabs,
   hideProducts,
@@ -396,6 +430,150 @@ function SelectableListExample() {
   );
 }
 
+// v0.6.0 interactive demos
+function ExpandDemo() {
+  const [expanded1, setExpanded1] = useState(false);
+  const [expanded2, setExpanded2] = useState(true);
+  return (
+    <div className="space-y-2">
+      <CanaryExpand
+        isExpanded={expanded1}
+        onToggle={() => setExpanded1(!expanded1)}
+        header={<span className="text-sm font-medium">Room Details</span>}
+      >
+        <div className="p-3 text-sm text-gray-600">Room 301 - Deluxe King Suite, Ocean View, 2nd Floor</div>
+      </CanaryExpand>
+      <CanaryExpand
+        isExpanded={expanded2}
+        onToggle={() => setExpanded2(!expanded2)}
+        header={<span className="text-sm font-medium">Guest Preferences</span>}
+      >
+        <div className="p-3 text-sm text-gray-600">Late checkout requested. Extra pillows. Non-smoking room.</div>
+      </CanaryExpand>
+    </div>
+  );
+}
+
+function CounterDemo() {
+  const [guests, setGuests] = useState(2);
+  const [nights, setNights] = useState(1);
+  return (
+    <div className="flex items-center gap-8">
+      <div className="flex items-center gap-3">
+        <span className="text-sm font-medium">Guests:</span>
+        <CanaryCounter value={guests} onChange={setGuests} minValue={1} maxValue={8} />
+      </div>
+      <div className="flex items-center gap-3">
+        <span className="text-sm font-medium">Nights:</span>
+        <CanaryCounter value={nights} onChange={setNights} minValue={1} maxValue={30} />
+      </div>
+    </div>
+  );
+}
+
+function DialogDemo() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <CanaryButton onClick={() => setOpen(true)}>Open Dialog</CanaryButton>
+      <CanaryDialog
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        title="Confirm Check-out"
+        stretch={DialogStretch.NORMAL}
+        footer={
+          <div className="flex justify-end gap-2">
+            <CanaryButton type={ButtonType.OUTLINED} onClick={() => setOpen(false)}>Cancel</CanaryButton>
+            <CanaryButton type={ButtonType.PRIMARY} onClick={() => setOpen(false)}>Confirm Check-out</CanaryButton>
+          </div>
+        }
+      >
+        <p className="text-sm text-gray-600">Are you sure you want to check out the guest in Room 301? This will finalize their bill and release the room.</p>
+      </CanaryDialog>
+    </>
+  );
+}
+
+function SideSheetDemo() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <CanaryButton onClick={() => setOpen(true)}>Open Side Sheet</CanaryButton>
+      <CanarySideSheet
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        size="medium"
+        header={<h3 className="text-lg font-semibold">Guest Details</h3>}
+        footer={
+          <div className="flex justify-end gap-2">
+            <CanaryButton type={ButtonType.OUTLINED} onClick={() => setOpen(false)}>Close</CanaryButton>
+            <CanaryButton type={ButtonType.PRIMARY}>Save Changes</CanaryButton>
+          </div>
+        }
+      >
+        <div className="space-y-4">
+          <CanaryInput label="Full Name" value="John Smith" onChange={() => {}} />
+          <CanaryInput label="Email" value="john@example.com" onChange={() => {}} />
+          <CanaryInput label="Phone" value="+1 555-0123" onChange={() => {}} />
+        </div>
+      </CanarySideSheet>
+    </>
+  );
+}
+
+function SettingsCardDemo() {
+  const [state, setState] = useState(SettingsCardState.VIEW);
+  return (
+    <CanarySettingsCard
+      title="Property Information"
+      subtitle="Basic hotel details and contact information"
+      state={state}
+      onStateChange={setState}
+      onSave={() => setState(SettingsCardState.VIEW)}
+    >
+      {state === SettingsCardState.VIEW ? (
+        <div className="space-y-2 text-sm">
+          <div><span className="font-medium text-gray-500">Name:</span> Hotel Canary</div>
+          <div><span className="font-medium text-gray-500">Address:</span> 123 Main Street, New York, NY</div>
+          <div><span className="font-medium text-gray-500">Phone:</span> +1 (555) 123-4567</div>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          <CanaryInput label="Hotel Name" value="Hotel Canary" onChange={() => {}} />
+          <CanaryInput label="Address" value="123 Main Street, New York, NY" onChange={() => {}} />
+          <CanaryInput label="Phone" value="+1 (555) 123-4567" onChange={() => {}} />
+        </div>
+      )}
+    </CanarySettingsCard>
+  );
+}
+
+function AutocompleteDemo() {
+  const [value, setValue] = useState("");
+  return (
+    <div className="max-w-sm">
+      <CanaryAutocomplete
+        label="Select Country"
+        value={value}
+        onChange={setValue}
+        placeholder="Type to search..."
+        options={[
+          { value: "us", label: "United States" },
+          { value: "ca", label: "Canada" },
+          { value: "uk", label: "United Kingdom" },
+          { value: "fr", label: "France" },
+          { value: "de", label: "Germany" },
+          { value: "jp", label: "Japan" },
+          { value: "au", label: "Australia" },
+          { value: "mx", label: "Mexico" },
+          { value: "br", label: "Brazil" },
+          { value: "it", label: "Italy" },
+        ]}
+      />
+    </div>
+  );
+}
+
 export default function ComponentShowcase() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -443,6 +621,7 @@ export default function ComponentShowcase() {
     { id: "layout", label: "Layout & Navigation" },
     { id: "app-shell", label: "App Shell" },
     { id: "feedback", label: "Feedback" },
+    { id: "new-components", label: "New in v0.6.0" },
   ];
 
   return (
@@ -4227,6 +4406,310 @@ const corporateSections = [
 <CanaryLoading size={48} color="#008040" />`}
                 />
               </CanaryCard>
+            </div>
+          </Section>
+
+          {/* New Components (v0.6.0) */}
+          <Section title="New in v0.6.0" id="new-components">
+            <div className="space-y-6">
+
+              {/* Badge */}
+              <CanaryCard title="CanaryBadge">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <CanaryBadge type={BadgeType.INFO} label="3 new" />
+                  <CanaryBadge type={BadgeType.URGENT} label="Urgent" />
+                  <CanaryBadge type={BadgeType.WARNING} label="Pending" />
+                  <CanaryBadge type={BadgeType.INFO} size={BadgeSize.LARGE} label="Large badge" />
+                </div>
+                <CodeSnippet code={`<CanaryBadge type={BadgeType.INFO} label="3 new" />
+<CanaryBadge type={BadgeType.URGENT} label="Urgent" />
+<CanaryBadge type={BadgeType.WARNING} label="Pending" />`} />
+              </CanaryCard>
+
+              {/* Divider */}
+              <CanaryCard title="CanaryDivider">
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-600">Content above</p>
+                  <CanaryDivider />
+                  <p className="text-sm text-gray-600">Content below</p>
+                  <CanaryDivider text="OR" />
+                  <p className="text-sm text-gray-600">Content after labeled divider</p>
+                  <div className="flex items-stretch gap-4 h-16">
+                    <span className="text-sm text-gray-600">Left</span>
+                    <CanaryDivider direction={DividerDirection.VERTICAL} />
+                    <span className="text-sm text-gray-600">Right</span>
+                  </div>
+                </div>
+                <CodeSnippet code={`<CanaryDivider />
+<CanaryDivider text="OR" />
+<CanaryDivider direction={DividerDirection.VERTICAL} />`} />
+              </CanaryCard>
+
+              {/* Note */}
+              <CanaryCard title="CanaryNote">
+                <div className="space-y-3">
+                  <CanaryNote color={NoteColor.OK}>
+                    Your changes have been saved successfully.
+                  </CanaryNote>
+                  <CanaryNote color={NoteColor.WARNING}>
+                    This action will affect all properties in your group.
+                  </CanaryNote>
+                  <CanaryNote color={NoteColor.DANGER}>
+                    This guest has an outstanding balance of $245.00.
+                  </CanaryNote>
+                </div>
+                <CodeSnippet code={`<CanaryNote color={NoteColor.OK}>Saved successfully.</CanaryNote>
+<CanaryNote color={NoteColor.WARNING}>Affects all properties.</CanaryNote>
+<CanaryNote color={NoteColor.DANGER}>Outstanding balance.</CanaryNote>`} />
+              </CanaryCard>
+
+              {/* Timestamp */}
+              <CanaryCard title="CanaryTimestamp">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium w-32">DateTime:</span>
+                    <CanaryTimestamp date={new Date()} format={TimestampFormat.DATETIME} />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium w-32">With timezone:</span>
+                    <CanaryTimestamp date={new Date()} format={TimestampFormat.DATETIME_ZONE} />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium w-32">Relative:</span>
+                    <CanaryTimestamp date={Date.now() - 3600000} format={TimestampFormat.RELATIVE_TIME} />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium w-32">Secondary:</span>
+                    <CanaryTimestamp date={new Date()} color={TimestampColor.SECONDARY} />
+                  </div>
+                </div>
+                <CodeSnippet code={`<CanaryTimestamp date={new Date()} format={TimestampFormat.DATETIME} />
+<CanaryTimestamp date={new Date()} format={TimestampFormat.RELATIVE_TIME} />
+<CanaryTimestamp date={new Date()} color={TimestampColor.SECONDARY} />`} />
+              </CanaryCard>
+
+              {/* FormLabel + ValidationError */}
+              <CanaryCard title="CanaryFormLabel + CanaryValidationError">
+                <div className="space-y-3">
+                  <div>
+                    <CanaryFormLabel label="Guest Name" size={LabelSize.NORMAL} />
+                    <input className="w-full border rounded px-3 py-2 text-sm" placeholder="Enter name" />
+                  </div>
+                  <div>
+                    <CanaryFormLabel label="Email Address" size={LabelSize.LARGE} isRequired />
+                    <input className="w-full border border-red-300 rounded px-3 py-2 text-sm" placeholder="Enter email" />
+                    <CanaryValidationError error="Email address is required" />
+                  </div>
+                  <div>
+                    <CanaryFormLabel label="Phone" />
+                    <input className="w-full border border-yellow-300 rounded px-3 py-2 text-sm" placeholder="Optional" />
+                    <CanaryValidationError warning="Phone number recommended for guest communication" />
+                  </div>
+                </div>
+                <CodeSnippet code={`<CanaryFormLabel label="Email Address" isRequired />
+<CanaryValidationError error="Email address is required" />
+<CanaryValidationError warning="Phone recommended" />`} />
+              </CanaryCard>
+
+              {/* ProfileImage */}
+              <CanaryCard title="CanaryProfileImage">
+                <div className="flex items-end gap-4">
+                  <CanaryProfileImage size={ProfileImageSize.TINY} initials="JD" />
+                  <CanaryProfileImage size={ProfileImageSize.SMALL} initials="TW" />
+                  <CanaryProfileImage size={ProfileImageSize.MEDIUM} initials="AB" />
+                  <CanaryProfileImage size={ProfileImageSize.NORMAL} initials="KL" />
+                  <CanaryProfileImage size={ProfileImageSize.LARGE} initials="MN" />
+                </div>
+                <CodeSnippet code={`<CanaryProfileImage size={ProfileImageSize.TINY} initials="JD" />
+<CanaryProfileImage size={ProfileImageSize.SMALL} initials="TW" />
+<CanaryProfileImage size={ProfileImageSize.LARGE} initials="MN" />`} />
+              </CanaryCard>
+
+              {/* Tooltip */}
+              <CanaryCard title="CanaryTooltip + CanaryTooltipIcon">
+                <div className="flex items-center gap-8">
+                  <CanaryTooltip content="This is a tooltip" position={TooltipPosition.TOP}>
+                    <span className="text-sm underline cursor-help">Hover me (top)</span>
+                  </CanaryTooltip>
+                  <CanaryTooltip content="Bottom tooltip" position={TooltipPosition.BOTTOM}>
+                    <span className="text-sm underline cursor-help">Hover me (bottom)</span>
+                  </CanaryTooltip>
+                  <span className="flex items-center gap-1 text-sm">
+                    Guest ID <CanaryTooltipIcon content="Unique identifier assigned at check-in" color={TooltipIconColor.PRIMARY} />
+                  </span>
+                  <span className="flex items-center gap-1 text-sm">
+                    Warning <CanaryTooltipIcon content="Action cannot be undone" color={TooltipIconColor.DANGER} />
+                  </span>
+                </div>
+                <CodeSnippet code={`<CanaryTooltip content="This is a tooltip" position={TooltipPosition.TOP}>
+  <span>Hover me</span>
+</CanaryTooltip>
+<CanaryTooltipIcon content="Help text" color={TooltipIconColor.PRIMARY} />`} />
+              </CanaryCard>
+
+              {/* Expand */}
+              <CanaryCard title="CanaryExpand">
+                <ExpandDemo />
+                <CodeSnippet code={`const [expanded, setExpanded] = useState(false);
+<CanaryExpand
+  isExpanded={expanded}
+  onToggle={() => setExpanded(!expanded)}
+  header={<span>Room Details</span>}
+>
+  <p>Room 301 - Deluxe King Suite</p>
+</CanaryExpand>`} />
+              </CanaryCard>
+
+              {/* Counter */}
+              <CanaryCard title="CanaryCounter">
+                <CounterDemo />
+                <CodeSnippet code={`const [count, setCount] = useState(1);
+<CanaryCounter value={count} onChange={setCount} minValue={0} maxValue={10} />`} />
+              </CanaryCard>
+
+              {/* ProgressBar */}
+              <CanaryCard title="CanaryProgressBar">
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-sm font-medium mb-2">Continuous (65%)</p>
+                    <CanaryProgressBar variant={ProgressBarVariant.CONTINUOUS} progress={65} showLabel />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium mb-2">Steps (2 of 4)</p>
+                    <CanaryProgressBar variant={ProgressBarVariant.STEPS} totalSteps={4} currentStep={2} />
+                  </div>
+                </div>
+                <CodeSnippet code={`<CanaryProgressBar variant={ProgressBarVariant.CONTINUOUS} progress={65} showLabel />
+<CanaryProgressBar variant={ProgressBarVariant.STEPS} totalSteps={4} currentStep={2} />`} />
+              </CanaryCard>
+
+              {/* Steps */}
+              <CanaryCard title="CanarySteps">
+                <div className="space-y-8">
+                  <div>
+                    <p className="text-sm font-medium mb-4">Horizontal</p>
+                    <CanarySteps
+                      steps={[
+                        { label: "Guest Info" },
+                        { label: "Room Selection" },
+                        { label: "Payment" },
+                        { label: "Confirmation" },
+                      ]}
+                      currentStep={1}
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium mb-4">Vertical</p>
+                    <CanarySteps
+                      steps={[
+                        { label: "Check-in", description: "Completed at 2:30 PM" },
+                        { label: "ID Verification", description: "In progress" },
+                        { label: "Payment Auth", description: "Pending" },
+                      ]}
+                      currentStep={1}
+                      orientation={StepsOrientation.VERTICAL}
+                    />
+                  </div>
+                </div>
+                <CodeSnippet code={`<CanarySteps
+  steps={[
+    { label: "Guest Info" },
+    { label: "Room Selection" },
+    { label: "Payment" },
+    { label: "Confirmation" },
+  ]}
+  currentStep={1}
+/>`} />
+              </CanaryCard>
+
+              {/* OverflowMenu */}
+              <CanaryCard title="CanaryOverflowMenu">
+                <div className="flex items-center gap-4">
+                  <CanaryOverflowMenu
+                    items={[
+                      { id: "edit", label: "Edit guest", onClick: () => {} },
+                      { id: "message", label: "Send message", onClick: () => {} },
+                      { id: "divider", label: "", isDivider: true },
+                      { id: "delete", label: "Remove guest", isDanger: true, onClick: () => {} },
+                    ]}
+                  />
+                  <span className="text-sm text-gray-500">Click the three dots</span>
+                </div>
+                <CodeSnippet code={`<CanaryOverflowMenu
+  items={[
+    { id: "edit", label: "Edit guest", onClick: () => {} },
+    { id: "message", label: "Send message", onClick: () => {} },
+    { id: "divider", label: "", isDivider: true },
+    { id: "delete", label: "Remove guest", isDanger: true },
+  ]}
+/>`} />
+              </CanaryCard>
+
+              {/* Dialog */}
+              <CanaryCard title="CanaryDialog">
+                <DialogDemo />
+                <CodeSnippet code={`const [open, setOpen] = useState(false);
+<CanaryButton onClick={() => setOpen(true)}>Open Dialog</CanaryButton>
+<CanaryDialog
+  isOpen={open}
+  onClose={() => setOpen(false)}
+  title="Confirm Check-out"
+  stretch={DialogStretch.NORMAL}
+  footer={<CanaryButton onClick={() => setOpen(false)}>Confirm</CanaryButton>}
+>
+  <p>Are you sure you want to check out Room 301?</p>
+</CanaryDialog>`} />
+              </CanaryCard>
+
+              {/* SideSheet */}
+              <CanaryCard title="CanarySideSheet">
+                <SideSheetDemo />
+                <CodeSnippet code={`const [open, setOpen] = useState(false);
+<CanaryButton onClick={() => setOpen(true)}>Open Side Sheet</CanaryButton>
+<CanarySideSheet
+  isOpen={open}
+  onClose={() => setOpen(false)}
+  size="medium"
+  header={<h3>Guest Details</h3>}
+>
+  <p>Side sheet content here</p>
+</CanarySideSheet>`} />
+              </CanaryCard>
+
+              {/* SettingsCard */}
+              <CanaryCard title="CanarySettingsCard">
+                <SettingsCardDemo />
+                <CodeSnippet code={`const [state, setState] = useState(SettingsCardState.VIEW);
+<CanarySettingsCard
+  title="Property Information"
+  subtitle="Basic hotel details"
+  state={state}
+  onStateChange={setState}
+  onSave={() => alert('Saved!')}
+>
+  {state === SettingsCardState.VIEW
+    ? <p>Hotel Canary - 123 Main St</p>
+    : <CanaryInput label="Hotel Name" value="Hotel Canary" />}
+</CanarySettingsCard>`} />
+              </CanaryCard>
+
+              {/* Autocomplete */}
+              <CanaryCard title="CanaryAutocomplete">
+                <AutocompleteDemo />
+                <CodeSnippet code={`const [value, setValue] = useState("");
+<CanaryAutocomplete
+  label="Select Country"
+  value={value}
+  onChange={setValue}
+  options={[
+    { value: "us", label: "United States" },
+    { value: "ca", label: "Canada" },
+    { value: "uk", label: "United Kingdom" },
+  ]}
+  placeholder="Type to search..."
+/>`} />
+              </CanaryCard>
+
             </div>
           </Section>
 
