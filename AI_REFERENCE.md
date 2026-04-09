@@ -29,72 +29,90 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 ## Component Inventory
 
 ### Buttons (1 component)
-| Component | Import | Description |
-|-----------|--------|-------------|
-| `CanaryButton` | `import { CanaryButton } from '@canary-ui/components'` | Full-featured button with types, sizes, icons, loading states |
+| Component | Description |
+|-----------|-------------|
+| `CanaryButton` | Full-featured button with types, sizes, icons, loading states |
 
-### Forms (18 components)
-| Component | Import | Description |
-|-----------|--------|-------------|
-| `CanaryInput` | `import { CanaryInput } from '@canary-ui/components'` | Standard text input |
-| `CanaryInputUnderline` | `import { CanaryInputUnderline } from '@canary-ui/components'` | Input with floating label |
-| `CanaryTextArea` | `import { CanaryTextArea } from '@canary-ui/components'` | Multi-line text input |
-| `CanaryTextAreaUnderline` | `import { CanaryTextAreaUnderline } from '@canary-ui/components'` | TextArea with floating label |
-| `CanarySelect` | `import { CanarySelect } from '@canary-ui/components'` | Dropdown select |
-| `CanarySelectUnderline` | `import { CanarySelectUnderline } from '@canary-ui/components'` | Select with floating label |
-| `CanaryCheckbox` | `import { CanaryCheckbox } from '@canary-ui/components'` | Checkbox input |
-| `CanaryRadio` | `import { CanaryRadio } from '@canary-ui/components'` | Single radio button |
-| `CanaryRadioGroup` | `import { CanaryRadioGroup } from '@canary-ui/components'` | Radio button group container |
-| `CanarySwitch` | `import { CanarySwitch } from '@canary-ui/components'` | Toggle switch |
-| `CanaryInputPassword` | `import { CanaryInputPassword } from '@canary-ui/components'` | Password input with visibility toggle |
-| `CanaryInputPasswordUnderline` | `import { CanaryInputPasswordUnderline } from '@canary-ui/components'` | Password with floating label |
-| `CanaryInputSearch` | `import { CanaryInputSearch } from '@canary-ui/components'` | Search input with icon |
-| `CanaryInputSearchUnderline` | `import { CanaryInputSearchUnderline } from '@canary-ui/components'` | Search with floating label |
-| `CanaryInputCreditCard` | `import { CanaryInputCreditCard } from '@canary-ui/components'` | Credit card input with formatting |
-| `CanaryInputCreditCardUnderline` | `import { CanaryInputCreditCardUnderline } from '@canary-ui/components'` | Credit card with floating label |
-| `CanaryInputPhone` | `import { CanaryInputPhone } from '@canary-ui/components'` | International phone input |
-| `CanaryInputPhoneUnderline` | `import { CanaryInputPhoneUnderline } from '@canary-ui/components'` | Phone with floating label |
-| `CanaryInputDate` | `import { CanaryInputDate } from '@canary-ui/components'` | Date picker |
-| `CanaryInputDateUnderline` | `import { CanaryInputDateUnderline } from '@canary-ui/components'` | Date with floating label |
-| `CanaryInputDateRange` | `import { CanaryInputDateRange } from '@canary-ui/components'` | Date range picker |
-| `CanaryInputDateRangeUnderline` | `import { CanaryInputDateRangeUnderline } from '@canary-ui/components'` | Date range with floating label |
-| `CanaryInputMultiple` | `import { CanaryInputMultiple } from '@canary-ui/components'` | Multi-value input with removable chips |
-| `CanaryCalendar` | `import { CanaryCalendar } from '@canary-ui/components'` | Calendar picker (single date or range, popup or inline) |
-| `CanarySegmentedControl` | `import { CanarySegmentedControl } from '@canary-ui/components'` | Segmented button group |
+### Forms (28 components)
+| Component | Description |
+|-----------|-------------|
+| `CanaryInput` | Standard text input |
+| `CanaryInputUnderline` | Input with floating label |
+| `CanaryTextArea` | Multi-line text input |
+| `CanaryTextAreaUnderline` | TextArea with floating label |
+| `CanarySelect` | Dropdown select |
+| `CanarySelectUnderline` | Select with floating label |
+| `CanaryCheckbox` | Checkbox input |
+| `CanaryRadio` | Single radio button |
+| `CanaryRadioGroup` | Radio button group container |
+| `CanarySwitch` | Toggle switch |
+| `CanaryInputPassword` | Password input with visibility toggle |
+| `CanaryInputPasswordUnderline` | Password with floating label |
+| `CanaryInputSearch` | Search input with icon |
+| `CanaryInputSearchUnderline` | Search with floating label |
+| `CanaryInputCreditCard` | Credit card input with formatting |
+| `CanaryInputCreditCardUnderline` | Credit card with floating label |
+| `CanaryInputPhone` | International phone input |
+| `CanaryInputPhoneUnderline` | Phone with floating label |
+| `CanaryInputDate` | Date picker |
+| `CanaryInputDateUnderline` | Date with floating label |
+| `CanaryInputDateRange` | Date range picker |
+| `CanaryInputDateRangeUnderline` | Date range with floating label |
+| `CanaryInputMultiple` | Multi-value input with removable chips |
+| `CanaryCalendar` | Calendar picker (single date or range, popup or inline) |
+| `CanarySegmentedControl` | Segmented button group |
+| `CanaryCounter` | Numeric counter with +/- buttons |
+| `CanaryFormLabel` | Styled form field label |
+| `CanaryValidationError` | Form error/warning message display |
+| `CanaryNote` | Inline callout with colored border |
+| `CanaryAutocomplete` | Search-as-you-type input with dropdown |
 
-### Data Display (6 components)
-| Component | Import | Description |
-|-----------|--------|-------------|
-| `CanaryChip` | `import { CanaryChip } from '@canary-ui/components'` | Interactive chip (selectable toggle or removable tag) |
-| `CanaryTag` | `import { CanaryTag } from '@canary-ui/components'` | Status tags with color variants |
-| `CanaryTable` | `import { CanaryTable } from '@canary-ui/components'` | Data table with sorting |
-| `CanaryCard` | `import { CanaryCard } from '@canary-ui/components'` | Card container with header/footer |
-| `CanaryList` | `import { CanaryList } from '@canary-ui/components'` | List container with drag-and-drop |
-| `CanaryListItem` | `import { CanaryListItem } from '@canary-ui/components'` | Flexible list item |
+### Data Display (10 components)
+| Component | Description |
+|-----------|-------------|
+| `CanaryChip` | Interactive chip (selectable toggle or removable tag) |
+| `CanaryTag` | Status tags with color variants |
+| `CanaryTable` | Data table with sorting |
+| `CanaryCard` | Card container with header/footer and padding/shadow enums |
+| `CanaryList` | List container with drag-and-drop and list style enums |
+| `CanaryListItem` | Flexible list item with padding/alignment enums |
+| `CanaryTooltip` | Hover-triggered tooltip popup |
+| `CanaryTooltipIcon` | Info icon with tooltip |
+| `CanaryTimestamp` | Date/time display with formatting |
+| `CanaryProfileImage` | Circular avatar with initials fallback |
 
-### Layout (4 components)
-| Component | Import | Description |
-|-----------|--------|-------------|
-| `CanaryContainer` | `import { CanaryContainer } from '@canary-ui/components'` | Responsive container |
-| `CanaryGrid` | `import { CanaryGrid } from '@canary-ui/components'` | CSS Grid layout |
-| `CanaryModal` | `import { CanaryModal } from '@canary-ui/components'` | Modal dialog with overlay |
-| `CanaryAppShell` | `import { CanaryAppShell } from '@canary-ui/components'` | **Complete app scaffolding with sidebar + header + content area** |
+### Layout (8 components)
+| Component | Description |
+|-----------|-------------|
+| `CanaryContainer` | Responsive container |
+| `CanaryGrid` | CSS Grid layout |
+| `CanaryModal` | Modal dialog with overlay |
+| `CanaryAppShell` | **Complete app scaffolding with sidebar + header + content area** |
+| `CanaryDivider` | Horizontal or vertical separator |
+| `CanaryExpand` | Accordion/collapsible section |
+| `CanaryDialog` | Dialog overlay with stretch options |
+| `CanarySideSheet` | Slide-out side panel |
+| `CanarySettingsCard` | Card with view/edit state management |
 
-### Navigation (5 components + utilities)
-| Component | Import | Description |
-|-----------|--------|-------------|
-| `CanaryTabs` | `import { CanaryTabs } from '@canary-ui/components'` | Tabbed navigation |
-| `CanarySidebar` | `import { CanarySidebar } from '@canary-ui/components'` | Side navigation |
-| `CanaryHeader` | `import { CanaryHeader } from '@canary-ui/components'` | Generic application header |
-| `CanaryPageHeader` | `import { CanaryPageHeader } from '@canary-ui/components'` | **Standard Canary page header with property selector, user profile, reservation status** |
-| `CanaryLogo` | `import { CanaryLogo } from '@canary-ui/components'` | Canary logo component |
+### Navigation (8 components + utilities)
+| Component | Description |
+|-----------|-------------|
+| `CanaryTabs` | Tabbed navigation with size/type enums |
+| `CanarySidebar` | Side navigation |
+| `CanaryHeader` | Generic application header |
+| `CanaryPageHeader` | **Standard Canary page header with property selector, user profile, reservation status** |
+| `CanaryLogo` | Canary logo component |
+| `CanaryOverflowMenu` | Three-dot action menu dropdown |
+| `CanaryProgressBar` | Step or continuous progress indicator |
+| `CanarySteps` | Multi-step flow indicator |
 
-### Feedback (3 components)
-| Component | Import | Description |
-|-----------|--------|-------------|
-| `CanaryAlert` | `import { CanaryAlert } from '@canary-ui/components'` | Inline alert messages |
-| `CanaryToast` | `import { CanaryToast } from '@canary-ui/components'` | Toast notifications |
-| `CanaryLoading` | `import { CanaryLoading } from '@canary-ui/components'` | Loading spinner |
+### Feedback (4 components)
+| Component | Description |
+|-----------|-------------|
+| `CanaryAlert` | Inline alert messages |
+| `CanaryToast` | Toast notifications |
+| `CanaryLoading` | Loading spinner |
+| `CanaryBadge` | Status indicator badge (urgent/info/warning) |
 
 ---
 
@@ -302,6 +320,408 @@ AlertType.SUCCESS  // Green success message
 AlertType.ERROR    // Red error message
 AlertType.WARNING  // Yellow warning message
 AlertType.INFO     // Blue info message
+```
+
+---
+
+## Production Component Catalog
+
+The prototype library implements a subset of the production Canary UI library (Vue). This table maps all 101 production components to their prototype status.
+
+### Alerts & Errors
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryBadge | **Implemented** | Status indicator badges |
+| CanaryChip | **Implemented** | Selectable/removable chips |
+| CanaryToast | **Implemented** | Toast notifications |
+
+### Buttons
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryButton | **Implemented** | Full-featured button |
+| CanaryAddToAppleWalletButton | Not Planned | Guest-facing payment |
+| CanaryAddToGoogleWalletButton | Not Planned | Guest-facing payment |
+| CanaryApplePayButton | Not Planned | Guest-facing payment |
+| CanaryGooglePayButton | Not Planned | Guest-facing payment |
+| CanaryPaymentRequestButton | Not Planned | Guest-facing payment |
+
+### Data Display
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryDraggable | **Implemented** | Via CanaryList isDraggable |
+| CanaryList | **Implemented** | List container |
+| CanaryListItem | **Implemented** | List item |
+| CanaryListLoader | Not Planned | Use CanaryLoading instead |
+| CanaryListLoaderForChat | Not Planned | Chat-specific |
+| CanaryTable | **Implemented** | Data table |
+| CanaryTag | **Implemented** | Status tags |
+| CanaryTooltip | **Implemented** | Hover tooltip |
+| CanaryTooltipIcon | **Implemented** | Info icon with tooltip |
+| CanaryTooltipPopup | Not Planned | Low-level tooltip primitive |
+| CanaryTimestamp | **Implemented** | Date/time display |
+| CanaryProfileImage | **Implemented** | User avatar with initials fallback |
+
+### Events
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryAuditLog | Not Planned | Admin audit log |
+| CanaryAuditLogText | Not Planned | Admin audit log text |
+| CanaryTimestamp | **Implemented** | In data-display category |
+
+### Features
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryMessageTemplateEditor | Not Planned | Complex messaging editor |
+| CanaryQuill | Not Planned | Rich text editor |
+| CanarySettingField | Not Planned | Use CanaryInput directly |
+| CanarySettingsCard | **Implemented** | Settings card with view/edit modes |
+| CanarySettingsCardLegacy | Not Planned | Legacy version |
+
+### Forms
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryAutocomplete | **Implemented** | Search-as-you-type input |
+| CanaryCalendarControl | **Implemented** | Via CanaryCalendar |
+| CanaryCalendarInput | **Implemented** | Via CanaryInputDate |
+| CanaryCheckbox | **Implemented** | Checkbox input |
+| CanaryCounter | **Implemented** | Numeric counter |
+| CanaryCreditCardInput | **Implemented** | Via CanaryInputCreditCard |
+| CanaryEditableField | Not Planned | Use CanaryInput with isReadonly |
+| CanaryEmojiPicker | Not Planned | Specialized picker |
+| CanaryExpandCheckbox | Not Planned | Use CanaryCheckbox + CanaryExpand |
+| CanaryForm | Not Planned | Use native form element |
+| CanaryFormLabel | **Implemented** | Form field label |
+| CanaryInput | **Implemented** | Text input |
+| CanaryInputCurrency | Not Planned | Use CanaryInput type=number |
+| CanaryInputDate | **Implemented** | Date picker |
+| CanaryInputMultiple | **Implemented** | Multi-value input |
+| CanaryInputPhone | **Implemented** | Phone input |
+| CanaryInputTime | Not Planned | Use CanaryInput type=time |
+| CanaryNote | **Implemented** | Inline callout |
+| CanaryRadio | **Implemented** | Radio button |
+| CanaryRadioGroup | **Implemented** | Radio group container |
+| CanaryRating | Not Planned | Star rating |
+| CanarySearch | **Implemented** | Via CanaryInputSearch |
+| CanarySelect | **Implemented** | Dropdown select |
+| CanarySelectCountry | Not Planned | Use CanarySelect with country data |
+| CanarySelectDaysOfWeek | Not Planned | Use CanarySelect |
+| CanarySignature | Not Planned | Signature capture |
+| CanaryTextArea | **Implemented** | Multi-line input |
+| CanaryValidationError | **Implemented** | Error message display |
+| CanaryValidationGroup | Not Planned | Use form-level validation |
+
+### Layout
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| AlertModal | Not Planned | Use CanaryModal |
+| CanaryCard | **Implemented** | Card container |
+| CanaryCarousel | Not Planned | Image carousel |
+| CanaryContainer | **Implemented** | Responsive container |
+| CanaryDialog | **Implemented** | Dialog overlay |
+| CanaryDivider | **Implemented** | Horizontal/vertical divider |
+| CanaryExpand | **Implemented** | Accordion/collapsible |
+| CanaryGroupedList | Not Planned | Use CanaryList with sections |
+| CanaryLayoutGridSimple | **Implemented** | Via CanaryGrid |
+| CanaryListTile | Not Planned | Use CanaryListItem |
+| CanaryListTileExpandable | Not Planned | Use CanaryListItem + CanaryExpand |
+| CanaryModal | **Implemented** | Modal overlay |
+| CanaryModalContainer | Not Planned | Low-level modal primitive |
+| CanaryScrollableContainer | Not Planned | Use CSS overflow |
+| CanarySectionContainer | Not Planned | Use CanaryContainer |
+| CanarySideSheet | **Implemented** | Slide-out side panel |
+| CanarySettingsCard | **Implemented** | In layout category |
+| ConfirmModal | Not Planned | Use CanaryModal with confirm pattern |
+| GdprModal | Not Planned | GDPR-specific |
+
+### Loading
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryLoading | **Implemented** | Loading spinner |
+
+### Media & Upload
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryHeroImage | Not Planned | Guest-facing hero |
+| CanaryImage | Not Planned | Use native img |
+| CanaryImageCarousel | Not Planned | Image gallery |
+| CanaryImageCropDialog | Not Planned | Image editing |
+| CanaryImageGroupManager | Not Planned | Admin image management |
+| CanaryImagePlaceholder | Not Planned | Use placeholder div |
+| CanaryImageViewer | Not Planned | Lightbox viewer |
+| CanaryProfileImage | **Implemented** | In data-display category |
+| CanaryUploadFile | Not Planned | File upload |
+
+### Navigation
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryHeader | **Implemented** | Generic header |
+| CanaryOverflowMenu | **Implemented** | Three-dot action menu |
+| CanaryProgressBar | **Implemented** | Progress indicator |
+| CanarySteps | **Implemented** | Multi-step indicator |
+| CanaryTab | **Implemented** | Via CanaryTabs |
+| CanaryTabs | **Implemented** | Tabbed navigation |
+
+### Previews
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryPhoneFrame | Not Planned | Mobile preview frame |
+| CanaryPreview | Not Planned | Preview container |
+| CanaryPreviewDesktop | Not Planned | Desktop preview |
+| CanaryPreviewMobile | Not Planned | Mobile preview |
+| CanaryPreviewPaneControls | Not Planned | Preview controls |
+
+### Root
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryScopedTheme | Not Planned | Vue-specific theming |
+
+### Routing
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryNestedRouterView | Not Planned | Vue Router specific |
+| CanaryRouterView | Not Planned | Vue Router specific |
+
+### Transitions
+| Production Component | Prototype Status | Notes |
+|---------------------|-----------------|-------|
+| CanaryPopTransition | Not Planned | Use framer-motion |
+| CanaryTransition | Not Planned | Use framer-motion |
+| CanaryTransitionBox | Not Planned | Use framer-motion |
+
+---
+
+## Production Enums Reference (Complete)
+
+These are all enums from the production library. Enums marked with **(Prototype)** are available for import. Others are documented for API awareness.
+
+### Button Enums (Prototype)
+```tsx
+ButtonType.PRIMARY | OUTLINED | SHADED | TEXT | ICON_PRIMARY | ICON_SECONDARY
+ButtonSize.TABLET | LARGE | NORMAL | COMPACT | TINY
+ButtonColor.NORMAL | HEADING_TEXT | DANGER | WARNING | SUCCESS | FONT | FONT_SECONDARY | WHITE
+IconPosition.LEFT | RIGHT | TOP
+```
+
+### Input Enums (Prototype)
+```tsx
+InputSize.TABLET | LARGE | NORMAL | COMPACT
+InputType.TEXT | EMAIL | PASSWORD | NUMBER | TEL | URL | SEARCH | DATE | TIME | DATETIME_LOCAL
+```
+
+### Card Enums (Prototype)
+```tsx
+CardPadding.DEFAULT | COMPACT | NONE
+CardBoxShadow.SMALL | MEDIUM | LARGE | NONE
+CardInnerSpacing.NONE | TINY | SMALL | DEFAULT
+```
+
+### List Enums (Prototype)
+```tsx
+ListStyle.STRIPES | DIVIDERS
+ListItemPadding.NORMAL | COMPACT
+ListItemAlignment.START | CENTER
+DraggableIconSize.DEFAULT | LARGE
+```
+
+### Tab Enums (Prototype)
+```tsx
+TabSize.LARGE | NORMAL | COMPACT
+TabType.ROUND | PRIMARY | TEXT
+```
+
+### Tag Enums (Prototype)
+```tsx
+TagColor.DEFAULT | SUCCESS | WARNING | ERROR | INFO
+TagVariant.FILLED | OUTLINE
+TagSize.MEDIUM | COMPACT
+```
+
+### Chip Enums (Prototype)
+```tsx
+ChipType.SELECTABLE | REMOVABLE
+```
+
+### Badge Enums (Prototype)
+```tsx
+BadgeType.URGENT | INFO | WARNING
+BadgeSize.NORMAL | LARGE
+```
+
+### Dialog Enums (Prototype)
+```tsx
+DialogStretch.COMPACT | NORMAL | FILL
+DialogCloseButtonSize.DEFAULT | LARGE | TABLET
+```
+
+### Divider Enums (Prototype)
+```tsx
+DividerDirection.HORIZONTAL | VERTICAL
+```
+
+### Note Enums (Prototype)
+```tsx
+NoteColor.OK | WARNING | DANGER
+```
+
+### Tooltip Enums (Prototype)
+```tsx
+TooltipPosition.AUTO | TOP | BOTTOM | LEFT | RIGHT
+TooltipIconColor.PRIMARY | SECONDARY | DANGER
+```
+
+### Timestamp Enums (Prototype)
+```tsx
+TimestampFormat.DATETIME | DATETIME_ZONE | RELATIVE_TIME
+TimestampColor.PRIMARY | SECONDARY
+```
+
+### Profile Image Enums (Prototype)
+```tsx
+ProfileImageSize.LARGE | NORMAL | MEDIUM | SMALL | TINY
+```
+
+### Settings Card Enums (Prototype)
+```tsx
+SettingsCardState.VIEW | NEW | EDIT | DISABLED
+```
+
+### Progress/Steps Enums (Prototype)
+```tsx
+ProgressBarVariant.STEPS | CONTINUOUS
+StepsOrientation.HORIZONTAL | VERTICAL
+```
+
+### Sidebar Enums (Prototype)
+```tsx
+SidebarVariant.MAIN | SETTINGS | CUSTOM
+NavigationItemState.DEFAULT | SELECTED | FOCUS | ON_PRESS | DISABLED
+```
+
+### Form Label Enums (Prototype)
+```tsx
+LabelSize.NORMAL | LARGE | TABLET
+```
+
+### Production-Only Enums (Not in Prototype)
+```
+CheckboxColor.NORMAL | HEADER
+CheckboxType.BOX | SWITCH
+ConfirmType.NORMAL | DANGER
+ContainerBoxShadow.SMALL | MEDIUM | LARGE | NONE
+ContainerInnerSpacing.NONE | TINY | SMALL | DEFAULT
+ContainerPadding.DEFAULT | COMPACT | NONE
+GridItemPlacement.TOP | BOTTOM | CENTER | FILL
+GridItemSize.EQUAL | MIN_CONTENT | MAX_CONTENT
+LoadingColor.TRANSPARENT | FONT_COLOR_SECONDARY
+MobileDialogStretch.FIT_CONTENT | FULL_SCREEN
+MobileDialogStyle.DEFAULT | BOTTOM_DRAWER
+ScrollDirection.TOP_TO_BOTTOM | BOTTOM_TO_TOP
+SectionContainerType.PRIMARY | WARNING | ERROR | LIGHT | BLACK | GRAY
+SelectPlacement.AUTO | AUTO_START | ... | LEFT_END (same as TooltipPosition)
+TileSize.LARGE | NORMAL
+TimestampPosition.BOTTOM
+TransitionStyle.NONE | FADE | POP | SLIDE_IN | ...
+CanaryPreviewDisplayMode.DESKTOP | MOBILE | MOBILE_FRAMELESS
+AlertType (production): ERROR | NORMAL | NOOP
+```
+
+---
+
+## Production Design Token Cross-Reference
+
+The prototype uses TypeScript design tokens that approximate the production SCSS/CSS variables.
+
+### Spacing (Production → Prototype)
+| Production SCSS | Value | Prototype Token |
+|----------------|-------|-----------------|
+| `$space-xsmall` | `4px` | `spacing[1]` |
+| `$space-small` | `8px` | `spacing[2]` |
+| `$space-medium` | `16px` | `spacing[4]` |
+| `$space-large` | `24px` | `spacing[6]` |
+
+### Border Radius
+| Production SCSS | Value | Prototype Token |
+|----------------|-------|-----------------|
+| `$border-radius-sharp` | `2px` | `borderRadius.sm` |
+| `$border-radius-default` | `4px` | `borderRadius.default` |
+| `$border-radius-round` | `8px` | `borderRadius.lg` |
+| `$border-radius-very-high` | `999999px` | `borderRadius.full` |
+
+### Shadows
+| Production SCSS | Value | Prototype Token |
+|----------------|-------|-----------------|
+| `$box-shadow-small` | `0 2px 4px rgb(0 0 0 / 6%)` | `shadows.sm` |
+| `$box-shadow-default` | `0 8px 16px rgb(0 0 0 / 16%)` | `shadows.default` |
+| `$box-shadow-large` | `0 12px 32px rgb(0 0 0 / 12%)` | `shadows.lg` |
+
+### Z-Index
+| Production SCSS | Value | Prototype Token |
+|----------------|-------|-----------------|
+| `$z-index-modal` | `50` | `zIndex.modal` |
+| `$z-index-popover` | `51` | `zIndex.popover` |
+| `$z-index-toast` | `100` | `zIndex.toast` |
+
+### Layout
+| Production SCSS | Value | Prototype Token |
+|----------------|-------|-----------------|
+| `$header-height` | `75px` | `dimensions.headerHeight` (56px) |
+| `$left-nav-width` | `180px` | Sidebar width (180px) |
+
+### Color Differences (Intentional Prototype Simplifications)
+| Color | Production | Prototype | Note |
+|-------|-----------|-----------|------|
+| Grayscale 1 | `#2d2d2d` | `#000000` | Prototype uses pure black |
+| Grayscale 2 | `#414141` | `#333333` | Slightly different |
+| Light Green 1 | `#22d39a` | `#008040` | Prototype uses dark green |
+| Purple 1 | `#9b51e0` | `#3304AD` | Different purple base |
+
+---
+
+## Common Production Prop Patterns
+
+These patterns are consistent across production form components. The prototype implements most of these.
+
+### Standard Form Props
+All production form inputs share:
+```tsx
+{
+  value / modelValue   // Current value
+  label               // Field label
+  placeholder         // Placeholder text
+  size                // InputSize enum
+  isDisabled          // Prevents interaction
+  isReadonly          // Read-only display
+  isRequired          // Required field indicator
+  rules               // ValidationRule[] (production only)
+  error               // Error message string (prototype equivalent of rules)
+  helperText          // Helper text below input
+}
+```
+
+### Standard State Props
+Used across many component types:
+```tsx
+{
+  isDisabled          // 23 components use this
+  isLoading           // 8 components
+  isExpanded          // 7 components
+  isSelected          // Used in lists, chips
+  isClickable         // Used in list items
+  isReadonly          // 13 components (forms)
+  isRequired          // 11 components (forms)
+  hasError            // Used in lists
+}
+```
+
+### Standard Style Props
+```tsx
+{
+  size                // ButtonSize or InputSize
+  color               // Component-specific color enum
+  type                // Component-specific type/variant enum
+  icon                // ReactNode (icon element)
+  className           // Additional CSS classes
+}
 ```
 
 ---
@@ -1856,6 +2276,8 @@ const abovePropertySections = [
 
 ## Version
 
-**Current Version:** v0.5.1
+**Current Version:** v0.6.0
 
-Last updated: March 2026
+Last updated: April 2026
+
+Production reference: 101 components documented, aligned with `canary-ui-reference.md` (2026-04-09)

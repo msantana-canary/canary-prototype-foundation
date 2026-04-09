@@ -32,3 +32,17 @@ export interface BaseFormProps {
   size?: InputSize;
   className?: string;
 }
+
+// Form Label enums (aligned with production)
+export enum LabelSize {
+  NORMAL = "normal",
+  LARGE = "large",
+  TABLET = "tablet",
+}
+
+// Note enums (aligned with production)
+export enum NoteColor {
+  OK = "ok",
+  WARNING = "warning",
+  DANGER = "danger",
+}

@@ -1,5 +1,6 @@
 import { ReactNode, forwardRef } from "react";
 import { colors } from "../design-tokens";
+import { ListItemPadding, ListItemAlignment } from "./types";
 import clsx from "clsx";
 import Icon from "@mdi/react";
 import { mdiDrag } from "@mdi/js";
@@ -26,7 +27,9 @@ export interface CanaryListItemProps {
   // Styling props
   className?: string;
   padding?: "normal" | "compact";
+  outerPadding?: ListItemPadding;
   alignment?: "start" | "center";
+  itemAlignment?: ListItemAlignment;
   isSelected?: boolean;
   backgroundColor?: string;
   hoverColor?: string;
@@ -55,7 +58,9 @@ const CanaryListItem = forwardRef<HTMLLIElement, CanaryListItemProps>(
       isDraggable = false,
       className = "",
       padding = "normal",
+      outerPadding,
       alignment = "center",
+      itemAlignment,
       isSelected = false,
       backgroundColor,
       hoverColor,
@@ -67,15 +72,19 @@ const CanaryListItem = forwardRef<HTMLLIElement, CanaryListItemProps>(
     },
     ref
   ) => {
-    const paddingClasses = {
+    const paddingClasses: Record<string, string> = {
       normal: "px-4 py-4",
       compact: "px-4 py-2",
     };
 
-    const alignmentClasses = {
+    const alignmentClasses: Record<string, string> = {
       center: "items-center",
       start: "items-start",
     };
+
+    // Enum props override legacy string props
+    const resolvedPadding = outerPadding || padding;
+    const resolvedAlignment = itemAlignment || alignment;
 
     // Determine background color
     const bgColor = isSelected
@@ -159,8 +168,8 @@ const CanaryListItem = forwardRef<HTMLLIElement, CanaryListItemProps>(
           target={href ? target : undefined}
           className={clsx(
             "flex flex-row w-full gap-4",
-            paddingClasses[padding],
-            alignmentClasses[alignment],
+            paddingClasses[resolvedPadding] || paddingClasses.normal,
+            alignmentClasses[resolvedAlignment] || alignmentClasses.center,
             isClickable && "cursor-pointer",
             isSelected && "hover:opacity-90"
           )}
