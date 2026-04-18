@@ -6827,143 +6827,37 @@ function CanarySidebar({
 
 // components/canary-ui/navigation/CanaryPageHeader.tsx
 import clsx45 from "clsx";
-import Icon13 from "@mdi/react";
-import { mdiChevronDown as mdiChevronDown3, mdiCheckCircleOutline as mdiCheckCircleOutline2 } from "@mdi/js";
 import { jsx as jsx50, jsxs as jsxs42 } from "react/jsx-runtime";
 function CanaryPageHeader({
-  propertyName,
-  onPropertyClick,
-  userProfile,
-  onUserProfileClick,
-  reservationStatus,
-  onReservationStatusClick,
+  title,
   actions,
   className
 }) {
   return /* @__PURE__ */ jsxs42(
-    "header",
+    "div",
     {
       className: clsx45(
-        "w-full bg-white border-b flex items-center justify-between px-6 py-2 shrink-0",
+        "w-full bg-white border-b flex items-center justify-between shrink-0",
         className
       ),
       style: {
-        height: dimensions.headerHeight,
-        borderColor: colors.colorBlack6
+        borderColor: colors.colorBlack6,
+        padding: "16px 24px"
       },
       children: [
-        /* @__PURE__ */ jsxs42(
-          "button",
+        /* @__PURE__ */ jsx50("div", { className: "flex items-center", style: { gap: "16px" }, children: /* @__PURE__ */ jsx50(
+          "h2",
           {
-            onClick: onPropertyClick,
-            className: "flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-50 transition-colors",
-            style: { cursor: onPropertyClick ? "pointer" : "default" },
-            children: [
-              /* @__PURE__ */ jsx50(
-                "span",
-                {
-                  className: "text-[14px] font-medium",
-                  style: { color: colors.colorBlack1 },
-                  children: propertyName
-                }
-              ),
-              /* @__PURE__ */ jsx50(
-                Icon13,
-                {
-                  path: mdiChevronDown3,
-                  size: 0.85,
-                  color: colors.colorBlueDark1
-                }
-              )
-            ]
+            className: "font-medium whitespace-nowrap",
+            style: {
+              fontSize: "18px",
+              lineHeight: "28px",
+              color: colors.colorBlack1
+            },
+            children: title
           }
-        ),
-        /* @__PURE__ */ jsxs42("div", { className: "flex items-center gap-2", children: [
-          actions,
-          reservationStatus && /* @__PURE__ */ jsxs42(
-            "button",
-            {
-              onClick: onReservationStatusClick,
-              className: "flex items-center gap-2 rounded-full pl-2 pr-4 py-1 transition-opacity hover:opacity-80",
-              style: {
-                backgroundColor: reservationStatus.isConnected ? colors.colorLightGreen5 : colors.colorBlack7,
-                cursor: onReservationStatusClick ? "pointer" : "default"
-              },
-              children: [
-                /* @__PURE__ */ jsx50(
-                  Icon13,
-                  {
-                    path: mdiCheckCircleOutline2,
-                    size: 1,
-                    color: reservationStatus.isConnected ? colors.colorLightGreen1 : colors.colorBlack4,
-                    style: { opacity: 0.5 }
-                  }
-                ),
-                /* @__PURE__ */ jsx50(
-                  "span",
-                  {
-                    className: "text-[14px]",
-                    style: {
-                      color: reservationStatus.isConnected ? colors.colorBlack1 : colors.colorBlack3
-                    },
-                    children: reservationStatus.label
-                  }
-                )
-              ]
-            }
-          ),
-          userProfile && /* @__PURE__ */ jsxs42(
-            "button",
-            {
-              onClick: onUserProfileClick,
-              className: "flex items-center gap-2 rounded hover:bg-gray-50 transition-colors px-1 py-1",
-              style: { cursor: onUserProfileClick ? "pointer" : "default" },
-              children: [
-                /* @__PURE__ */ jsx50("div", { className: "w-8 h-8 rounded-full overflow-hidden bg-gray-200 shrink-0", children: userProfile.avatarUrl ? /* @__PURE__ */ jsx50(
-                  "img",
-                  {
-                    src: userProfile.avatarUrl,
-                    alt: userProfile.avatarAlt || userProfile.name,
-                    className: "w-full h-full object-cover"
-                  }
-                ) : /* @__PURE__ */ jsx50(
-                  "div",
-                  {
-                    className: "w-full h-full flex items-center justify-center text-sm font-medium",
-                    style: { color: colors.colorBlack3, backgroundColor: colors.colorBlack7 },
-                    children: userProfile.name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2)
-                  }
-                ) }),
-                /* @__PURE__ */ jsxs42("div", { className: "flex flex-col items-start leading-tight", children: [
-                  /* @__PURE__ */ jsx50(
-                    "span",
-                    {
-                      className: "text-[12px] font-medium",
-                      style: { color: colors.colorBlack1 },
-                      children: userProfile.name
-                    }
-                  ),
-                  /* @__PURE__ */ jsx50(
-                    "span",
-                    {
-                      className: "text-[10px] uppercase",
-                      style: { color: colors.colorBlack4 },
-                      children: userProfile.role
-                    }
-                  )
-                ] }),
-                /* @__PURE__ */ jsx50(
-                  Icon13,
-                  {
-                    path: mdiChevronDown3,
-                    size: 0.85,
-                    color: colors.colorBlack1
-                  }
-                )
-              ]
-            }
-          )
-        ] })
+        ) }),
+        actions && /* @__PURE__ */ jsx50("div", { className: "flex items-center", style: { gap: "8px" }, children: actions })
       ]
     }
   );
@@ -6988,12 +6882,7 @@ function CanaryAppShell({
   sidebarBackButton,
   hideSidebar = false,
   // Header
-  propertyName = "Property Name",
-  onPropertyClick,
-  userProfile,
-  onUserProfileClick,
-  reservationStatus,
-  onReservationStatusClick,
+  pageTitle,
   headerActions,
   hideHeader = false,
   // Content
@@ -7016,15 +6905,10 @@ function CanaryAppShell({
       }
     ),
     /* @__PURE__ */ jsxs43("div", { className: "flex flex-col flex-1 min-w-0 overflow-hidden", children: [
-      !hideHeader && /* @__PURE__ */ jsx51(
+      !hideHeader && pageTitle && /* @__PURE__ */ jsx51(
         CanaryPageHeader,
         {
-          propertyName,
-          onPropertyClick,
-          userProfile,
-          onUserProfileClick,
-          reservationStatus,
-          onReservationStatusClick,
+          title: pageTitle,
           actions: headerActions
         }
       ),
@@ -7566,7 +7450,7 @@ var CanarySettingsCard_default = CanarySettingsCard;
 // components/canary-ui/navigation/CanaryTabs.tsx
 import { useState as useState21 } from "react";
 import clsx52 from "clsx";
-import Icon14 from "@mdi/react";
+import Icon13 from "@mdi/react";
 import { mdiCheckboxMarked as mdiCheckboxMarked2, mdiCheckboxBlankOutline as mdiCheckboxBlankOutline2 } from "@mdi/js";
 import { jsx as jsx57, jsxs as jsxs49 } from "react/jsx-runtime";
 var tabTypeToVariant = {
@@ -7761,7 +7645,7 @@ function CanaryTabs({
                           }
                         },
                         children: /* @__PURE__ */ jsx57(
-                          Icon14,
+                          Icon13,
                           {
                             path: tab.checked ? mdiCheckboxMarked2 : mdiCheckboxBlankOutline2,
                             size: 1,
@@ -8242,7 +8126,7 @@ var CanarySteps = ({
 var CanarySteps_default = CanarySteps;
 
 // components/canary-ui/navigation/sidebar-tabs.tsx
-import Icon15 from "@mdi/react";
+import Icon14 from "@mdi/react";
 import {
   mdiCashMultiple as mdiCashMultiple3,
   mdiLogin as mdiLogin3,
@@ -8282,164 +8166,164 @@ var sidebarTabs = {
   upsells: {
     id: "upsells",
     label: "Upsells",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiCashMultiple3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiCashMultiple3, size: 1 })
   },
   checkIn: {
     id: "check-in",
     label: "Check-in",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiLogin3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiLogin3, size: 1 })
   },
   checkout: {
     id: "checkout",
     label: "Checkout",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiLogout3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiLogout3, size: 1 })
   },
   messages: {
     id: "messages",
     label: "Messages",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiMessageProcessingOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiMessageProcessingOutline3, size: 1 })
   },
   calls: {
     id: "calls",
     label: "Calls",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiPhoneOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiPhoneOutline3, size: 1 })
   },
   digitalTips: {
     id: "digital-tips",
     label: "Digital Tips",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiCurrencyUsd3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiCurrencyUsd3, size: 1 })
   },
   authorizations: {
     id: "authorizations",
     label: "Authorizations",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiShieldCheckOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiShieldCheckOutline3, size: 1 })
   },
   contracts: {
     id: "contracts",
     label: "Contracts",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiFileSign2, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiFileSign2, size: 1 })
   },
   idVerification: {
     id: "id-verification",
     label: "ID Verification",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiAccountCheckOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiAccountCheckOutline3, size: 1 })
   },
   clientsOnFile: {
     id: "clients-on-file",
     label: "Clients on File",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiAccountBoxOutline2, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiAccountBoxOutline2, size: 1 })
   },
   amenities: {
     id: "amenities",
     label: "Amenities",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiStoreOutline2, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiStoreOutline2, size: 1 })
   },
   paymentLinks: {
     id: "payment-links",
     label: "Payment Links",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiCreditCardOutline5, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiCreditCardOutline5, size: 1 })
   },
   settings: {
     id: "settings",
     label: "Settings",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiCogOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiCogOutline3, size: 1 })
   },
   // Settings Tabs
   propertyInfo: {
     id: "property-info",
     label: "Property Info",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiHomeOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiHomeOutline3, size: 1 })
   },
   branding: {
     id: "branding",
     label: "Branding",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiPaletteOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiPaletteOutline3, size: 1 })
   },
   billingPayment: {
     id: "billing-payment",
     label: "Billing & Payment",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiCreditCardOutline5, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiCreditCardOutline5, size: 1 })
   },
   staffMembers: {
     id: "staff-members",
     label: "Staff Members",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiAccountGroupOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiAccountGroupOutline3, size: 1 })
   },
   security: {
     id: "security",
     label: "Security",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiShieldAccountOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiShieldAccountOutline3, size: 1 })
   },
   pms: {
     id: "pms",
     label: "PMS",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiPuzzleOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiPuzzleOutline3, size: 1 })
   },
   devices: {
     id: "devices",
     label: "Devices",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiTabletCellphone3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiTabletCellphone3, size: 1 })
   },
   compendium: {
     id: "compendium",
     label: "Compendium",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiNewspaperVariantOutline3, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiNewspaperVariantOutline3, size: 1 })
   },
   areaInfo: {
     id: "area-info",
     label: "Area Info",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiMapMarker2, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiMapMarker2, size: 1 })
   },
   chat: {
     id: "chat",
     label: "Chat",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiChatOutline2, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiChatOutline2, size: 1 })
   },
   // Custom/Above-Property Tabs
   insights: {
     id: "insights",
     label: "Insights",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiChartLine2, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiChartLine2, size: 1 })
   },
   properties: {
     id: "properties",
     label: "Properties",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiDomain, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiDomain, size: 1 })
   },
   analytics: {
     id: "analytics",
     label: "Analytics",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiChartBar, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiChartBar, size: 1 })
   },
   surveys: {
     id: "surveys",
     label: "Surveys",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiPoll, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiPoll, size: 1 })
   },
   dashboard: {
     id: "dashboard",
     label: "Dashboard",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiViewDashboard, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiViewDashboard, size: 1 })
   },
   tasks: {
     id: "tasks",
     label: "Tasks",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiClipboardList, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiClipboardList, size: 1 })
   },
   calendar: {
     id: "calendar",
     label: "Calendar",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiCalendar, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiCalendar, size: 1 })
   },
   reports: {
     id: "reports",
     label: "Reports",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiNotebook, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiNotebook, size: 1 })
   },
   performance: {
     id: "performance",
     label: "Performance",
-    icon: /* @__PURE__ */ jsx62(Icon15, { path: mdiTrendingUp2, size: 1 })
+    icon: /* @__PURE__ */ jsx62(Icon14, { path: mdiTrendingUp2, size: 1 })
   }
 };
 var createSidebarTab = (id, label, icon, options) => __spreadValues({

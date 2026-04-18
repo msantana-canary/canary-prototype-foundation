@@ -1,10 +1,7 @@
 import { ReactNode } from "react";
 import clsx from "clsx";
 import CanarySidebar, { SidebarSection } from "../navigation/CanarySidebar";
-import CanaryPageHeader, {
-  UserProfile,
-  ReservationStatus,
-} from "../navigation/CanaryPageHeader";
+import CanaryPageHeader from "../navigation/CanaryPageHeader";
 import { SidebarVariant } from "../navigation/types";
 import { colors } from "../design-tokens";
 
@@ -29,19 +26,9 @@ export interface CanaryAppShellProps {
   hideSidebar?: boolean;
 
   // ===== Page Header Props =====
-  /** Property/Hotel name */
-  propertyName?: string;
-  /** Called when property selector is clicked */
-  onPropertyClick?: () => void;
-  /** User profile information */
-  userProfile?: UserProfile;
-  /** Called when user profile is clicked */
-  onUserProfileClick?: () => void;
-  /** Reservation/PMS connection status */
-  reservationStatus?: ReservationStatus;
-  /** Called when reservation status is clicked */
-  onReservationStatusClick?: () => void;
-  /** Additional header action items */
+  /** Page title shown in the content header */
+  pageTitle?: string;
+  /** Action buttons/content for the right side of the page header */
   headerActions?: ReactNode;
   /** Hide the page header entirely */
   hideHeader?: boolean;
@@ -95,12 +82,7 @@ export default function CanaryAppShell({
   sidebarBackButton,
   hideSidebar = false,
   // Header
-  propertyName = "Property Name",
-  onPropertyClick,
-  userProfile,
-  onUserProfileClick,
-  reservationStatus,
-  onReservationStatusClick,
+  pageTitle,
   headerActions,
   hideHeader = false,
   // Content
@@ -127,14 +109,9 @@ export default function CanaryAppShell({
       {/* Main Area (Header + Content) */}
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
         {/* Page Header */}
-        {!hideHeader && (
+        {!hideHeader && pageTitle && (
           <CanaryPageHeader
-            propertyName={propertyName}
-            onPropertyClick={onPropertyClick}
-            userProfile={userProfile}
-            onUserProfileClick={onUserProfileClick}
-            reservationStatus={reservationStatus}
-            onReservationStatusClick={onReservationStatusClick}
+            title={pageTitle}
             actions={headerActions}
           />
         )}

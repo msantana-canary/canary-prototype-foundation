@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.1
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.4
 ```
 
 2. **Import styles** in root layout:
@@ -123,7 +123,7 @@ Use this section to quickly find the right component for your use case. Examples
 ### "I need the user to enter text"
 - **Single-line text** → `CanaryInput` (bordered) or `CanaryInputUnderline` (floating label). Used in production for: hotel names, guest names, email addresses, confirmation codes, cohort labels.
 - **Multi-line text** → `CanaryTextArea` (bordered) or `CanaryTextAreaUnderline` (floating label). Use `autoExpand` for growing text areas. Used for: internal notes on reservations, broadcast messages, tip customization copy, cohort notes.
-- **Search field** → `CanaryInputSearch` — has a built-in search icon. Don't use `CanaryInput` with a manual icon addon. Used for: reservation search, check-in/check-out dashboards, cohort hotel filtering. Typically connected to server-side search with debounced queries.
+- **Search field** → `CanaryInputSearch` — has a built-in search icon. Don't use `CanaryInput` with `type={InputType.SEARCH}` or a manual icon addon. To make it stretch in a flex toolbar, wrap it: `<div style={{ flex: '1 1 0', minWidth: 0 }}><CanaryInputSearch /></div>`. See **Input Width in Flex Layouts** section for details.
 - **Password** → `CanaryInputPassword` — has built-in show/hide toggle. Don't use `CanaryInput` with `InputType.PASSWORD`. Used for: password creation/reset flows (with confirmation field), PMS credential setup (Opera, Synxis), session re-authentication.
 - **Phone number** → `CanaryInputPhone` — has country code selector. Don't build a custom phone input. Used for: wallet login (phone → OTP), guest check-in contact info, authorization client details, digital tip wallet user setup.
 - **Credit card** → `CanaryInputCreditCard` — has card type detection and formatting. Don't use a plain text input. Used for: authorization forms, payment collection during check-in, e-folio charges.
@@ -2120,6 +2120,71 @@ Chip-based input for entering multiple values (emails, tags, keywords). Press En
 
 ---
 
+## Input Width in Flex Layouts
+
+### The problem
+
+`CanaryInput` has an internal fixed width and does **not** stretch to fill available space in a flex container. Applying `className="w-full"` or `flex-1` directly to `CanaryInput` has no effect because the fixed width is set internally on the component.
+
+```tsx
+// ❌ This does NOT work — CanaryInput ignores flex-1 and w-full
+<div className="flex gap-2">
+  <CanaryInput className="flex-1" placeholder="Search..." />
+  <CanarySelect options={options} />
+</div>
+```
+
+### Use CanaryInputSearch for search bars
+
+Never use `CanaryInput` with `type={InputType.SEARCH}` for a search bar. Use `CanaryInputSearch`, which has the built-in search icon and is designed for this purpose.
+
+```tsx
+// ❌ Wrong
+<CanaryInput type={InputType.SEARCH} placeholder="Search..." />
+
+// ✅ Correct
+<CanaryInputSearch placeholder="Search..." />
+```
+
+### The correct wrapper pattern
+
+Wrap the input in a `div` with `style={{ flex: '1 1 0', minWidth: 0 }}` to make it stretch correctly alongside fixed-width siblings:
+
+```tsx
+// ✅ Stretching search bar next to fixed-width selects
+<div className="flex gap-2">
+  <div style={{ flex: '1 1 0', minWidth: 0 }}>
+    <CanaryInputSearch placeholder="Search reservations..." onChange={setQuery} />
+  </div>
+  <CanarySelect options={statusOptions} placeholder="Status" />
+  <CanarySelect options={dateOptions} placeholder="Date range" />
+</div>
+```
+
+**Why `minWidth: 0`?** Flex items default to `min-width: auto`, which means they refuse to shrink below their content size. Setting `minWidth: 0` removes that floor, so the wrapper can compress correctly when fixed-width siblings are present. Without it, the input overflows or pushes siblings out of the row.
+
+### Full toolbar example
+
+```tsx
+import { CanaryInputSearch, CanarySelect, CanaryButton, ButtonType } from '@canary-ui/components';
+
+<div className="flex gap-2 items-center p-4 border-b">
+  {/* Stretches to fill remaining space */}
+  <div style={{ flex: '1 1 0', minWidth: 0 }}>
+    <CanaryInputSearch placeholder="Search guests..." onChange={setQuery} value={query} />
+  </div>
+
+  {/* Fixed-width selects */}
+  <CanarySelect options={statusOptions} placeholder="Status" onChange={setStatus} />
+  <CanarySelect options={propertyOptions} placeholder="Property" onChange={setProperty} />
+
+  {/* Fixed-width button */}
+  <CanaryButton type={ButtonType.PRIMARY}>New Reservation</CanaryButton>
+</div>
+```
+
+---
+
 ## Common Patterns
 
 ### Full Page Layout with Sidebar
@@ -2248,6 +2313,340 @@ const abovePropertySections = [
   sections={abovePropertySections}
   title="Corporate Dashboard"
 />
+```
+
+---
+
+## Page Patterns
+
+These are the full-page layout patterns used across the Canary product. When a user asks you to build a screen, match it to one of these patterns first, then compose it from the listed components.
+
+---
+
+### Data Table
+**Use when:** Displaying a list of records with search, filters, and bulk actions. The primary pattern for index pages (reservations, guests, contracts, upsells, charges).
+
+**Layout:** `CanaryAppShell` → `CanaryPageHeader` (title + primary action) → search bar + filter dropdowns → `CanaryTabs` (optional status filters) → `CanaryTable`
+
+**Key components:** `CanaryTable`, `CanaryInputSearch`, `CanarySelect`, `CanaryTabs`, `CanaryButton`, `CanaryTag`
+
+```tsx
+<CanaryAppShell sidebarVariant={SidebarVariant.MAIN} ...>
+  <CanaryPageHeader title="Reservations" actions={<CanaryButton>New Reservation</CanaryButton>} />
+  <CanaryContainer>
+    <div className="flex gap-2 mb-4">
+      <CanaryInputSearch placeholder="Search..." />
+      <CanarySelect options={statusOptions} placeholder="Status" />
+    </div>
+    <CanaryTabs tabs={["All", "Arriving", "Departing", "In-House"]} />
+    <CanaryTable columns={columns} data={data} />
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Split View
+**Use when:** Selecting an item from a list reveals its detail in an adjacent panel, without full navigation. Used for check-in queues, messaging, task lists.
+
+**Layout:** `CanaryAppShell` → `CanaryPageHeader` → left list panel (search + item rows with avatar/name/meta) + right detail panel (cards or thread view)
+
+**Key components:** `CanaryInputSearch`, `CanaryCard`, `CanaryList`, `CanaryListItem`, `CanaryTag`, `CanaryButton`
+
+```tsx
+<CanaryAppShell ...>
+  <CanaryPageHeader title="Check-In" />
+  <CanaryContainer>
+    <div className="flex gap-4">
+      <div className="w-80 shrink-0">
+        <CanaryInputSearch placeholder="Search guests..." className="mb-3" />
+        <CanaryList>{guestItems.map(g => <CanaryListItem key={g.id} {...g} />)}</CanaryList>
+      </div>
+      <div className="flex-1">
+        {selectedGuest && <GuestDetailCards guest={selectedGuest} />}
+      </div>
+    </div>
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Tabbed Content
+**Use when:** A single entity has multiple content categories that shouldn't all be visible at once. Used for reservation detail, guest profile, property dashboard.
+
+**Layout:** `CanaryAppShell` → `CanaryPageHeader` (title + actions) → `CanaryTabs` pinned below header → tab content area (cards, forms, or tables depending on the tab)
+
+**Key components:** `CanaryTabs`, `CanaryCard`, `CanaryButton`, `CanaryPageHeader`
+
+```tsx
+<CanaryAppShell ...>
+  <CanaryPageHeader title="Reservation #12345" actions={<CanaryButton>Check In</CanaryButton>} />
+  <CanaryContainer>
+    <CanaryTabs
+      tabs={["Overview", "Charges", "Messages", "Documents"]}
+      activeTab={activeTab}
+      onChange={setActiveTab}
+    />
+    {activeTab === "Overview" && <OverviewCards />}
+    {activeTab === "Charges" && <ChargesTable />}
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Settings
+**Use when:** Configuring options for a product area. Uses the settings sidebar variant (wider, with section grouping and a back-to-main link).
+
+**Layout:** `CanaryAppShell` with `SidebarVariant.SETTINGS` → `CanaryPageHeader` (title only, no primary action) → stacked `CanaryCard` sections each with a title, field rows (label + input), and a save button at the bottom right
+
+**Key components:** `CanaryCard`, `CanaryInput`, `CanarySelect`, `CanarySwitch`, `CanaryButton`
+
+```tsx
+<CanaryAppShell sidebarVariant={SidebarVariant.SETTINGS} ...>
+  <CanaryPageHeader title="Upsell Settings" />
+  <CanaryContainer>
+    <CanaryCard title="General">
+      <CanaryInput label="Display name" />
+      <CanarySelect label="Default currency" options={currencyOptions} />
+    </CanaryCard>
+    <CanaryCard title="Notifications">
+      <CanarySwitch label="Email notifications" />
+      <CanarySwitch label="SMS notifications" />
+    </CanaryCard>
+    <div className="flex justify-end mt-4">
+      <CanaryButton type={ButtonType.PRIMARY}>Save</CanaryButton>
+    </div>
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Detail View
+**Use when:** Displaying a single record with read/edit fields alongside metadata sidecards. Used for contract detail, upsell detail, payment detail.
+
+**Layout:** `CanaryAppShell` → `CanaryPageHeader` (back arrow + record name + action buttons) → two-column: large main card (2/3) on left with labeled field rows + action buttons; one or two narrower info cards (1/3) on right
+
+**Key components:** `CanaryCard`, `CanaryButton`, `CanaryTag`, `CanaryPageHeader`
+
+```tsx
+<CanaryAppShell ...>
+  <CanaryPageHeader title="Contract #8821" showBack onBack={() => router.back()}
+    actions={<>
+      <CanaryButton color={ButtonColor.SECONDARY}>Edit</CanaryButton>
+      <CanaryButton>Send</CanaryButton>
+    </>}
+  />
+  <CanaryContainer>
+    <div className="flex gap-4">
+      <div className="flex-1">
+        <CanaryCard title="Contract Details">
+          {fields.map(f => <FieldRow key={f.label} label={f.label} value={f.value} />)}
+          <div className="flex gap-2 mt-4">
+            <CanaryButton type={ButtonType.PRIMARY}>Approve</CanaryButton>
+            <CanaryButton color={ButtonColor.SECONDARY}>Decline</CanaryButton>
+          </div>
+        </CanaryCard>
+      </div>
+      <div className="w-64 shrink-0 flex flex-col gap-4">
+        <CanaryCard title="Guest"><GuestSummary /></CanaryCard>
+        <CanaryCard title="Reservation"><ReservationSummary /></CanaryCard>
+      </div>
+    </div>
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Form Builder
+**Use when:** Building rule-based or condition-based configurations. Used for guest segment builder, automation triggers, eligibility rules.
+
+**Layout:** `CanaryAppShell` with `SidebarVariant.SETTINGS` → `CanaryPageHeader` (back arrow + title + Save button) → single centered `CanaryCard` containing stacked rule sections; each rule has a row of `CanarySelect` dropdowns + a `CanaryInputMultiple` for values; rules separated by an "AND" connector badge
+
+**Key components:** `CanaryCard`, `CanarySelect`, `CanaryInputMultiple`, `CanaryButton`, `CanaryTag`
+
+```tsx
+<CanaryAppShell sidebarVariant={SidebarVariant.SETTINGS} ...>
+  <CanaryPageHeader title="Edit Segment" showBack onBack={() => router.back()}
+    actions={<CanaryButton type={ButtonType.PRIMARY}>Save</CanaryButton>}
+  />
+  <CanaryContainer>
+    <CanaryCard title="Segment Rules">
+      {rules.map((rule, i) => (
+        <div key={i}>
+          <div className="flex gap-2 mb-2">
+            <CanarySelect options={segmentTypeOptions} value={rule.type} />
+            <CanarySelect options={conditionOptions} value={rule.condition} />
+          </div>
+          <CanaryInputMultiple value={rule.values} onChange={v => updateRule(i, v)} />
+          {i < rules.length - 1 && (
+            <div className="flex justify-center my-3">
+              <CanaryTag label="AND" />
+            </div>
+          )}
+        </div>
+      ))}
+      <CanaryButton color={ButtonColor.SECONDARY} onClick={addRule}>+ Add Rule</CanaryButton>
+    </CanaryCard>
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Editor with Preview
+**Use when:** Editing structured content while showing a live guest-facing preview side by side. Used for compendium builder, digital welcome book, upsell content editor.
+
+**Layout:** `CanaryAppShell` with `SidebarVariant.SETTINGS` → `CanaryPageHeader` (title + outlined secondary actions + primary Save) → two-column: left panel (~55%) has a `CanaryList` of draggable section cards each containing `CanaryListItem` rows with edit/more actions and optional `CanaryTag` for hidden state; right panel (~45%) shows a read-only preview frame
+
+**Key components:** `CanaryList`, `CanaryListItem`, `CanaryTag`, `CanaryButton`, `CanaryCard`, `CanaryPageHeader`
+
+```tsx
+<CanaryAppShell sidebarVariant={SidebarVariant.SETTINGS} ...>
+  <CanaryPageHeader title="Compendium"
+    actions={<>
+      <CanaryButton color={ButtonColor.SECONDARY}>Preview</CanaryButton>
+      <CanaryButton type={ButtonType.PRIMARY}>Save</CanaryButton>
+    </>}
+  />
+  <CanaryContainer>
+    <div className="flex gap-4">
+      <div className="flex-1">
+        <CanaryList draggable onReorder={handleReorder}>
+          {sections.map(s => (
+            <CanaryCard key={s.id} title={s.name}>
+              <CanaryList>
+                {s.items.map(item => (
+                  <CanaryListItem key={item.id} label={item.name}
+                    rightContent={item.hidden
+                      ? <CanaryTag label="Hidden" color={TagColor.DEFAULT} />
+                      : null}
+                  />
+                ))}
+              </CanaryList>
+            </CanaryCard>
+          ))}
+        </CanaryList>
+      </div>
+      <div className="w-80 shrink-0">
+        <CanaryCard title="Preview"><GuestPreview sections={sections} /></CanaryCard>
+      </div>
+    </div>
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Guest Journey
+**Use when:** Configuring time-based message sequences tied to stages of a reservation (Pre-Arrival, Check-In, In-Stay, Check-Out, Post-Stay). Used for reservation message settings and scheduled campaigns.
+
+**Layout:** `CanaryAppShell` with `SidebarVariant.SETTINGS` → `CanaryPageHeader` (title + secondary action button) → `CanaryTabs` (Reservation messages / Scheduled campaigns) → vertical timeline: left side shows time-before/after labels, center has a vertical line with dot markers, right side has message cards with toggle, channel tabs (Email/SMS), and language selector
+
+**Key components:** `CanaryTabs`, `CanaryCard`, `CanarySwitch`, `CanarySelect`, `CanaryButton`, `CanaryTag`
+
+```tsx
+<CanaryAppShell sidebarVariant={SidebarVariant.SETTINGS} ...>
+  <CanaryPageHeader title="Guest Journey"
+    actions={<CanaryButton color={ButtonColor.SECONDARY}>Activity log</CanaryButton>}
+  />
+  <CanaryContainer>
+    <CanaryTabs tabs={["Reservation messages", "Scheduled campaigns"]} />
+    <div className="mt-6">
+      <p className="text-xs font-semibold text-blue-600 uppercase mb-4">Pre-Arrival</p>
+      {messages.map(msg => (
+        <div key={msg.id} className="flex gap-4 mb-6">
+          <div className="text-right text-xs text-gray-500 w-28 shrink-0 pt-1">{msg.timing}</div>
+          <div className="flex flex-col items-center gap-0">
+            <div className="w-3 h-3 rounded-full bg-blue-600 ring-2 ring-white ring-offset-1" />
+            <div className="w-px flex-1 bg-gray-200" />
+          </div>
+          <CanaryCard className="flex-1 mb-0">
+            <div className="flex justify-between items-start">
+              <div className="flex items-center gap-2">
+                <span className="font-medium">{msg.name}</span>
+                <CanaryTag label={msg.type} />
+              </div>
+              <CanarySwitch checked={msg.enabled} onChange={v => toggleMessage(msg.id, v)} />
+            </div>
+            <CanaryTabs tabs={["Email", "SMS"]} className="mt-3" />
+          </CanaryCard>
+        </div>
+      ))}
+    </div>
+  </CanaryContainer>
+</CanaryAppShell>
+```
+
+---
+
+### Inbox
+**Use when:** Two-panel messaging interface — list of conversations on the left, message thread on the right. Used for guest messages, webchat, support threads.
+
+**Layout:** `CanaryAppShell` → `CanaryPageHeader` (title, no primary action) → full-height two-panel: left panel (fixed ~280px) has search + scrollable conversation list with unread indicators; right panel has thread header + scrollable message bubbles + reply input
+
+**Key components:** `CanaryInputSearch`, `CanaryList`, `CanaryListItem`, `CanaryButton`, `CanaryTag`
+
+```tsx
+<CanaryAppShell ...>
+  <CanaryPageHeader title="Messages" />
+  <div className="flex h-full">
+    <div className="w-72 shrink-0 border-r flex flex-col">
+      <div className="p-3 border-b">
+        <CanaryInputSearch placeholder="Search conversations..." />
+      </div>
+      <CanaryList className="flex-1 overflow-y-auto">
+        {conversations.map(c => (
+          <CanaryListItem key={c.id} selected={c.id === activeId}
+            label={c.guestName} description={c.preview}
+            rightContent={c.unread
+              ? <span className="w-2 h-2 rounded-full bg-blue-600" />
+              : null}
+            onClick={() => setActiveId(c.id)}
+          />
+        ))}
+      </CanaryList>
+    </div>
+    <div className="flex-1 flex flex-col">
+      <ThreadHeader conversation={activeConversation} />
+      <MessageThread messages={activeConversation?.messages} />
+      <ReplyBox onSend={sendMessage} />
+    </div>
+  </div>
+</CanaryAppShell>
+```
+
+---
+
+### Modal Action Flow
+**Use when:** Creating or editing a record without leaving the current page. Used for New Contract, New Upsell, Add Charge, Edit Guest.
+
+**Layout:** Triggered from a page action button → `CanaryModal` overlay with header (title + close ×) → scrollable form body with labeled inputs → footer with Cancel + primary action button
+
+**Key components:** `CanaryModal`, `CanaryInput`, `CanarySelect`, `CanaryTextArea`, `CanaryButton`
+
+```tsx
+<CanaryButton onClick={() => setOpen(true)}>New Upsell</CanaryButton>
+
+<CanaryModal
+  isOpen={open}
+  onClose={() => setOpen(false)}
+  title="New Upsell"
+  footer={
+    <>
+      <CanaryButton color={ButtonColor.SECONDARY} onClick={() => setOpen(false)}>Cancel</CanaryButton>
+      <CanaryButton type={ButtonType.PRIMARY} onClick={handleSubmit}>Create</CanaryButton>
+    </>
+  }
+>
+  <CanaryInput label="Name" required />
+  <CanarySelect label="Category" options={categoryOptions} />
+  <CanaryInput label="Price" type={InputType.NUMBER} />
+  <CanaryTextArea label="Description" />
+</CanaryModal>
 ```
 
 ---

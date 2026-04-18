@@ -163,6 +163,7 @@ import {
   mdiBellOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
+import { DataTableDiagram, SplitViewDiagram, SettingsDiagram, DetailViewDiagram, ModalDiagram, InboxDiagram, TabbedContentDiagram, FormBuilderDiagram, EditorPreviewDiagram, GuestJourneyDiagram } from "../components/PatternDiagrams";
 
 // Calendar demo
 function CalendarDemo() {
@@ -584,8 +585,75 @@ export default function ComponentShowcase() {
     darkMode: false,
     autoSave: true,
   });
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeItem, setActiveItem] = useState("intro");
   const [useUnderlineInputs, setUseUnderlineInputs] = useState(false);
+
+  const navigation = [
+    { id: "intro", label: "Introduction", children: [] },
+    { id: "design-tokens", label: "Design Tokens", children: [
+      { id: "colors", label: "Color System" },
+    ]},
+    { id: "buttons", label: "Buttons", children: [
+      { id: "canary-button", label: "CanaryButton" },
+    ]},
+    { id: "forms", label: "Form Components", children: [
+      { id: "canary-input", label: "CanaryInput" },
+      { id: "canary-input-password", label: "CanaryInputPassword" },
+      { id: "canary-input-search", label: "CanaryInputSearch" },
+      { id: "canary-input-credit-card", label: "CanaryInputCreditCard" },
+      { id: "canary-input-phone", label: "CanaryInputPhone" },
+      { id: "canary-calendar", label: "CanaryCalendar" },
+      { id: "canary-input-date", label: "CanaryInputDate" },
+      { id: "canary-input-date-range", label: "CanaryInputDateRange" },
+      { id: "canary-input-multiple", label: "CanaryInputMultiple" },
+      { id: "canary-select", label: "CanarySelect" },
+      { id: "canary-textarea", label: "CanaryTextArea" },
+      { id: "canary-checkbox", label: "CanaryCheckbox" },
+      { id: "canary-radio", label: "CanaryRadio" },
+      { id: "canary-switch", label: "CanarySwitch" },
+    ]},
+    { id: "data-display", label: "Data Display", children: [
+      { id: "canary-tag", label: "CanaryTag" },
+      { id: "canary-chip", label: "CanaryChip" },
+      { id: "canary-table", label: "CanaryTable" },
+      { id: "canary-list", label: "CanaryList" },
+    ]},
+    { id: "layout", label: "Layout & Navigation", children: [
+      { id: "canary-tabs", label: "CanaryTabs" },
+      { id: "canary-sidebar", label: "CanarySidebar" },
+      { id: "canary-modal", label: "CanaryModal" },
+    ]},
+    { id: "app-shell", label: "App Layout", children: [
+      { id: "canary-page-header", label: "CanaryPageHeader" },
+      { id: "canary-app-shell", label: "CanaryAppShell" },
+    ]},
+    { id: "patterns", label: "Patterns", children: [
+      { id: "pattern-data-table", label: "Data Table" },
+      { id: "pattern-split-view", label: "Split View" },
+      { id: "pattern-tabbed-content", label: "Tabbed Content" },
+      { id: "pattern-settings", label: "Settings" },
+      { id: "pattern-detail-view", label: "Detail View" },
+      { id: "pattern-form-builder", label: "Form Builder" },
+      { id: "pattern-editor-preview", label: "Editor with Preview" },
+      { id: "pattern-guest-journey", label: "Guest Journey" },
+      { id: "pattern-inbox", label: "Inbox" },
+      { id: "pattern-modal", label: "Modal Action" },
+    ]},
+    { id: "feedback", label: "Feedback", children: [
+      { id: "canary-alert", label: "CanaryAlert" },
+      { id: "canary-toast", label: "CanaryToast" },
+      { id: "canary-loading", label: "CanaryLoading" },
+    ]},
+  ];
+
+  const isInSection = (sectionId: string) => {
+    if (activeItem === sectionId) return true;
+    return navigation.find(n => n.id === sectionId)?.children.some(c => c.id === activeItem) ?? false;
+  };
+
+  const showComponent = (componentId: string) => {
+    return activeItem === componentId;
+  };
   const [selectedMainSidebarItem, setSelectedMainSidebarItem] = useState("upsells");
   const [selectedSettingsSidebarItem, setSelectedSettingsSidebarItem] = useState("general");
 
@@ -624,6 +692,7 @@ export default function ComponentShowcase() {
     { id: "new-components", label: "New in v0.6.0" },
   ];
 
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -636,25 +705,41 @@ export default function ComponentShowcase() {
         }
       />
 
-      <div className="flex">
+      <div className="flex h-[calc(100vh-56px)]">
         {/* Navigation Sidebar */}
-        <aside className="hidden lg:block w-64 h-[calc(100vh-56px)] sticky top-14 bg-white border-r border-gray-200 overflow-y-auto">
-          <nav className="p-6">
-            <h4 className="text-xs font-semibold text-gray-500 uppercase mb-4">Components</h4>
-            <ul className="space-y-2">
-              {navigationItems.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    className={`block px-3 py-2 rounded-md text-sm transition-colors ${
-                      activeSection === item.id
-                        ? "bg-blue-50 text-blue-700 font-medium"
-                        : "text-gray-700 hover:bg-gray-100"
+        <aside className="w-56 shrink-0 bg-white border-r border-gray-200 overflow-y-auto">
+          <nav className="p-3">
+            <ul className="space-y-0.5">
+              {navigation.map((section) => (
+                <li key={section.id}>
+                  <button
+                    className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      isInSection(section.id) && activeItem !== section.id
+                        ? "text-blue-700"
+                        : "text-gray-800 hover:bg-gray-100"
                     }`}
-                    onClick={() => setActiveSection(item.id)}
+                    onClick={() => setActiveItem(section.children[0]?.id ?? section.id)}
                   >
-                    {item.label}
-                  </a>
+                    {section.label}
+                  </button>
+                  {section.children.length > 0 && isInSection(section.id) && (
+                    <ul className="mt-0.5 mb-1 ml-3 space-y-0.5">
+                      {section.children.map((child) => (
+                        <li key={child.id}>
+                          <button
+                            className={`w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors ${
+                              activeItem === child.id
+                                ? "bg-blue-50 text-blue-700 font-medium"
+                                : "text-gray-600 hover:bg-gray-100"
+                            }`}
+                            onClick={() => setActiveItem(child.id)}
+                          >
+                            {child.label}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
@@ -662,10 +747,10 @@ export default function ComponentShowcase() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1">
+        <main className="flex-1 overflow-y-auto">
           <CanaryContainer maxWidth="2xl" padding="large">
-            <div className="space-y-12 py-8">
-          {/* Introduction */}
+            <div className="py-8">
+          {activeItem === "intro" && (
           <section id="intro">
             <h2 className="text-3xl font-bold mb-4">Welcome to Canary UI</h2>
             <p className="text-lg text-gray-600 mb-6">
@@ -693,8 +778,9 @@ export default function MyComponent() {
               />
             </div>
           </section>
+          )}
 
-          {/* Design Tokens */}
+          {isInSection("design-tokens") && (
           <Section title="Design Tokens" id="design-tokens">
             <CanaryCard title="Color System">
               <p className="text-sm text-gray-600 mb-4">
@@ -927,9 +1013,11 @@ export default function MyComponent() {
               />
             </CanaryCard>
           </Section>
+          )}
 
-          {/* Buttons */}
+          {isInSection("buttons") && (
           <Section title="Buttons" id="buttons">
+            {showComponent('canary-button') && (
             <CanaryCard title="CanaryButton">
               <UsageNote
                 description="Interactive button for triggering actions. Supports primary, secondary, outlined, text, and icon-only variants with loading states."
@@ -1258,9 +1346,11 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                 </div>
               </div>
             </CanaryCard>
+            )}
           </Section>
+          )}
 
-          {/* Form Components */}
+          {isInSection("forms") && (
           <Section title="Form Components" id="forms">
             {/* Toggle for Underline vs Bordered */}
             <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
@@ -1297,6 +1387,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 
             <div className="space-y-6">
               {/* Inputs */}
+              {showComponent('canary-input') && (
               <CanaryCard title={useUnderlineInputs ? "CanaryInputUnderline" : "CanaryInput"}>
                 <UsageNote
                   description={useUnderlineInputs
@@ -1460,8 +1551,10 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 <CanaryInput label="Readonly" isReadonly />`}
                 />
               </CanaryCard>
+              )}
 
               {/* Specialized Inputs */}
+              {showComponent('canary-input-password') && (
               <CanaryCard title="CanaryInputPassword">
                 <UsageNote
                   description="Password input with built-in show/hide visibility toggle."
@@ -1507,7 +1600,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-input-search') && (
               <CanaryCard title="CanaryInputSearch">
                 <UsageNote
                   description="Search input with a built-in search icon on the left."
@@ -1548,7 +1643,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-input-credit-card') && (
               <CanaryCard title="CanaryInputCreditCard">
                 <UsageNote
                   description="Credit card input with automatic card type detection (Visa, Mastercard, etc.) and number formatting."
@@ -1591,7 +1688,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-input-phone') && (
               <CanaryCard title={useUnderlineInputs ? "CanaryInputPhoneUnderline" : "CanaryInputPhone"}>
                 <UsageNote
                   description="International phone input with country code selector and flag display."
@@ -1639,7 +1738,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-calendar') && (
               <CanaryCard title="CanaryCalendar">
                 <UsageNote
                   description="Full calendar component supporting single date and date range selection with month/year navigation and quick selection buttons."
@@ -1670,7 +1771,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-input-date') && (
               <CanaryCard title={useUnderlineInputs ? "CanaryInputDateUnderline" : "CanaryInputDate"}>
                 <UsageNote
                   description="Split date input with separate MM/DD/YYYY fields and an optional calendar picker popup."
@@ -1717,7 +1820,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-input-date-range') && (
               <CanaryCard title={useUnderlineInputs ? "CanaryInputDateRangeUnderline" : "CanaryInputDateRange"}>
                 <UsageNote
                   description="Dual date input for selecting a start and end date, with range selection in a calendar popup."
@@ -1768,7 +1873,9 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-input-multiple') && (
               <CanaryCard title="CanaryInputMultiple">
                 <UsageNote
                   description="Chip-based input for entering multiple values. Press Enter to add, backspace to remove."
@@ -1802,8 +1909,10 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
               {/* Other Form Components */}
+              {showComponent('canary-select') && (
               <CanaryCard title={useUnderlineInputs ? "CanarySelectUnderline & CanaryTextAreaUnderline" : "CanarySelect & CanaryTextArea"}>
                 <UsageNote
                   description="CanarySelect: Native HTML dropdown with custom styling. CanaryTextArea: Multi-line text input with optional auto-expand."
@@ -1905,6 +2014,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                   </div>
 
                   {/* Checkboxes */}
+                  {showComponent('canary-checkbox') && (
                   <div className="col-span-2">
                     <CanaryCard title="CanaryCheckbox">
                       <UsageNote
@@ -1977,8 +2087,10 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                       </div>
                     </CanaryCard>
                   </div>
+                  )}
 
                   {/* Radio Buttons */}
+                  {showComponent('canary-radio') && (
                   <div className="col-span-2">
                     <CanaryCard title="CanaryRadio">
                       <UsageNote
@@ -2055,9 +2167,11 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                       </div>
                     </CanaryCard>
                   </div>
+                  )}
                 </CanaryGrid>
 
                 {/* Switch Component Demos */}
+                {showComponent('canary-switch') && (<>
                 <div className="mt-6">
                   <CanaryCard title="CanarySwitch - Interactive Examples">
                     <UsageNote
@@ -2173,6 +2287,7 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
                     />
                   </CanaryCard>
                 </div>
+                </>)}
 
                 <CodeSnippet
                   code={useUnderlineInputs ? `<CanarySelectUnderline
@@ -2218,13 +2333,16 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 </CanaryRadioGroup>`}
                 />
               </CanaryCard>
+              )}
             </div>
           </Section>
+          )}
 
-          {/* Data Display */}
+          {isInSection("data-display") && (
           <Section title="Data Display" id="data-display">
             <div className="space-y-6">
               {/* Tags */}
+              {showComponent('canary-tag') && (
               <CanaryCard title="CanaryTag">
                 <UsageNote
                   description="Non-interactive colored label for displaying status, categories, or metadata. Purely visual — no click handlers."
@@ -2329,8 +2447,10 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 <CanaryTag label="Medium" size={TagSize.MEDIUM} />`}
                 />
               </CanaryCard>
+              )}
 
               {/* Chips */}
+              {showComponent('canary-chip') && (
               <CanaryCard title="CanaryChip">
                 <UsageNote
                   description="Interactive chip component with two distinct modes determined by ChipType."
@@ -2441,8 +2561,10 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 <CanaryChip label="Can't remove" chipType={ChipType.REMOVABLE} isDisabled />`}
                 />
               </CanaryCard>
+              )}
 
               {/* Table */}
+              {showComponent('canary-table') && (
               <CanaryCard title="CanaryTable">
                 <UsageNote
                   description="Data table with configurable columns, custom cell rendering via column render functions, and optional row click handlers."
@@ -2484,8 +2606,10 @@ import { mdiArrowRight, mdiDownload } from "@mdi/js";
 />`}
                 />
               </CanaryCard>
+              )}
 
               {/* List Item */}
+              {showComponent('canary-list') && (<>
               <CanaryCard title="CanaryListItem">
                 <UsageNote
                   description="Flexible list item with structured layout: icon, title, subtitle, description, and left/right content areas."
@@ -3053,11 +3177,14 @@ const [items, setItems] = useState([
 </CanaryList>`}
                 />
               </CanaryCard>
+              </>)}
             </div>
           </Section>
+          )}
 
-          {/* Layout Components */}
+          {isInSection("layout") && (
           <Section title="Layout & Navigation" id="layout">
+            {showComponent('canary-tabs') && (<>
             <CanaryCard title="CanaryTabs - Rounded Variant">
               <UsageNote
                 description="Tab navigation with multiple visual variants. Each tab can have an icon, a badge count, and a disabled state."
@@ -3221,7 +3348,9 @@ const [items, setItems] = useState([
                 />
               </CanaryCard>
             </div>
+            </>)}
 
+            {showComponent('canary-sidebar') && (<>
             <div className="mt-6">
               <CanaryCard title="CanarySidebar - Main Variant">
                 <UsageNote
@@ -4045,7 +4174,9 @@ const corporateSections = [
                 />
               </CanaryCard>
             </div>
+            </>)}
 
+            {showComponent('canary-modal') && (
             <div className="mt-6">
               <CanaryCard title="CanaryModal">
                 <UsageNote
@@ -4117,75 +4248,49 @@ const corporateSections = [
                 />
               </CanaryCard>
             </div>
+            )}
           </Section>
+          )}
 
-          {/* App Shell */}
+          {isInSection("app-shell") && (
           <Section title="App Shell & Scaffolding" id="app-shell">
             <div className="space-y-6">
+              {showComponent('canary-page-header') && (
               <CanaryCard title="CanaryPageHeader">
                 <UsageNote
-                  description="Standard Canary page header with property selector, reservation status badge, and user profile."
-                  whenToUse={["Any Canary product prototype page — this is the standard header"]}
-                  whenNotToUse={["When using CanaryAppShell — it already includes CanaryPageHeader", "Non-Canary prototypes — use CanaryHeader", "Guest-facing screens — typically no page header"]}
+                  description="Content-area page header with a title and optional action buttons. Use at the top of every main content page."
+                  whenToUse={["Top of any page content area to label the current page", "When you need page-level action buttons alongside the title"]}
+                  whenNotToUse={["Inside modals or cards — those have their own title patterns", "Guest-facing screens — typically no page header"]}
                 />
-                <p className="text-sm text-gray-600 mb-4">
-                  The standard page header for Canary applications. Features property selector,
-                  reservation status badge, and user profile section.
-                </p>
 
                 <div className="border border-gray-200 rounded-lg overflow-hidden mb-4">
                   <CanaryPageHeader
-                    propertyName="Statler New York"
-                    onPropertyClick={() => alert('Property selector clicked')}
-                    reservationStatus={{
-                      label: "Reservations",
-                      isConnected: true
-                    }}
-                    onReservationStatusClick={() => alert('Reservation status clicked')}
-                    userProfile={{
-                      name: "Theresa Webb",
-                      role: "Front Desk",
-                      avatarUrl: "https://i.pravatar.cc/150?img=5"
-                    }}
-                    onUserProfileClick={() => alert('User profile clicked')}
+                    title="Contracts"
+                    actions={
+                      <CanaryButton type={ButtonType.OUTLINED}>
+                        Publish changes
+                      </CanaryButton>
+                    }
                   />
                 </div>
 
-                <h4 className="text-sm font-semibold mb-2 mt-6">Disconnected State</h4>
+                <h4 className="text-sm font-semibold mb-2 mt-6">Title only</h4>
                 <div className="border border-gray-200 rounded-lg overflow-hidden mb-4">
-                  <CanaryPageHeader
-                    propertyName="Grand Hotel Chicago"
-                    reservationStatus={{
-                      label: "Reservations",
-                      isConnected: false
-                    }}
-                    userProfile={{
-                      name: "Miguel Santana",
-                      role: "Admin"
-                    }}
-                  />
+                  <CanaryPageHeader title="Reservations" />
                 </div>
 
                 <CodeSnippet
                   code={`import { CanaryPageHeader } from '@canary-ui/components';
 
 <CanaryPageHeader
-  propertyName="Statler New York"
-  onPropertyClick={() => {}}
-  reservationStatus={{
-    label: "Reservations",
-    isConnected: true
-  }}
-  userProfile={{
-    name: "Theresa Webb",
-    role: "Front Desk",
-    avatarUrl: "https://i.pravatar.cc/150?img=5"
-  }}
-  onUserProfileClick={() => {}}
+  title="Contracts"
+  actions={<CanaryButton>Publish changes</CanaryButton>}
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-app-shell') && (
               <CanaryCard title="CanaryAppShell">
                 <UsageNote
                   description="RECOMMENDED — Complete application scaffolding combining sidebar, page header, and content area. This should be your first component for any prototype."
@@ -4211,16 +4316,7 @@ const corporateSections = [
 
                 <div className="border border-gray-200 rounded-lg overflow-hidden" style={{ height: "500px" }}>
                   <CanaryAppShell
-                    propertyName="Statler New York"
-                    userProfile={{
-                      name: "Theresa Webb",
-                      role: "Front Desk",
-                      avatarUrl: "https://i.pravatar.cc/150?img=5"
-                    }}
-                    reservationStatus={{
-                      label: "Reservations",
-                      isConnected: true
-                    }}
+                    pageTitle="Dashboard"
                     onSidebarItemClick={(id) => alert(`Clicked: ${id}`)}
                     contentPadding="medium"
                   >
@@ -4265,11 +4361,7 @@ const corporateSections = [
                         Back
                       </CanaryButton>
                     }
-                    propertyName="Statler New York"
-                    userProfile={{
-                      name: "Admin User",
-                      role: "Administrator"
-                    }}
+                    pageTitle="Settings"
                     contentPadding="medium"
                   >
                     <CanaryCard title="Property Information">
@@ -4285,18 +4377,10 @@ const corporateSections = [
                 <CodeSnippet
                   code={`import { CanaryAppShell, SidebarVariant } from '@canary-ui/components';
 
-// Basic usage - wraps your content with sidebar + header
+// Basic usage - wraps your content with sidebar + page header
 <CanaryAppShell
-  propertyName="My Hotel"
-  userProfile={{
-    name: "John Doe",
-    role: "Manager",
-    avatarUrl: "https://..."
-  }}
-  reservationStatus={{
-    label: "Reservations",
-    isConnected: true
-  }}
+  pageTitle="Contracts"
+  headerActions={<CanaryButton>Publish changes</CanaryButton>}
   onSidebarItemClick={(id) => router.push(\`/\${id}\`)}
 >
   <YourPageContent />
@@ -4307,35 +4391,26 @@ const corporateSections = [
   sidebarVariant={SidebarVariant.SETTINGS}
   sidebarTitle="Settings"
   sidebarBackButton={<BackButton />}
-  propertyName="My Hotel"
-  userProfile={{ name: "Admin", role: "Admin" }}
+  pageTitle="Property Settings"
 >
   <SettingsContent />
 </CanaryAppShell>
 
-// Custom sidebar with specific tabs
-<CanaryAppShell
-  sidebarVariant={SidebarVariant.CUSTOM}
-  sidebarSections={[
-    createCustomSection([
-      sidebarTabs.dashboard,
-      sidebarTabs.properties,
-      sidebarTabs.analytics
-    ], { title: 'Overview' })
-  ]}
-  propertyName="Corporate HQ"
-  hideHeader={false}
->
+// No header (e.g. full-bleed content)
+<CanaryAppShell hideHeader>
   <DashboardContent />
 </CanaryAppShell>`}
                 />
               </CanaryCard>
+              )}
             </div>
           </Section>
+          )}
 
-          {/* Feedback */}
+          {isInSection("feedback") && (
           <Section title="Feedback Components" id="feedback">
             <div className="space-y-6">
+              {showComponent('canary-alert') && (
               <CanaryCard title="CanaryAlert">
                 <UsageNote
                   description="Inline alert banner for persistent messages within page content (success, error, warning, info)."
@@ -4355,7 +4430,9 @@ const corporateSections = [
 <CanaryAlert type="info" message="Info message!" />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-toast') && (
               <CanaryCard title="CanaryToast">
                 <UsageNote
                   description="Temporary notification that auto-dismisses after a configurable duration (default 5 seconds)."
@@ -4388,7 +4465,9 @@ const corporateSections = [
 />`}
                 />
               </CanaryCard>
+              )}
 
+              {showComponent('canary-loading') && (
               <CanaryCard title="CanaryLoading">
                 <UsageNote
                   description="Animated spinner for indicating loading states."
@@ -4406,8 +4485,10 @@ const corporateSections = [
 <CanaryLoading size={48} color="#008040" />`}
                 />
               </CanaryCard>
+              )}
             </div>
           </Section>
+          )}
 
           {/* New Components (v0.6.0) */}
           <Section title="New in v0.6.0" id="new-components">
@@ -4719,6 +4800,172 @@ const corporateSections = [
             <p className="mt-2">Clone this project to start building your prototype</p>
           </section>
             </div>
+          {isInSection("patterns") && (
+          <div id="patterns">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {showComponent("pattern-data-table") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <DataTableDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Data Table</h3>
+                  <p className="text-sm text-gray-600 mb-3">List page for managing collections of records. Used on Contracts, Payments, and Upsells.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanarySidebar", "CanaryPageHeader", "CanaryInputSearch", "CanarySelect", "CanaryTabs", "CanaryTable", "CanaryButton"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-split-view") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <SplitViewDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Split View</h3>
+                  <p className="text-sm text-gray-600 mb-3">Two-panel layout with a list on the left and cards or detail on the right. Used on Check-ins and Checkout.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanarySidebar", "CanaryInputSearch", "CanaryListItem", "CanaryList", "CanaryCard", "CanaryButton"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-tabbed-content") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <TabbedContentDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Tabbed Content</h3>
+                  <p className="text-sm text-gray-600 mb-3">Page title with action button and tabbed sections switching between different views. Used on Upsells, F&B Ordering.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanaryAppShell", "CanaryPageHeader", "CanaryTabs", "CanaryCard", "CanaryButton"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-settings") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <SettingsDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Settings Page</h3>
+                  <p className="text-sm text-gray-600 mb-3">Configuration pages with grouped form sections. Used across all Settings pages.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanaryAppShell", "CanaryCard", "CanaryInput", "CanarySelect", "CanarySwitch", "CanaryButton"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-detail-view") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <DetailViewDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Detail View</h3>
+                  <p className="text-sm text-gray-600 mb-3">Two-column detail layout with a main content area and a narrower info sidebar. Used on Check-in details and Guest Verification.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanaryAppShell", "CanaryPageHeader", "CanaryCard", "CanaryButton", "CanaryTag"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-form-builder") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <FormBuilderDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Form Builder</h3>
+                  <p className="text-sm text-gray-600 mb-3">Settings sidebar with a centered form card containing stacked rule sections. Each rule has condition selects, a multi-value chip input, and AND connectors between rules. Used for segment builders, automation triggers, and rule-based configs.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanarySelect", "CanaryInputMultiple", "CanaryButton", "CanaryCard"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-editor-preview") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <EditorPreviewDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Editor with Preview</h3>
+                  <p className="text-sm text-gray-600 mb-3">Two-column layout: editable list on the left with drag-and-drop sections, item controls, and hidden-state badges; live preview panel on the right showing the guest-facing output. Used for compendium builders, digital welcome books, and content editors.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanaryList", "CanaryListItem", "CanaryTag", "CanaryButton", "CanaryCard"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-guest-journey") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <GuestJourneyDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Guest Journey</h3>
+                  <p className="text-sm text-gray-600 mb-3">Horizontal timeline across the top shows journey stages (Pre-Arrival → Check-In → In-Stay → Check-Out → Post). Below, each stage has a detail card with its settings. The active stage is highlighted. Used for journey settings, automation sequences, and stage-based configuration flows.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanaryTabs", "CanaryCard", "CanaryButton", "CanaryPageHeader"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-inbox") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <InboxDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Inbox</h3>
+                  <p className="text-sm text-gray-600 mb-3">Three-column layout with a conversation list and message thread view. Used on Messages and Calls.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanaryAppShell", "CanaryPageHeader", "CanaryInputSearch", "CanaryListItem", "CanaryInput", "CanaryButton"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+              {showComponent("pattern-modal") && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div className="p-4 border-b border-gray-100">
+                  <ModalDiagram />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-1">Modal Action Flow</h3>
+                  <p className="text-sm text-gray-600 mb-3">Overlay form for creating or editing a record without leaving the current page. Used for New Contract, New Upsell, etc.</p>
+                  <div className="flex flex-wrap gap-1">
+                    {["CanaryModal", "CanaryInput", "CanarySelect", "CanaryTextArea", "CanaryButton"].map(c => (
+                      <span key={c} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              )}
+            </div>
+          </div>
+          )}
           </CanaryContainer>
         </main>
       </div>
