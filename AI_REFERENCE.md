@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.2
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.3
 ```
 
 2. **Import styles** in root layout:
@@ -2190,6 +2190,6 @@ These are the full-page layout patterns used across the Canary product. When a u
 
 ## Version
 
-**Current Version:** v0.5.2
+**Current Version:** v0.5.3
 
 Last updated: April 2026
