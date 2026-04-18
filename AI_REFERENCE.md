@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.3
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.4
 ```
 
 2. **Import styles** in root layout:
@@ -123,7 +123,7 @@ Use this section to quickly find the right component for your use case. Examples
 ### "I need the user to enter text"
 - **Single-line text** → `CanaryInput` (bordered) or `CanaryInputUnderline` (floating label). Used in production for: hotel names, guest names, email addresses, confirmation codes, cohort labels.
 - **Multi-line text** → `CanaryTextArea` (bordered) or `CanaryTextAreaUnderline` (floating label). Use `autoExpand` for growing text areas. Used for: internal notes on reservations, broadcast messages, tip customization copy, cohort notes.
-- **Search field** → `CanaryInputSearch` — has a built-in search icon. Don't use `CanaryInput` with a manual icon addon. Used for: reservation search, check-in/check-out dashboards, cohort hotel filtering. Typically connected to server-side search with debounced queries.
+- **Search field** → `CanaryInputSearch` — has a built-in search icon. Don't use `CanaryInput` with `type={InputType.SEARCH}` or a manual icon addon. To make it stretch in a flex toolbar, wrap it: `<div style={{ flex: '1 1 0', minWidth: 0 }}><CanaryInputSearch /></div>`. See **Input Width in Flex Layouts** section for details.
 - **Password** → `CanaryInputPassword` — has built-in show/hide toggle. Don't use `CanaryInput` with `InputType.PASSWORD`. Used for: password creation/reset flows (with confirmation field), PMS credential setup (Opera, Synxis), session re-authentication.
 - **Phone number** → `CanaryInputPhone` — has country code selector. Don't build a custom phone input. Used for: wallet login (phone → OTP), guest check-in contact info, authorization client details, digital tip wallet user setup.
 - **Credit card** → `CanaryInputCreditCard` — has card type detection and formatting. Don't use a plain text input. Used for: authorization forms, payment collection during check-in, e-folio charges.
@@ -2117,6 +2117,71 @@ Chip-based input for entering multiple values (emails, tags, keywords). Press En
 **When NOT to use:**
 - Single text value — use `CanaryInput`
 - Selecting from predefined options — use `CanarySelect` or `CanaryChip`
+
+---
+
+## Input Width in Flex Layouts
+
+### The problem
+
+`CanaryInput` has an internal fixed width and does **not** stretch to fill available space in a flex container. Applying `className="w-full"` or `flex-1` directly to `CanaryInput` has no effect because the fixed width is set internally on the component.
+
+```tsx
+// ❌ This does NOT work — CanaryInput ignores flex-1 and w-full
+<div className="flex gap-2">
+  <CanaryInput className="flex-1" placeholder="Search..." />
+  <CanarySelect options={options} />
+</div>
+```
+
+### Use CanaryInputSearch for search bars
+
+Never use `CanaryInput` with `type={InputType.SEARCH}` for a search bar. Use `CanaryInputSearch`, which has the built-in search icon and is designed for this purpose.
+
+```tsx
+// ❌ Wrong
+<CanaryInput type={InputType.SEARCH} placeholder="Search..." />
+
+// ✅ Correct
+<CanaryInputSearch placeholder="Search..." />
+```
+
+### The correct wrapper pattern
+
+Wrap the input in a `div` with `style={{ flex: '1 1 0', minWidth: 0 }}` to make it stretch correctly alongside fixed-width siblings:
+
+```tsx
+// ✅ Stretching search bar next to fixed-width selects
+<div className="flex gap-2">
+  <div style={{ flex: '1 1 0', minWidth: 0 }}>
+    <CanaryInputSearch placeholder="Search reservations..." onChange={setQuery} />
+  </div>
+  <CanarySelect options={statusOptions} placeholder="Status" />
+  <CanarySelect options={dateOptions} placeholder="Date range" />
+</div>
+```
+
+**Why `minWidth: 0`?** Flex items default to `min-width: auto`, which means they refuse to shrink below their content size. Setting `minWidth: 0` removes that floor, so the wrapper can compress correctly when fixed-width siblings are present. Without it, the input overflows or pushes siblings out of the row.
+
+### Full toolbar example
+
+```tsx
+import { CanaryInputSearch, CanarySelect, CanaryButton, ButtonType } from '@canary-ui/components';
+
+<div className="flex gap-2 items-center p-4 border-b">
+  {/* Stretches to fill remaining space */}
+  <div style={{ flex: '1 1 0', minWidth: 0 }}>
+    <CanaryInputSearch placeholder="Search guests..." onChange={setQuery} value={query} />
+  </div>
+
+  {/* Fixed-width selects */}
+  <CanarySelect options={statusOptions} placeholder="Status" onChange={setStatus} />
+  <CanarySelect options={propertyOptions} placeholder="Property" onChange={setProperty} />
+
+  {/* Fixed-width button */}
+  <CanaryButton type={ButtonType.PRIMARY}>New Reservation</CanaryButton>
+</div>
+```
 
 ---
 

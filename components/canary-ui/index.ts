@@ -88,7 +88,7 @@ export {
 } from "./navigation";
 export type { CanaryProgressBarProps, CanaryOverflowMenuProps, CanaryStepsProps } from "./navigation";
 export { SidebarVariant, NavigationItemState, TabSize, TabType, ProgressBarVariant, StepsOrientation } from "./navigation";
-export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps, CanaryPageHeaderProps, UserProfile, ReservationStatus } from "./navigation";
+export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps, CanaryPageHeaderProps } from "./navigation";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./navigation";
 export { sidebarTabs, createSidebarTab } from "./navigation";
 export {
