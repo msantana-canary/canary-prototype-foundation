@@ -23,7 +23,7 @@ npx create-next-app@latest my-prototype --typescript --tailwind --app --src-dir=
 cd my-prototype
 
 # 3. Install Canary UI
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.1
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.2
 ```
 
 ### Required Configuration
@@ -73,9 +73,13 @@ export default function Home() {
 
 ## Component Documentation
 
-**IMPORTANT**: Before writing any component code, read the complete API reference:
+**IMPORTANT**: Before writing any component code, read the complete API reference.
 
-📖 **[AI_REFERENCE.md](./AI_REFERENCE.md)** - Complete component inventory, props, icons, and color tokens
+The reference file location depends on your context:
+- **In this repo:** [`./AI_REFERENCE.md`](./AI_REFERENCE.md)
+- **In a project that installed the library:** `node_modules/@canary-ui/components/AI_REFERENCE.md`
+
+📖 **AI_REFERENCE.md** - Complete component inventory, props, icons, color tokens, and page patterns
 
 This file contains:
 - **Component Selection Guide** — "I need X" → use this component (start here to pick the right component)
@@ -86,7 +90,7 @@ This file contains:
 - 50+ icon names (use ONLY these, do not guess)
 - Color tokens and design values
 - Pre-built sidebar configurations
-- Code examples for common patterns
+- **Page Patterns** — 10 full-page layout patterns derived from the live Canary product (Data Table, Split View, Tabbed Content, Settings, Detail View, Form Builder, Editor with Preview, Guest Journey, Inbox, Modal Action Flow) — each with when-to-use guidance, component list, and a code skeleton
 
 ## Key Rules for AI Agents
 
@@ -109,7 +113,7 @@ This file contains:
 | `CanaryTabs` | Tab navigation |
 | `CanaryList` / `CanaryListItem` | Lists with optional drag-and-drop |
 | `CanarySidebar` | Navigation sidebar |
-| `CanaryPageHeader` | App header with property/user info |
+| `CanaryPageHeader` | Page-level header with title and optional action buttons |
 
 ## Project Context
 
