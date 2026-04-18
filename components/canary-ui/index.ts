@@ -63,7 +63,7 @@ export type { CanaryAppShellProps } from "./layout";
 // Navigation
 export { CanaryTabs, CanarySidebar, CanaryHeader, CanaryPageHeader, CanaryLogo } from "./navigation";
 export { SidebarVariant, NavigationItemState } from "./navigation";
-export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps, CanaryPageHeaderProps, UserProfile, ReservationStatus } from "./navigation";
+export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps, CanaryPageHeaderProps } from "./navigation";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./navigation";
 export { sidebarTabs, createSidebarTab } from "./navigation";
 export {

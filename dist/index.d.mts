@@ -840,45 +840,6 @@ interface CanarySidebarProps {
 declare function CanarySidebar({ variant, sections, logo, title, backButton, selectedItemId, onItemClick, width, // Remove default, let it auto-size
 className, }: CanarySidebarProps): react_jsx_runtime.JSX.Element;
 
-interface UserProfile {
-    name: string;
-    role: string;
-    avatarUrl?: string;
-    avatarAlt?: string;
-}
-interface ReservationStatus {
-    label: string;
-    isConnected: boolean;
-}
-interface CanaryPageHeaderProps {
-    /** Property/Hotel name displayed on the left */
-    propertyName: string;
-    /** Called when property selector is clicked */
-    onPropertyClick?: () => void;
-    /** User profile information */
-    userProfile?: UserProfile;
-    /** Called when user profile is clicked */
-    onUserProfileClick?: () => void;
-    /** Reservation/PMS connection status */
-    reservationStatus?: ReservationStatus;
-    /** Called when reservation status is clicked */
-    onReservationStatusClick?: () => void;
-    /** Additional action items to render before user profile */
-    actions?: ReactNode;
-    /** Additional CSS classes */
-    className?: string;
-}
-/**
- * CanaryPageHeader - The standard page header for Canary applications
- *
- * Features:
- * - Property selector (left side)
- * - Reservation status badge
- * - User profile with avatar, name, and role
- * - Slot for additional actions
- */
-declare function CanaryPageHeader({ propertyName, onPropertyClick, userProfile, onUserProfileClick, reservationStatus, onReservationStatusClick, actions, className, }: CanaryPageHeaderProps): react_jsx_runtime.JSX.Element;
-
 interface CanaryAppShellProps {
     /** Main content of the application */
     children: ReactNode;
@@ -896,19 +857,9 @@ interface CanaryAppShellProps {
     sidebarBackButton?: ReactNode;
     /** Hide the sidebar entirely */
     hideSidebar?: boolean;
-    /** Property/Hotel name */
-    propertyName?: string;
-    /** Called when property selector is clicked */
-    onPropertyClick?: () => void;
-    /** User profile information */
-    userProfile?: UserProfile;
-    /** Called when user profile is clicked */
-    onUserProfileClick?: () => void;
-    /** Reservation/PMS connection status */
-    reservationStatus?: ReservationStatus;
-    /** Called when reservation status is clicked */
-    onReservationStatusClick?: () => void;
-    /** Additional header action items */
+    /** Page title shown in the content header */
+    pageTitle?: string;
+    /** Action buttons/content for the right side of the page header */
     headerActions?: ReactNode;
     /** Hide the page header entirely */
     hideHeader?: boolean;
@@ -940,7 +891,7 @@ interface CanaryAppShellProps {
  * </CanaryAppShell>
  * ```
  */
-declare function CanaryAppShell({ children, sidebarVariant, sidebarSections, selectedSidebarItemId, onSidebarItemClick, sidebarTitle, sidebarBackButton, hideSidebar, propertyName, onPropertyClick, userProfile, onUserProfileClick, reservationStatus, onReservationStatusClick, headerActions, hideHeader, contentBackground, contentPadding, contentClassName, className, }: CanaryAppShellProps): react_jsx_runtime.JSX.Element;
+declare function CanaryAppShell({ children, sidebarVariant, sidebarSections, selectedSidebarItemId, onSidebarItemClick, sidebarTitle, sidebarBackButton, hideSidebar, pageTitle, headerActions, hideHeader, contentBackground, contentPadding, contentClassName, className, }: CanaryAppShellProps): react_jsx_runtime.JSX.Element;
 
 type TabVariant = "rounded" | "text" | "segmented" | "text-checkbox";
 type TabSize = "normal" | "compact";
@@ -972,6 +923,16 @@ interface CanaryHeaderProps {
     className?: string;
 }
 declare function CanaryHeader({ logo, title, actions, navigation, className, }: CanaryHeaderProps): react_jsx_runtime.JSX.Element;
+
+interface CanaryPageHeaderProps {
+    /** Page title displayed on the left */
+    title: string;
+    /** Action buttons/content displayed on the right */
+    actions?: ReactNode;
+    /** Additional CSS classes */
+    className?: string;
+}
+declare function CanaryPageHeader({ title, actions, className, }: CanaryPageHeaderProps): react_jsx_runtime.JSX.Element;
 
 /**
  * Canary Logo Component
@@ -1183,4 +1144,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, type CalendarSelection, type CalendarSelectionMode, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryButton, CanaryCalendar, type CanaryCalendarProps, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryPageHeader, type CanaryPageHeaderProps, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type ChipSize, ChipType, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type ReservationStatus, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, type UserProfile, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, type CalendarSelection, type CalendarSelectionMode, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryButton, CanaryCalendar, type CanaryCalendarProps, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryPageHeader, type CanaryPageHeaderProps, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type ChipSize, ChipType, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };

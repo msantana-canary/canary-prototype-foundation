@@ -6044,143 +6044,37 @@ function CanarySidebar({
 
 // components/canary-ui/navigation/CanaryPageHeader.tsx
 var import_clsx35 = __toESM(require("clsx"));
-var import_react41 = __toESM(require("@mdi/react"));
-var import_js13 = require("@mdi/js");
 var import_jsx_runtime40 = require("react/jsx-runtime");
 function CanaryPageHeader({
-  propertyName,
-  onPropertyClick,
-  userProfile,
-  onUserProfileClick,
-  reservationStatus,
-  onReservationStatusClick,
+  title,
   actions,
   className
 }) {
   return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
-    "header",
+    "div",
     {
       className: (0, import_clsx35.default)(
-        "w-full bg-white border-b flex items-center justify-between px-6 py-2 shrink-0",
+        "w-full bg-white border-b flex items-center justify-between shrink-0",
         className
       ),
       style: {
-        height: dimensions.headerHeight,
-        borderColor: colors.colorBlack6
+        borderColor: colors.colorBlack6,
+        padding: "16px 24px"
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
-          "button",
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "flex items-center", style: { gap: "16px" }, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
+          "h2",
           {
-            onClick: onPropertyClick,
-            className: "flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-50 transition-colors",
-            style: { cursor: onPropertyClick ? "pointer" : "default" },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                "span",
-                {
-                  className: "text-[14px] font-medium",
-                  style: { color: colors.colorBlack1 },
-                  children: propertyName
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                import_react41.default,
-                {
-                  path: import_js13.mdiChevronDown,
-                  size: 0.85,
-                  color: colors.colorBlueDark1
-                }
-              )
-            ]
+            className: "font-medium whitespace-nowrap",
+            style: {
+              fontSize: "18px",
+              lineHeight: "28px",
+              color: colors.colorBlack1
+            },
+            children: title
           }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex items-center gap-2", children: [
-          actions,
-          reservationStatus && /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
-            "button",
-            {
-              onClick: onReservationStatusClick,
-              className: "flex items-center gap-2 rounded-full pl-2 pr-4 py-1 transition-opacity hover:opacity-80",
-              style: {
-                backgroundColor: reservationStatus.isConnected ? colors.colorLightGreen5 : colors.colorBlack7,
-                cursor: onReservationStatusClick ? "pointer" : "default"
-              },
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                  import_react41.default,
-                  {
-                    path: import_js13.mdiCheckCircleOutline,
-                    size: 1,
-                    color: reservationStatus.isConnected ? colors.colorLightGreen1 : colors.colorBlack4,
-                    style: { opacity: 0.5 }
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                  "span",
-                  {
-                    className: "text-[14px]",
-                    style: {
-                      color: reservationStatus.isConnected ? colors.colorBlack1 : colors.colorBlack3
-                    },
-                    children: reservationStatus.label
-                  }
-                )
-              ]
-            }
-          ),
-          userProfile && /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
-            "button",
-            {
-              onClick: onUserProfileClick,
-              className: "flex items-center gap-2 rounded hover:bg-gray-50 transition-colors px-1 py-1",
-              style: { cursor: onUserProfileClick ? "pointer" : "default" },
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "w-8 h-8 rounded-full overflow-hidden bg-gray-200 shrink-0", children: userProfile.avatarUrl ? /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                  "img",
-                  {
-                    src: userProfile.avatarUrl,
-                    alt: userProfile.avatarAlt || userProfile.name,
-                    className: "w-full h-full object-cover"
-                  }
-                ) : /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                  "div",
-                  {
-                    className: "w-full h-full flex items-center justify-center text-sm font-medium",
-                    style: { color: colors.colorBlack3, backgroundColor: colors.colorBlack7 },
-                    children: userProfile.name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2)
-                  }
-                ) }),
-                /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex flex-col items-start leading-tight", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                    "span",
-                    {
-                      className: "text-[12px] font-medium",
-                      style: { color: colors.colorBlack1 },
-                      children: userProfile.name
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                    "span",
-                    {
-                      className: "text-[10px] uppercase",
-                      style: { color: colors.colorBlack4 },
-                      children: userProfile.role
-                    }
-                  )
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-                  import_react41.default,
-                  {
-                    path: import_js13.mdiChevronDown,
-                    size: 0.85,
-                    color: colors.colorBlack1
-                  }
-                )
-              ]
-            }
-          )
-        ] })
+        ) }),
+        actions && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "flex items-center", style: { gap: "8px" }, children: actions })
       ]
     }
   );
@@ -6205,12 +6099,7 @@ function CanaryAppShell({
   sidebarBackButton,
   hideSidebar = false,
   // Header
-  propertyName = "Property Name",
-  onPropertyClick,
-  userProfile,
-  onUserProfileClick,
-  reservationStatus,
-  onReservationStatusClick,
+  pageTitle,
   headerActions,
   hideHeader = false,
   // Content
@@ -6233,15 +6122,10 @@ function CanaryAppShell({
       }
     ),
     /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex flex-col flex-1 min-w-0 overflow-hidden", children: [
-      !hideHeader && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+      !hideHeader && pageTitle && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
         CanaryPageHeader,
         {
-          propertyName,
-          onPropertyClick,
-          userProfile,
-          onUserProfileClick,
-          reservationStatus,
-          onReservationStatusClick,
+          title: pageTitle,
           actions: headerActions
         }
       ),
@@ -6264,10 +6148,10 @@ function CanaryAppShell({
 }
 
 // components/canary-ui/navigation/CanaryTabs.tsx
-var import_react42 = require("react");
+var import_react41 = require("react");
 var import_clsx37 = __toESM(require("clsx"));
-var import_react43 = __toESM(require("@mdi/react"));
-var import_js14 = require("@mdi/js");
+var import_react42 = __toESM(require("@mdi/react"));
+var import_js13 = require("@mdi/js");
 var import_jsx_runtime42 = require("react/jsx-runtime");
 function CanaryTabs({
   tabs,
@@ -6279,9 +6163,9 @@ function CanaryTabs({
   className = ""
 }) {
   var _a, _b;
-  const [activeTab, setActiveTab] = (0, import_react42.useState)(defaultTab || ((_a = tabs[0]) == null ? void 0 : _a.id));
-  const [pressedTab, setPressedTab] = (0, import_react42.useState)(null);
-  const [hoveredTab, setHoveredTab] = (0, import_react42.useState)(null);
+  const [activeTab, setActiveTab] = (0, import_react41.useState)(defaultTab || ((_a = tabs[0]) == null ? void 0 : _a.id));
+  const [pressedTab, setPressedTab] = (0, import_react41.useState)(null);
+  const [hoveredTab, setHoveredTab] = (0, import_react41.useState)(null);
   const handleTabClick = (tabId, isDisabled) => {
     if (isDisabled) return;
     setActiveTab(tabId);
@@ -6447,9 +6331,9 @@ function CanaryTabs({
                           }
                         },
                         children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-                          import_react43.default,
+                          import_react42.default,
                           {
-                            path: tab.checked ? import_js14.mdiCheckboxMarked : import_js14.mdiCheckboxBlankOutline,
+                            path: tab.checked ? import_js13.mdiCheckboxMarked : import_js13.mdiCheckboxBlankOutline,
                             size: 1,
                             color: colors.colorBlueDark1
                           }
@@ -6600,172 +6484,172 @@ function CanaryHeader({
 }
 
 // components/canary-ui/navigation/sidebar-tabs.tsx
-var import_react44 = __toESM(require("@mdi/react"));
-var import_js15 = require("@mdi/js");
+var import_react43 = __toESM(require("@mdi/react"));
+var import_js14 = require("@mdi/js");
 var import_jsx_runtime44 = require("react/jsx-runtime");
 var sidebarTabs = {
   // Main Product Tabs
   upsells: {
     id: "upsells",
     label: "Upsells",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiCashMultiple, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCashMultiple, size: 1 })
   },
   checkIn: {
     id: "check-in",
     label: "Check-in",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiLogin, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiLogin, size: 1 })
   },
   checkout: {
     id: "checkout",
     label: "Checkout",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiLogout, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiLogout, size: 1 })
   },
   messages: {
     id: "messages",
     label: "Messages",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiMessageProcessingOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiMessageProcessingOutline, size: 1 })
   },
   calls: {
     id: "calls",
     label: "Calls",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiPhoneOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPhoneOutline, size: 1 })
   },
   digitalTips: {
     id: "digital-tips",
     label: "Digital Tips",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiCurrencyUsd, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCurrencyUsd, size: 1 })
   },
   authorizations: {
     id: "authorizations",
     label: "Authorizations",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiShieldCheckOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiShieldCheckOutline, size: 1 })
   },
   contracts: {
     id: "contracts",
     label: "Contracts",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiFileSign, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiFileSign, size: 1 })
   },
   idVerification: {
     id: "id-verification",
     label: "ID Verification",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiAccountCheckOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiAccountCheckOutline, size: 1 })
   },
   clientsOnFile: {
     id: "clients-on-file",
     label: "Clients on File",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiAccountBoxOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiAccountBoxOutline, size: 1 })
   },
   amenities: {
     id: "amenities",
     label: "Amenities",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiStoreOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiStoreOutline, size: 1 })
   },
   paymentLinks: {
     id: "payment-links",
     label: "Payment Links",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiCreditCardOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCreditCardOutline, size: 1 })
   },
   settings: {
     id: "settings",
     label: "Settings",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiCogOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCogOutline, size: 1 })
   },
   // Settings Tabs
   propertyInfo: {
     id: "property-info",
     label: "Property Info",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiHomeOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiHomeOutline, size: 1 })
   },
   branding: {
     id: "branding",
     label: "Branding",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiPaletteOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPaletteOutline, size: 1 })
   },
   billingPayment: {
     id: "billing-payment",
     label: "Billing & Payment",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiCreditCardOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCreditCardOutline, size: 1 })
   },
   staffMembers: {
     id: "staff-members",
     label: "Staff Members",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiAccountGroupOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiAccountGroupOutline, size: 1 })
   },
   security: {
     id: "security",
     label: "Security",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiShieldAccountOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiShieldAccountOutline, size: 1 })
   },
   pms: {
     id: "pms",
     label: "PMS",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiPuzzleOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPuzzleOutline, size: 1 })
   },
   devices: {
     id: "devices",
     label: "Devices",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiTabletCellphone, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiTabletCellphone, size: 1 })
   },
   compendium: {
     id: "compendium",
     label: "Compendium",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiNewspaperVariantOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiNewspaperVariantOutline, size: 1 })
   },
   areaInfo: {
     id: "area-info",
     label: "Area Info",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiMapMarker, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiMapMarker, size: 1 })
   },
   chat: {
     id: "chat",
     label: "Chat",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiChatOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiChatOutline, size: 1 })
   },
   // Custom/Above-Property Tabs
   insights: {
     id: "insights",
     label: "Insights",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiChartLine, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiChartLine, size: 1 })
   },
   properties: {
     id: "properties",
     label: "Properties",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiDomain, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiDomain, size: 1 })
   },
   analytics: {
     id: "analytics",
     label: "Analytics",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiChartBar, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiChartBar, size: 1 })
   },
   surveys: {
     id: "surveys",
     label: "Surveys",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiPoll, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPoll, size: 1 })
   },
   dashboard: {
     id: "dashboard",
     label: "Dashboard",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiViewDashboard, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiViewDashboard, size: 1 })
   },
   tasks: {
     id: "tasks",
     label: "Tasks",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiClipboardList, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiClipboardList, size: 1 })
   },
   calendar: {
     id: "calendar",
     label: "Calendar",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiCalendar, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCalendar, size: 1 })
   },
   reports: {
     id: "reports",
     label: "Reports",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiNotebook, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiNotebook, size: 1 })
   },
   performance: {
     id: "performance",
     label: "Performance",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react44.default, { path: import_js15.mdiTrendingUp, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiTrendingUp, size: 1 })
   }
 };
 var createSidebarTab = (id, label, icon, options) => __spreadValues({
@@ -6883,7 +6767,7 @@ var enableProduct = (sections, productId) => {
 };
 
 // components/canary-ui/feedback/CanaryToast.tsx
-var import_react45 = require("react");
+var import_react44 = require("react");
 var import_clsx39 = __toESM(require("clsx"));
 var import_jsx_runtime45 = require("react/jsx-runtime");
 function CanaryToast({
@@ -6896,8 +6780,8 @@ function CanaryToast({
   position = "top-right",
   className = ""
 }) {
-  const [visible, setVisible] = (0, import_react45.useState)(isOpen);
-  (0, import_react45.useEffect)(() => {
+  const [visible, setVisible] = (0, import_react44.useState)(isOpen);
+  (0, import_react44.useEffect)(() => {
     setVisible(isOpen);
     if (isOpen && duration > 0) {
       const timer = setTimeout(() => {
