@@ -1,84 +1,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as react from 'react';
-import react__default, { ReactNode, MouseEvent, InputHTMLAttributes, TextareaHTMLAttributes, SelectHTMLAttributes } from 'react';
+import { ReactNode, MouseEvent, InputHTMLAttributes, TextareaHTMLAttributes, SelectHTMLAttributes } from 'react';
 export { default as Icon } from '@mdi/react';
-
-/**
- * Form Component Types
- */
-declare enum InputSize {
-    TABLET = "tablet",
-    LARGE = "large",
-    NORMAL = "normal",
-    COMPACT = "compact"
-}
-declare enum InputType {
-    TEXT = "text",
-    EMAIL = "email",
-    PASSWORD = "password",
-    NUMBER = "number",
-    TEL = "tel",
-    URL = "url",
-    SEARCH = "search",
-    DATE = "date",
-    TIME = "time",
-    DATETIME_LOCAL = "datetime-local"
-}
-interface BaseFormProps {
-    label?: string;
-    isDisabled?: boolean;
-    isReadonly?: boolean;
-    isRequired?: boolean;
-    error?: string;
-    helperText?: string;
-    size?: InputSize;
-    className?: string;
-}
-declare enum LabelSize {
-    NORMAL = "normal",
-    LARGE = "large",
-    TABLET = "tablet"
-}
-declare enum NoteColor {
-    OK = "ok",
-    WARNING = "warning",
-    DANGER = "danger"
-}
-
-/**
- * Button Types and Enums
- * Matches the Canary UI button system
- */
-declare enum ButtonType {
-    PRIMARY = "primary",
-    OUTLINED = "outlined",
-    SHADED = "shaded",
-    TEXT = "text",
-    ICON_PRIMARY = "icon_primary",
-    ICON_SECONDARY = "icon_secondary"
-}
-declare enum ButtonSize {
-    TABLET = "tablet",
-    LARGE = "large",
-    NORMAL = "normal",
-    COMPACT = "compact",
-    TINY = "tiny"
-}
-declare enum ButtonColor {
-    NORMAL = "normal",
-    HEADING_TEXT = "heading_text",
-    DANGER = "danger",
-    WARNING = "warning",
-    SUCCESS = "success",
-    FONT = "font",
-    FONT_SECONDARY = "font_secondary",
-    WHITE = "white"
-}
-declare enum IconPosition {
-    LEFT = "left",
-    RIGHT = "right",
-    TOP = "top"
-}
 
 /**
  * Canary Design System - Design Tokens
@@ -251,7 +174,6 @@ declare const dimensions: {
     readonly headerHeight: "56px";
     readonly sectionContainerHeight: "24px";
 };
-
 /**
  * Responsive breakpoints
  * Mobile-first approach
@@ -413,6 +335,40 @@ declare const iconPaths: {
     monitor: string;
 };
 
+/**
+ * Button Types and Enums
+ * Matches the Canary UI button system
+ */
+declare enum ButtonType {
+    PRIMARY = "primary",
+    OUTLINED = "outlined",
+    SHADED = "shaded",
+    TEXT = "text",
+    ICON_PRIMARY = "icon_primary",
+    ICON_SECONDARY = "icon_secondary"
+}
+declare enum ButtonSize {
+    TABLET = "tablet",
+    LARGE = "large",
+    NORMAL = "normal",
+    COMPACT = "compact"
+}
+declare enum ButtonColor {
+    NORMAL = "normal",
+    HEADING_TEXT = "heading_text",
+    DANGER = "danger",
+    WARNING = "warning",
+    SUCCESS = "success",
+    FONT = "font",
+    FONT_SECONDARY = "font_secondary",
+    WHITE = "white"
+}
+declare enum IconPosition {
+    LEFT = "left",
+    RIGHT = "right",
+    TOP = "top"
+}
+
 interface CanaryButtonProps {
     children?: ReactNode;
     onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
@@ -432,6 +388,38 @@ interface CanaryButtonProps {
     dataAnalytics?: string;
 }
 declare function CanaryButton({ children, onClick, type, size, color: colorProp, icon, iconPosition, isDisabled, isLoading, isExpanded, isRounded, href, target, nativeType, className, dataAnalytics, }: CanaryButtonProps): react_jsx_runtime.JSX.Element;
+
+/**
+ * Form Component Types
+ */
+declare enum InputSize {
+    TABLET = "tablet",
+    LARGE = "large",
+    NORMAL = "normal",
+    COMPACT = "compact"
+}
+declare enum InputType {
+    TEXT = "text",
+    EMAIL = "email",
+    PASSWORD = "password",
+    NUMBER = "number",
+    TEL = "tel",
+    URL = "url",
+    SEARCH = "search",
+    DATE = "date",
+    TIME = "time",
+    DATETIME_LOCAL = "datetime-local"
+}
+interface BaseFormProps {
+    label?: string;
+    isDisabled?: boolean;
+    isReadonly?: boolean;
+    isRequired?: boolean;
+    error?: string;
+    helperText?: string;
+    size?: InputSize;
+    className?: string;
+}
 
 interface CanaryInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size">, BaseFormProps {
     type?: InputType;
@@ -572,52 +560,6 @@ interface CanaryCalendarProps {
 }
 declare function CanaryCalendar({ value, onChange, selectionMode, minDate, maxDate, startOfWeek, onClear, showClear, showQuickButtons, className, }: CanaryCalendarProps): react_jsx_runtime.JSX.Element;
 
-interface SegmentedControlOption {
-    label: string;
-    value: string;
-}
-interface CanarySegmentedControlProps {
-    options: SegmentedControlOption[];
-    value: string;
-    onChange: (value: string) => void;
-    className?: string;
-}
-declare function CanarySegmentedControl({ options, value, onChange, className, }: CanarySegmentedControlProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryNoteProps {
-    color?: NoteColor;
-    icon?: ReactNode;
-    children: ReactNode;
-    className?: string;
-}
-declare function CanaryNote({ color, icon, children, className, }: CanaryNoteProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryFormLabelProps {
-    label: string;
-    forElementId?: string;
-    size?: LabelSize;
-    isRequired?: boolean;
-    className?: string;
-}
-declare function CanaryFormLabel({ label, forElementId, size, isRequired, className, }: CanaryFormLabelProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryValidationErrorProps {
-    error?: string;
-    warning?: string;
-    className?: string;
-}
-declare function CanaryValidationError({ error, warning, className, }: CanaryValidationErrorProps): react_jsx_runtime.JSX.Element | null;
-
-interface CanaryCounterProps {
-    value: number;
-    onChange: (value: number) => void;
-    minValue?: number;
-    maxValue?: number;
-    isDisabled?: boolean;
-    className?: string;
-}
-declare function CanaryCounter({ value, onChange, minValue, maxValue, isDisabled, className, }: CanaryCounterProps): react_jsx_runtime.JSX.Element;
-
 interface CanaryInputUnderlineProps extends Omit<BaseFormProps, "size">, Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
     size?: InputSize;
 }
@@ -681,24 +623,6 @@ interface CanaryInputDateRangeUnderlineProps extends Omit<BaseFormProps, "size">
 }
 declare const CanaryInputDateRangeUnderline: react.ForwardRefExoticComponent<CanaryInputDateRangeUnderlineProps & react.RefAttributes<HTMLDivElement>>;
 
-interface CanaryAutocompleteProps {
-    label?: string;
-    value: string;
-    onChange: (value: string) => void;
-    options: Array<{
-        value: string;
-        label: string;
-    }>;
-    placeholder?: string;
-    size?: InputSize;
-    isDisabled?: boolean;
-    isRequired?: boolean;
-    error?: string;
-    helperText?: string;
-    className?: string;
-}
-declare const CanaryAutocomplete: react__default.FC<CanaryAutocompleteProps>;
-
 declare enum ChipType {
     SELECTABLE = "selectable",
     REMOVABLE = "removable"
@@ -753,67 +677,6 @@ interface CustomTagColor {
     fontColor?: string;
     iconColor?: string;
 }
-declare enum CardPadding {
-    DEFAULT = "default",
-    COMPACT = "compact",
-    NONE = "none"
-}
-declare enum CardBoxShadow {
-    SMALL = "small",
-    MEDIUM = "medium",
-    LARGE = "large",
-    NONE = "none"
-}
-declare enum CardInnerSpacing {
-    NONE = "none",
-    TINY = "tiny",
-    SMALL = "small",
-    DEFAULT = "default"
-}
-declare enum ListStyle {
-    STRIPES = "stripes",
-    DIVIDERS = "dividers"
-}
-declare enum ListItemPadding {
-    NORMAL = "normal",
-    COMPACT = "compact"
-}
-declare enum ListItemAlignment {
-    START = "start",
-    CENTER = "center"
-}
-declare enum DraggableIconSize {
-    DEFAULT = "default",
-    LARGE = "large"
-}
-declare enum TooltipPosition {
-    AUTO = "auto",
-    TOP = "top",
-    BOTTOM = "bottom",
-    LEFT = "left",
-    RIGHT = "right"
-}
-declare enum TooltipIconColor {
-    PRIMARY = "primary",
-    SECONDARY = "secondary",
-    DANGER = "danger"
-}
-declare enum TimestampFormat {
-    DATETIME = "datetime",
-    DATETIME_ZONE = "datetime_zone",
-    RELATIVE_TIME = "relative_time"
-}
-declare enum TimestampColor {
-    PRIMARY = "primary",
-    SECONDARY = "secondary"
-}
-declare enum ProfileImageSize {
-    LARGE = "large",
-    NORMAL = "normal",
-    MEDIUM = "medium",
-    SMALL = "small",
-    TINY = "tiny"
-}
 
 interface CanaryTagProps {
     label: string;
@@ -849,18 +712,14 @@ interface CanaryCardProps {
     children: ReactNode;
     title?: string;
     subtitle?: string;
-    headerActions?: ReactNode;
     footer?: ReactNode;
     padding?: "none" | "small" | "medium" | "large";
-    cardPadding?: CardPadding;
-    boxShadow?: CardBoxShadow;
-    innerSpacing?: CardInnerSpacing;
     hasShadow?: boolean;
     hasBorder?: boolean;
     className?: string;
     onClick?: () => void;
 }
-declare function CanaryCard({ children, title, subtitle, headerActions, footer, padding, cardPadding, boxShadow, innerSpacing, hasShadow, hasBorder, className, onClick, }: CanaryCardProps): react_jsx_runtime.JSX.Element;
+declare function CanaryCard({ children, title, subtitle, footer, padding, hasShadow, hasBorder, className, onClick, }: CanaryCardProps): react_jsx_runtime.JSX.Element;
 
 interface CanaryListItemProps {
     children?: ReactNode;
@@ -877,9 +736,7 @@ interface CanaryListItemProps {
     isDraggable?: boolean;
     className?: string;
     padding?: "normal" | "compact";
-    outerPadding?: ListItemPadding;
     alignment?: "start" | "center";
-    itemAlignment?: ListItemAlignment;
     isSelected?: boolean;
     backgroundColor?: string;
     hoverColor?: string;
@@ -898,7 +755,6 @@ interface CanaryListProps {
     onReorder?: (items: any[]) => void;
     className?: string;
     hasOuterBorder?: boolean;
-    listStyle?: ListStyle;
     isLoading?: boolean;
     loadingContent?: ReactNode;
     isEmpty?: boolean;
@@ -907,43 +763,9 @@ interface CanaryListProps {
     errorContent?: ReactNode;
 }
 declare const CanaryList: {
-    ({ children, items, isDraggable, onReorder, className, hasOuterBorder, listStyle, isLoading, loadingContent, isEmpty, emptyContent, hasError, errorContent, }: CanaryListProps): react_jsx_runtime.JSX.Element;
+    ({ children, items, isDraggable, onReorder, className, hasOuterBorder, isLoading, loadingContent, isEmpty, emptyContent, hasError, errorContent, }: CanaryListProps): react_jsx_runtime.JSX.Element;
     displayName: string;
 };
-
-interface CanaryTimestampProps {
-    date: Date | string | number;
-    format?: TimestampFormat;
-    color?: TimestampColor;
-    className?: string;
-}
-declare function CanaryTimestamp({ date, format, color, className, }: CanaryTimestampProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryProfileImageProps {
-    src?: string;
-    alt?: string;
-    size?: ProfileImageSize;
-    initials?: string;
-    className?: string;
-}
-declare function CanaryProfileImage({ src, alt, size, initials, className, }: CanaryProfileImageProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryTooltipProps {
-    content: ReactNode;
-    position?: TooltipPosition;
-    children: ReactNode;
-    className?: string;
-}
-declare function CanaryTooltip({ content, position, children, className, }: CanaryTooltipProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryTooltipIconProps {
-    content: ReactNode;
-    position?: TooltipPosition;
-    color?: TooltipIconColor;
-    size?: number;
-    className?: string;
-}
-declare function CanaryTooltipIcon({ content, position, color, size, className, }: CanaryTooltipIconProps): react_jsx_runtime.JSX.Element;
 
 interface CanaryContainerProps {
     children: ReactNode;
@@ -990,24 +812,6 @@ declare enum NavigationItemState {
     ON_PRESS = "onPress",
     DISABLED = "disabled"
 }
-declare enum TabSize {
-    LARGE = "large",
-    NORMAL = "normal",
-    COMPACT = "compact"
-}
-declare enum TabType {
-    ROUND = "round",
-    PRIMARY = "primary",
-    TEXT = "text"
-}
-declare enum ProgressBarVariant {
-    STEPS = "steps",
-    CONTINUOUS = "continuous"
-}
-declare enum StepsOrientation {
-    HORIZONTAL = "horizontal",
-    VERTICAL = "vertical"
-}
 
 interface SidebarNavigationItem {
     id: string;
@@ -1036,45 +840,6 @@ interface CanarySidebarProps {
 declare function CanarySidebar({ variant, sections, logo, title, backButton, selectedItemId, onItemClick, width, // Remove default, let it auto-size
 className, }: CanarySidebarProps): react_jsx_runtime.JSX.Element;
 
-interface UserProfile {
-    name: string;
-    role: string;
-    avatarUrl?: string;
-    avatarAlt?: string;
-}
-interface ReservationStatus {
-    label: string;
-    isConnected: boolean;
-}
-interface CanaryPageHeaderProps {
-    /** Property/Hotel name displayed on the left */
-    propertyName: string;
-    /** Called when property selector is clicked */
-    onPropertyClick?: () => void;
-    /** User profile information */
-    userProfile?: UserProfile;
-    /** Called when user profile is clicked */
-    onUserProfileClick?: () => void;
-    /** Reservation/PMS connection status */
-    reservationStatus?: ReservationStatus;
-    /** Called when reservation status is clicked */
-    onReservationStatusClick?: () => void;
-    /** Additional action items to render before user profile */
-    actions?: ReactNode;
-    /** Additional CSS classes */
-    className?: string;
-}
-/**
- * CanaryPageHeader - The standard page header for Canary applications
- *
- * Features:
- * - Property selector (left side)
- * - Reservation status badge
- * - User profile with avatar, name, and role
- * - Slot for additional actions
- */
-declare function CanaryPageHeader({ propertyName, onPropertyClick, userProfile, onUserProfileClick, reservationStatus, onReservationStatusClick, actions, className, }: CanaryPageHeaderProps): react_jsx_runtime.JSX.Element;
-
 interface CanaryAppShellProps {
     /** Main content of the application */
     children: ReactNode;
@@ -1092,19 +857,9 @@ interface CanaryAppShellProps {
     sidebarBackButton?: ReactNode;
     /** Hide the sidebar entirely */
     hideSidebar?: boolean;
-    /** Property/Hotel name */
-    propertyName?: string;
-    /** Called when property selector is clicked */
-    onPropertyClick?: () => void;
-    /** User profile information */
-    userProfile?: UserProfile;
-    /** Called when user profile is clicked */
-    onUserProfileClick?: () => void;
-    /** Reservation/PMS connection status */
-    reservationStatus?: ReservationStatus;
-    /** Called when reservation status is clicked */
-    onReservationStatusClick?: () => void;
-    /** Additional header action items */
+    /** Page title shown in the content header */
+    pageTitle?: string;
+    /** Action buttons/content for the right side of the page header */
     headerActions?: ReactNode;
     /** Hide the page header entirely */
     hideHeader?: boolean;
@@ -1136,86 +891,10 @@ interface CanaryAppShellProps {
  * </CanaryAppShell>
  * ```
  */
-declare function CanaryAppShell({ children, sidebarVariant, sidebarSections, selectedSidebarItemId, onSidebarItemClick, sidebarTitle, sidebarBackButton, hideSidebar, propertyName, onPropertyClick, userProfile, onUserProfileClick, reservationStatus, onReservationStatusClick, headerActions, hideHeader, contentBackground, contentPadding, contentClassName, className, }: CanaryAppShellProps): react_jsx_runtime.JSX.Element;
-
-declare enum DividerDirection {
-    HORIZONTAL = "horizontal",
-    VERTICAL = "vertical"
-}
-declare enum DialogStretch {
-    COMPACT = "compact",
-    NORMAL = "normal",
-    FILL = "fill"
-}
-declare enum DialogCloseButtonSize {
-    DEFAULT = "default",
-    LARGE = "large",
-    TABLET = "tablet"
-}
-declare enum SettingsCardState {
-    VIEW = "view",
-    NEW = "new",
-    EDIT = "edit",
-    DISABLED = "disabled"
-}
-
-interface CanaryDividerProps {
-    direction?: DividerDirection;
-    text?: string;
-    className?: string;
-}
-declare function CanaryDivider({ direction, text, className, }: CanaryDividerProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryExpandProps {
-    isExpanded: boolean;
-    onToggle: () => void;
-    header: ReactNode;
-    children: ReactNode;
-    isDisabled?: boolean;
-    className?: string;
-}
-declare function CanaryExpand({ isExpanded, onToggle, header, children, isDisabled, className, }: CanaryExpandProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryDialogProps {
-    isOpen: boolean;
-    onClose: () => void;
-    title?: string;
-    stretch?: DialogStretch;
-    hasCloseButton?: boolean;
-    closeButtonSize?: DialogCloseButtonSize;
-    stickyFooter?: boolean;
-    children: ReactNode;
-    footer?: ReactNode;
-    className?: string;
-}
-declare function CanaryDialog({ isOpen, onClose, title, stretch, hasCloseButton, closeButtonSize, stickyFooter, children, footer, className, }: CanaryDialogProps): react_jsx_runtime.JSX.Element | null;
-
-interface CanarySideSheetProps {
-    isOpen: boolean;
-    onClose: () => void;
-    size?: "small" | "medium" | "large";
-    header?: ReactNode;
-    children: ReactNode;
-    footer?: ReactNode;
-    className?: string;
-}
-declare function CanarySideSheet({ isOpen, onClose, size, header, children, footer, className, }: CanarySideSheetProps): react_jsx_runtime.JSX.Element | null;
-
-interface CanarySettingsCardProps {
-    title: string;
-    subtitle?: string;
-    state?: SettingsCardState;
-    onStateChange?: (state: SettingsCardState) => void;
-    onSave?: () => void;
-    icon?: ReactNode;
-    children: ReactNode;
-    headerAction?: ReactNode;
-    className?: string;
-}
-declare const CanarySettingsCard: react__default.FC<CanarySettingsCardProps>;
+declare function CanaryAppShell({ children, sidebarVariant, sidebarSections, selectedSidebarItemId, onSidebarItemClick, sidebarTitle, sidebarBackButton, hideSidebar, pageTitle, headerActions, hideHeader, contentBackground, contentPadding, contentClassName, className, }: CanaryAppShellProps): react_jsx_runtime.JSX.Element;
 
 type TabVariant = "rounded" | "text" | "segmented" | "text-checkbox";
-type TabSizeLegacy = "normal" | "compact";
+type TabSize = "normal" | "compact";
 interface CanaryTab {
     id: string;
     label: string;
@@ -1228,17 +907,13 @@ interface CanaryTab {
 interface CanaryTabsProps {
     tabs: CanaryTab[];
     variant?: TabVariant;
-    /** Production-aligned tab type enum. Maps: ROUND→"rounded", PRIMARY→"segmented", TEXT→"text" */
-    tabType?: TabType;
-    size?: TabSizeLegacy;
-    /** Production-aligned tab size enum. Maps: LARGE→"normal", NORMAL→"normal", COMPACT→"compact" */
-    tabSize?: TabSize;
+    size?: TabSize;
     defaultTab?: string;
     onChange?: (tabId: string) => void;
     onCheckboxChange?: (tabId: string, checked: boolean) => void;
     className?: string;
 }
-declare function CanaryTabs({ tabs, variant: variantProp, tabType, size: sizeProp, tabSize, defaultTab, onChange, onCheckboxChange, className, }: CanaryTabsProps): react_jsx_runtime.JSX.Element;
+declare function CanaryTabs({ tabs, variant, size, defaultTab, onChange, onCheckboxChange, className, }: CanaryTabsProps): react_jsx_runtime.JSX.Element;
 
 interface CanaryHeaderProps {
     logo?: ReactNode;
@@ -1248,6 +923,16 @@ interface CanaryHeaderProps {
     className?: string;
 }
 declare function CanaryHeader({ logo, title, actions, navigation, className, }: CanaryHeaderProps): react_jsx_runtime.JSX.Element;
+
+interface CanaryPageHeaderProps {
+    /** Page title displayed on the left */
+    title: string;
+    /** Action buttons/content displayed on the right */
+    actions?: ReactNode;
+    /** Additional CSS classes */
+    className?: string;
+}
+declare function CanaryPageHeader({ title, actions, className, }: CanaryPageHeaderProps): react_jsx_runtime.JSX.Element;
 
 /**
  * Canary Logo Component
@@ -1261,42 +946,6 @@ interface CanaryLogoProps {
     className?: string;
 }
 declare function CanaryLogo({ width, height, className }: CanaryLogoProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryProgressBarProps {
-    variant?: ProgressBarVariant;
-    totalSteps?: number;
-    currentStep?: number;
-    progress?: number;
-    showLabel?: boolean;
-    className?: string;
-}
-declare function CanaryProgressBar({ variant, totalSteps, currentStep, progress, showLabel, className, }: CanaryProgressBarProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryOverflowMenuProps {
-    items: Array<{
-        id: string;
-        label: string;
-        icon?: ReactNode;
-        onClick?: () => void;
-        isDanger?: boolean;
-        isDivider?: boolean;
-    }>;
-    placement?: "bottom-start" | "bottom-end";
-    trigger?: ReactNode;
-    className?: string;
-}
-declare function CanaryOverflowMenu({ items, placement, trigger, className, }: CanaryOverflowMenuProps): react_jsx_runtime.JSX.Element;
-
-interface CanaryStepsProps {
-    steps: Array<{
-        label: string;
-        description?: string;
-    }>;
-    currentStep: number;
-    orientation?: StepsOrientation;
-    className?: string;
-}
-declare const CanarySteps: react__default.FC<CanaryStepsProps>;
 
 /**
  * Standard Canary Sidebar Sections
@@ -1488,25 +1137,6 @@ interface CanaryAlertProps {
 }
 declare function CanaryAlert({ message, type, title, icon, onClose, className, }: CanaryAlertProps): react_jsx_runtime.JSX.Element;
 
-declare enum BadgeType {
-    URGENT = "urgent",
-    INFO = "info",
-    WARNING = "warning"
-}
-declare enum BadgeSize {
-    NORMAL = "normal",
-    LARGE = "large"
-}
-
-interface CanaryBadgeProps {
-    type?: BadgeType;
-    size?: BadgeSize;
-    label?: string;
-    children?: ReactNode;
-    className?: string;
-}
-declare function CanaryBadge({ type, size, label, children, className, }: CanaryBadgeProps): react_jsx_runtime.JSX.Element;
-
 interface CanaryLoadingProps {
     color?: string;
     size?: number;
@@ -1514,4 +1144,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { BadgeSize, BadgeType, type BaseFormProps, ButtonColor, ButtonSize, ButtonType, type CalendarSelection, type CalendarSelectionMode, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryAutocomplete, type CanaryAutocompleteProps, CanaryBadge, CanaryButton, CanaryCalendar, type CanaryCalendarProps, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryCounter, type CanaryCounterProps, CanaryDialog, type CanaryDialogProps, CanaryDivider, CanaryExpand, CanaryFormLabel, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryNote, CanaryOverflowMenu, type CanaryOverflowMenuProps, CanaryPageHeader, type CanaryPageHeaderProps, CanaryProfileImage, CanaryProgressBar, type CanaryProgressBarProps, CanaryRadio, CanaryRadioGroup, CanarySegmentedControl, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySettingsCard, type CanarySettingsCardProps, CanarySideSheet, type CanarySideSheetProps, CanarySidebar, type CanarySidebarProps, CanarySteps, type CanaryStepsProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryTimestamp, CanaryToast, CanaryTooltip, CanaryTooltipIcon, CanaryValidationError, CardBoxShadow, CardInnerSpacing, CardPadding, type ChipSize, ChipType, type CustomTagColor, DialogCloseButtonSize, DialogStretch, DividerDirection, DraggableIconSize, IconPosition, InputSize, InputType, LabelSize, ListItemAlignment, ListItemPadding, ListStyle, NavigationItemState, NoteColor, ProfileImageSize, ProgressBarVariant, type ReservationStatus, SettingsCardState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, StepsOrientation, TabSize, TabType, TagColor, TagSize, TagVariant, TimestampColor, TimestampFormat, TooltipIconColor, TooltipPosition, type UserProfile, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };
+export { type BaseFormProps, ButtonColor, ButtonSize, ButtonType, type CalendarSelection, type CalendarSelectionMode, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryButton, CanaryCalendar, type CanaryCalendarProps, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryPageHeader, type CanaryPageHeaderProps, CanaryRadio, CanaryRadioGroup, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySidebar, type CanarySidebarProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryToast, type ChipSize, ChipType, type CustomTagColor, IconPosition, InputSize, InputType, NavigationItemState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, TagColor, TagSize, TagVariant, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };

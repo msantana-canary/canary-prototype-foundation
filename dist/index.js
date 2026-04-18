@@ -61,26 +61,17 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // components/canary-ui/index.ts
 var canary_ui_exports = {};
 __export(canary_ui_exports, {
-  BadgeSize: () => BadgeSize,
-  BadgeType: () => BadgeType,
   ButtonColor: () => ButtonColor,
   ButtonSize: () => ButtonSize,
   ButtonType: () => ButtonType,
   CanaryAlert: () => CanaryAlert,
   CanaryAppShell: () => CanaryAppShell,
-  CanaryAutocomplete: () => CanaryAutocomplete_default,
-  CanaryBadge: () => CanaryBadge,
   CanaryButton: () => CanaryButton,
   CanaryCalendar: () => CanaryCalendar,
   CanaryCard: () => CanaryCard,
   CanaryCheckbox: () => CanaryCheckbox_default,
   CanaryChip: () => CanaryChip,
   CanaryContainer: () => CanaryContainer,
-  CanaryCounter: () => CanaryCounter,
-  CanaryDialog: () => CanaryDialog,
-  CanaryDivider: () => CanaryDivider,
-  CanaryExpand: () => CanaryExpand,
-  CanaryFormLabel: () => CanaryFormLabel,
   CanaryGrid: () => CanaryGrid,
   CanaryHeader: () => CanaryHeader,
   CanaryIcon: () => CanaryIcon,
@@ -104,63 +95,29 @@ __export(canary_ui_exports, {
   CanaryLoading: () => CanaryLoading,
   CanaryLogo: () => CanaryLogo,
   CanaryModal: () => CanaryModal,
-  CanaryNote: () => CanaryNote,
-  CanaryOverflowMenu: () => CanaryOverflowMenu,
   CanaryPageHeader: () => CanaryPageHeader,
-  CanaryProfileImage: () => CanaryProfileImage,
-  CanaryProgressBar: () => CanaryProgressBar,
   CanaryRadio: () => CanaryRadio_default,
   CanaryRadioGroup: () => CanaryRadioGroup,
-  CanarySegmentedControl: () => CanarySegmentedControl,
   CanarySelect: () => CanarySelect_default,
   CanarySelectUnderline: () => CanarySelectUnderline_default,
-  CanarySettingsCard: () => CanarySettingsCard_default,
-  CanarySideSheet: () => CanarySideSheet,
   CanarySidebar: () => CanarySidebar,
-  CanarySteps: () => CanarySteps_default,
   CanarySwitch: () => CanarySwitch_default,
   CanaryTable: () => CanaryTable,
   CanaryTabs: () => CanaryTabs,
   CanaryTag: () => CanaryTag,
   CanaryTextArea: () => CanaryTextArea_default,
   CanaryTextAreaUnderline: () => CanaryTextAreaUnderline_default,
-  CanaryTimestamp: () => CanaryTimestamp,
   CanaryToast: () => CanaryToast,
-  CanaryTooltip: () => CanaryTooltip,
-  CanaryTooltipIcon: () => CanaryTooltipIcon,
-  CanaryValidationError: () => CanaryValidationError,
-  CardBoxShadow: () => CardBoxShadow,
-  CardInnerSpacing: () => CardInnerSpacing,
-  CardPadding: () => CardPadding,
   ChipType: () => ChipType,
-  DialogCloseButtonSize: () => DialogCloseButtonSize,
-  DialogStretch: () => DialogStretch,
-  DividerDirection: () => DividerDirection,
-  DraggableIconSize: () => DraggableIconSize,
   Icon: () => import_react.default,
   IconPosition: () => IconPosition,
   InputSize: () => InputSize,
   InputType: () => InputType,
-  LabelSize: () => LabelSize,
-  ListItemAlignment: () => ListItemAlignment,
-  ListItemPadding: () => ListItemPadding,
-  ListStyle: () => ListStyle,
   NavigationItemState: () => NavigationItemState,
-  NoteColor: () => NoteColor,
-  ProfileImageSize: () => ProfileImageSize,
-  ProgressBarVariant: () => ProgressBarVariant,
-  SettingsCardState: () => SettingsCardState,
   SidebarVariant: () => SidebarVariant,
-  StepsOrientation: () => StepsOrientation,
-  TabSize: () => TabSize,
-  TabType: () => TabType,
   TagColor: () => TagColor,
   TagSize: () => TagSize,
   TagVariant: () => TagVariant,
-  TimestampColor: () => TimestampColor,
-  TimestampFormat: () => TimestampFormat,
-  TooltipIconColor: () => TooltipIconColor,
-  TooltipPosition: () => TooltipPosition,
   addBadge: () => addBadge,
   addProduct: () => addProduct,
   borderRadius: () => borderRadius,
@@ -188,76 +145,6 @@ __export(canary_ui_exports, {
   zIndex: () => zIndex
 });
 module.exports = __toCommonJS(canary_ui_exports);
-
-// components/canary-ui/forms/types.ts
-var InputSize = /* @__PURE__ */ ((InputSize2) => {
-  InputSize2["TABLET"] = "tablet";
-  InputSize2["LARGE"] = "large";
-  InputSize2["NORMAL"] = "normal";
-  InputSize2["COMPACT"] = "compact";
-  return InputSize2;
-})(InputSize || {});
-var InputType = /* @__PURE__ */ ((InputType2) => {
-  InputType2["TEXT"] = "text";
-  InputType2["EMAIL"] = "email";
-  InputType2["PASSWORD"] = "password";
-  InputType2["NUMBER"] = "number";
-  InputType2["TEL"] = "tel";
-  InputType2["URL"] = "url";
-  InputType2["SEARCH"] = "search";
-  InputType2["DATE"] = "date";
-  InputType2["TIME"] = "time";
-  InputType2["DATETIME_LOCAL"] = "datetime-local";
-  return InputType2;
-})(InputType || {});
-var LabelSize = /* @__PURE__ */ ((LabelSize2) => {
-  LabelSize2["NORMAL"] = "normal";
-  LabelSize2["LARGE"] = "large";
-  LabelSize2["TABLET"] = "tablet";
-  return LabelSize2;
-})(LabelSize || {});
-var NoteColor = /* @__PURE__ */ ((NoteColor2) => {
-  NoteColor2["OK"] = "ok";
-  NoteColor2["WARNING"] = "warning";
-  NoteColor2["DANGER"] = "danger";
-  return NoteColor2;
-})(NoteColor || {});
-
-// components/canary-ui/buttons/types.ts
-var ButtonType = /* @__PURE__ */ ((ButtonType2) => {
-  ButtonType2["PRIMARY"] = "primary";
-  ButtonType2["OUTLINED"] = "outlined";
-  ButtonType2["SHADED"] = "shaded";
-  ButtonType2["TEXT"] = "text";
-  ButtonType2["ICON_PRIMARY"] = "icon_primary";
-  ButtonType2["ICON_SECONDARY"] = "icon_secondary";
-  return ButtonType2;
-})(ButtonType || {});
-var ButtonSize = /* @__PURE__ */ ((ButtonSize2) => {
-  ButtonSize2["TABLET"] = "tablet";
-  ButtonSize2["LARGE"] = "large";
-  ButtonSize2["NORMAL"] = "normal";
-  ButtonSize2["COMPACT"] = "compact";
-  ButtonSize2["TINY"] = "tiny";
-  return ButtonSize2;
-})(ButtonSize || {});
-var ButtonColor = /* @__PURE__ */ ((ButtonColor2) => {
-  ButtonColor2["NORMAL"] = "normal";
-  ButtonColor2["HEADING_TEXT"] = "heading_text";
-  ButtonColor2["DANGER"] = "danger";
-  ButtonColor2["WARNING"] = "warning";
-  ButtonColor2["SUCCESS"] = "success";
-  ButtonColor2["FONT"] = "font";
-  ButtonColor2["FONT_SECONDARY"] = "font_secondary";
-  ButtonColor2["WHITE"] = "white";
-  return ButtonColor2;
-})(ButtonColor || {});
-var IconPosition = /* @__PURE__ */ ((IconPosition2) => {
-  IconPosition2["LEFT"] = "left";
-  IconPosition2["RIGHT"] = "right";
-  IconPosition2["TOP"] = "top";
-  return IconPosition2;
-})(IconPosition || {});
 
 // components/canary-ui/design-tokens.ts
 var colors = {
@@ -645,6 +532,41 @@ var iconPaths = {
   monitor: import_js.mdiMonitor
 };
 
+// components/canary-ui/buttons/types.ts
+var ButtonType = /* @__PURE__ */ ((ButtonType2) => {
+  ButtonType2["PRIMARY"] = "primary";
+  ButtonType2["OUTLINED"] = "outlined";
+  ButtonType2["SHADED"] = "shaded";
+  ButtonType2["TEXT"] = "text";
+  ButtonType2["ICON_PRIMARY"] = "icon_primary";
+  ButtonType2["ICON_SECONDARY"] = "icon_secondary";
+  return ButtonType2;
+})(ButtonType || {});
+var ButtonSize = /* @__PURE__ */ ((ButtonSize2) => {
+  ButtonSize2["TABLET"] = "tablet";
+  ButtonSize2["LARGE"] = "large";
+  ButtonSize2["NORMAL"] = "normal";
+  ButtonSize2["COMPACT"] = "compact";
+  return ButtonSize2;
+})(ButtonSize || {});
+var ButtonColor = /* @__PURE__ */ ((ButtonColor2) => {
+  ButtonColor2["NORMAL"] = "normal";
+  ButtonColor2["HEADING_TEXT"] = "heading_text";
+  ButtonColor2["DANGER"] = "danger";
+  ButtonColor2["WARNING"] = "warning";
+  ButtonColor2["SUCCESS"] = "success";
+  ButtonColor2["FONT"] = "font";
+  ButtonColor2["FONT_SECONDARY"] = "font_secondary";
+  ButtonColor2["WHITE"] = "white";
+  return ButtonColor2;
+})(ButtonColor || {});
+var IconPosition = /* @__PURE__ */ ((IconPosition2) => {
+  IconPosition2["LEFT"] = "left";
+  IconPosition2["RIGHT"] = "right";
+  IconPosition2["TOP"] = "top";
+  return IconPosition2;
+})(IconPosition || {});
+
 // components/canary-ui/loading/CanaryLoading.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
 function CanaryLoading({
@@ -747,8 +669,7 @@ function CanaryButton({
     ["tablet" /* TABLET */]: "h-14 text-[24px] font-medium",
     ["large" /* LARGE */]: "h-12 text-[18px]",
     ["normal" /* NORMAL */]: "h-10 text-[14px]",
-    ["compact" /* COMPACT */]: "h-8 text-[12px]",
-    ["tiny" /* TINY */]: "h-6 text-[10px]"
+    ["compact" /* COMPACT */]: "h-8 text-[12px]"
   };
   const getPaddingClasses = () => {
     if (isIconType) return "p-0";
@@ -781,8 +702,7 @@ function CanaryButton({
       ["tablet" /* TABLET */]: "w-14",
       ["large" /* LARGE */]: "w-12",
       ["normal" /* NORMAL */]: "w-10",
-      ["compact" /* COMPACT */]: "w-8",
-      ["tiny" /* TINY */]: "w-6"
+      ["compact" /* COMPACT */]: "w-8"
     }[size];
   };
   const getBackgroundOpacity = () => {
@@ -934,6 +854,30 @@ function CanaryButton({
 
 // components/canary-ui/forms/CanaryInput.tsx
 var import_react2 = require("react");
+
+// components/canary-ui/forms/types.ts
+var InputSize = /* @__PURE__ */ ((InputSize2) => {
+  InputSize2["TABLET"] = "tablet";
+  InputSize2["LARGE"] = "large";
+  InputSize2["NORMAL"] = "normal";
+  InputSize2["COMPACT"] = "compact";
+  return InputSize2;
+})(InputSize || {});
+var InputType = /* @__PURE__ */ ((InputType2) => {
+  InputType2["TEXT"] = "text";
+  InputType2["EMAIL"] = "email";
+  InputType2["PASSWORD"] = "password";
+  InputType2["NUMBER"] = "number";
+  InputType2["TEL"] = "tel";
+  InputType2["URL"] = "url";
+  InputType2["SEARCH"] = "search";
+  InputType2["DATE"] = "date";
+  InputType2["TIME"] = "time";
+  InputType2["DATETIME_LOCAL"] = "datetime-local";
+  return InputType2;
+})(InputType || {});
+
+// components/canary-ui/forms/CanaryInput.tsx
 var import_clsx2 = __toESM(require("clsx"));
 var import_jsx_runtime4 = require("react/jsx-runtime");
 var CanaryInput = (0, import_react2.forwardRef)(
@@ -1015,14 +959,7 @@ var CanaryInput = (0, import_react2.forwardRef)(
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "relative", children: [
-        leftAddon && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          "div",
-          {
-            className: "absolute left-3 top-0 flex items-center pointer-events-none z-20",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: leftAddon
-          }
-        ),
+        leftAddon && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute left-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20", children: leftAddon }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
           "input",
           __spreadValues({
@@ -1035,38 +972,24 @@ var CanaryInput = (0, import_react2.forwardRef)(
             style: inputStyles
           }, inputProps)
         ),
-        error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          "div",
+        error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "svg",
           {
-            className: "absolute right-2 top-0 flex items-center pointer-events-none z-20",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            width: "24",
+            height: "24",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
             children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "svg",
+              "path",
               {
-                width: "24",
-                height: "24",
-                viewBox: "0 0 24 24",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg",
-                children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-                  "path",
-                  {
-                    d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
-                    fill: colors.error
-                  }
-                )
+                d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
+                fill: colors.error
               }
             )
           }
-        ),
-        rightAddon && !error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          "div",
-          {
-            className: "absolute right-3 top-0 flex items-center pointer-events-none z-20",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: rightAddon
-          }
-        )
+        ) }),
+        rightAddon && !error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-20", children: rightAddon })
       ] }),
       error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mt-1 inline-block px-2 py-[2px] rounded", style: { backgroundColor: colors.colorRed5 }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-[12px] leading-[1.5]", style: { color: colors.error }, children: error }) }),
       helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-[12px] mt-1 leading-[1.5]", style: { color: colors.colorBlack3 }, children: helperText })
@@ -1302,30 +1225,23 @@ var CanarySelect = (0, import_react4.forwardRef)(
             ]
           })
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          "div",
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          "svg",
           {
-            className: "absolute right-2 top-0 flex items-center pointer-events-none",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            width: "24",
+            height: "24",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
             children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-              "svg",
+              "path",
               {
-                width: "24",
-                height: "24",
-                viewBox: "0 0 24 24",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg",
-                children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-                  "path",
-                  {
-                    d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
-                    fill: "#000000"
-                  }
-                )
+                d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
+                fill: "#000000"
               }
             )
           }
-        )
+        ) })
       ] }),
       error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-1 inline-block bg-[#fce6ed] px-2 py-[2px] rounded", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5]", children: error }) }),
       helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5]", children: helperText })
@@ -1711,8 +1627,7 @@ var CanaryInputPassword = (0, import_react10.forwardRef)(
           {
             type: "button",
             onClick: () => setShowPassword(!showPassword),
-            className: "absolute right-2 top-0 flex items-center cursor-pointer",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center cursor-pointer",
             disabled: isDisabled || isReadonly,
             tabIndex: -1,
             children: showPassword ? (
@@ -1804,20 +1719,13 @@ var CanaryInputSearch = (0, import_react11.forwardRef)(
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "relative", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-          "div",
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute left-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          "path",
           {
-            className: "absolute left-2 top-0 flex items-center pointer-events-none",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-              "path",
-              {
-                d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
-                fill: "#000000"
-              }
-            ) })
+            d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
+            fill: "#000000"
           }
-        ),
+        ) }) }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
           "input",
           __spreadValues({
@@ -1929,14 +1837,7 @@ var CanaryInputCreditCard = (0, import_react12.forwardRef)(
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "relative", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "div",
-          {
-            className: "absolute left-2 top-0 flex items-center pointer-events-none",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: getCardIcon()
-          }
-        ),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "absolute left-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none", children: getCardIcon() }),
         /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           __spreadValues(__spreadProps(__spreadValues({
@@ -3261,20 +3162,13 @@ var CanaryInputMultiple = (0, import_react20.forwardRef)(
                   style: { color: colors.colorBlack1 }
                 }
               ),
-              error && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-                "div",
+              error && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center pointer-events-none", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+                "path",
                 {
-                  className: "absolute right-2 top-0 flex items-center pointer-events-none",
-                  style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-                    "path",
-                    {
-                      d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
-                      fill: colors.error
-                    }
-                  ) })
+                  d: "M11 15H13V17H11V15ZM11 7H13V13H11V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z",
+                  fill: colors.error
                 }
-              )
+              ) }) })
             ] })
           ]
         }
@@ -3287,224 +3181,12 @@ var CanaryInputMultiple = (0, import_react20.forwardRef)(
 CanaryInputMultiple.displayName = "CanaryInputMultiple";
 var CanaryInputMultiple_default = CanaryInputMultiple;
 
-// components/canary-ui/forms/CanarySegmentedControl.tsx
-var import_clsx17 = __toESM(require("clsx"));
-var import_jsx_runtime20 = require("react/jsx-runtime");
-function CanarySegmentedControl({
-  options,
-  value,
-  onChange,
-  className = ""
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-    "div",
-    {
-      className: (0, import_clsx17.default)(
-        "inline-flex rounded-full p-1",
-        "font-['Roboto',sans-serif]",
-        className
-      ),
-      style: {
-        backgroundColor: colors.colorBlack7
-      },
-      children: options.map((option) => {
-        const isSelected = value === option.value;
-        return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-          "button",
-          {
-            onClick: () => onChange(option.value),
-            className: (0, import_clsx17.default)(
-              "px-4 py-2 text-[14px] font-medium rounded-full transition-all duration-200",
-              isSelected ? "" : "hover:opacity-70"
-            ),
-            style: {
-              backgroundColor: isSelected ? colors.colorBlueDark1 : "transparent",
-              color: isSelected ? colors.white : colors.colorBlack3
-            },
-            children: option.label
-          },
-          option.value
-        );
-      })
-    }
-  );
-}
-
-// components/canary-ui/forms/CanaryNote.tsx
-var import_clsx18 = __toESM(require("clsx"));
-var import_jsx_runtime21 = require("react/jsx-runtime");
-function CanaryNote({
-  color = "ok" /* OK */,
-  icon,
-  children,
-  className = ""
-}) {
-  const colorStyles = {
-    ["ok" /* OK */]: {
-      borderColor: colors.colorLightGreen1,
-      backgroundColor: colors.colorLightGreen5
-    },
-    ["warning" /* WARNING */]: {
-      borderColor: colors.colorWheat1,
-      backgroundColor: colors.colorWheat5
-    },
-    ["danger" /* DANGER */]: {
-      borderColor: colors.danger,
-      backgroundColor: colors.colorPink5
-    }
-  };
-  const scheme = colorStyles[color];
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
-    "div",
-    {
-      className: (0, import_clsx18.default)("flex items-start gap-2 text-sm", className),
-      style: {
-        borderLeft: `4px solid ${scheme.borderColor}`,
-        backgroundColor: scheme.backgroundColor,
-        padding: "12px",
-        borderRadius: "4px"
-      },
-      children: [
-        icon && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "shrink-0 mt-0.5", children: icon }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "flex-1", children })
-      ]
-    }
-  );
-}
-
-// components/canary-ui/forms/CanaryFormLabel.tsx
-var import_clsx19 = __toESM(require("clsx"));
-var import_jsx_runtime22 = require("react/jsx-runtime");
-function CanaryFormLabel({
-  label,
-  forElementId,
-  size = "normal" /* NORMAL */,
-  isRequired = false,
-  className = ""
-}) {
-  const sizeMap = {
-    ["normal" /* NORMAL */]: "14px",
-    ["large" /* LARGE */]: "16px",
-    ["tablet" /* TABLET */]: "18px"
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
-    "label",
-    {
-      htmlFor: forElementId,
-      className: (0, import_clsx19.default)("block", className),
-      style: {
-        fontSize: sizeMap[size],
-        fontWeight: 500,
-        color: colors.colorBlack2
-      },
-      children: [
-        label,
-        isRequired && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { style: { color: colors.danger }, className: "ml-0.5", children: "*" })
-      ]
-    }
-  );
-}
-
-// components/canary-ui/forms/CanaryValidationError.tsx
-var import_clsx20 = __toESM(require("clsx"));
-var import_jsx_runtime23 = require("react/jsx-runtime");
-function CanaryValidationError({
-  error,
-  warning,
-  className = ""
-}) {
-  if (!error && !warning) return null;
-  const message = error || warning;
-  const textColor = error ? colors.danger : colors.warning;
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-    "p",
-    {
-      className: (0, import_clsx20.default)("mt-1 text-[12px]", className),
-      style: { color: textColor },
-      children: message
-    }
-  );
-}
-
-// components/canary-ui/forms/CanaryCounter.tsx
-var import_clsx21 = __toESM(require("clsx"));
-var import_jsx_runtime24 = require("react/jsx-runtime");
-function CanaryCounter({
-  value,
-  onChange,
-  minValue = 0,
-  maxValue = 99,
-  isDisabled = false,
-  className
-}) {
-  const isMinDisabled = isDisabled || value <= minValue;
-  const isMaxDisabled = isDisabled || value >= maxValue;
-  return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
-    "div",
-    {
-      className: (0, import_clsx21.default)(
-        "inline-flex items-center gap-2",
-        isDisabled && "opacity-50",
-        className
-      ),
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "button",
-          {
-            type: "button",
-            disabled: isMinDisabled,
-            onClick: () => onChange(Math.max(minValue, value - 1)),
-            className: (0, import_clsx21.default)(
-              "flex items-center justify-center rounded-full",
-              isMinDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:bg-gray-50"
-            ),
-            style: {
-              width: 32,
-              height: 32,
-              border: `1px solid ${colors.colorBlack6}`,
-              backgroundColor: colors.colorWhite
-            },
-            children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("path", { d: "M4 8H12", stroke: colors.colorBlack2, strokeWidth: "1.5", strokeLinecap: "round" }) })
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "span",
-          {
-            className: "text-center text-sm font-medium",
-            style: { minWidth: 40, color: colors.colorBlack2 },
-            children: value
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "button",
-          {
-            type: "button",
-            disabled: isMaxDisabled,
-            onClick: () => onChange(Math.min(maxValue, value + 1)),
-            className: (0, import_clsx21.default)(
-              "flex items-center justify-center rounded-full",
-              isMaxDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:bg-gray-50"
-            ),
-            style: {
-              width: 32,
-              height: 32,
-              border: `1px solid ${colors.colorBlack6}`,
-              backgroundColor: colors.colorWhite
-            },
-            children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("path", { d: "M8 4V12M4 8H12", stroke: colors.colorBlack2, strokeWidth: "1.5", strokeLinecap: "round" }) })
-          }
-        )
-      ]
-    }
-  );
-}
-
 // components/canary-ui/forms/CanaryInputUnderline.tsx
 var import_react21 = require("react");
-var import_clsx22 = __toESM(require("clsx"));
+var import_clsx17 = __toESM(require("clsx"));
 var import_react22 = __toESM(require("@mdi/react"));
 var import_js6 = require("@mdi/js");
-var import_jsx_runtime25 = require("react/jsx-runtime");
+var import_jsx_runtime20 = require("react/jsx-runtime");
 var CanaryInputUnderline = (0, import_react21.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -3557,11 +3239,11 @@ var CanaryInputUnderline = (0, import_react21.forwardRef)(
       ["normal" /* NORMAL */]: "h-[40px] text-[14px]",
       ["compact" /* COMPACT */]: "h-[32px] text-[14px]"
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: (0, import_clsx22.default)("w-full", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: (0, import_clsx17.default)("w-full", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
         "label",
         {
-          className: (0, import_clsx22.default)(
+          className: (0, import_clsx17.default)(
             "block text-black font-['Roboto',sans-serif] font-normal mb-1",
             "transition-all duration-200 ease-out",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
@@ -3570,12 +3252,12 @@ var CanaryInputUnderline = (0, import_react21.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "relative flex items-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "relative flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
           "input",
           __spreadProps(__spreadValues({
             ref,
@@ -3588,7 +3270,7 @@ var CanaryInputUnderline = (0, import_react21.forwardRef)(
             onChange: handleChange
           }, inputProps), {
             placeholder: !showLabelAbove ? label : "",
-            className: (0, import_clsx22.default)(
+            className: (0, import_clsx17.default)(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
               "border-0 border-b border-solid",
               "transition-[border-color,background-color,padding] duration-200",
@@ -3604,17 +3286,10 @@ var CanaryInputUnderline = (0, import_react21.forwardRef)(
             )
           })
         ),
-        error && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
-          "div",
-          {
-            className: "absolute right-2 top-0 flex items-center justify-center",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_react22.default, { path: import_js6.mdiAlertCircleOutline, size: "24px", color: "#E40046" })
-          }
-        )
+        error && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(import_react22.default, { path: import_js6.mdiAlertCircleOutline, size: "24px", color: "#E40046" }) })
       ] }) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
     ] });
   }
 );
@@ -3623,10 +3298,10 @@ var CanaryInputUnderline_default = CanaryInputUnderline;
 
 // components/canary-ui/forms/CanaryTextAreaUnderline.tsx
 var import_react23 = require("react");
-var import_clsx23 = __toESM(require("clsx"));
+var import_clsx18 = __toESM(require("clsx"));
 var import_react24 = __toESM(require("@mdi/react"));
 var import_js7 = require("@mdi/js");
-var import_jsx_runtime26 = require("react/jsx-runtime");
+var import_jsx_runtime21 = require("react/jsx-runtime");
 var CanaryTextAreaUnderline = (0, import_react23.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -3679,11 +3354,11 @@ var CanaryTextAreaUnderline = (0, import_react23.forwardRef)(
       ["normal" /* NORMAL */]: "text-[14px]",
       ["compact" /* COMPACT */]: "text-[14px]"
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: (0, import_clsx23.default)("w-full flex flex-col gap-1", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: (0, import_clsx18.default)("w-full flex flex-col gap-1", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
         "label",
         {
-          className: (0, import_clsx23.default)(
+          className: (0, import_clsx18.default)(
             "block text-black font-['Roboto',sans-serif] font-normal",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
             size === "large" /* LARGE */ && "text-[14px] leading-[21px]",
@@ -3691,12 +3366,12 @@ var CanaryTextAreaUnderline = (0, import_react23.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "relative flex items-start", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "relative flex items-start", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
           "textarea",
           __spreadProps(__spreadValues({
             ref,
@@ -3710,7 +3385,7 @@ var CanaryTextAreaUnderline = (0, import_react23.forwardRef)(
             onChange: handleChange
           }, textareaProps), {
             placeholder: showLabelAbove ? textareaProps.placeholder : label || textareaProps.placeholder,
-            className: (0, import_clsx23.default)(
+            className: (0, import_clsx18.default)(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
               "border-0 border-b border-solid",
               "transition-[border-color,background-color,padding] duration-200",
@@ -3728,7 +3403,7 @@ var CanaryTextAreaUnderline = (0, import_react23.forwardRef)(
             )
           })
         ),
-        error && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "absolute right-2 top-2 w-6 h-6 flex items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+        error && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "absolute right-2 top-2 w-6 h-6 flex items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
           import_react24.default,
           {
             path: import_js7.mdiAlertCircleOutline,
@@ -3737,8 +3412,8 @@ var CanaryTextAreaUnderline = (0, import_react23.forwardRef)(
           }
         ) })
       ] }) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
     ] });
   }
 );
@@ -3747,10 +3422,10 @@ var CanaryTextAreaUnderline_default = CanaryTextAreaUnderline;
 
 // components/canary-ui/forms/CanarySelectUnderline.tsx
 var import_react25 = require("react");
-var import_clsx24 = __toESM(require("clsx"));
+var import_clsx19 = __toESM(require("clsx"));
 var import_react26 = __toESM(require("@mdi/react"));
 var import_js8 = require("@mdi/js");
-var import_jsx_runtime27 = require("react/jsx-runtime");
+var import_jsx_runtime22 = require("react/jsx-runtime");
 var CanarySelectUnderline = (0, import_react25.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -3805,11 +3480,11 @@ var CanarySelectUnderline = (0, import_react25.forwardRef)(
       ["normal" /* NORMAL */]: "h-[40px] text-[14px]",
       ["compact" /* COMPACT */]: "h-[32px] text-[14px]"
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: (0, import_clsx24.default)("w-full flex flex-col gap-1", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: (0, import_clsx19.default)("w-full flex flex-col gap-1", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
         "label",
         {
-          className: (0, import_clsx24.default)(
+          className: (0, import_clsx19.default)(
             "block text-black font-['Roboto',sans-serif] font-normal",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
             size === "large" /* LARGE */ && "text-[14px] leading-[21px]",
@@ -3817,12 +3492,12 @@ var CanarySelectUnderline = (0, import_react25.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "relative flex items-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "relative flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
           "select",
           __spreadProps(__spreadValues({
             ref,
@@ -3835,7 +3510,7 @@ var CanarySelectUnderline = (0, import_react25.forwardRef)(
             onChange: handleChange,
             style: { WebkitAppearance: "none" }
           }, selectProps), {
-            className: (0, import_clsx24.default)(
+            className: (0, import_clsx19.default)(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
               "border-0 border-b border-solid",
               "transition-[border-color,background-color,padding] duration-200",
@@ -3854,8 +3529,8 @@ var CanarySelectUnderline = (0, import_react25.forwardRef)(
               error && "pr-16"
             ),
             children: [
-              (placeholder || label) && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("option", { value: "", disabled: true, children: placeholder || label }),
-              options.map((option) => /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+              (placeholder || label) && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("option", { value: "", disabled: true, children: placeholder || label }),
+              options.map((option) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
                 "option",
                 {
                   value: option.value,
@@ -3867,51 +3542,37 @@ var CanarySelectUnderline = (0, import_react25.forwardRef)(
             ]
           })
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
-          "div",
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: (0, import_clsx19.default)(
+          "absolute top-1/2 -translate-y-1/2 pointer-events-none",
+          error ? "right-8" : "right-2"
+        ), children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+          "svg",
           {
-            className: (0, import_clsx24.default)(
-              "absolute top-0 flex items-center pointer-events-none",
-              error ? "right-8" : "right-2"
-            ),
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
-              "svg",
+            width: "24",
+            height: "24",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+              "path",
               {
-                width: "24",
-                height: "24",
-                viewBox: "0 0 24 24",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg",
-                children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
-                  "path",
-                  {
-                    d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
-                    fill: "#000000"
-                  }
-                )
+                d: "M12 5.83L15.17 9L16.58 7.59L12 3L7.41 7.59L8.83 9L12 5.83ZM12 18.17L8.83 15L7.42 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z",
+                fill: "#000000"
               }
             )
           }
-        ),
-        error && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
-          "div",
+        ) }),
+        error && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+          import_react26.default,
           {
-            className: "absolute right-2 top-0 flex items-center justify-center",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
-              import_react26.default,
-              {
-                path: import_js8.mdiAlertCircleOutline,
-                size: "24px",
-                color: "#E40046"
-              }
-            )
+            path: import_js8.mdiAlertCircleOutline,
+            size: "24px",
+            color: "#E40046"
           }
-        )
+        ) })
       ] }) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
     ] });
   }
 );
@@ -3920,12 +3581,12 @@ var CanarySelectUnderline_default = CanarySelectUnderline;
 
 // components/canary-ui/forms/CanaryInputPhoneUnderline.tsx
 var import_react27 = require("react");
-var import_clsx25 = __toESM(require("clsx"));
+var import_clsx20 = __toESM(require("clsx"));
 var import_intl_tel_input2 = __toESM(require("intl-tel-input"));
 var import_intlTelInput2 = require("intl-tel-input/build/css/intlTelInput.css");
 var import_react28 = __toESM(require("@mdi/react"));
 var import_js9 = require("@mdi/js");
-var import_jsx_runtime28 = require("react/jsx-runtime");
+var import_jsx_runtime23 = require("react/jsx-runtime");
 var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
   ({
     label,
@@ -4006,11 +3667,11 @@ var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
         setHasValue(!!value);
       }
     }, [value]);
-    return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: (0, import_clsx25.default)("w-full flex flex-col gap-1", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: (0, import_clsx20.default)("w-full flex flex-col gap-1", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
         "label",
         {
-          className: (0, import_clsx25.default)(
+          className: (0, import_clsx20.default)(
             "block text-black font-['Roboto',sans-serif] font-normal",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
             size === "large" /* LARGE */ && "text-[14px] leading-[21px]",
@@ -4018,12 +3679,12 @@ var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: (0, import_clsx25.default)("canary-phone-input-underline-wrapper relative"), children: [
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: (0, import_clsx20.default)("canary-phone-input-underline-wrapper relative"), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
           "input",
           {
             ref: inputRef,
@@ -4031,7 +3692,7 @@ var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
             disabled: isDisabled,
             required: isRequired,
             placeholder: showLabelAbove ? placeholder : label || placeholder,
-            className: (0, import_clsx25.default)(
+            className: (0, import_clsx20.default)(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
               "border-0 border-b border-solid",
               "transition-[border-color,background-color,padding] duration-200",
@@ -4047,18 +3708,11 @@ var CanaryInputPhoneUnderline = (0, import_react27.forwardRef)(
             )
           }
         ),
-        error && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
-          "div",
-          {
-            className: "absolute right-2 top-0 flex items-center justify-center z-10",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react28.default, { path: import_js9.mdiAlertCircleOutline, size: "24px", color: "#E40046" })
-          }
-        )
+        error && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center z-10", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_react28.default, { path: import_js9.mdiAlertCircleOutline, size: "24px", color: "#E40046" }) })
       ] }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText }),
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("style", { dangerouslySetInnerHTML: { __html: `
+      error && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "text-[12px] text-[#666666] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText }),
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("style", { dangerouslySetInnerHTML: { __html: `
           .canary-phone-input-underline-wrapper .iti {
             width: 100%;
           }
@@ -4108,8 +3762,8 @@ var CanaryInputPhoneUnderline_default = CanaryInputPhoneUnderline;
 
 // components/canary-ui/forms/CanaryInputPasswordUnderline.tsx
 var import_react29 = require("react");
-var import_clsx26 = __toESM(require("clsx"));
-var import_jsx_runtime29 = require("react/jsx-runtime");
+var import_clsx21 = __toESM(require("clsx"));
+var import_jsx_runtime24 = require("react/jsx-runtime");
 var CanaryInputPasswordUnderline = (0, import_react29.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -4161,11 +3815,11 @@ var CanaryInputPasswordUnderline = (0, import_react29.forwardRef)(
       ["normal" /* NORMAL */]: "h-[40px] text-[14px]",
       ["compact" /* COMPACT */]: "h-[32px] text-[14px]"
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: (0, import_clsx26.default)("w-full", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: (0, import_clsx21.default)("w-full", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
         "label",
         {
-          className: (0, import_clsx26.default)(
+          className: (0, import_clsx21.default)(
             "block text-black font-['Roboto',sans-serif] font-normal mb-1",
             "transition-all duration-200 ease-out",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
@@ -4174,12 +3828,12 @@ var CanaryInputPasswordUnderline = (0, import_react29.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "text-[#E40046] ml-1", children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "relative flex items-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "relative flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
           "input",
           __spreadProps(__spreadValues({
             ref,
@@ -4193,7 +3847,7 @@ var CanaryInputPasswordUnderline = (0, import_react29.forwardRef)(
             onChange: handleChange
           }, inputProps), {
             placeholder: !showLabelAbove ? label : "",
-            className: (0, import_clsx26.default)(
+            className: (0, import_clsx21.default)(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
               "border-0 border-b border-solid",
               "transition-[border-color,background-color,padding] duration-200",
@@ -4209,18 +3863,17 @@ var CanaryInputPasswordUnderline = (0, import_react29.forwardRef)(
             )
           })
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
           "button",
           {
             type: "button",
             onClick: () => setShowPassword(!showPassword),
-            className: "absolute right-2 top-0 flex items-center cursor-pointer",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
+            className: "absolute right-2 top-1/2 -translate-y-1/2 flex items-center cursor-pointer",
             disabled: isDisabled,
             tabIndex: -1,
             children: showPassword ? (
               // Password is visible, show eye-off outline icon (visibility_off)
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", width: "24", height: "24", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", width: "24", height: "24", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
                 "path",
                 {
                   d: "M2 5.27 3.28 4 20 20.72 18.73 22l-3.08-3.08c-1.15.38-2.37.58-3.65.58-5 0-9.27-3.11-11-7.5.69-1.76 1.79-3.31 3.19-4.54zM12 9a3 3 0 0 1 3 3 3 3 0 0 1-.17 1L11 9.17A3 3 0 0 1 12 9m0-4.5c5 0 9.27 3.11 11 7.5a11.8 11.8 0 0 1-4 5.19l-1.42-1.43A9.86 9.86 0 0 0 20.82 12 9.82 9.82 0 0 0 12 6.5c-1.09 0-2.16.18-3.16.5L7.3 5.47c1.44-.62 3.03-.97 4.7-.97M3.18 12A9.82 9.82 0 0 0 12 17.5c.69 0 1.37-.07 2-.21L11.72 15A3.064 3.064 0 0 1 9 12.28L5.6 8.87c-.99.85-1.82 1.91-2.42 3.13"
@@ -4228,7 +3881,7 @@ var CanaryInputPasswordUnderline = (0, import_react29.forwardRef)(
               ) })
             ) : (
               // Password is hidden, show eye outline icon (visibility)
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", width: "24", height: "24", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", width: "24", height: "24", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
                 "path",
                 {
                   d: "M12 9a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.82 9.82 0 0 0 17.64 0 9.82 9.82 0 0 0-17.64 0"
@@ -4238,8 +3891,8 @@ var CanaryInputPasswordUnderline = (0, import_react29.forwardRef)(
           }
         )
       ] }) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "mt-1 bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-1 bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
     ] });
   }
 );
@@ -4248,8 +3901,8 @@ var CanaryInputPasswordUnderline_default = CanaryInputPasswordUnderline;
 
 // components/canary-ui/forms/CanaryInputSearchUnderline.tsx
 var import_react30 = require("react");
-var import_clsx27 = __toESM(require("clsx"));
-var import_jsx_runtime30 = require("react/jsx-runtime");
+var import_clsx22 = __toESM(require("clsx"));
+var import_jsx_runtime25 = require("react/jsx-runtime");
 var CanaryInputSearchUnderline = (0, import_react30.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -4300,11 +3953,11 @@ var CanaryInputSearchUnderline = (0, import_react30.forwardRef)(
       ["normal" /* NORMAL */]: "h-[40px] text-[14px]",
       ["compact" /* COMPACT */]: "h-[32px] text-[14px]"
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: (0, import_clsx27.default)("w-full", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: (0, import_clsx22.default)("w-full", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
         "label",
         {
-          className: (0, import_clsx27.default)(
+          className: (0, import_clsx22.default)(
             "block text-black font-['Roboto',sans-serif] font-normal mb-1",
             "transition-all duration-200 ease-out",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
@@ -4313,26 +3966,19 @@ var CanaryInputSearchUnderline = (0, import_react30.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "relative flex items-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
-          "div",
+      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "relative flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "absolute left-0 top-1/2 -translate-y-1/2 flex items-center w-6 h-6", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+          "path",
           {
-            className: "absolute left-0 top-0 flex items-center",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
-              "path",
-              {
-                d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
-                fill: colors.colorBlack1
-              }
-            ) })
+            d: "M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z",
+            fill: colors.colorBlack1
           }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+        ) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
           "input",
           __spreadProps(__spreadValues({
             ref,
@@ -4346,7 +3992,7 @@ var CanaryInputSearchUnderline = (0, import_react30.forwardRef)(
             onChange: handleChange
           }, inputProps), {
             placeholder: !showLabelAbove ? label : "",
-            className: (0, import_clsx27.default)(
+            className: (0, import_clsx22.default)(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
               "border-0 border-b border-solid",
               "transition-[border-color,background-color,padding] duration-200",
@@ -4363,8 +4009,8 @@ var CanaryInputSearchUnderline = (0, import_react30.forwardRef)(
           })
         )
       ] }) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mt-1 bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "mt-1 bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
     ] });
   }
 );
@@ -4373,11 +4019,11 @@ var CanaryInputSearchUnderline_default = CanaryInputSearchUnderline;
 
 // components/canary-ui/forms/CanaryInputCreditCardUnderline.tsx
 var import_react31 = require("react");
-var import_clsx28 = __toESM(require("clsx"));
+var import_clsx23 = __toESM(require("clsx"));
 var import_react_payment_inputs2 = require("react-payment-inputs");
 var import_react32 = __toESM(require("@mdi/react"));
 var import_js10 = require("@mdi/js");
-var import_jsx_runtime31 = require("react/jsx-runtime");
+var import_jsx_runtime26 = require("react/jsx-runtime");
 var CanaryInputCreditCardUnderline = (0, import_react31.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -4442,11 +4088,11 @@ var CanaryInputCreditCardUnderline = (0, import_react31.forwardRef)(
       onFocus: handleFocus,
       onBlur: handleBlur
     }));
-    return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: (0, import_clsx28.default)("w-full", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: (0, import_clsx23.default)("w-full", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
         "label",
         {
-          className: (0, import_clsx28.default)(
+          className: (0, import_clsx23.default)(
             "block text-black font-['Roboto',sans-serif] font-normal mb-1",
             "transition-all duration-200 ease-out",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
@@ -4455,27 +4101,20 @@ var CanaryInputCreditCardUnderline = (0, import_react31.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "relative flex items-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
-          "div",
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "relative flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "absolute left-0 top-1/2 -translate-y-1/2 flex items-center w-6 h-6", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          import_react32.default,
           {
-            className: "absolute left-0 top-0 flex items-center",
-            style: { height: { ["tablet" /* TABLET */]: 64, ["large" /* LARGE */]: 48, ["normal" /* NORMAL */]: 40, ["compact" /* COMPACT */]: 32 }[size] },
-            children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
-              import_react32.default,
-              {
-                path: ((_a2 = meta.cardType) == null ? void 0 : _a2.type) ? import_js10.mdiCreditCard : import_js10.mdiCreditCardOutline,
-                size: "24px",
-                color: colors.colorBlack1
-              }
-            )
+            path: ((_a2 = meta.cardType) == null ? void 0 : _a2.type) ? import_js10.mdiCreditCard : import_js10.mdiCreditCardOutline,
+            size: "24px",
+            color: colors.colorBlack1
           }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
           "input",
           __spreadProps(__spreadValues({
             ref,
@@ -4484,7 +4123,7 @@ var CanaryInputCreditCardUnderline = (0, import_react31.forwardRef)(
             required: isRequired
           }, cardNumberProps), {
             placeholder: !showLabelAbove ? label : "",
-            className: (0, import_clsx28.default)(
+            className: (0, import_clsx23.default)(
               "w-full font-['Roboto',sans-serif] font-normal leading-[1.5]",
               "border-0 border-b border-solid",
               "transition-[border-color,background-color,padding] duration-200",
@@ -4501,8 +4140,8 @@ var CanaryInputCreditCardUnderline = (0, import_react31.forwardRef)(
           })
         )
       ] }) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "mt-1 bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mt-1 bg-[#fce6ed] px-2 py-[2px] rounded inline-block", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "text-[12px] text-[#E40046] leading-[1.5] font-['Roboto',sans-serif] font-normal", children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "text-[12px] text-[#666666] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", children: helperText })
     ] });
   }
 );
@@ -4511,8 +4150,8 @@ var CanaryInputCreditCardUnderline_default = CanaryInputCreditCardUnderline;
 
 // components/canary-ui/forms/CanaryInputDateUnderline.tsx
 var import_react33 = require("react");
-var import_clsx29 = __toESM(require("clsx"));
-var import_jsx_runtime32 = require("react/jsx-runtime");
+var import_clsx24 = __toESM(require("clsx"));
+var import_jsx_runtime27 = require("react/jsx-runtime");
 var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
   ({
     label = "Date",
@@ -4617,11 +4256,11 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
       ["normal" /* NORMAL */]: "w-6 h-6",
       ["compact" /* COMPACT */]: "w-5 h-5"
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: (0, import_clsx29.default)("w-full", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: (0, import_clsx24.default)("w-full", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(
         "label",
         {
-          className: (0, import_clsx29.default)(
+          className: (0, import_clsx24.default)(
             "block text-black font-['Roboto',sans-serif] font-normal mb-1",
             "transition-all duration-200 ease-out",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
@@ -4630,15 +4269,15 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(
         "div",
         {
           ref,
-          className: (0, import_clsx29.default)(
+          className: (0, import_clsx24.default)(
             "relative flex items-center gap-0.5",
             "border-0 border-b border-solid",
             "transition-[border-color,background-color,padding] duration-200",
@@ -4654,9 +4293,9 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
           onBlur: handleBlur,
           tabIndex: 0,
           children: [
-            !showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "absolute left-0 text-gray-500 pointer-events-none", children: label }),
-            showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+            !showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "absolute left-0 text-gray-500 pointer-events-none", children: label }),
+            showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
                 "input",
                 {
                   ref: monthRef,
@@ -4667,7 +4306,7 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
                   onKeyDown: (e) => handleKeyDown(e, "month"),
                   placeholder: "MM",
                   disabled: isDisabled,
-                  className: (0, import_clsx29.default)(
+                  className: (0, import_clsx24.default)(
                     "w-8 bg-transparent outline-none border-none text-center",
                     "placeholder:text-gray-400",
                     isDisabled && "cursor-not-allowed"
@@ -4676,8 +4315,8 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
                   tabIndex: -1
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
                 "input",
                 {
                   ref: dayRef,
@@ -4688,7 +4327,7 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
                   onKeyDown: (e) => handleKeyDown(e, "day"),
                   placeholder: "DD",
                   disabled: isDisabled,
-                  className: (0, import_clsx29.default)(
+                  className: (0, import_clsx24.default)(
                     "w-8 bg-transparent outline-none border-none text-center",
                     "placeholder:text-gray-400",
                     isDisabled && "cursor-not-allowed"
@@ -4697,8 +4336,8 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
                   tabIndex: -1
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
                 "input",
                 {
                   ref: yearRef,
@@ -4709,7 +4348,7 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
                   onKeyDown: (e) => handleKeyDown(e, "year"),
                   placeholder: "YYYY",
                   disabled: isDisabled,
-                  className: (0, import_clsx29.default)(
+                  className: (0, import_clsx24.default)(
                     "w-12 bg-transparent outline-none border-none text-center",
                     "placeholder:text-gray-400",
                     isDisabled && "cursor-not-allowed"
@@ -4719,21 +4358,21 @@ var CanaryInputDateUnderline = (0, import_react33.forwardRef)(
                 }
               )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "ml-auto flex items-center", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "ml-auto flex items-center", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
               "svg",
               {
                 xmlns: "http://www.w3.org/2000/svg",
                 viewBox: "0 0 24 24",
                 className: iconSizes[size],
                 fill: isDisabled ? colors.colorBlack3 : colors.colorBlack1,
-                children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("path", { d: "M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1" })
+                children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("path", { d: "M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1" })
               }
             ) })
           ]
         }
       ),
-      error && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "mt-1 inline-block px-2 py-[2px] rounded", style: { backgroundColor: colors.colorRed5 }, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-[12px] leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.error }, children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-[12px] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.colorBlack3 }, children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "mt-1 inline-block px-2 py-[2px] rounded", style: { backgroundColor: colors.colorRed5 }, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "text-[12px] leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.error }, children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "text-[12px] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.colorBlack3 }, children: helperText })
     ] });
   }
 );
@@ -4742,8 +4381,8 @@ var CanaryInputDateUnderline_default = CanaryInputDateUnderline;
 
 // components/canary-ui/forms/CanaryInputDateRangeUnderline.tsx
 var import_react34 = require("react");
-var import_clsx30 = __toESM(require("clsx"));
-var import_jsx_runtime33 = require("react/jsx-runtime");
+var import_clsx25 = __toESM(require("clsx"));
+var import_jsx_runtime28 = require("react/jsx-runtime");
 var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
   ({
     label = "Date Range",
@@ -4904,11 +4543,11 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
       ["normal" /* NORMAL */]: "w-6 h-6",
       ["compact" /* COMPACT */]: "w-5 h-5"
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: (0, import_clsx30.default)("w-full", className), children: [
-      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: (0, import_clsx25.default)("w-full", className), children: [
+      label && showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(
         "label",
         {
-          className: (0, import_clsx30.default)(
+          className: (0, import_clsx25.default)(
             "block text-black font-['Roboto',sans-serif] font-normal mb-1",
             "transition-all duration-200 ease-out",
             size === "tablet" /* TABLET */ && "text-[20px] leading-[150%]",
@@ -4917,15 +4556,15 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
           ),
           children: [
             label,
-            isRequired && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
+            isRequired && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "ml-1", style: { color: colors.error }, children: "*" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(
         "div",
         {
           ref,
-          className: (0, import_clsx30.default)(
+          className: (0, import_clsx25.default)(
             "relative flex items-center gap-1",
             "border-0 border-b border-solid",
             "transition-[border-color,background-color,padding] duration-200",
@@ -4941,10 +4580,10 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
           onBlur: handleBlur,
           tabIndex: 0,
           children: [
-            !showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "absolute left-0 text-gray-500 pointer-events-none", children: label }),
-            showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-center gap-0.5 shrink-0", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+            !showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "absolute left-0 text-gray-500 pointer-events-none", children: label }),
+            showLabelAbove && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(import_jsx_runtime28.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex items-center gap-0.5 shrink-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
                   "input",
                   {
                     ref: startMonthRef,
@@ -4955,7 +4594,7 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     onKeyDown: (e) => handleKeyDown(e, "startMonth"),
                     placeholder: "MM",
                     disabled: isDisabled,
-                    className: (0, import_clsx30.default)(
+                    className: (0, import_clsx25.default)(
                       "w-8 bg-transparent outline-none border-none text-center",
                       "placeholder:text-gray-400",
                       isDisabled && "cursor-not-allowed"
@@ -4964,8 +4603,8 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     tabIndex: -1
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
                   "input",
                   {
                     ref: startDayRef,
@@ -4976,7 +4615,7 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     onKeyDown: (e) => handleKeyDown(e, "startDay"),
                     placeholder: "DD",
                     disabled: isDisabled,
-                    className: (0, import_clsx30.default)(
+                    className: (0, import_clsx25.default)(
                       "w-8 bg-transparent outline-none border-none text-center",
                       "placeholder:text-gray-400",
                       isDisabled && "cursor-not-allowed"
@@ -4985,8 +4624,8 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     tabIndex: -1
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
                   "input",
                   {
                     ref: startYearRef,
@@ -4997,7 +4636,7 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     onKeyDown: (e) => handleKeyDown(e, "startYear"),
                     placeholder: "YYYY",
                     disabled: isDisabled,
-                    className: (0, import_clsx30.default)(
+                    className: (0, import_clsx25.default)(
                       "w-12 bg-transparent outline-none border-none text-center",
                       "placeholder:text-gray-400",
                       isDisabled && "cursor-not-allowed"
@@ -5007,9 +4646,9 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-gray-400 select-none shrink-0", children: "\u2014" }),
-              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-center gap-0.5 shrink-0", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-gray-400 select-none shrink-0", children: "\u2014" }),
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex items-center gap-0.5 shrink-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
                   "input",
                   {
                     ref: endMonthRef,
@@ -5020,7 +4659,7 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     onKeyDown: (e) => handleKeyDown(e, "endMonth"),
                     placeholder: "MM",
                     disabled: isDisabled,
-                    className: (0, import_clsx30.default)(
+                    className: (0, import_clsx25.default)(
                       "w-8 bg-transparent outline-none border-none text-center",
                       "placeholder:text-gray-400",
                       isDisabled && "cursor-not-allowed"
@@ -5029,8 +4668,8 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     tabIndex: -1
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
                   "input",
                   {
                     ref: endDayRef,
@@ -5041,7 +4680,7 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     onKeyDown: (e) => handleKeyDown(e, "endDay"),
                     placeholder: "DD",
                     disabled: isDisabled,
-                    className: (0, import_clsx30.default)(
+                    className: (0, import_clsx25.default)(
                       "w-8 bg-transparent outline-none border-none text-center",
                       "placeholder:text-gray-400",
                       isDisabled && "cursor-not-allowed"
@@ -5050,8 +4689,8 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     tabIndex: -1
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-gray-400 select-none text-sm", children: "/" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
                   "input",
                   {
                     ref: endYearRef,
@@ -5062,7 +4701,7 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                     onKeyDown: (e) => handleKeyDown(e, "endYear"),
                     placeholder: "YYYY",
                     disabled: isDisabled,
-                    className: (0, import_clsx30.default)(
+                    className: (0, import_clsx25.default)(
                       "w-12 bg-transparent outline-none border-none text-center",
                       "placeholder:text-gray-400",
                       isDisabled && "cursor-not-allowed"
@@ -5073,172 +4712,26 @@ var CanaryInputDateRangeUnderline = (0, import_react34.forwardRef)(
                 )
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "ml-auto flex items-center shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "ml-auto flex items-center shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
               "svg",
               {
                 xmlns: "http://www.w3.org/2000/svg",
                 viewBox: "0 0 24 24",
                 className: iconSizes[size],
                 fill: isDisabled ? colors.colorBlack3 : colors.colorBlack1,
-                children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("path", { d: "M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1" })
+                children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("path", { d: "M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1" })
               }
             ) })
           ]
         }
       ),
-      error && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "mt-1 inline-block px-2 py-[2px] rounded", style: { backgroundColor: colors.colorRed5 }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-[12px] leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.error }, children: error }) }),
-      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-[12px] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.colorBlack3 }, children: helperText })
+      error && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "mt-1 inline-block px-2 py-[2px] rounded", style: { backgroundColor: colors.colorRed5 }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "text-[12px] leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.error }, children: error }) }),
+      helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "text-[12px] mt-1 leading-[1.5] font-['Roboto',sans-serif] font-normal", style: { color: colors.colorBlack3 }, children: helperText })
     ] });
   }
 );
 CanaryInputDateRangeUnderline.displayName = "CanaryInputDateRangeUnderline";
 var CanaryInputDateRangeUnderline_default = CanaryInputDateRangeUnderline;
-
-// components/canary-ui/forms/CanaryAutocomplete.tsx
-var import_react35 = require("react");
-var import_clsx31 = __toESM(require("clsx"));
-var import_jsx_runtime34 = require("react/jsx-runtime");
-var CanaryAutocomplete = ({
-  label,
-  value,
-  onChange,
-  options,
-  placeholder,
-  size = "normal" /* NORMAL */,
-  isDisabled = false,
-  isRequired = false,
-  error,
-  helperText,
-  className
-}) => {
-  const [inputText, setInputText] = (0, import_react35.useState)("");
-  const [isOpen, setIsOpen] = (0, import_react35.useState)(false);
-  const containerRef = (0, import_react35.useRef)(null);
-  const inputRef = (0, import_react35.useRef)(null);
-  (0, import_react35.useEffect)(() => {
-    const selected = options.find((opt) => opt.value === value);
-    if (selected) {
-      setInputText(selected.label);
-    } else if (!value) {
-      setInputText("");
-    }
-  }, [value, options]);
-  const filteredOptions = options.filter(
-    (opt) => opt.label.toLowerCase().includes(inputText.toLowerCase())
-  );
-  const handleInputChange = (e) => {
-    setInputText(e.target.value);
-    setIsOpen(true);
-  };
-  const handleOptionClick = (option) => {
-    setInputText(option.label);
-    onChange(option.value);
-    setIsOpen(false);
-  };
-  const handleFocus = () => {
-    setIsOpen(true);
-  };
-  const handleClickOutside = (0, import_react35.useCallback)((e) => {
-    if (containerRef.current && !containerRef.current.contains(e.target)) {
-      setIsOpen(false);
-    }
-  }, []);
-  (0, import_react35.useEffect)(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [handleClickOutside]);
-  const sizeClasses = {
-    ["tablet" /* TABLET */]: "h-14 text-lg",
-    ["large" /* LARGE */]: "h-12 text-base",
-    ["normal" /* NORMAL */]: "h-10 text-sm",
-    ["compact" /* COMPACT */]: "h-8 text-xs"
-  };
-  const showDropdown = isOpen && filteredOptions.length > 0;
-  const showNoResults = isOpen && inputText.length > 0 && filteredOptions.length === 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { ref: containerRef, className: (0, import_clsx31.default)("relative", className), children: [
-    label && /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "text-sm mb-1", style: { color: colors.colorBlack3 }, children: [
-      label,
-      isRequired && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("span", { style: { color: colors.danger }, className: "ml-0.5", children: "*" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-      "input",
-      {
-        ref: inputRef,
-        type: "text",
-        value: inputText,
-        onChange: handleInputChange,
-        onFocus: handleFocus,
-        placeholder,
-        disabled: isDisabled,
-        className: (0, import_clsx31.default)(
-          "w-full rounded px-3 py-2 outline-none transition-colors duration-200",
-          sizeClasses[size],
-          isDisabled && "opacity-50"
-        ),
-        style: {
-          border: `1px solid ${error ? colors.danger : colors.colorBlack5}`,
-          backgroundColor: isDisabled ? colors.colorBlack7 : colors.colorWhite,
-          color: colors.colorBlack1
-        },
-        onFocusCapture: (e) => {
-          if (!error) {
-            e.target.style.borderColor = colors.colorBlueDark1;
-          }
-        },
-        onBlurCapture: (e) => {
-          if (!error) {
-            e.target.style.borderColor = colors.colorBlack5;
-          }
-        }
-      }
-    ),
-    error && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "text-xs mt-1", style: { color: colors.danger }, children: error }),
-    helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "text-xs mt-1", style: { color: colors.colorBlack4 }, children: helperText }),
-    (showDropdown || showNoResults) && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-      "div",
-      {
-        className: "absolute w-full rounded-lg shadow-lg overflow-y-auto",
-        style: {
-          top: "100%",
-          marginTop: 4,
-          backgroundColor: colors.colorWhite,
-          border: `1px solid ${colors.colorBlack6}`,
-          maxHeight: 240,
-          zIndex: 50
-        },
-        children: showNoResults ? /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-          "div",
-          {
-            className: "px-3 py-2 text-sm italic",
-            style: { color: colors.colorBlack4 },
-            children: "No results found"
-          }
-        ) : filteredOptions.map((option) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-          "div",
-          {
-            className: "px-3 py-2 text-sm cursor-pointer",
-            style: { color: colors.colorBlack1 },
-            onMouseDown: (e) => {
-              e.preventDefault();
-              handleOptionClick(option);
-            },
-            onMouseEnter: (e) => {
-              e.target.style.backgroundColor = colors.colorBlack7;
-            },
-            onMouseLeave: (e) => {
-              e.target.style.backgroundColor = "transparent";
-            },
-            children: option.label
-          },
-          option.value
-        ))
-      }
-    )
-  ] });
-};
-var CanaryAutocomplete_default = CanaryAutocomplete;
 
 // components/canary-ui/data-display/types.ts
 var TagColor = /* @__PURE__ */ ((TagColor2) => {
@@ -5259,83 +4752,10 @@ var TagSize = /* @__PURE__ */ ((TagSize2) => {
   TagSize2["MEDIUM"] = "medium";
   return TagSize2;
 })(TagSize || {});
-var CardPadding = /* @__PURE__ */ ((CardPadding2) => {
-  CardPadding2["DEFAULT"] = "default";
-  CardPadding2["COMPACT"] = "compact";
-  CardPadding2["NONE"] = "none";
-  return CardPadding2;
-})(CardPadding || {});
-var CardBoxShadow = /* @__PURE__ */ ((CardBoxShadow2) => {
-  CardBoxShadow2["SMALL"] = "small";
-  CardBoxShadow2["MEDIUM"] = "medium";
-  CardBoxShadow2["LARGE"] = "large";
-  CardBoxShadow2["NONE"] = "none";
-  return CardBoxShadow2;
-})(CardBoxShadow || {});
-var CardInnerSpacing = /* @__PURE__ */ ((CardInnerSpacing2) => {
-  CardInnerSpacing2["NONE"] = "none";
-  CardInnerSpacing2["TINY"] = "tiny";
-  CardInnerSpacing2["SMALL"] = "small";
-  CardInnerSpacing2["DEFAULT"] = "default";
-  return CardInnerSpacing2;
-})(CardInnerSpacing || {});
-var ListStyle = /* @__PURE__ */ ((ListStyle2) => {
-  ListStyle2["STRIPES"] = "stripes";
-  ListStyle2["DIVIDERS"] = "dividers";
-  return ListStyle2;
-})(ListStyle || {});
-var ListItemPadding = /* @__PURE__ */ ((ListItemPadding2) => {
-  ListItemPadding2["NORMAL"] = "normal";
-  ListItemPadding2["COMPACT"] = "compact";
-  return ListItemPadding2;
-})(ListItemPadding || {});
-var ListItemAlignment = /* @__PURE__ */ ((ListItemAlignment2) => {
-  ListItemAlignment2["START"] = "start";
-  ListItemAlignment2["CENTER"] = "center";
-  return ListItemAlignment2;
-})(ListItemAlignment || {});
-var DraggableIconSize = /* @__PURE__ */ ((DraggableIconSize2) => {
-  DraggableIconSize2["DEFAULT"] = "default";
-  DraggableIconSize2["LARGE"] = "large";
-  return DraggableIconSize2;
-})(DraggableIconSize || {});
-var TooltipPosition = /* @__PURE__ */ ((TooltipPosition2) => {
-  TooltipPosition2["AUTO"] = "auto";
-  TooltipPosition2["TOP"] = "top";
-  TooltipPosition2["BOTTOM"] = "bottom";
-  TooltipPosition2["LEFT"] = "left";
-  TooltipPosition2["RIGHT"] = "right";
-  return TooltipPosition2;
-})(TooltipPosition || {});
-var TooltipIconColor = /* @__PURE__ */ ((TooltipIconColor2) => {
-  TooltipIconColor2["PRIMARY"] = "primary";
-  TooltipIconColor2["SECONDARY"] = "secondary";
-  TooltipIconColor2["DANGER"] = "danger";
-  return TooltipIconColor2;
-})(TooltipIconColor || {});
-var TimestampFormat = /* @__PURE__ */ ((TimestampFormat2) => {
-  TimestampFormat2["DATETIME"] = "datetime";
-  TimestampFormat2["DATETIME_ZONE"] = "datetime_zone";
-  TimestampFormat2["RELATIVE_TIME"] = "relative_time";
-  return TimestampFormat2;
-})(TimestampFormat || {});
-var TimestampColor = /* @__PURE__ */ ((TimestampColor2) => {
-  TimestampColor2["PRIMARY"] = "primary";
-  TimestampColor2["SECONDARY"] = "secondary";
-  return TimestampColor2;
-})(TimestampColor || {});
-var ProfileImageSize = /* @__PURE__ */ ((ProfileImageSize2) => {
-  ProfileImageSize2["LARGE"] = "large";
-  ProfileImageSize2["NORMAL"] = "normal";
-  ProfileImageSize2["MEDIUM"] = "medium";
-  ProfileImageSize2["SMALL"] = "small";
-  ProfileImageSize2["TINY"] = "tiny";
-  return ProfileImageSize2;
-})(ProfileImageSize || {});
 
 // components/canary-ui/data-display/CanaryTag.tsx
-var import_clsx32 = __toESM(require("clsx"));
-var import_jsx_runtime35 = require("react/jsx-runtime");
+var import_clsx26 = __toESM(require("clsx"));
+var import_jsx_runtime29 = require("react/jsx-runtime");
 function CanaryTag({
   label,
   color = "success" /* SUCCESS */,
@@ -5454,10 +4874,10 @@ function CanaryTag({
   const { backgroundColor, borderColor, textColor } = getColors();
   const iconColor = (_a = customColor == null ? void 0 : customColor.iconColor) != null ? _a : textColor;
   const sizeClasses = size === "compact" /* COMPACT */ ? "text-[10px] leading-[16px] px-[4px] py-[2px]" : "text-[12px] leading-[18px] px-[4px] py-[2px]";
-  return /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(
     "div",
     {
-      className: (0, import_clsx32.default)(
+      className: (0, import_clsx26.default)(
         "inline-flex items-center justify-center gap-1",
         "rounded-[2px]",
         "font-medium",
@@ -5473,17 +4893,17 @@ function CanaryTag({
         color: textColor
       },
       children: [
-        leadingIcon && /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "w-3 h-3 flex items-center justify-center", style: { color: iconColor }, children: leadingIcon }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("span", { children: label }),
-        trailingIcon && /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "w-3 h-3 flex items-center justify-center", style: { color: iconColor }, children: trailingIcon })
+        leadingIcon && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "w-3 h-3 flex items-center justify-center", style: { color: iconColor }, children: leadingIcon }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("span", { children: label }),
+        trailingIcon && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "w-3 h-3 flex items-center justify-center", style: { color: iconColor }, children: trailingIcon })
       ]
     }
   );
 }
 
 // components/canary-ui/data-display/CanaryTable.tsx
-var import_clsx33 = __toESM(require("clsx"));
-var import_jsx_runtime36 = require("react/jsx-runtime");
+var import_clsx27 = __toESM(require("clsx"));
+var import_jsx_runtime30 = require("react/jsx-runtime");
 function CanaryTable({
   columns,
   data,
@@ -5498,19 +4918,19 @@ function CanaryTable({
     right: "text-right"
   };
   if (isLoading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: `w-full p-8 text-center ${className}`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "inline-block w-8 h-8 border-4 border-[#2858c4] border-t-transparent rounded-full animate-spin" }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "mt-4 text-[14px] text-[#707070]", children: "Loading..." })
+    return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: `w-full p-8 text-center ${className}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "inline-block w-8 h-8 border-4 border-[#2858c4] border-t-transparent rounded-full animate-spin" }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-4 text-[14px] text-[#707070]", children: "Loading..." })
     ] });
   }
   if (data.length === 0) {
-    return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: `w-full p-8 text-center ${className}`, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-[14px] text-[#707070]", children: emptyMessage }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: `w-full p-8 text-center ${className}`, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "text-[14px] text-[#707070]", children: emptyMessage }) });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: `w-full overflow-x-auto ${className}`, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("table", { className: "w-full border-separate", style: { borderSpacing: 0 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("tr", { children: columns.map((column) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: `w-full overflow-x-auto ${className}`, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("table", { className: "w-full border-separate", style: { borderSpacing: 0 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("tr", { children: columns.map((column) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
       "th",
       {
-        className: (0, import_clsx33.default)(
+        className: (0, import_clsx27.default)(
           "px-4 py-2 text-[14px] font-semibold",
           alignClasses[column.align || "left"]
         ),
@@ -5522,20 +4942,20 @@ function CanaryTable({
       },
       column.key
     )) }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("tbody", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("td", { colSpan: columns.length, className: "h-2" }) }),
-      data.map((row, rowIndex) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("tbody", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { colSpan: columns.length, className: "h-2" }) }),
+      data.map((row, rowIndex) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
         "tr",
         {
-          className: (0, import_clsx33.default)(
+          className: (0, import_clsx27.default)(
             "transition-colors",
             onRowClick && "cursor-pointer hover:bg-[#fafafa]"
           ),
           onClick: () => onRowClick == null ? void 0 : onRowClick(row, rowIndex),
-          children: columns.map((column, colIndex) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+          children: columns.map((column, colIndex) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
             "td",
             {
-              className: (0, import_clsx33.default)(
+              className: (0, import_clsx27.default)(
                 "px-4 py-1 text-[14px]",
                 alignClasses[column.align || "left"]
               ),
@@ -5563,18 +4983,14 @@ function CanaryTable({
 }
 
 // components/canary-ui/data-display/CanaryCard.tsx
-var import_clsx34 = __toESM(require("clsx"));
-var import_jsx_runtime37 = require("react/jsx-runtime");
+var import_clsx28 = __toESM(require("clsx"));
+var import_jsx_runtime31 = require("react/jsx-runtime");
 function CanaryCard({
   children,
   title,
   subtitle,
-  headerActions,
   footer,
   padding = "medium",
-  cardPadding,
-  boxShadow,
-  innerSpacing,
   hasShadow = false,
   hasBorder = true,
   className = "",
@@ -5586,53 +5002,30 @@ function CanaryCard({
     medium: "p-6",
     large: "p-8"
   };
-  const cardPaddingClasses = {
-    ["default" /* DEFAULT */]: "p-6",
-    ["compact" /* COMPACT */]: "p-3",
-    ["none" /* NONE */]: ""
-  };
-  const resolvedPaddingClass = cardPadding ? cardPaddingClasses[cardPadding] : paddingClasses[padding];
-  const boxShadowValues = {
-    ["small" /* SMALL */]: shadows.sm,
-    ["medium" /* MEDIUM */]: shadows.default,
-    ["large" /* LARGE */]: shadows.xl,
-    ["none" /* NONE */]: void 0
-  };
-  const resolvedShadow = boxShadow ? boxShadowValues[boxShadow] : hasShadow ? shadows.xl : void 0;
-  const innerSpacingClasses = {
-    ["none" /* NONE */]: "gap-0",
-    ["tiny" /* TINY */]: "gap-1",
-    ["small" /* SMALL */]: "gap-2",
-    ["default" /* DEFAULT */]: "gap-0"
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(
     "div",
     {
-      className: (0, import_clsx34.default)(
+      className: (0, import_clsx28.default)(
         "rounded-lg bg-white",
         hasBorder && "border",
-        innerSpacing && innerSpacingClasses[innerSpacing],
         onClick && "cursor-pointer hover:shadow-lg transition-shadow",
         className
       ),
       style: {
         borderColor: hasBorder ? colors.colorBlack6 : void 0,
-        boxShadow: resolvedShadow
+        boxShadow: hasShadow ? shadows.xl : void 0
       },
       onClick,
       children: [
-        (title || subtitle) && /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: (0, import_clsx34.default)("border-b flex items-start justify-between", resolvedPaddingClass), style: { borderColor: colors.colorBlack6 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { children: [
-            title && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h3", { className: "text-[18px] font-semibold", style: { color: colors.colorBlack1 }, children: title }),
-            subtitle && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-[14px] mt-1", style: { color: colors.colorBlack3 }, children: subtitle })
-          ] }),
-          headerActions && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "flex items-center gap-2 shrink-0", children: headerActions })
+        (title || subtitle) && /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: (0, import_clsx28.default)("border-b", paddingClasses[padding]), style: { borderColor: colors.colorBlack6 }, children: [
+          title && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("h3", { className: "text-[18px] font-semibold", style: { color: colors.colorBlack1 }, children: title }),
+          subtitle && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "text-[14px] mt-1", style: { color: colors.colorBlack3 }, children: subtitle })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: resolvedPaddingClass, children }),
-        footer && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: paddingClasses[padding], children }),
+        footer && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
           "div",
           {
-            className: (0, import_clsx34.default)("border-t", resolvedPaddingClass),
+            className: (0, import_clsx28.default)("border-t", paddingClasses[padding]),
             style: { borderColor: colors.colorBlack6 },
             children: footer
           }
@@ -5643,12 +5036,12 @@ function CanaryCard({
 }
 
 // components/canary-ui/data-display/CanaryListItem.tsx
-var import_react36 = require("react");
-var import_clsx35 = __toESM(require("clsx"));
-var import_react37 = __toESM(require("@mdi/react"));
+var import_react35 = require("react");
+var import_clsx29 = __toESM(require("clsx"));
+var import_react36 = __toESM(require("@mdi/react"));
 var import_js11 = require("@mdi/js");
-var import_jsx_runtime38 = require("react/jsx-runtime");
-var CanaryListItem = (0, import_react36.forwardRef)(
+var import_jsx_runtime32 = require("react/jsx-runtime");
+var CanaryListItem = (0, import_react35.forwardRef)(
   ({
     children,
     title,
@@ -5664,9 +5057,7 @@ var CanaryListItem = (0, import_react36.forwardRef)(
     isDraggable = false,
     className = "",
     padding = "normal",
-    outerPadding,
     alignment = "center",
-    itemAlignment,
     isSelected = false,
     backgroundColor,
     hoverColor,
@@ -5684,21 +5075,19 @@ var CanaryListItem = (0, import_react36.forwardRef)(
       center: "items-center",
       start: "items-start"
     };
-    const resolvedPadding = outerPadding || padding;
-    const resolvedAlignment = itemAlignment || alignment;
     const bgColor = isSelected ? selectedBackgroundColor || colors.colorBlueDark1 : backgroundColor || "transparent";
     const titleColor = isSelected ? selectedTitleColor || colors.colorWhite : colors.colorBlack1;
     const subtitleColor = isSelected ? selectedSubtitleColor || colors.colorWhite : colors.colorBlack3;
     const descriptionColor = isSelected ? selectedDescriptionColor || "#93ABE1" : "#707070";
-    const content = children || /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(import_jsx_runtime38.Fragment, { children: [
-      isDraggable && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "flex items-center cursor-grab dragHandle", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react37.default, { path: import_js11.mdiDrag, size: 0.8, color: colors.colorBlack1 }) }),
-      icon && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "flex items-center", children: icon }),
-      leftContent && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "flex items-center flex-shrink-0", children: leftContent }),
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex flex-col flex-1 min-w-0 gap-0.5", children: [
-        title && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+    const content = children || /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
+      isDraggable && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "flex items-center cursor-grab dragHandle", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_react36.default, { path: import_js11.mdiDrag, size: 0.8, color: colors.colorBlack1 }) }),
+      icon && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "flex items-center", children: icon }),
+      leftContent && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "flex items-center flex-shrink-0", children: leftContent }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "flex flex-col flex-1 min-w-0 gap-0.5", children: [
+        title && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           "div",
           {
-            className: (0, import_clsx35.default)(
+            className: (0, import_clsx29.default)(
               "text-sm font-medium",
               !allowTextWrap && "truncate"
             ),
@@ -5706,42 +5095,42 @@ var CanaryListItem = (0, import_react36.forwardRef)(
             children: title
           }
         ),
-        subtitle && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+        subtitle && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           "div",
           {
-            className: (0, import_clsx35.default)("text-xs", !allowTextWrap && "truncate"),
+            className: (0, import_clsx29.default)("text-xs", !allowTextWrap && "truncate"),
             style: { color: subtitleColor },
             children: subtitle
           }
         ),
-        description && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+        description && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           "div",
           {
-            className: (0, import_clsx35.default)("text-xs", !allowTextWrap && "truncate"),
+            className: (0, import_clsx29.default)("text-xs", !allowTextWrap && "truncate"),
             style: { color: descriptionColor },
             children: description
           }
         )
       ] }),
-      rightContent && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "flex items-center flex-shrink-0", children: rightContent })
+      rightContent && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "flex items-center flex-shrink-0", children: rightContent })
     ] });
     const WrapperComponent = href && isClickable ? "a" : "div";
-    return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
       "li",
       {
         ref,
         role: isClickable ? "button" : void 0,
         tabIndex: isClickable ? 0 : void 0,
-        className: (0, import_clsx35.default)("list-none canary-list-item", className),
-        children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+        className: (0, import_clsx29.default)("list-none canary-list-item", className),
+        children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           WrapperComponent,
           __spreadProps(__spreadValues({
             href,
             target: href ? target : void 0,
-            className: (0, import_clsx35.default)(
+            className: (0, import_clsx29.default)(
               "flex flex-row w-full gap-4",
-              paddingClasses[resolvedPadding] || paddingClasses.normal,
-              alignmentClasses[resolvedAlignment] || alignmentClasses.center,
+              paddingClasses[padding],
+              alignmentClasses[alignment],
               isClickable && "cursor-pointer",
               isSelected && "hover:opacity-90"
             ),
@@ -5772,13 +5161,13 @@ CanaryListItem.displayName = "CanaryListItem";
 var CanaryListItem_default = CanaryListItem;
 
 // components/canary-ui/data-display/CanaryList.tsx
-var import_react38 = require("react");
-var import_clsx36 = __toESM(require("clsx"));
+var import_react37 = require("react");
+var import_clsx30 = __toESM(require("clsx"));
 var import_core = require("@dnd-kit/core");
 var import_sortable = require("@dnd-kit/sortable");
 var import_utilities = require("@dnd-kit/utilities");
 var import_framer_motion = require("framer-motion");
-var import_jsx_runtime39 = require("react/jsx-runtime");
+var import_jsx_runtime33 = require("react/jsx-runtime");
 function SortableItem({ id, children, isDraggable, isLast }) {
   const {
     attributes,
@@ -5794,7 +5183,7 @@ function SortableItem({ id, children, isDraggable, isLast }) {
     opacity: isDragging ? 0.5 : 1,
     borderBottom: isLast ? "none" : `1px solid ${colors.colorBlack6}`
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
     import_framer_motion.motion.div,
     __spreadProps(__spreadValues(__spreadValues({
       ref: setNodeRef,
@@ -5815,7 +5204,6 @@ var CanaryList = ({
   onReorder,
   className = "",
   hasOuterBorder = false,
-  listStyle,
   isLoading = false,
   loadingContent,
   isEmpty = false,
@@ -5823,8 +5211,8 @@ var CanaryList = ({
   hasError = false,
   errorContent
 }) => {
-  const [activeId, setActiveId] = (0, import_react38.useState)(null);
-  const [internalItems, setInternalItems] = (0, import_react38.useState)(items || []);
+  const [activeId, setActiveId] = (0, import_react37.useState)(null);
+  const [internalItems, setInternalItems] = (0, import_react37.useState)(items || []);
   const sensors = (0, import_core.useSensors)(
     (0, import_core.useSensor)(import_core.PointerSensor),
     (0, import_core.useSensor)(import_core.KeyboardSensor, {
@@ -5850,10 +5238,10 @@ var CanaryList = ({
     setActiveId(null);
   };
   if (isLoading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
       "div",
       {
-        className: (0, import_clsx36.default)(
+        className: (0, import_clsx30.default)(
           "flex items-center justify-center p-8",
           hasOuterBorder && "border rounded-lg",
           className
@@ -5862,15 +5250,15 @@ var CanaryList = ({
           borderColor: hasOuterBorder ? colors.colorBlack6 : void 0,
           backgroundColor: colors.colorWhite
         },
-        children: loadingContent || /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm", style: { color: colors.colorBlack3 }, children: "Loading..." })
+        children: loadingContent || /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-sm", style: { color: colors.colorBlack3 }, children: "Loading..." })
       }
     );
   }
   if (hasError) {
-    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
       "div",
       {
-        className: (0, import_clsx36.default)(
+        className: (0, import_clsx30.default)(
           "flex items-center justify-center p-8",
           hasOuterBorder && "border rounded-lg",
           className
@@ -5879,15 +5267,15 @@ var CanaryList = ({
           borderColor: hasOuterBorder ? colors.colorBlack6 : void 0,
           backgroundColor: colors.colorWhite
         },
-        children: errorContent || /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm", style: { color: colors.colorRed1 }, children: "Error loading list" })
+        children: errorContent || /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-sm", style: { color: colors.colorRed1 }, children: "Error loading list" })
       }
     );
   }
   if (isEmpty) {
-    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
       "div",
       {
-        className: (0, import_clsx36.default)(
+        className: (0, import_clsx30.default)(
           "flex items-center justify-center p-8",
           hasOuterBorder && "border rounded-lg",
           className
@@ -5896,7 +5284,7 @@ var CanaryList = ({
           borderColor: hasOuterBorder ? colors.colorBlack6 : void 0,
           backgroundColor: colors.colorWhite
         },
-        children: emptyContent || /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm", style: { color: colors.colorBlack3 }, children: "No items to display" })
+        children: emptyContent || /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-sm", style: { color: colors.colorBlack3 }, children: "No items to display" })
       }
     );
   }
@@ -5904,7 +5292,7 @@ var CanaryList = ({
   const currentItems = items || internalItems;
   const itemIds = currentItems.map((item) => item.id || item);
   if (isDraggable && items) {
-    return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
       import_core.DndContext,
       {
         sensors,
@@ -5912,10 +5300,10 @@ var CanaryList = ({
         onDragStart: handleDragStart,
         onDragEnd: handleDragEnd,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_sortable.SortableContext, { items: itemIds, strategy: import_sortable.verticalListSortingStrategy, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_sortable.SortableContext, { items: itemIds, strategy: import_sortable.verticalListSortingStrategy, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "ul",
             {
-              className: (0, import_clsx36.default)(
+              className: (0, import_clsx30.default)(
                 "p-0 m-0",
                 hasOuterBorder && "border rounded-lg overflow-hidden",
                 className
@@ -5924,7 +5312,7 @@ var CanaryList = ({
                 borderColor: hasOuterBorder ? colors.colorBlack6 : void 0,
                 backgroundColor: colors.colorWhite
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_framer_motion.AnimatePresence, { children: currentItems.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+              children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_framer_motion.AnimatePresence, { children: currentItems.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
                 SortableItem,
                 {
                   id: item.id || index.toString(),
@@ -5936,7 +5324,7 @@ var CanaryList = ({
               )) })
             }
           ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_core.DragOverlay, { children: activeId ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_core.DragOverlay, { children: activeId ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "div",
             {
               style: {
@@ -5950,10 +5338,10 @@ var CanaryList = ({
       }
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
     "ul",
     {
-      className: (0, import_clsx36.default)(
+      className: (0, import_clsx30.default)(
         "p-0 m-0",
         hasOuterBorder && "border rounded-lg overflow-hidden",
         className
@@ -5962,7 +5350,7 @@ var CanaryList = ({
         borderColor: hasOuterBorder ? colors.colorBlack6 : void 0,
         backgroundColor: colors.colorWhite
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_framer_motion.AnimatePresence, { children: childArray.map((child, index) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_framer_motion.AnimatePresence, { children: childArray.map((child, index) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         import_framer_motion.motion.div,
         {
           initial: { opacity: 0, y: -8 },
@@ -5970,8 +5358,7 @@ var CanaryList = ({
           exit: { opacity: 0, y: -8 },
           transition: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
           style: {
-            borderBottom: listStyle === "stripes" /* STRIPES */ ? "none" : index === childArray.length - 1 ? "none" : `1px solid ${colors.colorBlack6}`,
-            backgroundColor: listStyle === "stripes" /* STRIPES */ && index % 2 === 1 ? colors.colorBlack8 : void 0
+            borderBottom: index === childArray.length - 1 ? "none" : `1px solid ${colors.colorBlack6}`
           },
           children: child
         },
@@ -5983,221 +5370,9 @@ var CanaryList = ({
 CanaryList.displayName = "CanaryList";
 var CanaryList_default = CanaryList;
 
-// components/canary-ui/data-display/CanaryTimestamp.tsx
-var import_clsx37 = __toESM(require("clsx"));
-var import_jsx_runtime40 = require("react/jsx-runtime");
-function getRelativeTime(date) {
-  const now = /* @__PURE__ */ new Date();
-  const diffMs = now.getTime() - date.getTime();
-  const diffSeconds = Math.floor(Math.abs(diffMs) / 1e3);
-  const diffMinutes = Math.floor(diffSeconds / 60);
-  const diffHours = Math.floor(diffMinutes / 60);
-  const diffDays = Math.floor(diffHours / 24);
-  const diffWeeks = Math.floor(diffDays / 7);
-  const diffMonths = Math.floor(diffDays / 30);
-  const isFuture = diffMs < 0;
-  const suffix = isFuture ? "from now" : "ago";
-  if (diffSeconds < 60) return "just now";
-  if (diffMinutes < 60) return `${diffMinutes} minute${diffMinutes === 1 ? "" : "s"} ${suffix}`;
-  if (diffHours < 24) return `${diffHours} hour${diffHours === 1 ? "" : "s"} ${suffix}`;
-  if (diffDays < 7) return `${diffDays} day${diffDays === 1 ? "" : "s"} ${suffix}`;
-  if (diffWeeks < 5) return `${diffWeeks} week${diffWeeks === 1 ? "" : "s"} ${suffix}`;
-  return `${diffMonths} month${diffMonths === 1 ? "" : "s"} ${suffix}`;
-}
-function formatDate(date, format) {
-  switch (format) {
-    case "datetime" /* DATETIME */:
-      return new Intl.DateTimeFormat("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit"
-      }).format(date);
-    case "datetime_zone" /* DATETIME_ZONE */:
-      return new Intl.DateTimeFormat("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        timeZoneName: "short"
-      }).format(date);
-    case "relative_time" /* RELATIVE_TIME */:
-      return getRelativeTime(date);
-    default:
-      return date.toLocaleString();
-  }
-}
-function CanaryTimestamp({
-  date,
-  format = "datetime" /* DATETIME */,
-  color = "primary" /* PRIMARY */,
-  className = ""
-}) {
-  const dateObj = date instanceof Date ? date : new Date(date);
-  const colorMap = {
-    ["primary" /* PRIMARY */]: colors.colorBlack2,
-    ["secondary" /* SECONDARY */]: colors.colorBlack4
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-    "time",
-    {
-      dateTime: dateObj.toISOString(),
-      className: (0, import_clsx37.default)("text-[12px]", className),
-      style: { color: colorMap[color] },
-      children: formatDate(dateObj, format)
-    }
-  );
-}
-
-// components/canary-ui/data-display/CanaryProfileImage.tsx
-var import_clsx38 = __toESM(require("clsx"));
-var import_jsx_runtime41 = require("react/jsx-runtime");
-function CanaryProfileImage({
-  src,
-  alt = "",
-  size = "normal" /* NORMAL */,
-  initials,
-  className = ""
-}) {
-  const sizeMap = {
-    ["tiny" /* TINY */]: 24,
-    ["small" /* SMALL */]: 32,
-    ["medium" /* MEDIUM */]: 40,
-    ["normal" /* NORMAL */]: 48,
-    ["large" /* LARGE */]: 64
-  };
-  const dimension = sizeMap[size];
-  const fontSize = Math.round(dimension * 0.4);
-  if (src) {
-    return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-      "img",
-      {
-        src,
-        alt,
-        className: (0, import_clsx38.default)("rounded-full object-cover", className),
-        style: {
-          width: `${dimension}px`,
-          height: `${dimension}px`
-        }
-      }
-    );
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-    "div",
-    {
-      className: (0, import_clsx38.default)(
-        "rounded-full inline-flex items-center justify-center font-medium",
-        className
-      ),
-      style: {
-        width: `${dimension}px`,
-        height: `${dimension}px`,
-        backgroundColor: colors.colorBlueDark1,
-        color: colors.colorWhite,
-        fontSize: `${fontSize}px`
-      },
-      children: initials || "?"
-    }
-  );
-}
-
-// components/canary-ui/data-display/CanaryTooltip.tsx
-var import_react39 = require("react");
-var import_clsx39 = __toESM(require("clsx"));
-var import_jsx_runtime42 = require("react/jsx-runtime");
-var positionClasses = {
-  ["top" /* TOP */]: "bottom-full mb-2 left-1/2 -translate-x-1/2",
-  ["bottom" /* BOTTOM */]: "top-full mt-2 left-1/2 -translate-x-1/2",
-  ["left" /* LEFT */]: "right-full mr-2 top-1/2 -translate-y-1/2",
-  ["right" /* RIGHT */]: "left-full ml-2 top-1/2 -translate-y-1/2",
-  ["auto" /* AUTO */]: "bottom-full mb-2 left-1/2 -translate-x-1/2"
-};
-function CanaryTooltip({
-  content,
-  position = "auto" /* AUTO */,
-  children,
-  className
-}) {
-  const [isVisible, setIsVisible] = (0, import_react39.useState)(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
-    "div",
-    {
-      className: (0, import_clsx39.default)("relative inline-flex", className),
-      onMouseEnter: () => setIsVisible(true),
-      onMouseLeave: () => setIsVisible(false),
-      children: [
-        children,
-        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-          "div",
-          {
-            className: (0, import_clsx39.default)(
-              "absolute z-50 px-2 py-1 rounded shadow whitespace-nowrap pointer-events-none",
-              positionClasses[position]
-            ),
-            style: {
-              backgroundColor: colors.colorBlack1,
-              color: colors.colorWhite,
-              fontSize: "12px",
-              opacity: isVisible ? 1 : 0,
-              transition: "opacity 150ms ease-in-out"
-            },
-            children: content
-          }
-        )
-      ]
-    }
-  );
-}
-
-// components/canary-ui/data-display/CanaryTooltipIcon.tsx
-var import_clsx40 = __toESM(require("clsx"));
-var import_jsx_runtime43 = require("react/jsx-runtime");
-var iconColorMap = {
-  ["primary" /* PRIMARY */]: colors.colorBlueDark1,
-  ["secondary" /* SECONDARY */]: colors.colorBlack4,
-  ["danger" /* DANGER */]: colors.danger
-};
-function CanaryTooltipIcon({
-  content,
-  position = "auto" /* AUTO */,
-  color = "primary" /* PRIMARY */,
-  size = 16,
-  className
-}) {
-  const iconColor = iconColorMap[color];
-  return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CanaryTooltip, { content, position, children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("span", { className: (0, import_clsx40.default)("inline-flex items-center justify-center", className), children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 16 16",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("circle", { cx: "8", cy: "8", r: "7", stroke: iconColor, strokeWidth: "1.5", fill: "none" }),
-        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
-          "text",
-          {
-            x: "8",
-            y: "12",
-            textAnchor: "middle",
-            fontSize: "10",
-            fontWeight: "600",
-            fontFamily: "serif",
-            fill: iconColor,
-            children: "i"
-          }
-        )
-      ]
-    }
-  ) }) });
-}
-
 // components/canary-ui/layout/CanaryContainer.tsx
-var import_clsx41 = __toESM(require("clsx"));
-var import_jsx_runtime44 = require("react/jsx-runtime");
+var import_clsx31 = __toESM(require("clsx"));
+var import_jsx_runtime34 = require("react/jsx-runtime");
 function CanaryContainer({
   children,
   maxWidth = "xl",
@@ -6223,10 +5398,10 @@ function CanaryContainer({
     medium: "px-6 py-4",
     large: "px-8 py-6"
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
     "div",
     {
-      className: (0, import_clsx41.default)(
+      className: (0, import_clsx31.default)(
         "mx-auto w-full",
         maxWidthClasses[maxWidth],
         paddingClasses[padding],
@@ -6238,8 +5413,8 @@ function CanaryContainer({
 }
 
 // components/canary-ui/layout/CanaryGrid.tsx
-var import_clsx42 = __toESM(require("clsx"));
-var import_jsx_runtime45 = require("react/jsx-runtime");
+var import_clsx32 = __toESM(require("clsx"));
+var import_jsx_runtime35 = require("react/jsx-runtime");
 function CanaryGrid({
   children,
   columns = 1,
@@ -6260,10 +5435,10 @@ function CanaryGrid({
     medium: "gap-4",
     large: "gap-6"
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
     "div",
     {
-      className: (0, import_clsx42.default)(
+      className: (0, import_clsx32.default)(
         "grid",
         columnClasses[columns],
         gapClasses[gap],
@@ -6275,9 +5450,9 @@ function CanaryGrid({
 }
 
 // components/canary-ui/layout/CanaryModal.tsx
-var import_react40 = require("react");
-var import_clsx43 = __toESM(require("clsx"));
-var import_jsx_runtime46 = require("react/jsx-runtime");
+var import_react38 = require("react");
+var import_clsx33 = __toESM(require("clsx"));
+var import_jsx_runtime36 = require("react/jsx-runtime");
 function CanaryModal({
   isOpen,
   onClose,
@@ -6289,7 +5464,7 @@ function CanaryModal({
   showCloseButton = true,
   className = ""
 }) {
-  (0, import_react40.useEffect)(() => {
+  (0, import_react38.useEffect)(() => {
     const handleEsc = (event) => {
       if (event.key === "Escape" && isOpen) {
         onClose();
@@ -6316,7 +5491,7 @@ function CanaryModal({
       onClose();
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
     "div",
     {
       className: "fixed inset-0 flex items-center justify-center p-4",
@@ -6325,10 +5500,10 @@ function CanaryModal({
         backgroundColor: "rgba(0, 0, 0, 0.5)"
       },
       onClick: handleOverlayClick,
-      children: /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
         "div",
         {
-          className: (0, import_clsx43.default)(
+          className: (0, import_clsx33.default)(
             "bg-white rounded-lg w-full",
             "max-h-[90vh] flex flex-col",
             sizeClasses[size],
@@ -6337,25 +5512,25 @@ function CanaryModal({
           style: { boxShadow: shadows.xl },
           onClick: (e) => e.stopPropagation(),
           children: [
-            (title || showCloseButton) && /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
+            (title || showCloseButton) && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
               "div",
               {
                 className: "flex items-center justify-between px-6 py-4 shrink-0",
                 children: [
-                  title && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("h2", { className: "text-[20px] font-medium", style: { color: colors.colorBlack1 }, children: title }),
-                  showCloseButton && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
+                  title && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("h2", { className: "text-[20px] font-medium", style: { color: colors.colorBlack1 }, children: title }),
+                  showCloseButton && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
                     CanaryButton,
                     {
                       type: "icon_secondary" /* ICON_SECONDARY */,
                       onClick: onClose,
-                      icon: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("path", { d: "M15 5L5 15M5 5L15 15", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
+                      icon: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("path", { d: "M15 5L5 15M5 5L15 15", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
                     }
                   )
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "px-6 py-4 overflow-y-auto flex-1", children }),
-            footer && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "px-6 py-4 overflow-y-auto flex-1", children }),
+            footer && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
               "div",
               {
                 className: "px-6 py-4 shrink-0",
@@ -6370,10 +5545,10 @@ function CanaryModal({
 }
 
 // components/canary-ui/layout/CanaryAppShell.tsx
-var import_clsx46 = __toESM(require("clsx"));
+var import_clsx36 = __toESM(require("clsx"));
 
 // components/canary-ui/navigation/CanarySidebar.tsx
-var import_react42 = require("react");
+var import_react40 = require("react");
 
 // components/canary-ui/navigation/types.ts
 var SidebarVariant = /* @__PURE__ */ ((SidebarVariant2) => {
@@ -6390,37 +5565,15 @@ var NavigationItemState = /* @__PURE__ */ ((NavigationItemState2) => {
   NavigationItemState2["DISABLED"] = "disabled";
   return NavigationItemState2;
 })(NavigationItemState || {});
-var TabSize = /* @__PURE__ */ ((TabSize2) => {
-  TabSize2["LARGE"] = "large";
-  TabSize2["NORMAL"] = "normal";
-  TabSize2["COMPACT"] = "compact";
-  return TabSize2;
-})(TabSize || {});
-var TabType = /* @__PURE__ */ ((TabType2) => {
-  TabType2["ROUND"] = "round";
-  TabType2["PRIMARY"] = "primary";
-  TabType2["TEXT"] = "text";
-  return TabType2;
-})(TabType || {});
-var ProgressBarVariant = /* @__PURE__ */ ((ProgressBarVariant2) => {
-  ProgressBarVariant2["STEPS"] = "steps";
-  ProgressBarVariant2["CONTINUOUS"] = "continuous";
-  return ProgressBarVariant2;
-})(ProgressBarVariant || {});
-var StepsOrientation = /* @__PURE__ */ ((StepsOrientation2) => {
-  StepsOrientation2["HORIZONTAL"] = "horizontal";
-  StepsOrientation2["VERTICAL"] = "vertical";
-  return StepsOrientation2;
-})(StepsOrientation || {});
 
 // components/canary-ui/navigation/CanaryLogo.tsx
-var import_jsx_runtime47 = require("react/jsx-runtime");
+var import_jsx_runtime37 = require("react/jsx-runtime");
 function CanaryLogo({
   width = "140px",
   height = "24px",
   className = ""
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
     "svg",
     {
       width,
@@ -6431,42 +5584,42 @@ function CanaryLogo({
       className,
       style: { display: "block" },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M61.2052 9.7303C61.0146 10.3639 60.7048 10.9975 60.3235 11.5858C59.9422 12.1968 59.4656 12.7173 58.9175 13.1925C58.3694 13.6677 57.726 14.0297 57.0111 14.3239C56.2961 14.5954 55.4859 14.7538 54.628 14.7538C53.5318 14.7538 52.5309 14.5728 51.6492 14.2108C50.7675 13.8487 50.0049 13.3509 49.3853 12.7173C48.7657 12.0837 48.2891 11.3143 47.9555 10.4318C47.6218 9.54927 47.455 8.59887 47.455 7.55795C47.455 6.49441 47.6218 5.52138 47.9793 4.59361C48.3129 3.66583 48.8134 2.87383 49.4568 2.19497C50.1002 1.51612 50.8628 0.97303 51.7445 0.588344C52.6262 0.203657 53.651 0 54.7472 0C55.6765 0 56.5344 0.1584 57.297 0.475201C58.0596 0.792001 58.7269 1.19932 59.275 1.69714C59.8231 2.19497 60.2758 2.73806 60.6333 3.34903C60.9669 3.96 61.2052 4.54835 61.2767 5.15932H58.2264C58.1311 4.81989 57.9881 4.50309 57.7736 4.18629C57.5592 3.86949 57.3209 3.59795 57.0349 3.34903C56.7489 3.10012 56.4153 2.89646 56.034 2.76069C55.6527 2.62492 55.2476 2.5344 54.8186 2.5344C54.1514 2.5344 53.5556 2.67017 53.0314 2.94172C52.5071 3.21326 52.0543 3.57532 51.6969 4.02789C51.3394 4.48046 51.0534 5.02355 50.8628 5.63452C50.6721 6.24549 50.5768 6.90172 50.5768 7.58058C50.5768 8.23681 50.6721 8.87041 50.839 9.43613C51.0058 10.0018 51.2679 10.4997 51.6254 10.9296C51.959 11.3596 52.3879 11.6764 52.9122 11.9253C53.4126 12.1742 54.0084 12.2873 54.6757 12.2873C55.1046 12.2873 55.4859 12.2194 55.8672 12.1063C56.2246 11.9705 56.5583 11.8121 56.8681 11.5858C57.154 11.3596 57.4162 11.088 57.6545 10.7938C57.869 10.4997 58.0596 10.1602 58.2026 9.79818H61.2052V9.7303Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M70.8901 0.565369H68.236L61.5768 14.4456H64.8472C64.9663 14.2202 65.0854 13.9738 65.2127 13.7104C65.3134 13.5021 65.4193 13.2831 65.5344 13.0553C65.7652 12.6185 65.9589 12.1816 66.1319 11.7915C66.1542 11.7411 66.1762 11.6914 66.1979 11.6427H72.8097L74.1367 14.468H77.5018L70.8901 0.565369ZM71.6476 9.11249H67.382L69.4911 4.69503C69.5543 4.82797 69.6155 4.95893 69.6751 5.08676C69.8168 5.39017 69.9502 5.6759 70.0836 5.92833C70.2137 6.17455 70.3326 6.42078 70.4481 6.65975C70.5008 6.76899 70.5529 6.87672 70.6049 6.98224L71.1026 7.99131C71.123 8.03274 71.1438 8.07485 71.1649 8.1176C71.3152 8.42191 71.4814 8.75858 71.6476 9.11249Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M79.3051 0.565369H82.0516L89.1446 9.24332V0.565369H92.2254V14.468H89.6461L82.4098 5.61069V14.468H79.3051V0.565369Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M103.332 0.565369H100.673L94.0281 14.4456H97.3033C97.4226 14.2202 97.5419 13.9738 97.6694 13.7104C97.7703 13.5021 97.8763 13.2831 97.9916 13.0553C98.2227 12.6185 98.4167 12.1816 98.5899 11.7915C98.6123 11.7411 98.6344 11.6914 98.6561 11.6427H105.254L106.583 14.468H109.953L103.332 0.565369ZM104.091 9.11249H99.8193L101.932 4.69503C101.995 4.82796 102.056 4.95892 102.116 5.08675C102.258 5.39016 102.391 5.6759 102.525 5.92833C102.655 6.17455 102.774 6.42078 102.89 6.65975C102.943 6.76899 102.995 6.87672 103.047 6.98224L103.545 7.99131C103.566 8.03271 103.587 8.0748 103.608 8.11752C103.758 8.42185 103.925 8.75855 104.091 9.11249Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M120.573 0.60449C119.853 0.39889 119.013 0.284668 118.029 0.284668H111.455V14.4482H114.574V9.10262H117.118L121.053 14.4711H124.676L120.429 8.85133C121.557 8.50866 122.42 7.9604 122.972 7.22937C123.524 6.47551 123.812 5.63026 123.812 4.6708C123.812 4.00831 123.692 3.41435 123.452 2.86609C123.212 2.34067 122.852 1.88378 122.372 1.49542C121.893 1.10707 121.293 0.81009 120.573 0.60449ZM114.574 6.56517V2.81868H117.861C118.869 2.81868 119.612 2.97859 120.044 3.3441C120.476 3.70962 120.692 4.1665 120.692 4.69193C120.692 5.24019 120.476 5.69708 120.02 6.03975C119.588 6.38241 118.869 6.56517 117.861 6.56517H114.574Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M130.606 14.468V8.99666L124.375 0.565369H128.148L132.163 6.14886L136.228 0.565369H140L133.745 8.99666V14.4456H130.606V14.468Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M53.5547 17.6829H51.5543V22.34H50.783V17.6829H48.7827V17.0665H53.5547V17.6829Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M60.713 22.3629H56.5194V17.0665H60.6407V17.6829H57.3148V19.2581H60.2551V19.8745H57.3148V21.7008H60.713V22.3629V22.3629Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M68.3289 20.8798C68.2566 21.0852 68.1602 21.2907 68.0397 21.4962C67.9192 21.7016 67.7505 21.8614 67.5577 22.0212C67.3649 22.181 67.1479 22.2952 66.8828 22.3865C66.6177 22.4778 66.3526 22.5235 66.0393 22.5235C65.6296 22.5235 65.2922 22.455 64.9547 22.318C64.6414 22.181 64.3522 21.9984 64.1353 21.7473C63.9184 21.4962 63.7497 21.2222 63.6292 20.8798C63.5087 20.5373 63.4605 20.1721 63.4605 19.784C63.4605 19.373 63.5328 19.0078 63.6533 18.6653C63.7738 18.3229 63.9425 18.0033 64.1835 17.7522C64.4245 17.501 64.6896 17.2956 65.0271 17.1358C65.3404 16.9988 65.726 16.9075 66.1116 16.9075C66.449 16.9075 66.7623 16.9531 67.0274 17.0673C67.2926 17.1814 67.5336 17.2956 67.7264 17.4782C67.9192 17.638 68.0879 17.8206 68.2084 18.0261C68.3289 18.2316 68.4012 18.4142 68.4253 18.6197H67.6059C67.5818 18.4827 67.5095 18.3457 67.4131 18.2087C67.3167 18.0718 67.2203 17.9576 67.0997 17.8663C66.9792 17.775 66.8346 17.6837 66.6659 17.638C66.4972 17.5695 66.3044 17.5467 66.1116 17.5467C65.8224 17.5467 65.5573 17.6152 65.3163 17.7293C65.0753 17.8435 64.8824 18.0033 64.7378 18.2087C64.5691 18.4142 64.4486 18.6425 64.3763 18.9165C64.2799 19.1904 64.2558 19.4644 64.2558 19.784C64.2558 20.0807 64.304 20.3547 64.3763 20.6058C64.4486 20.8569 64.5691 21.0852 64.7137 21.2679C64.8583 21.4505 65.0512 21.6103 65.2922 21.7016C65.5091 21.8158 65.7742 21.8614 66.0634 21.8614C66.2562 21.8614 66.4249 21.8386 66.5936 21.7929C66.7623 21.7473 66.9069 21.6788 67.0274 21.5875C67.1479 21.4962 67.2685 21.382 67.3649 21.2679C67.4613 21.1537 67.5336 21.0167 67.5818 20.8798H68.3289V20.8798Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M76.0171 22.3629H75.2218V20.1028H72.1851V22.3629H71.4138V17.0665H72.1851V19.4635H75.2218V17.0665H76.0171V22.3629V22.3629Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M79.2707 17.0665H80.0179L83.0787 21.0388V17.0665H83.8499V22.3629H83.151L80.042 18.3221V22.3629H79.2707V17.0665Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M90.7427 17.1597C90.4293 16.9999 90.0437 16.9314 89.634 16.9314C89.2002 16.9314 88.8387 16.9999 88.5254 17.1597C88.1879 17.2966 87.8987 17.5021 87.6818 17.7532C87.4649 18.0043 87.2962 18.3011 87.1757 18.6436C87.0552 18.9632 87.007 19.3284 87.007 19.7165C87.007 20.0818 87.0552 20.4471 87.1757 20.7895C87.2721 21.132 87.4649 21.4287 87.6818 21.6799C87.9228 21.931 88.1879 22.1365 88.5254 22.2734C88.8387 22.4332 89.2243 22.5017 89.634 22.5017C90.0437 22.5017 90.4052 22.4104 90.7427 22.2734C91.056 22.1365 91.3452 21.931 91.5621 21.6799C91.779 21.4287 91.9477 21.132 92.0682 20.7895C92.1887 20.4699 92.2369 20.1046 92.2369 19.7165C92.2369 19.3513 92.1887 18.986 92.0682 18.6436C91.9477 18.3011 91.779 18.0043 91.5621 17.7532C91.3452 17.5021 91.0801 17.2966 90.7427 17.1597ZM90.3809 21.7255C90.1639 21.8397 89.8988 21.8853 89.6337 21.8853C89.3445 21.8853 89.1035 21.8169 88.8866 21.7255C88.6697 21.6114 88.4769 21.4516 88.3082 21.269C88.1395 21.0863 88.0189 20.8352 87.9225 20.5841C87.8261 20.333 87.7779 20.0362 87.7779 19.7166C87.7779 19.397 87.8261 19.123 87.9225 18.849C88.0189 18.5751 88.1395 18.3468 88.3082 18.1642C88.4528 17.9587 88.6697 17.8217 88.8866 17.7076C89.1035 17.5934 89.3686 17.5478 89.6337 17.5478C89.8988 17.5478 90.1639 17.5934 90.3809 17.7076C90.5978 17.8217 90.7906 17.9815 90.9593 18.1642C91.128 18.3468 91.2485 18.5979 91.3449 18.849C91.4413 19.1002 91.4895 19.397 91.4895 19.7166C91.4895 20.0362 91.4413 20.3101 91.3449 20.5841C91.2485 20.858 91.128 21.0863 90.9593 21.269C90.8147 21.4744 90.5978 21.6114 90.3809 21.7255Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M99.54 22.3629H95.3946V17.0665H96.1658V21.7236H99.5159V22.3629H99.54Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M105.926 17.1597C105.613 16.9999 105.227 16.9314 104.817 16.9314C104.384 16.9314 104.022 16.9999 103.709 17.1597C103.371 17.2966 103.082 17.5021 102.865 17.7532C102.648 18.0043 102.48 18.3011 102.359 18.6436C102.239 18.9632 102.19 19.3284 102.19 19.7165C102.19 20.0818 102.239 20.4471 102.359 20.7895C102.455 21.132 102.648 21.4287 102.865 21.6799C103.106 21.931 103.371 22.1365 103.709 22.2734C104.022 22.4332 104.408 22.5017 104.817 22.5017C105.227 22.5017 105.589 22.4104 105.926 22.2734C106.239 22.1365 106.529 21.931 106.745 21.6799C106.962 21.4287 107.131 21.132 107.252 20.7895C107.372 20.4699 107.42 20.1046 107.42 19.7165C107.42 19.3513 107.372 18.986 107.252 18.6436C107.131 18.3011 106.962 18.0043 106.745 17.7532C106.529 17.5021 106.263 17.2966 105.926 17.1597ZM105.565 21.7255C105.348 21.8397 105.083 21.8853 104.818 21.8853C104.528 21.8853 104.287 21.8169 104.071 21.7255C103.854 21.6114 103.661 21.4516 103.492 21.269C103.323 21.0863 103.203 20.8352 103.107 20.5841C103.01 20.333 102.962 20.0362 102.962 19.7166C102.962 19.397 103.01 19.123 103.107 18.849C103.203 18.5751 103.323 18.3468 103.492 18.1642C103.637 17.9587 103.854 17.8217 104.071 17.7076C104.287 17.5934 104.553 17.5478 104.818 17.5478C105.083 17.5478 105.348 17.5934 105.565 17.7076C105.782 17.8217 105.975 17.9815 106.143 18.1642C106.312 18.3468 106.432 18.5979 106.529 18.849C106.625 19.1002 106.673 19.397 106.673 19.7166C106.673 20.0362 106.625 20.3101 106.529 20.5841C106.432 20.858 106.312 21.0863 106.143 21.269C105.999 21.4744 105.782 21.6114 105.565 21.7255Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M115.301 22.3639H114.627V21.816C114.458 21.9986 114.217 22.1813 113.928 22.3183C113.638 22.4552 113.301 22.5237 112.891 22.5237C112.53 22.5237 112.216 22.4552 111.903 22.3411C111.59 22.2269 111.349 22.0443 111.108 21.816C110.891 21.5877 110.722 21.2909 110.578 20.9713C110.457 20.6289 110.385 20.2636 110.385 19.8299C110.385 19.3961 110.457 19.008 110.578 18.6427C110.722 18.3003 110.891 17.9807 111.132 17.7296C111.373 17.4784 111.638 17.2958 111.951 17.1588C112.265 17.0219 112.602 16.9534 112.988 16.9534C113.277 16.9534 113.566 16.999 113.807 17.0675C114.072 17.1588 114.289 17.273 114.482 17.41C114.675 17.5469 114.843 17.7296 114.988 17.935C115.133 18.1405 115.229 18.3688 115.277 18.5971H114.482C114.434 18.4373 114.361 18.3003 114.265 18.1633C114.169 18.0263 114.048 17.935 113.903 17.8437C113.759 17.7524 113.614 17.6839 113.446 17.6382C113.277 17.5926 113.108 17.5698 112.915 17.5698C112.674 17.5698 112.433 17.6154 112.216 17.7296C112 17.8437 111.807 17.9807 111.638 18.1633C111.469 18.346 111.349 18.5971 111.252 18.871C111.156 19.145 111.108 19.4646 111.108 19.807C111.108 20.1266 111.156 20.4006 111.228 20.6745C111.301 20.9257 111.421 21.154 111.59 21.3366C111.734 21.5192 111.927 21.6562 112.144 21.7475C112.361 21.8388 112.602 21.9073 112.867 21.9073C113.084 21.9073 113.301 21.8845 113.494 21.816C113.687 21.7475 113.855 21.6562 113.976 21.5421C114.12 21.4279 114.217 21.2909 114.289 21.154C114.361 21.017 114.41 20.8572 114.41 20.6974V20.2864H112.674V19.6701H115.181V22.3639H115.301Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M119.303 22.3629H118.531V17.0665H119.303V22.3629Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M126.75 22.3629H122.556V17.0665H126.653V17.6829H123.327V19.2581H126.268V19.8745H123.327V21.7008H126.726V22.3629H126.75Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M130.606 18.4373C130.606 18.5743 130.654 18.7112 130.751 18.8025C130.847 18.8939 130.968 18.9852 131.136 19.0537C131.281 19.1222 131.474 19.1906 131.666 19.2363C131.859 19.282 132.076 19.3504 132.293 19.4189C132.51 19.4874 132.703 19.5559 132.92 19.6244C133.113 19.6929 133.305 19.807 133.45 19.9212C133.595 20.0353 133.739 20.1723 133.836 20.3321C133.932 20.4919 133.98 20.6974 133.98 20.9257C133.98 21.1311 133.932 21.3366 133.836 21.5192C133.739 21.7019 133.595 21.8845 133.402 22.0215C133.209 22.1585 132.992 22.2954 132.703 22.3867C132.438 22.4781 132.124 22.5237 131.763 22.5237C131.401 22.5237 131.064 22.4781 130.799 22.3639C130.534 22.2726 130.293 22.1356 130.124 21.9758C129.955 21.816 129.811 21.6334 129.714 21.4507C129.618 21.2681 129.57 21.0626 129.57 20.88H130.293C130.365 21.1768 130.51 21.4279 130.775 21.6106C131.04 21.7932 131.353 21.8845 131.739 21.8845C131.98 21.8845 132.173 21.8617 132.341 21.7932C132.51 21.7247 132.655 21.6562 132.775 21.5649C132.896 21.4736 132.992 21.3594 133.04 21.2453C133.088 21.1311 133.137 21.017 133.137 20.9028C133.137 20.743 133.088 20.6061 132.992 20.5147C132.896 20.4006 132.775 20.3093 132.606 20.2408C132.462 20.1723 132.269 20.1038 132.076 20.0353C131.883 19.9668 131.666 19.9212 131.474 19.8527C131.257 19.7842 131.064 19.7157 130.871 19.6472C130.678 19.5787 130.485 19.4874 130.341 19.3733C130.196 19.2591 130.052 19.145 129.955 18.9852C129.859 18.8254 129.811 18.6427 129.811 18.4373C129.811 18.2318 129.859 18.0492 129.955 17.8665C130.052 17.6839 130.172 17.5241 130.341 17.3871C130.51 17.2502 130.726 17.136 130.968 17.0675C131.209 16.9762 131.498 16.9534 131.835 16.9534C132.148 16.9534 132.414 16.999 132.655 17.0675C132.896 17.136 133.088 17.2502 133.257 17.3871C133.426 17.5241 133.546 17.6839 133.643 17.8665C133.739 18.0492 133.787 18.2318 133.836 18.4373H133.088C133.016 18.1862 132.896 17.9807 132.679 17.8209C132.462 17.6611 132.197 17.5698 131.835 17.5698C131.642 17.5698 131.474 17.5926 131.329 17.6382C131.184 17.6839 131.04 17.7524 130.943 17.8437C130.847 17.935 130.751 18.0263 130.702 18.1177C130.63 18.209 130.606 18.3231 130.606 18.4373Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M2.27397 1.73503H3.68836C6.73754 1.73503 9.69489 2.31693 12.5053 3.44545C15.2055 4.53871 17.6118 6.10806 19.6874 8.10061C20.0548 8.45327 20.4038 8.82357 20.7528 9.19387C20.9181 9.38783 21.1569 9.476 21.4141 9.476C21.6161 9.476 21.8182 9.40547 21.9835 9.2644C22.3509 8.96464 22.3876 8.43564 22.057 8.08298C21.6896 7.67742 21.3039 7.28949 20.9181 6.91919C18.6771 4.76794 16.0872 3.09279 13.1849 1.91137C10.1725 0.694676 6.97634 0.0775146 3.70672 0.0775146H2.29234C1.81476 0.0775146 1.42902 0.447811 1.42902 0.906274C1.42902 1.36474 1.79639 1.73503 2.27397 1.73503Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M0.867281 6.5831H3.56139C5.96025 6.5831 8.30375 7.0453 10.4996 7.93416C11.7544 8.4497 12.9539 9.08967 14.0426 9.85409C14.1902 9.96075 14.3747 10.0141 14.5592 10.0141C14.836 10.0141 15.0944 9.88964 15.2605 9.67632C15.5372 9.303 15.4634 8.76968 15.0759 8.50303C13.8765 7.6675 12.5663 6.95642 11.1824 6.38755C8.76507 5.40981 6.20014 4.91205 3.56139 4.91205H0.867281C0.387508 4.91205 0 5.28537 0 5.74757C0 6.20978 0.387508 6.5831 0.867281 6.5831Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M21.7087 6.25366C21.8951 6.25366 22.0816 6.20147 22.2495 6.07968C23.76 5.00103 25.4383 4.09636 27.2099 3.40046C30.0444 2.28701 33.0654 1.71289 36.161 1.71289H37.6902C38.1751 1.71289 38.5667 1.34754 38.5667 0.895202C38.5667 0.442864 38.1751 0.0775146 37.6902 0.0775146H36.161C32.823 0.0775146 29.5969 0.68643 26.5386 1.88686C24.6364 2.63496 22.8462 3.60923 21.2052 4.77487C20.8135 5.05323 20.739 5.55776 21.0373 5.92311C21.1865 6.14928 21.4476 6.25366 21.7087 6.25366Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M17.5755 8.15116C16.4644 9.34462 15.5039 10.6419 14.6753 12.0256C14.4493 12.4234 14.5999 12.925 15.0331 13.1326C15.1649 13.2018 15.3156 13.2363 15.4662 13.2363C15.7864 13.2363 16.0877 13.0807 16.2384 12.8039C16.9917 11.524 17.8956 10.3132 18.9314 9.20625C19.2516 8.86032 19.1951 8.34142 18.8373 8.06468C18.4606 7.77064 17.8956 7.80523 17.5755 8.15116Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M28.4362 6.35972C26.0998 7.26238 23.986 8.57379 22.1874 10.2258C21.6868 10.6857 21.2047 11.1796 20.7596 11.6735C20.463 12.0141 20.5186 12.5251 20.8894 12.7976C21.0563 12.9168 21.2417 12.9679 21.4457 12.9679C21.7053 12.9679 21.9463 12.8657 22.1318 12.6613C22.5397 12.2015 22.9662 11.7587 23.4297 11.3329C25.08 9.81709 26.9899 8.64192 29.1222 7.80738C31.3288 6.95581 33.6837 6.513 36.0942 6.513H38.8384C39.3205 6.513 39.7099 6.15534 39.7099 5.71252C39.7099 5.26971 39.3205 4.91205 38.8384 4.91205H36.0942C33.4241 4.94611 30.8467 5.42299 28.4362 6.35972Z", fill: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M39.663 10.4829C39.6584 10.4957 39.6537 10.5085 39.6537 10.517C39.6537 10.5232 39.6531 10.5288 39.6526 10.5339C39.6501 10.5573 39.6486 10.5713 39.7094 10.5853C36.7206 17.0874 30.2415 21.5246 22.7415 22.4461C22.6301 22.4973 22.5187 22.5144 22.4073 22.5144H22.3145H22.2774C21.4791 22.5997 20.6808 22.6339 19.864 22.6339C18.9915 22.6339 18.1189 22.5827 17.2464 22.4803H17.2093C13.8677 22.1048 10.6931 21.0126 7.87134 19.2719C4.39978 17.1215 1.70793 14.1179 0.0742579 10.6023L0.0185645 10.4487C0 10.3634 0 10.2952 0 10.2098V10.1757V10.1245C0.0185645 10.1074 0.0185645 10.0904 0.0185645 10.0733V10.0392C0.0185645 10.0306 0.0232056 10.0221 0.0278467 10.0136C0.0324878 10.005 0.037129 9.9965 0.037129 9.98796V9.9709C0.037129 9.96236 0.0417701 9.95383 0.0464112 9.9453C0.0510523 9.93676 0.0556935 9.92823 0.0556935 9.9197C0.0742579 9.9197 0.0742579 9.90263 0.0742579 9.90263C0.0742579 9.90263 0.0928224 9.88557 0.0928224 9.8685C0.0928224 9.85997 0.0974635 9.8557 0.102105 9.85143C0.106746 9.84717 0.111387 9.8429 0.111387 9.83437C0.111387 9.82584 0.116028 9.82157 0.120669 9.8173C0.12531 9.81304 0.129951 9.80877 0.129951 9.80024C0.129951 9.79313 0.129951 9.78898 0.131295 9.78532C0.133175 9.78021 0.137687 9.77606 0.148516 9.7661L0.16708 9.74904L0.204209 9.71491L0.222774 9.69784L0.259903 9.66371C0.269185 9.66371 0.273826 9.65944 0.278467 9.65518C0.283108 9.65091 0.28775 9.64664 0.297032 9.64664C0.306314 9.64664 0.310955 9.64238 0.315596 9.63811C0.320237 9.63384 0.324878 9.62958 0.334161 9.62958C0.343443 9.62104 0.352725 9.61678 0.362007 9.61251C0.37129 9.60824 0.380572 9.60398 0.389854 9.59544C0.389854 9.57838 0.408419 9.57838 0.408419 9.57838C0.482677 9.54425 0.556935 9.51011 0.649757 9.49305C0.724015 9.47598 0.779708 9.47598 0.835402 9.47598H3.52725C7.20302 9.47598 10.7117 10.7218 13.4221 12.9916C15.1301 14.4251 16.4296 16.1659 17.2464 18.0943C17.4321 17.5141 17.6363 16.9509 17.8776 16.3877C18.0447 15.9611 18.5645 15.7563 19.01 15.9269C19.4741 16.0805 19.6969 16.5584 19.5113 16.968C18.9543 18.265 18.583 19.6132 18.3974 20.9785C18.8801 21.0126 19.3813 21.0297 19.864 21.0297C20.3652 21.0297 20.8479 21.0126 21.3306 20.9785C21.1264 19.4767 20.6994 18.009 20.0496 16.6096C19.437 15.2784 18.6387 14.0326 17.692 12.9062C17.3949 12.5649 17.4506 12.0529 17.8405 11.7799C18.2118 11.5068 18.7687 11.558 19.0657 11.9164C20.1053 13.1622 20.9779 14.5275 21.6462 15.9781C21.9618 16.6608 22.2217 17.3605 22.4445 18.0772C22.6301 17.6506 22.8343 17.2239 23.0571 16.8144C23.2799 16.4218 23.8182 16.2682 24.2452 16.473C24.6722 16.6778 24.8393 17.1727 24.6165 17.5653C24.0596 18.5551 23.6697 19.6302 23.4284 20.7225C24.3566 20.5689 25.2663 20.347 26.1574 20.074C25.8789 18.265 25.3591 16.5072 24.5794 14.8176C24.2823 14.1691 23.9482 13.5377 23.5769 12.9233C23.3541 12.5308 23.5026 12.0359 23.9296 11.8311C24.3566 11.6263 24.895 11.7628 25.1177 12.1553C25.5076 12.8209 25.8789 13.5036 26.1945 14.2033C26.9742 15.9099 27.5126 17.6847 27.8282 19.4937C31.968 17.8383 35.4025 14.903 37.5003 11.0973H36.1636C33.3604 11.0973 30.7057 11.9164 28.4594 13.4353C28.3108 13.5377 28.1252 13.5889 27.9396 13.5889C27.6796 13.5889 27.4012 13.4865 27.2341 13.2646C26.9556 12.9062 27.0299 12.3943 27.4197 12.1383C29.9631 10.4146 32.9891 9.49305 36.1636 9.49305H38.874H38.9669H38.9854H39.0411C39.1154 9.51011 39.2082 9.54425 39.2824 9.57838L39.301 9.59544C39.3103 9.60398 39.3196 9.60824 39.3289 9.61251C39.3381 9.61678 39.3474 9.62104 39.3567 9.62958L39.3938 9.66371L39.4124 9.68077C39.4124 9.69132 39.4195 9.69535 39.4293 9.70092C39.4353 9.70436 39.4424 9.70839 39.4495 9.71491L39.4681 9.73197C39.4796 9.73197 39.484 9.73849 39.49 9.7475C39.4938 9.75307 39.4981 9.75959 39.5052 9.7661L39.5238 9.78317L39.5609 9.8173C39.5609 9.82584 39.5656 9.8301 39.5702 9.83437C39.5748 9.83863 39.5795 9.8429 39.5795 9.85143C39.5795 9.85997 39.5841 9.86423 39.5888 9.8685C39.5934 9.87277 39.598 9.87703 39.598 9.88557C39.598 9.8941 39.6027 9.89837 39.6073 9.90263C39.612 9.9069 39.6166 9.91117 39.6166 9.9197C39.6352 9.9197 39.6352 9.93676 39.6352 9.93676C39.6352 9.9453 39.6398 9.95383 39.6445 9.96236C39.6491 9.9709 39.6537 9.97943 39.6537 9.98796V10.005C39.6537 10.0136 39.6584 10.0221 39.663 10.0306C39.6677 10.0392 39.6723 10.0477 39.6723 10.0562V10.0904C39.6909 10.1074 39.6909 10.1245 39.6909 10.1416V10.1928V10.2098V10.3805C39.6909 10.389 39.6862 10.4018 39.6816 10.4146C39.6769 10.4274 39.6723 10.4402 39.6723 10.4487C39.6723 10.4573 39.6677 10.4701 39.663 10.4829ZM3.47189 11.0805H2.15381C4.25159 14.8863 7.68602 17.8045 11.7888 19.477C11.9373 18.6408 12.1415 17.8045 12.3828 16.9854C12.5128 16.5587 12.9955 16.3027 13.4596 16.4222C13.9237 16.5417 14.2022 16.9854 14.0722 17.412C13.8123 18.2824 13.6081 19.1698 13.4781 20.0743C14.3692 20.3474 15.2789 20.5692 16.2071 20.7228C15.0376 15.1593 9.74668 11.0805 3.47189 11.0805Z", fill: "white" })
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M61.2052 9.7303C61.0146 10.3639 60.7048 10.9975 60.3235 11.5858C59.9422 12.1968 59.4656 12.7173 58.9175 13.1925C58.3694 13.6677 57.726 14.0297 57.0111 14.3239C56.2961 14.5954 55.4859 14.7538 54.628 14.7538C53.5318 14.7538 52.5309 14.5728 51.6492 14.2108C50.7675 13.8487 50.0049 13.3509 49.3853 12.7173C48.7657 12.0837 48.2891 11.3143 47.9555 10.4318C47.6218 9.54927 47.455 8.59887 47.455 7.55795C47.455 6.49441 47.6218 5.52138 47.9793 4.59361C48.3129 3.66583 48.8134 2.87383 49.4568 2.19497C50.1002 1.51612 50.8628 0.97303 51.7445 0.588344C52.6262 0.203657 53.651 0 54.7472 0C55.6765 0 56.5344 0.1584 57.297 0.475201C58.0596 0.792001 58.7269 1.19932 59.275 1.69714C59.8231 2.19497 60.2758 2.73806 60.6333 3.34903C60.9669 3.96 61.2052 4.54835 61.2767 5.15932H58.2264C58.1311 4.81989 57.9881 4.50309 57.7736 4.18629C57.5592 3.86949 57.3209 3.59795 57.0349 3.34903C56.7489 3.10012 56.4153 2.89646 56.034 2.76069C55.6527 2.62492 55.2476 2.5344 54.8186 2.5344C54.1514 2.5344 53.5556 2.67017 53.0314 2.94172C52.5071 3.21326 52.0543 3.57532 51.6969 4.02789C51.3394 4.48046 51.0534 5.02355 50.8628 5.63452C50.6721 6.24549 50.5768 6.90172 50.5768 7.58058C50.5768 8.23681 50.6721 8.87041 50.839 9.43613C51.0058 10.0018 51.2679 10.4997 51.6254 10.9296C51.959 11.3596 52.3879 11.6764 52.9122 11.9253C53.4126 12.1742 54.0084 12.2873 54.6757 12.2873C55.1046 12.2873 55.4859 12.2194 55.8672 12.1063C56.2246 11.9705 56.5583 11.8121 56.8681 11.5858C57.154 11.3596 57.4162 11.088 57.6545 10.7938C57.869 10.4997 58.0596 10.1602 58.2026 9.79818H61.2052V9.7303Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M70.8901 0.565369H68.236L61.5768 14.4456H64.8472C64.9663 14.2202 65.0854 13.9738 65.2127 13.7104C65.3134 13.5021 65.4193 13.2831 65.5344 13.0553C65.7652 12.6185 65.9589 12.1816 66.1319 11.7915C66.1542 11.7411 66.1762 11.6914 66.1979 11.6427H72.8097L74.1367 14.468H77.5018L70.8901 0.565369ZM71.6476 9.11249H67.382L69.4911 4.69503C69.5543 4.82797 69.6155 4.95893 69.6751 5.08676C69.8168 5.39017 69.9502 5.6759 70.0836 5.92833C70.2137 6.17455 70.3326 6.42078 70.4481 6.65975C70.5008 6.76899 70.5529 6.87672 70.6049 6.98224L71.1026 7.99131C71.123 8.03274 71.1438 8.07485 71.1649 8.1176C71.3152 8.42191 71.4814 8.75858 71.6476 9.11249Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M79.3051 0.565369H82.0516L89.1446 9.24332V0.565369H92.2254V14.468H89.6461L82.4098 5.61069V14.468H79.3051V0.565369Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M103.332 0.565369H100.673L94.0281 14.4456H97.3033C97.4226 14.2202 97.5419 13.9738 97.6694 13.7104C97.7703 13.5021 97.8763 13.2831 97.9916 13.0553C98.2227 12.6185 98.4167 12.1816 98.5899 11.7915C98.6123 11.7411 98.6344 11.6914 98.6561 11.6427H105.254L106.583 14.468H109.953L103.332 0.565369ZM104.091 9.11249H99.8193L101.932 4.69503C101.995 4.82796 102.056 4.95892 102.116 5.08675C102.258 5.39016 102.391 5.6759 102.525 5.92833C102.655 6.17455 102.774 6.42078 102.89 6.65975C102.943 6.76899 102.995 6.87672 103.047 6.98224L103.545 7.99131C103.566 8.03271 103.587 8.0748 103.608 8.11752C103.758 8.42185 103.925 8.75855 104.091 9.11249Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M120.573 0.60449C119.853 0.39889 119.013 0.284668 118.029 0.284668H111.455V14.4482H114.574V9.10262H117.118L121.053 14.4711H124.676L120.429 8.85133C121.557 8.50866 122.42 7.9604 122.972 7.22937C123.524 6.47551 123.812 5.63026 123.812 4.6708C123.812 4.00831 123.692 3.41435 123.452 2.86609C123.212 2.34067 122.852 1.88378 122.372 1.49542C121.893 1.10707 121.293 0.81009 120.573 0.60449ZM114.574 6.56517V2.81868H117.861C118.869 2.81868 119.612 2.97859 120.044 3.3441C120.476 3.70962 120.692 4.1665 120.692 4.69193C120.692 5.24019 120.476 5.69708 120.02 6.03975C119.588 6.38241 118.869 6.56517 117.861 6.56517H114.574Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M130.606 14.468V8.99666L124.375 0.565369H128.148L132.163 6.14886L136.228 0.565369H140L133.745 8.99666V14.4456H130.606V14.468Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M53.5547 17.6829H51.5543V22.34H50.783V17.6829H48.7827V17.0665H53.5547V17.6829Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M60.713 22.3629H56.5194V17.0665H60.6407V17.6829H57.3148V19.2581H60.2551V19.8745H57.3148V21.7008H60.713V22.3629V22.3629Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M68.3289 20.8798C68.2566 21.0852 68.1602 21.2907 68.0397 21.4962C67.9192 21.7016 67.7505 21.8614 67.5577 22.0212C67.3649 22.181 67.1479 22.2952 66.8828 22.3865C66.6177 22.4778 66.3526 22.5235 66.0393 22.5235C65.6296 22.5235 65.2922 22.455 64.9547 22.318C64.6414 22.181 64.3522 21.9984 64.1353 21.7473C63.9184 21.4962 63.7497 21.2222 63.6292 20.8798C63.5087 20.5373 63.4605 20.1721 63.4605 19.784C63.4605 19.373 63.5328 19.0078 63.6533 18.6653C63.7738 18.3229 63.9425 18.0033 64.1835 17.7522C64.4245 17.501 64.6896 17.2956 65.0271 17.1358C65.3404 16.9988 65.726 16.9075 66.1116 16.9075C66.449 16.9075 66.7623 16.9531 67.0274 17.0673C67.2926 17.1814 67.5336 17.2956 67.7264 17.4782C67.9192 17.638 68.0879 17.8206 68.2084 18.0261C68.3289 18.2316 68.4012 18.4142 68.4253 18.6197H67.6059C67.5818 18.4827 67.5095 18.3457 67.4131 18.2087C67.3167 18.0718 67.2203 17.9576 67.0997 17.8663C66.9792 17.775 66.8346 17.6837 66.6659 17.638C66.4972 17.5695 66.3044 17.5467 66.1116 17.5467C65.8224 17.5467 65.5573 17.6152 65.3163 17.7293C65.0753 17.8435 64.8824 18.0033 64.7378 18.2087C64.5691 18.4142 64.4486 18.6425 64.3763 18.9165C64.2799 19.1904 64.2558 19.4644 64.2558 19.784C64.2558 20.0807 64.304 20.3547 64.3763 20.6058C64.4486 20.8569 64.5691 21.0852 64.7137 21.2679C64.8583 21.4505 65.0512 21.6103 65.2922 21.7016C65.5091 21.8158 65.7742 21.8614 66.0634 21.8614C66.2562 21.8614 66.4249 21.8386 66.5936 21.7929C66.7623 21.7473 66.9069 21.6788 67.0274 21.5875C67.1479 21.4962 67.2685 21.382 67.3649 21.2679C67.4613 21.1537 67.5336 21.0167 67.5818 20.8798H68.3289V20.8798Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M76.0171 22.3629H75.2218V20.1028H72.1851V22.3629H71.4138V17.0665H72.1851V19.4635H75.2218V17.0665H76.0171V22.3629V22.3629Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M79.2707 17.0665H80.0179L83.0787 21.0388V17.0665H83.8499V22.3629H83.151L80.042 18.3221V22.3629H79.2707V17.0665Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M90.7427 17.1597C90.4293 16.9999 90.0437 16.9314 89.634 16.9314C89.2002 16.9314 88.8387 16.9999 88.5254 17.1597C88.1879 17.2966 87.8987 17.5021 87.6818 17.7532C87.4649 18.0043 87.2962 18.3011 87.1757 18.6436C87.0552 18.9632 87.007 19.3284 87.007 19.7165C87.007 20.0818 87.0552 20.4471 87.1757 20.7895C87.2721 21.132 87.4649 21.4287 87.6818 21.6799C87.9228 21.931 88.1879 22.1365 88.5254 22.2734C88.8387 22.4332 89.2243 22.5017 89.634 22.5017C90.0437 22.5017 90.4052 22.4104 90.7427 22.2734C91.056 22.1365 91.3452 21.931 91.5621 21.6799C91.779 21.4287 91.9477 21.132 92.0682 20.7895C92.1887 20.4699 92.2369 20.1046 92.2369 19.7165C92.2369 19.3513 92.1887 18.986 92.0682 18.6436C91.9477 18.3011 91.779 18.0043 91.5621 17.7532C91.3452 17.5021 91.0801 17.2966 90.7427 17.1597ZM90.3809 21.7255C90.1639 21.8397 89.8988 21.8853 89.6337 21.8853C89.3445 21.8853 89.1035 21.8169 88.8866 21.7255C88.6697 21.6114 88.4769 21.4516 88.3082 21.269C88.1395 21.0863 88.0189 20.8352 87.9225 20.5841C87.8261 20.333 87.7779 20.0362 87.7779 19.7166C87.7779 19.397 87.8261 19.123 87.9225 18.849C88.0189 18.5751 88.1395 18.3468 88.3082 18.1642C88.4528 17.9587 88.6697 17.8217 88.8866 17.7076C89.1035 17.5934 89.3686 17.5478 89.6337 17.5478C89.8988 17.5478 90.1639 17.5934 90.3809 17.7076C90.5978 17.8217 90.7906 17.9815 90.9593 18.1642C91.128 18.3468 91.2485 18.5979 91.3449 18.849C91.4413 19.1002 91.4895 19.397 91.4895 19.7166C91.4895 20.0362 91.4413 20.3101 91.3449 20.5841C91.2485 20.858 91.128 21.0863 90.9593 21.269C90.8147 21.4744 90.5978 21.6114 90.3809 21.7255Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M99.54 22.3629H95.3946V17.0665H96.1658V21.7236H99.5159V22.3629H99.54Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M105.926 17.1597C105.613 16.9999 105.227 16.9314 104.817 16.9314C104.384 16.9314 104.022 16.9999 103.709 17.1597C103.371 17.2966 103.082 17.5021 102.865 17.7532C102.648 18.0043 102.48 18.3011 102.359 18.6436C102.239 18.9632 102.19 19.3284 102.19 19.7165C102.19 20.0818 102.239 20.4471 102.359 20.7895C102.455 21.132 102.648 21.4287 102.865 21.6799C103.106 21.931 103.371 22.1365 103.709 22.2734C104.022 22.4332 104.408 22.5017 104.817 22.5017C105.227 22.5017 105.589 22.4104 105.926 22.2734C106.239 22.1365 106.529 21.931 106.745 21.6799C106.962 21.4287 107.131 21.132 107.252 20.7895C107.372 20.4699 107.42 20.1046 107.42 19.7165C107.42 19.3513 107.372 18.986 107.252 18.6436C107.131 18.3011 106.962 18.0043 106.745 17.7532C106.529 17.5021 106.263 17.2966 105.926 17.1597ZM105.565 21.7255C105.348 21.8397 105.083 21.8853 104.818 21.8853C104.528 21.8853 104.287 21.8169 104.071 21.7255C103.854 21.6114 103.661 21.4516 103.492 21.269C103.323 21.0863 103.203 20.8352 103.107 20.5841C103.01 20.333 102.962 20.0362 102.962 19.7166C102.962 19.397 103.01 19.123 103.107 18.849C103.203 18.5751 103.323 18.3468 103.492 18.1642C103.637 17.9587 103.854 17.8217 104.071 17.7076C104.287 17.5934 104.553 17.5478 104.818 17.5478C105.083 17.5478 105.348 17.5934 105.565 17.7076C105.782 17.8217 105.975 17.9815 106.143 18.1642C106.312 18.3468 106.432 18.5979 106.529 18.849C106.625 19.1002 106.673 19.397 106.673 19.7166C106.673 20.0362 106.625 20.3101 106.529 20.5841C106.432 20.858 106.312 21.0863 106.143 21.269C105.999 21.4744 105.782 21.6114 105.565 21.7255Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M115.301 22.3639H114.627V21.816C114.458 21.9986 114.217 22.1813 113.928 22.3183C113.638 22.4552 113.301 22.5237 112.891 22.5237C112.53 22.5237 112.216 22.4552 111.903 22.3411C111.59 22.2269 111.349 22.0443 111.108 21.816C110.891 21.5877 110.722 21.2909 110.578 20.9713C110.457 20.6289 110.385 20.2636 110.385 19.8299C110.385 19.3961 110.457 19.008 110.578 18.6427C110.722 18.3003 110.891 17.9807 111.132 17.7296C111.373 17.4784 111.638 17.2958 111.951 17.1588C112.265 17.0219 112.602 16.9534 112.988 16.9534C113.277 16.9534 113.566 16.999 113.807 17.0675C114.072 17.1588 114.289 17.273 114.482 17.41C114.675 17.5469 114.843 17.7296 114.988 17.935C115.133 18.1405 115.229 18.3688 115.277 18.5971H114.482C114.434 18.4373 114.361 18.3003 114.265 18.1633C114.169 18.0263 114.048 17.935 113.903 17.8437C113.759 17.7524 113.614 17.6839 113.446 17.6382C113.277 17.5926 113.108 17.5698 112.915 17.5698C112.674 17.5698 112.433 17.6154 112.216 17.7296C112 17.8437 111.807 17.9807 111.638 18.1633C111.469 18.346 111.349 18.5971 111.252 18.871C111.156 19.145 111.108 19.4646 111.108 19.807C111.108 20.1266 111.156 20.4006 111.228 20.6745C111.301 20.9257 111.421 21.154 111.59 21.3366C111.734 21.5192 111.927 21.6562 112.144 21.7475C112.361 21.8388 112.602 21.9073 112.867 21.9073C113.084 21.9073 113.301 21.8845 113.494 21.816C113.687 21.7475 113.855 21.6562 113.976 21.5421C114.12 21.4279 114.217 21.2909 114.289 21.154C114.361 21.017 114.41 20.8572 114.41 20.6974V20.2864H112.674V19.6701H115.181V22.3639H115.301Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M119.303 22.3629H118.531V17.0665H119.303V22.3629Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M126.75 22.3629H122.556V17.0665H126.653V17.6829H123.327V19.2581H126.268V19.8745H123.327V21.7008H126.726V22.3629H126.75Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M130.606 18.4373C130.606 18.5743 130.654 18.7112 130.751 18.8025C130.847 18.8939 130.968 18.9852 131.136 19.0537C131.281 19.1222 131.474 19.1906 131.666 19.2363C131.859 19.282 132.076 19.3504 132.293 19.4189C132.51 19.4874 132.703 19.5559 132.92 19.6244C133.113 19.6929 133.305 19.807 133.45 19.9212C133.595 20.0353 133.739 20.1723 133.836 20.3321C133.932 20.4919 133.98 20.6974 133.98 20.9257C133.98 21.1311 133.932 21.3366 133.836 21.5192C133.739 21.7019 133.595 21.8845 133.402 22.0215C133.209 22.1585 132.992 22.2954 132.703 22.3867C132.438 22.4781 132.124 22.5237 131.763 22.5237C131.401 22.5237 131.064 22.4781 130.799 22.3639C130.534 22.2726 130.293 22.1356 130.124 21.9758C129.955 21.816 129.811 21.6334 129.714 21.4507C129.618 21.2681 129.57 21.0626 129.57 20.88H130.293C130.365 21.1768 130.51 21.4279 130.775 21.6106C131.04 21.7932 131.353 21.8845 131.739 21.8845C131.98 21.8845 132.173 21.8617 132.341 21.7932C132.51 21.7247 132.655 21.6562 132.775 21.5649C132.896 21.4736 132.992 21.3594 133.04 21.2453C133.088 21.1311 133.137 21.017 133.137 20.9028C133.137 20.743 133.088 20.6061 132.992 20.5147C132.896 20.4006 132.775 20.3093 132.606 20.2408C132.462 20.1723 132.269 20.1038 132.076 20.0353C131.883 19.9668 131.666 19.9212 131.474 19.8527C131.257 19.7842 131.064 19.7157 130.871 19.6472C130.678 19.5787 130.485 19.4874 130.341 19.3733C130.196 19.2591 130.052 19.145 129.955 18.9852C129.859 18.8254 129.811 18.6427 129.811 18.4373C129.811 18.2318 129.859 18.0492 129.955 17.8665C130.052 17.6839 130.172 17.5241 130.341 17.3871C130.51 17.2502 130.726 17.136 130.968 17.0675C131.209 16.9762 131.498 16.9534 131.835 16.9534C132.148 16.9534 132.414 16.999 132.655 17.0675C132.896 17.136 133.088 17.2502 133.257 17.3871C133.426 17.5241 133.546 17.6839 133.643 17.8665C133.739 18.0492 133.787 18.2318 133.836 18.4373H133.088C133.016 18.1862 132.896 17.9807 132.679 17.8209C132.462 17.6611 132.197 17.5698 131.835 17.5698C131.642 17.5698 131.474 17.5926 131.329 17.6382C131.184 17.6839 131.04 17.7524 130.943 17.8437C130.847 17.935 130.751 18.0263 130.702 18.1177C130.63 18.209 130.606 18.3231 130.606 18.4373Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M2.27397 1.73503H3.68836C6.73754 1.73503 9.69489 2.31693 12.5053 3.44545C15.2055 4.53871 17.6118 6.10806 19.6874 8.10061C20.0548 8.45327 20.4038 8.82357 20.7528 9.19387C20.9181 9.38783 21.1569 9.476 21.4141 9.476C21.6161 9.476 21.8182 9.40547 21.9835 9.2644C22.3509 8.96464 22.3876 8.43564 22.057 8.08298C21.6896 7.67742 21.3039 7.28949 20.9181 6.91919C18.6771 4.76794 16.0872 3.09279 13.1849 1.91137C10.1725 0.694676 6.97634 0.0775146 3.70672 0.0775146H2.29234C1.81476 0.0775146 1.42902 0.447811 1.42902 0.906274C1.42902 1.36474 1.79639 1.73503 2.27397 1.73503Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M0.867281 6.5831H3.56139C5.96025 6.5831 8.30375 7.0453 10.4996 7.93416C11.7544 8.4497 12.9539 9.08967 14.0426 9.85409C14.1902 9.96075 14.3747 10.0141 14.5592 10.0141C14.836 10.0141 15.0944 9.88964 15.2605 9.67632C15.5372 9.303 15.4634 8.76968 15.0759 8.50303C13.8765 7.6675 12.5663 6.95642 11.1824 6.38755C8.76507 5.40981 6.20014 4.91205 3.56139 4.91205H0.867281C0.387508 4.91205 0 5.28537 0 5.74757C0 6.20978 0.387508 6.5831 0.867281 6.5831Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M21.7087 6.25366C21.8951 6.25366 22.0816 6.20147 22.2495 6.07968C23.76 5.00103 25.4383 4.09636 27.2099 3.40046C30.0444 2.28701 33.0654 1.71289 36.161 1.71289H37.6902C38.1751 1.71289 38.5667 1.34754 38.5667 0.895202C38.5667 0.442864 38.1751 0.0775146 37.6902 0.0775146H36.161C32.823 0.0775146 29.5969 0.68643 26.5386 1.88686C24.6364 2.63496 22.8462 3.60923 21.2052 4.77487C20.8135 5.05323 20.739 5.55776 21.0373 5.92311C21.1865 6.14928 21.4476 6.25366 21.7087 6.25366Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M17.5755 8.15116C16.4644 9.34462 15.5039 10.6419 14.6753 12.0256C14.4493 12.4234 14.5999 12.925 15.0331 13.1326C15.1649 13.2018 15.3156 13.2363 15.4662 13.2363C15.7864 13.2363 16.0877 13.0807 16.2384 12.8039C16.9917 11.524 17.8956 10.3132 18.9314 9.20625C19.2516 8.86032 19.1951 8.34142 18.8373 8.06468C18.4606 7.77064 17.8956 7.80523 17.5755 8.15116Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M28.4362 6.35972C26.0998 7.26238 23.986 8.57379 22.1874 10.2258C21.6868 10.6857 21.2047 11.1796 20.7596 11.6735C20.463 12.0141 20.5186 12.5251 20.8894 12.7976C21.0563 12.9168 21.2417 12.9679 21.4457 12.9679C21.7053 12.9679 21.9463 12.8657 22.1318 12.6613C22.5397 12.2015 22.9662 11.7587 23.4297 11.3329C25.08 9.81709 26.9899 8.64192 29.1222 7.80738C31.3288 6.95581 33.6837 6.513 36.0942 6.513H38.8384C39.3205 6.513 39.7099 6.15534 39.7099 5.71252C39.7099 5.26971 39.3205 4.91205 38.8384 4.91205H36.0942C33.4241 4.94611 30.8467 5.42299 28.4362 6.35972Z", fill: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M39.663 10.4829C39.6584 10.4957 39.6537 10.5085 39.6537 10.517C39.6537 10.5232 39.6531 10.5288 39.6526 10.5339C39.6501 10.5573 39.6486 10.5713 39.7094 10.5853C36.7206 17.0874 30.2415 21.5246 22.7415 22.4461C22.6301 22.4973 22.5187 22.5144 22.4073 22.5144H22.3145H22.2774C21.4791 22.5997 20.6808 22.6339 19.864 22.6339C18.9915 22.6339 18.1189 22.5827 17.2464 22.4803H17.2093C13.8677 22.1048 10.6931 21.0126 7.87134 19.2719C4.39978 17.1215 1.70793 14.1179 0.0742579 10.6023L0.0185645 10.4487C0 10.3634 0 10.2952 0 10.2098V10.1757V10.1245C0.0185645 10.1074 0.0185645 10.0904 0.0185645 10.0733V10.0392C0.0185645 10.0306 0.0232056 10.0221 0.0278467 10.0136C0.0324878 10.005 0.037129 9.9965 0.037129 9.98796V9.9709C0.037129 9.96236 0.0417701 9.95383 0.0464112 9.9453C0.0510523 9.93676 0.0556935 9.92823 0.0556935 9.9197C0.0742579 9.9197 0.0742579 9.90263 0.0742579 9.90263C0.0742579 9.90263 0.0928224 9.88557 0.0928224 9.8685C0.0928224 9.85997 0.0974635 9.8557 0.102105 9.85143C0.106746 9.84717 0.111387 9.8429 0.111387 9.83437C0.111387 9.82584 0.116028 9.82157 0.120669 9.8173C0.12531 9.81304 0.129951 9.80877 0.129951 9.80024C0.129951 9.79313 0.129951 9.78898 0.131295 9.78532C0.133175 9.78021 0.137687 9.77606 0.148516 9.7661L0.16708 9.74904L0.204209 9.71491L0.222774 9.69784L0.259903 9.66371C0.269185 9.66371 0.273826 9.65944 0.278467 9.65518C0.283108 9.65091 0.28775 9.64664 0.297032 9.64664C0.306314 9.64664 0.310955 9.64238 0.315596 9.63811C0.320237 9.63384 0.324878 9.62958 0.334161 9.62958C0.343443 9.62104 0.352725 9.61678 0.362007 9.61251C0.37129 9.60824 0.380572 9.60398 0.389854 9.59544C0.389854 9.57838 0.408419 9.57838 0.408419 9.57838C0.482677 9.54425 0.556935 9.51011 0.649757 9.49305C0.724015 9.47598 0.779708 9.47598 0.835402 9.47598H3.52725C7.20302 9.47598 10.7117 10.7218 13.4221 12.9916C15.1301 14.4251 16.4296 16.1659 17.2464 18.0943C17.4321 17.5141 17.6363 16.9509 17.8776 16.3877C18.0447 15.9611 18.5645 15.7563 19.01 15.9269C19.4741 16.0805 19.6969 16.5584 19.5113 16.968C18.9543 18.265 18.583 19.6132 18.3974 20.9785C18.8801 21.0126 19.3813 21.0297 19.864 21.0297C20.3652 21.0297 20.8479 21.0126 21.3306 20.9785C21.1264 19.4767 20.6994 18.009 20.0496 16.6096C19.437 15.2784 18.6387 14.0326 17.692 12.9062C17.3949 12.5649 17.4506 12.0529 17.8405 11.7799C18.2118 11.5068 18.7687 11.558 19.0657 11.9164C20.1053 13.1622 20.9779 14.5275 21.6462 15.9781C21.9618 16.6608 22.2217 17.3605 22.4445 18.0772C22.6301 17.6506 22.8343 17.2239 23.0571 16.8144C23.2799 16.4218 23.8182 16.2682 24.2452 16.473C24.6722 16.6778 24.8393 17.1727 24.6165 17.5653C24.0596 18.5551 23.6697 19.6302 23.4284 20.7225C24.3566 20.5689 25.2663 20.347 26.1574 20.074C25.8789 18.265 25.3591 16.5072 24.5794 14.8176C24.2823 14.1691 23.9482 13.5377 23.5769 12.9233C23.3541 12.5308 23.5026 12.0359 23.9296 11.8311C24.3566 11.6263 24.895 11.7628 25.1177 12.1553C25.5076 12.8209 25.8789 13.5036 26.1945 14.2033C26.9742 15.9099 27.5126 17.6847 27.8282 19.4937C31.968 17.8383 35.4025 14.903 37.5003 11.0973H36.1636C33.3604 11.0973 30.7057 11.9164 28.4594 13.4353C28.3108 13.5377 28.1252 13.5889 27.9396 13.5889C27.6796 13.5889 27.4012 13.4865 27.2341 13.2646C26.9556 12.9062 27.0299 12.3943 27.4197 12.1383C29.9631 10.4146 32.9891 9.49305 36.1636 9.49305H38.874H38.9669H38.9854H39.0411C39.1154 9.51011 39.2082 9.54425 39.2824 9.57838L39.301 9.59544C39.3103 9.60398 39.3196 9.60824 39.3289 9.61251C39.3381 9.61678 39.3474 9.62104 39.3567 9.62958L39.3938 9.66371L39.4124 9.68077C39.4124 9.69132 39.4195 9.69535 39.4293 9.70092C39.4353 9.70436 39.4424 9.70839 39.4495 9.71491L39.4681 9.73197C39.4796 9.73197 39.484 9.73849 39.49 9.7475C39.4938 9.75307 39.4981 9.75959 39.5052 9.7661L39.5238 9.78317L39.5609 9.8173C39.5609 9.82584 39.5656 9.8301 39.5702 9.83437C39.5748 9.83863 39.5795 9.8429 39.5795 9.85143C39.5795 9.85997 39.5841 9.86423 39.5888 9.8685C39.5934 9.87277 39.598 9.87703 39.598 9.88557C39.598 9.8941 39.6027 9.89837 39.6073 9.90263C39.612 9.9069 39.6166 9.91117 39.6166 9.9197C39.6352 9.9197 39.6352 9.93676 39.6352 9.93676C39.6352 9.9453 39.6398 9.95383 39.6445 9.96236C39.6491 9.9709 39.6537 9.97943 39.6537 9.98796V10.005C39.6537 10.0136 39.6584 10.0221 39.663 10.0306C39.6677 10.0392 39.6723 10.0477 39.6723 10.0562V10.0904C39.6909 10.1074 39.6909 10.1245 39.6909 10.1416V10.1928V10.2098V10.3805C39.6909 10.389 39.6862 10.4018 39.6816 10.4146C39.6769 10.4274 39.6723 10.4402 39.6723 10.4487C39.6723 10.4573 39.6677 10.4701 39.663 10.4829ZM3.47189 11.0805H2.15381C4.25159 14.8863 7.68602 17.8045 11.7888 19.477C11.9373 18.6408 12.1415 17.8045 12.3828 16.9854C12.5128 16.5587 12.9955 16.3027 13.4596 16.4222C13.9237 16.5417 14.2022 16.9854 14.0722 17.412C13.8123 18.2824 13.6081 19.1698 13.4781 20.0743C14.3692 20.3474 15.2789 20.5692 16.2071 20.7228C15.0376 15.1593 9.74668 11.0805 3.47189 11.0805Z", fill: "white" })
       ]
     }
   );
 }
 
 // components/canary-ui/navigation/CanarySidebar.tsx
-var import_clsx44 = __toESM(require("clsx"));
+var import_clsx34 = __toESM(require("clsx"));
 
 // components/canary-ui/navigation/standard-sidebar-sections.tsx
-var import_react41 = __toESM(require("@mdi/react"));
+var import_react39 = __toESM(require("@mdi/react"));
 var import_js12 = require("@mdi/js");
-var import_jsx_runtime48 = require("react/jsx-runtime");
+var import_jsx_runtime38 = require("react/jsx-runtime");
 var standardMainSidebarSections = [
   {
     id: "main-section",
@@ -6474,32 +5627,32 @@ var standardMainSidebarSections = [
       {
         id: "upsells",
         label: "Upsells",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCashMultiple, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCashMultiple, size: 1 })
       },
       {
         id: "check-in",
         label: "Check-in",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiLogin, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiLogin, size: 1 })
       },
       {
         id: "checkout",
         label: "Checkout",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiLogout, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiLogout, size: 1 })
       },
       {
         id: "messages",
         label: "Messages",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiMessageProcessingOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiMessageProcessingOutline, size: 1 })
       },
       {
         id: "calls",
         label: "Calls",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiPhoneOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiPhoneOutline, size: 1 })
       },
       {
         id: "digital-tips",
         label: "Digital Tips",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCurrencyUsd, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCurrencyUsd, size: 1 })
       }
     ]
   },
@@ -6509,32 +5662,32 @@ var standardMainSidebarSections = [
       {
         id: "authorizations",
         label: "Authorizations",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiShieldCheckOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiShieldCheckOutline, size: 1 })
       },
       {
         id: "contracts",
         label: "Contracts",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiFileSign, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiFileSign, size: 1 })
       },
       {
         id: "id-verification",
         label: "ID Verification",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiAccountCheckOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiAccountCheckOutline, size: 1 })
       },
       {
         id: "clients-on-file",
         label: "Clients on File",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiAccountBoxOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiAccountBoxOutline, size: 1 })
       },
       {
         id: "amenities",
         label: "Amenities",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiStoreOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiStoreOutline, size: 1 })
       },
       {
         id: "payment-links",
         label: "Payment Links",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
       }
     ]
   },
@@ -6544,7 +5697,7 @@ var standardMainSidebarSections = [
       {
         id: "settings",
         label: "Settings",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCogOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCogOutline, size: 1 })
       }
     ]
   }
@@ -6557,37 +5710,37 @@ var standardSettingsSidebarSections = [
       {
         id: "property-info",
         label: "Property Info",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiHomeOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiHomeOutline, size: 1 })
       },
       {
         id: "branding",
         label: "Branding",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiPaletteOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiPaletteOutline, size: 1 })
       },
       {
         id: "billing-payment",
         label: "Billing & Payment",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
       },
       {
         id: "staff-members",
         label: "Staff Members",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiAccountGroupOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiAccountGroupOutline, size: 1 })
       },
       {
         id: "security",
         label: "Security",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiShieldAccountOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiShieldAccountOutline, size: 1 })
       },
       {
         id: "integrations",
         label: "Integrations",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiPuzzleOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiPuzzleOutline, size: 1 })
       },
       {
         id: "devices",
         label: "Devices",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiTabletCellphone, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiTabletCellphone, size: 1 })
       }
     ]
   },
@@ -6598,64 +5751,64 @@ var standardSettingsSidebarSections = [
       {
         id: "compendium",
         label: "Compendium",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiNewspaperVariantOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiNewspaperVariantOutline, size: 1 })
       },
       {
         id: "guest-journey",
         label: "Guest Journey",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiAccountCheckOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiAccountCheckOutline, size: 1 })
       },
       {
         id: "upsells",
         label: "Upsells",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCashMultiple, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCashMultiple, size: 1 })
       },
       {
         id: "check-in",
         label: "Check-in",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiLogin, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiLogin, size: 1 })
       },
       {
         id: "checkout",
         label: "Checkout",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiLogout, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiLogout, size: 1 })
       },
       {
         id: "messages",
         label: "Messages",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiMessageProcessingOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiMessageProcessingOutline, size: 1 })
       },
       {
         id: "calls",
         label: "Calls",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiPhoneOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiPhoneOutline, size: 1 })
       },
       {
         id: "authorizations",
         label: "Authorizations",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiShieldCheckOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiShieldCheckOutline, size: 1 })
       },
       {
         id: "digital-tips",
         label: "Digital Tips",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCurrencyUsd, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCurrencyUsd, size: 1 })
       },
       {
         id: "contracts",
         label: "Contracts",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiFileSign, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiFileSign, size: 1 })
       },
       {
         id: "payment-links",
         label: "Payment Links",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react41.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
+        icon: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react39.default, { path: import_js12.mdiCreditCardOutline, size: 1 })
       }
     ]
   }
 ];
 
 // components/canary-ui/navigation/CanarySidebar.tsx
-var import_jsx_runtime49 = require("react/jsx-runtime");
+var import_jsx_runtime39 = require("react/jsx-runtime");
 function CanarySidebar({
   variant = "main" /* MAIN */,
   sections,
@@ -6668,9 +5821,9 @@ function CanarySidebar({
   // Remove default, let it auto-size
   className = ""
 }) {
-  const [focusedItemId, setFocusedItemId] = (0, import_react42.useState)(null);
-  const [pressedItemId, setPressedItemId] = (0, import_react42.useState)(null);
-  const [hoveredItemId, setHoveredItemId] = (0, import_react42.useState)(null);
+  const [focusedItemId, setFocusedItemId] = (0, import_react40.useState)(null);
+  const [pressedItemId, setPressedItemId] = (0, import_react40.useState)(null);
+  const [hoveredItemId, setHoveredItemId] = (0, import_react40.useState)(null);
   const getDefaultSections = () => {
     if (variant === "custom" /* CUSTOM */) {
       return [];
@@ -6730,10 +5883,10 @@ function CanarySidebar({
         return 0.5;
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime49.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(
     "aside",
     {
-      className: (0, import_clsx44.default)(
+      className: (0, import_clsx34.default)(
         "flex flex-col shrink-0 w-[180px] h-full",
         className
       ),
@@ -6741,17 +5894,17 @@ function CanarySidebar({
         backgroundColor
       },
       children: [
-        backButton && variant === "settings" /* SETTINGS */ ? /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { className: "flex items-center pt-4 pb-4 px-4 shrink-0", children: backButton }) : /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { className: "flex items-center justify-center pt-6 pb-6 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { style: { opacity: 0.35, width: "140px", height: "24px" }, children: logo !== void 0 ? logo : /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(CanaryLogo, {}) }) }),
-        title && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { className: "px-4 pb-4 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("h2", { className: "text-[16px] font-medium text-white", style: { fontFamily: "Roboto, sans-serif" }, children: title }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("nav", { className: "flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8", children: resolvedSections.map((section, sectionIndex) => /* @__PURE__ */ (0, import_jsx_runtime49.jsxs)("div", { children: [
-          sectionIndex > 0 && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+        backButton && variant === "settings" /* SETTINGS */ ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "flex items-center pt-4 pb-4 px-4 shrink-0", children: backButton }) : /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "flex items-center justify-center pt-6 pb-6 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { style: { opacity: 0.35, width: "140px", height: "24px" }, children: logo !== void 0 ? logo : /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CanaryLogo, {}) }) }),
+        title && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "px-4 pb-4 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("h2", { className: "text-[16px] font-medium text-white", style: { fontFamily: "Roboto, sans-serif" }, children: title }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("nav", { className: "flex-1 overflow-y-auto flex flex-col gap-4 w-[180px] mx-auto pb-8", children: resolvedSections.map((section, sectionIndex) => /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { children: [
+          sectionIndex > 0 && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
             "div",
             {
               className: "h-[1px] mb-4",
               style: { backgroundColor: "rgba(255, 255, 255, 0.1)" }
             }
           ),
-          section.title && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+          section.title && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
             "div",
             {
               className: "pl-4 pb-2 text-[14px] font-medium",
@@ -6763,11 +5916,11 @@ function CanarySidebar({
               children: section.title
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { className: "flex flex-col", children: section.items.map((item) => {
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "flex flex-col", children: section.items.map((item) => {
             const state = getItemState(item);
             const iconOpacity = getIconOpacity(state);
             const isSelected = state === "selected" /* SELECTED */;
-            return /* @__PURE__ */ (0, import_jsx_runtime49.jsxs)(
+            return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(
               "button",
               {
                 onClick: () => handleItemClick(item),
@@ -6787,7 +5940,7 @@ function CanarySidebar({
                   cursor: item.isDisabled ? "not-allowed" : "pointer"
                 },
                 children: [
-                  state === "selected" /* SELECTED */ && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+                  state === "selected" /* SELECTED */ && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -6800,7 +5953,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  state === "focus" /* FOCUS */ && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+                  state === "focus" /* FOCUS */ && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -6813,7 +5966,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  state === "onPress" /* ON_PRESS */ && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+                  state === "onPress" /* ON_PRESS */ && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                     "div",
                     {
                       className: "absolute rounded-[4px] pointer-events-none",
@@ -6826,7 +5979,7 @@ function CanarySidebar({
                       }
                     }
                   ),
-                  item.icon && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+                  item.icon && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                     "span",
                     {
                       className: "absolute left-4 flex items-center justify-center shrink-0 pointer-events-none",
@@ -6841,7 +5994,7 @@ function CanarySidebar({
                       children: item.icon
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                     "span",
                     {
                       className: "absolute left-12 text-[14px] font-normal whitespace-nowrap pointer-events-none",
@@ -6853,7 +6006,7 @@ function CanarySidebar({
                       children: item.label
                     }
                   ),
-                  item.badge && /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+                  item.badge && /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                     "span",
                     {
                       className: "absolute left-[148px] flex items-center justify-center pointer-events-none",
@@ -6864,7 +6017,7 @@ function CanarySidebar({
                         borderRadius: "8px",
                         zIndex: 1
                       },
-                      children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+                      children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                         "span",
                         {
                           className: "text-[12px] font-bold text-center",
@@ -6890,151 +6043,45 @@ function CanarySidebar({
 }
 
 // components/canary-ui/navigation/CanaryPageHeader.tsx
-var import_clsx45 = __toESM(require("clsx"));
-var import_react43 = __toESM(require("@mdi/react"));
-var import_js13 = require("@mdi/js");
-var import_jsx_runtime50 = require("react/jsx-runtime");
+var import_clsx35 = __toESM(require("clsx"));
+var import_jsx_runtime40 = require("react/jsx-runtime");
 function CanaryPageHeader({
-  propertyName,
-  onPropertyClick,
-  userProfile,
-  onUserProfileClick,
-  reservationStatus,
-  onReservationStatusClick,
+  title,
   actions,
   className
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
-    "header",
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
+    "div",
     {
-      className: (0, import_clsx45.default)(
-        "w-full bg-white border-b flex items-center justify-between px-6 py-2 shrink-0",
+      className: (0, import_clsx35.default)(
+        "w-full bg-white border-b flex items-center justify-between shrink-0",
         className
       ),
       style: {
-        height: dimensions.headerHeight,
-        borderColor: colors.colorBlack6
+        borderColor: colors.colorBlack6,
+        padding: "16px 24px"
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
-          "button",
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "flex items-center", style: { gap: "16px" }, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
+          "h2",
           {
-            onClick: onPropertyClick,
-            className: "flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-50 transition-colors",
-            style: { cursor: onPropertyClick ? "pointer" : "default" },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                "span",
-                {
-                  className: "text-[14px] font-medium",
-                  style: { color: colors.colorBlack1 },
-                  children: propertyName
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                import_react43.default,
-                {
-                  path: import_js13.mdiChevronDown,
-                  size: 0.85,
-                  color: colors.colorBlueDark1
-                }
-              )
-            ]
+            className: "font-medium whitespace-nowrap",
+            style: {
+              fontSize: "18px",
+              lineHeight: "28px",
+              color: colors.colorBlack1
+            },
+            children: title
           }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: "flex items-center gap-2", children: [
-          actions,
-          reservationStatus && /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
-            "button",
-            {
-              onClick: onReservationStatusClick,
-              className: "flex items-center gap-2 rounded-full pl-2 pr-4 py-1 transition-opacity hover:opacity-80",
-              style: {
-                backgroundColor: reservationStatus.isConnected ? colors.colorLightGreen5 : colors.colorBlack7,
-                cursor: onReservationStatusClick ? "pointer" : "default"
-              },
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                  import_react43.default,
-                  {
-                    path: import_js13.mdiCheckCircleOutline,
-                    size: 1,
-                    color: reservationStatus.isConnected ? colors.colorLightGreen1 : colors.colorBlack4,
-                    style: { opacity: 0.5 }
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                  "span",
-                  {
-                    className: "text-[14px]",
-                    style: {
-                      color: reservationStatus.isConnected ? colors.colorBlack1 : colors.colorBlack3
-                    },
-                    children: reservationStatus.label
-                  }
-                )
-              ]
-            }
-          ),
-          userProfile && /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
-            "button",
-            {
-              onClick: onUserProfileClick,
-              className: "flex items-center gap-2 rounded hover:bg-gray-50 transition-colors px-1 py-1",
-              style: { cursor: onUserProfileClick ? "pointer" : "default" },
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("div", { className: "w-8 h-8 rounded-full overflow-hidden bg-gray-200 shrink-0", children: userProfile.avatarUrl ? /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                  "img",
-                  {
-                    src: userProfile.avatarUrl,
-                    alt: userProfile.avatarAlt || userProfile.name,
-                    className: "w-full h-full object-cover"
-                  }
-                ) : /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                  "div",
-                  {
-                    className: "w-full h-full flex items-center justify-center text-sm font-medium",
-                    style: { color: colors.colorBlack3, backgroundColor: colors.colorBlack7 },
-                    children: userProfile.name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2)
-                  }
-                ) }),
-                /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: "flex flex-col items-start leading-tight", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                    "span",
-                    {
-                      className: "text-[12px] font-medium",
-                      style: { color: colors.colorBlack1 },
-                      children: userProfile.name
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                    "span",
-                    {
-                      className: "text-[10px] uppercase",
-                      style: { color: colors.colorBlack4 },
-                      children: userProfile.role
-                    }
-                  )
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
-                  import_react43.default,
-                  {
-                    path: import_js13.mdiChevronDown,
-                    size: 0.85,
-                    color: colors.colorBlack1
-                  }
-                )
-              ]
-            }
-          )
-        ] })
+        ) }),
+        actions && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "flex items-center", style: { gap: "8px" }, children: actions })
       ]
     }
   );
 }
 
 // components/canary-ui/layout/CanaryAppShell.tsx
-var import_jsx_runtime51 = require("react/jsx-runtime");
+var import_jsx_runtime41 = require("react/jsx-runtime");
 var paddingMap = {
   none: "p-0",
   small: "p-4",
@@ -7052,12 +6099,7 @@ function CanaryAppShell({
   sidebarBackButton,
   hideSidebar = false,
   // Header
-  propertyName = "Property Name",
-  onPropertyClick,
-  userProfile,
-  onUserProfileClick,
-  reservationStatus,
-  onReservationStatusClick,
+  pageTitle,
   headerActions,
   hideHeader = false,
   // Content
@@ -7067,8 +6109,8 @@ function CanaryAppShell({
   // Container
   className
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("div", { className: (0, import_clsx46.default)("flex h-screen min-h-screen w-full overflow-hidden", className), children: [
-    !hideSidebar && /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: (0, import_clsx36.default)("flex h-screen min-h-screen w-full overflow-hidden", className), children: [
+    !hideSidebar && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
       CanarySidebar,
       {
         variant: sidebarVariant,
@@ -7079,23 +6121,18 @@ function CanaryAppShell({
         backButton: sidebarBackButton
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("div", { className: "flex flex-col flex-1 min-w-0 overflow-hidden", children: [
-      !hideHeader && /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex flex-col flex-1 min-w-0 overflow-hidden", children: [
+      !hideHeader && pageTitle && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
         CanaryPageHeader,
         {
-          propertyName,
-          onPropertyClick,
-          userProfile,
-          onUserProfileClick,
-          reservationStatus,
-          onReservationStatusClick,
+          title: pageTitle,
           actions: headerActions
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
         "main",
         {
-          className: (0, import_clsx46.default)(
+          className: (0, import_clsx36.default)(
             "flex-1 overflow-auto",
             paddingMap[contentPadding],
             contentClassName
@@ -7110,556 +6147,25 @@ function CanaryAppShell({
   ] });
 }
 
-// components/canary-ui/layout/CanaryDivider.tsx
-var import_clsx47 = __toESM(require("clsx"));
-
-// components/canary-ui/layout/types.ts
-var DividerDirection = /* @__PURE__ */ ((DividerDirection2) => {
-  DividerDirection2["HORIZONTAL"] = "horizontal";
-  DividerDirection2["VERTICAL"] = "vertical";
-  return DividerDirection2;
-})(DividerDirection || {});
-var DialogStretch = /* @__PURE__ */ ((DialogStretch2) => {
-  DialogStretch2["COMPACT"] = "compact";
-  DialogStretch2["NORMAL"] = "normal";
-  DialogStretch2["FILL"] = "fill";
-  return DialogStretch2;
-})(DialogStretch || {});
-var DialogCloseButtonSize = /* @__PURE__ */ ((DialogCloseButtonSize2) => {
-  DialogCloseButtonSize2["DEFAULT"] = "default";
-  DialogCloseButtonSize2["LARGE"] = "large";
-  DialogCloseButtonSize2["TABLET"] = "tablet";
-  return DialogCloseButtonSize2;
-})(DialogCloseButtonSize || {});
-var SettingsCardState = /* @__PURE__ */ ((SettingsCardState2) => {
-  SettingsCardState2["VIEW"] = "view";
-  SettingsCardState2["NEW"] = "new";
-  SettingsCardState2["EDIT"] = "edit";
-  SettingsCardState2["DISABLED"] = "disabled";
-  return SettingsCardState2;
-})(SettingsCardState || {});
-
-// components/canary-ui/layout/CanaryDivider.tsx
-var import_jsx_runtime52 = require("react/jsx-runtime");
-function CanaryDivider({
-  direction = "horizontal" /* HORIZONTAL */,
-  text,
-  className = ""
-}) {
-  if (direction === "vertical" /* VERTICAL */) {
-    return /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(
-      "div",
-      {
-        className: (0, import_clsx47.default)("self-stretch", className),
-        style: {
-          borderLeft: `1px solid ${colors.colorBlack6}`
-        }
-      }
-    );
-  }
-  if (text) {
-    return /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)(
-      "div",
-      {
-        className: (0, import_clsx47.default)("flex items-center w-full", className),
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(
-            "div",
-            {
-              className: "flex-1",
-              style: { borderTop: `1px solid ${colors.colorBlack6}` }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(
-            "span",
-            {
-              className: "px-3 text-[12px]",
-              style: { color: colors.colorBlack4 },
-              children: text
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(
-            "div",
-            {
-              className: "flex-1",
-              style: { borderTop: `1px solid ${colors.colorBlack6}` }
-            }
-          )
-        ]
-      }
-    );
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(
-    "div",
-    {
-      className: (0, import_clsx47.default)("w-full", className),
-      style: {
-        borderTop: `1px solid ${colors.colorBlack6}`
-      }
-    }
-  );
-}
-
-// components/canary-ui/layout/CanaryExpand.tsx
-var import_clsx48 = __toESM(require("clsx"));
-var import_jsx_runtime53 = require("react/jsx-runtime");
-function CanaryExpand({
-  isExpanded,
-  onToggle,
-  header,
-  children,
-  isDisabled = false,
-  className
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(
-    "div",
-    {
-      className: (0, import_clsx48.default)(
-        isDisabled && "opacity-50 pointer-events-none",
-        className
-      ),
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(
-          "div",
-          {
-            className: "flex items-center justify-between cursor-pointer py-3 px-2",
-            style: { borderBottom: `1px solid ${colors.colorBlack6}` },
-            onClick: onToggle,
-            role: "button",
-            tabIndex: 0,
-            onKeyDown: (e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                onToggle();
-              }
-            },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "flex-1", children: header }),
-              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(
-                "svg",
-                {
-                  width: "16",
-                  height: "16",
-                  viewBox: "0 0 16 16",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  style: {
-                    transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
-                    transition: "transform 200ms ease-in-out",
-                    flexShrink: 0
-                  },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(
-                    "path",
-                    {
-                      d: "M4 6L8 10L12 6",
-                      stroke: colors.colorBlack3,
-                      strokeWidth: "1.5",
-                      strokeLinecap: "round",
-                      strokeLinejoin: "round"
-                    }
-                  )
-                }
-              )
-            ]
-          }
-        ),
-        isExpanded && /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "py-3 px-2", children })
-      ]
-    }
-  );
-}
-
-// components/canary-ui/layout/CanaryDialog.tsx
-var import_react44 = require("react");
-var import_clsx49 = __toESM(require("clsx"));
-var import_jsx_runtime54 = require("react/jsx-runtime");
-var stretchClasses = {
-  ["compact" /* COMPACT */]: "max-w-sm",
-  ["normal" /* NORMAL */]: "max-w-lg",
-  ["fill" /* FILL */]: "max-w-4xl"
-};
-var closeButtonSizes = {
-  ["default" /* DEFAULT */]: 24,
-  ["large" /* LARGE */]: 32,
-  ["tablet" /* TABLET */]: 40
-};
-function CanaryDialog({
-  isOpen,
-  onClose,
-  title,
-  stretch = "normal" /* NORMAL */,
-  hasCloseButton = true,
-  closeButtonSize = "default" /* DEFAULT */,
-  stickyFooter = false,
-  children,
-  footer,
-  className = ""
-}) {
-  (0, import_react44.useEffect)(() => {
-    const handleEsc = (event) => {
-      if (event.key === "Escape" && isOpen) {
-        onClose();
-      }
-    };
-    if (isOpen) {
-      document.addEventListener("keydown", handleEsc);
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen, onClose]);
-  if (!isOpen) return null;
-  const iconSize = closeButtonSizes[closeButtonSize];
-  return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
-    "div",
-    {
-      className: "fixed inset-0 flex items-center justify-center",
-      style: {
-        zIndex: zIndex.modal,
-        backgroundColor: "rgba(0, 0, 0, 0.5)"
-      },
-      onClick: onClose,
-      children: /* @__PURE__ */ (0, import_jsx_runtime54.jsxs)(
-        "div",
-        {
-          className: (0, import_clsx49.default)(
-            "bg-white rounded-lg w-full max-h-[90vh] overflow-hidden flex flex-col",
-            stretchClasses[stretch],
-            className
-          ),
-          style: { boxShadow: shadows.xl },
-          onClick: (e) => e.stopPropagation(),
-          children: [
-            (title || hasCloseButton) && /* @__PURE__ */ (0, import_jsx_runtime54.jsxs)(
-              "div",
-              {
-                className: "flex items-center justify-between px-6 py-4 shrink-0",
-                style: { borderBottom: `1px solid ${colors.colorBlack6}` },
-                children: [
-                  title && /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
-                    "h2",
-                    {
-                      className: "text-lg font-medium",
-                      style: { color: colors.colorBlack1 },
-                      children: title
-                    }
-                  ),
-                  hasCloseButton && /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
-                    "button",
-                    {
-                      type: "button",
-                      onClick: onClose,
-                      className: "shrink-0 rounded hover:bg-gray-100 focus:outline-none p-1 ml-auto",
-                      "aria-label": "Close dialog",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
-                        "svg",
-                        {
-                          width: iconSize,
-                          height: iconSize,
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
-                            "path",
-                            {
-                              d: "M18 6L6 18M6 6l12 12",
-                              stroke: colors.colorBlack3,
-                              strokeWidth: "2",
-                              strokeLinecap: "round"
-                            }
-                          )
-                        }
-                      )
-                    }
-                  )
-                ]
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime54.jsx)("div", { className: "flex-1 overflow-y-auto px-6 py-4", children }),
-            footer && /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
-              "div",
-              {
-                className: (0, import_clsx49.default)(
-                  "px-6 py-4 shrink-0",
-                  stickyFooter && "sticky bottom-0 bg-white"
-                ),
-                style: { borderTop: `1px solid ${colors.colorBlack6}` },
-                children: footer
-              }
-            )
-          ]
-        }
-      )
-    }
-  );
-}
-
-// components/canary-ui/layout/CanarySideSheet.tsx
-var import_react45 = require("react");
-var import_clsx50 = __toESM(require("clsx"));
-var import_jsx_runtime55 = require("react/jsx-runtime");
-var sizeWidths = {
-  small: 320,
-  medium: 480,
-  large: 640
-};
-function CanarySideSheet({
-  isOpen,
-  onClose,
-  size = "medium",
-  header,
-  children,
-  footer,
-  className = ""
-}) {
-  var _a;
-  (0, import_react45.useEffect)(() => {
-    const handleEsc = (event) => {
-      if (event.key === "Escape" && isOpen) {
-        onClose();
-      }
-    };
-    if (isOpen) {
-      document.addEventListener("keydown", handleEsc);
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen, onClose]);
-  const width = (_a = sizeWidths[size]) != null ? _a : sizeWidths.medium;
-  if (!isOpen) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(import_jsx_runtime55.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
-      "div",
-      {
-        className: "fixed inset-0",
-        style: {
-          backgroundColor: "rgba(0, 0, 0, 0.3)",
-          zIndex: zIndex.modal
-        },
-        onClick: onClose
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
-      "div",
-      {
-        className: (0, import_clsx50.default)(
-          "fixed right-0 top-0 bottom-0 bg-white flex flex-col",
-          className
-        ),
-        style: {
-          width: `${width}px`,
-          boxShadow: shadows.xl,
-          zIndex: zIndex.modal + 1
-        },
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
-            "div",
-            {
-              className: "px-6 py-4 flex items-center justify-between shrink-0",
-              style: { borderBottom: `1px solid ${colors.colorBlack6}` },
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("div", { className: "flex-1", children: header }),
-                /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: onClose,
-                    className: "shrink-0 rounded hover:bg-gray-100 focus:outline-none p-1 ml-2",
-                    "aria-label": "Close side sheet",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
-                      "svg",
-                      {
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
-                          "path",
-                          {
-                            d: "M18 6L6 18M6 6l12 12",
-                            stroke: colors.colorBlack3,
-                            strokeWidth: "2",
-                            strokeLinecap: "round"
-                          }
-                        )
-                      }
-                    )
-                  }
-                )
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("div", { className: "flex-1 overflow-y-auto px-6 py-4", children }),
-          footer && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
-            "div",
-            {
-              className: "px-6 py-4 shrink-0",
-              style: { borderTop: `1px solid ${colors.colorBlack6}` },
-              children: footer
-            }
-          )
-        ]
-      }
-    )
-  ] });
-}
-
-// components/canary-ui/layout/CanarySettingsCard.tsx
-var import_clsx51 = __toESM(require("clsx"));
-var import_jsx_runtime56 = require("react/jsx-runtime");
-var CanarySettingsCard = ({
-  title,
-  subtitle,
-  state = "view" /* VIEW */,
-  onStateChange,
-  onSave,
-  icon,
-  children,
-  headerAction,
-  className
-}) => {
-  const isEditable = state === "edit" /* EDIT */ || state === "new" /* NEW */;
-  const isDisabled = state === "disabled" /* DISABLED */;
-  const handleCancel = () => {
-    onStateChange == null ? void 0 : onStateChange("view" /* VIEW */);
-  };
-  const handleSave = () => {
-    onSave == null ? void 0 : onSave();
-    onStateChange == null ? void 0 : onStateChange("view" /* VIEW */);
-  };
-  const handleEdit = () => {
-    onStateChange == null ? void 0 : onStateChange("edit" /* EDIT */);
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(
-    "div",
-    {
-      className: (0, import_clsx51.default)(
-        "bg-white rounded-lg overflow-hidden",
-        isDisabled && "opacity-50 pointer-events-none",
-        className
-      ),
-      style: { border: `1px solid ${colors.colorBlack6}` },
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(
-          "div",
-          {
-            className: "px-6 py-4 flex items-center gap-3",
-            style: { borderBottom: `1px solid ${colors.colorBlack6}` },
-            children: [
-              icon && /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
-                "div",
-                {
-                  className: "shrink-0",
-                  style: { width: 24, height: 24, color: colors.colorBlack3 },
-                  children: icon
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)("div", { className: "flex-1 min-w-0", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
-                  "div",
-                  {
-                    className: "text-base font-semibold",
-                    style: { color: colors.colorBlack1 },
-                    children: title
-                  }
-                ),
-                subtitle && /* @__PURE__ */ (0, import_jsx_runtime56.jsx)("div", { className: "text-sm", style: { color: colors.colorBlack3 }, children: subtitle })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime56.jsx)("div", { className: "shrink-0", children: headerAction ? headerAction : state === "view" /* VIEW */ && /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
-                "button",
-                {
-                  type: "button",
-                  className: "text-sm cursor-pointer bg-transparent border-none",
-                  style: { color: colors.colorBlueDark1 },
-                  onClick: handleEdit,
-                  children: "Edit"
-                }
-              ) })
-            ]
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime56.jsx)("div", { className: "px-6 py-4", children }),
-        isEditable && /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(
-          "div",
-          {
-            className: "px-6 py-4 flex justify-end gap-2",
-            style: { borderTop: `1px solid ${colors.colorBlack6}` },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
-                "button",
-                {
-                  type: "button",
-                  className: "rounded px-4 py-2 text-sm cursor-pointer",
-                  style: {
-                    border: `1px solid ${colors.colorBlack5}`,
-                    backgroundColor: colors.colorWhite,
-                    color: colors.colorBlack2
-                  },
-                  onClick: handleCancel,
-                  children: "Cancel"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
-                "button",
-                {
-                  type: "button",
-                  className: "rounded px-4 py-2 text-sm cursor-pointer border-none",
-                  style: {
-                    backgroundColor: colors.colorBlueDark1,
-                    color: colors.colorWhite
-                  },
-                  onClick: handleSave,
-                  children: "Save"
-                }
-              )
-            ]
-          }
-        )
-      ]
-    }
-  );
-};
-var CanarySettingsCard_default = CanarySettingsCard;
-
 // components/canary-ui/navigation/CanaryTabs.tsx
-var import_react46 = require("react");
-var import_clsx52 = __toESM(require("clsx"));
-var import_react47 = __toESM(require("@mdi/react"));
-var import_js14 = require("@mdi/js");
-var import_jsx_runtime57 = require("react/jsx-runtime");
-var tabTypeToVariant = {
-  ["round" /* ROUND */]: "rounded",
-  ["primary" /* PRIMARY */]: "segmented",
-  ["text" /* TEXT */]: "text"
-};
-var tabSizeToSize = {
-  ["large" /* LARGE */]: "normal",
-  ["normal" /* NORMAL */]: "normal",
-  ["compact" /* COMPACT */]: "compact"
-};
+var import_react41 = require("react");
+var import_clsx37 = __toESM(require("clsx"));
+var import_react42 = __toESM(require("@mdi/react"));
+var import_js13 = require("@mdi/js");
+var import_jsx_runtime42 = require("react/jsx-runtime");
 function CanaryTabs({
   tabs,
-  variant: variantProp = "rounded",
-  tabType,
-  size: sizeProp = "normal",
-  tabSize,
+  variant = "rounded",
+  size = "normal",
   defaultTab,
   onChange,
   onCheckboxChange,
   className = ""
 }) {
   var _a, _b;
-  const variant = tabType ? tabTypeToVariant[tabType] : variantProp;
-  const size = tabSize ? tabSizeToSize[tabSize] : sizeProp;
-  const [activeTab, setActiveTab] = (0, import_react46.useState)(defaultTab || ((_a = tabs[0]) == null ? void 0 : _a.id));
-  const [pressedTab, setPressedTab] = (0, import_react46.useState)(null);
-  const [hoveredTab, setHoveredTab] = (0, import_react46.useState)(null);
+  const [activeTab, setActiveTab] = (0, import_react41.useState)(defaultTab || ((_a = tabs[0]) == null ? void 0 : _a.id));
+  const [pressedTab, setPressedTab] = (0, import_react41.useState)(null);
+  const [hoveredTab, setHoveredTab] = (0, import_react41.useState)(null);
   const handleTabClick = (tabId, isDisabled) => {
     if (isDisabled) return;
     setActiveTab(tabId);
@@ -7667,8 +6173,8 @@ function CanaryTabs({
   };
   const activeTabContent = (_b = tabs.find((tab) => tab.id === activeTab)) == null ? void 0 : _b.content;
   if (variant === "rounded") {
-    return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: `w-full ${className}`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: `w-full ${className}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
         "div",
         {
           className: "inline-flex rounded-full p-1 gap-1 overflow-visible",
@@ -7678,14 +6184,14 @@ function CanaryTabs({
           children: tabs.map((tab) => {
             const isActive = tab.id === activeTab;
             const isHovered = hoveredTab === tab.id;
-            return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
+            return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
               "button",
               {
                 onClick: () => handleTabClick(tab.id, tab.disabled),
                 onMouseEnter: () => !tab.disabled && setHoveredTab(tab.id),
                 onMouseLeave: () => setHoveredTab(null),
                 disabled: tab.disabled,
-                className: (0, import_clsx52.default)(
+                className: (0, import_clsx37.default)(
                   "flex items-center gap-2 px-6 py-2",
                   "text-[14px] font-medium font-['Roboto',sans-serif]",
                   "rounded-full transition-all duration-200",
@@ -7699,8 +6205,8 @@ function CanaryTabs({
                   WebkitTapHighlightColor: "transparent"
                 },
                 children: [
-                  tab.icon && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("span", { children: tab.icon }),
-                  /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("span", { children: tab.label })
+                  tab.icon && /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("span", { children: tab.icon }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("span", { children: tab.label })
                 ]
               },
               tab.id
@@ -7708,14 +6214,14 @@ function CanaryTabs({
           })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { children: activeTabContent })
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { children: activeTabContent })
     ] });
   }
   if (variant === "segmented") {
     const isCompactSegmented = size === "compact";
     const segmentedFontSize = isCompactSegmented ? "14px" : "16px";
-    return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: `w-full ${className}`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: `w-full ${className}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
         "div",
         {
           className: "inline-flex items-start gap-px rounded-lg",
@@ -7728,14 +6234,14 @@ function CanaryTabs({
             const isHovered = hoveredTab === tab.id;
             const isFirst = index === 0;
             const isLast = index === tabs.length - 1;
-            return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+            return /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
               "button",
               {
                 onClick: () => handleTabClick(tab.id, tab.disabled),
                 onMouseEnter: () => !tab.disabled && setHoveredTab(tab.id),
                 onMouseLeave: () => setHoveredTab(null),
                 disabled: tab.disabled,
-                className: (0, import_clsx52.default)(
+                className: (0, import_clsx37.default)(
                   "flex items-center justify-center px-6 py-4",
                   "font-medium font-['Roboto',sans-serif]",
                   "transition-all duration-200",
@@ -7760,7 +6266,7 @@ function CanaryTabs({
           })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { children: activeTabContent })
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { children: activeTabContent })
     ] });
   }
   if (variant === "text-checkbox") {
@@ -7768,11 +6274,11 @@ function CanaryTabs({
     const fontSizeCb = isCompactCb ? "14px" : "16px";
     const lineHeightCb = isCompactCb ? "1.5" : "24px";
     const verticalPaddingCb = isCompactCb ? "py-1" : "py-2";
-    return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: `w-full ${className}`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex items-start", children: tabs.map((tab) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: `w-full ${className}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "flex items-start", children: tabs.map((tab) => {
         const isActive = tab.id === activeTab;
         const isPressed = pressedTab === tab.id;
-        return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
+        return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
           "button",
           {
             onClick: () => handleTabClick(tab.id, tab.disabled),
@@ -7780,17 +6286,17 @@ function CanaryTabs({
             onMouseUp: () => setPressedTab(null),
             onMouseLeave: () => setPressedTab(null),
             disabled: tab.disabled,
-            className: (0, import_clsx52.default)(
+            className: (0, import_clsx37.default)(
               "flex flex-col items-start overflow-clip relative shrink-0",
               "focus:outline-none transition-all duration-200",
               tab.disabled && "cursor-not-allowed canary-opacity-50"
             ),
             style: { WebkitTapHighlightColor: "transparent" },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
                 "div",
                 {
-                  className: (0, import_clsx52.default)(
+                  className: (0, import_clsx37.default)(
                     "flex gap-2 items-center justify-center px-4",
                     verticalPaddingCb,
                     !tab.disabled && "cursor-pointer transition-colors duration-200",
@@ -7798,7 +6304,7 @@ function CanaryTabs({
                     !tab.disabled && !isActive && isPressed && "bg-black/10"
                   ),
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                       "span",
                       {
                         className: "font-medium font-['Roboto',sans-serif] text-center whitespace-nowrap",
@@ -7810,10 +6316,10 @@ function CanaryTabs({
                         children: tab.label
                       }
                     ),
-                    tab.checked !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+                    tab.checked !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                       "span",
                       {
-                        className: (0, import_clsx52.default)(
+                        className: (0, import_clsx37.default)(
                           "flex items-center justify-center shrink-0",
                           tab.disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
                         ),
@@ -7824,10 +6330,10 @@ function CanaryTabs({
                             onCheckboxChange == null ? void 0 : onCheckboxChange(tab.id, !tab.checked);
                           }
                         },
-                        children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
-                          import_react47.default,
+                        children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
+                          import_react42.default,
                           {
-                            path: tab.checked ? import_js14.mdiCheckboxMarked : import_js14.mdiCheckboxBlankOutline,
+                            path: tab.checked ? import_js13.mdiCheckboxMarked : import_js13.mdiCheckboxBlankOutline,
                             size: 1,
                             color: colors.colorBlueDark1
                           }
@@ -7837,7 +6343,7 @@ function CanaryTabs({
                   ]
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                 "div",
                 {
                   className: "w-full h-1",
@@ -7851,18 +6357,18 @@ function CanaryTabs({
           tab.id
         );
       }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { children: activeTabContent })
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { children: activeTabContent })
     ] });
   }
   const isCompact = size === "compact";
   const fontSize = isCompact ? "14px" : "16px";
   const lineHeight = isCompact ? "1.5" : "24px";
   const verticalPadding = isCompact ? "py-1" : "py-2";
-  return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: `w-full ${className}`, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex items-start", children: tabs.map((tab) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: `w-full ${className}`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "flex items-start", children: tabs.map((tab) => {
       const isActive = tab.id === activeTab;
       const isPressed = pressedTab === tab.id;
-      return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
         "button",
         {
           onClick: () => handleTabClick(tab.id, tab.disabled),
@@ -7870,17 +6376,17 @@ function CanaryTabs({
           onMouseUp: () => setPressedTab(null),
           onMouseLeave: () => setPressedTab(null),
           disabled: tab.disabled,
-          className: (0, import_clsx52.default)(
+          className: (0, import_clsx37.default)(
             "flex flex-col items-start overflow-clip relative shrink-0",
             "focus:outline-none transition-all duration-200",
             tab.disabled && "cursor-not-allowed canary-opacity-50"
           ),
           style: { WebkitTapHighlightColor: "transparent" },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
               "div",
               {
-                className: (0, import_clsx52.default)(
+                className: (0, import_clsx37.default)(
                   "flex gap-2 items-center justify-center px-4",
                   verticalPadding,
                   !tab.disabled && "cursor-pointer transition-colors duration-200",
@@ -7888,7 +6394,7 @@ function CanaryTabs({
                   !tab.disabled && !isActive && isPressed && "bg-black/10"
                 ),
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                     "span",
                     {
                       className: "font-medium font-['Roboto',sans-serif] text-center whitespace-nowrap",
@@ -7900,7 +6406,7 @@ function CanaryTabs({
                       children: tab.label
                     }
                   ),
-                  tab.badge && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+                  tab.badge && /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                     "div",
                     {
                       className: "flex items-center justify-center px-1 rounded-full",
@@ -7909,7 +6415,7 @@ function CanaryTabs({
                         minWidth: "16px",
                         height: "16px"
                       },
-                      children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+                      children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                         "span",
                         {
                           className: "text-[11px] font-medium text-center",
@@ -7926,7 +6432,7 @@ function CanaryTabs({
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
               "div",
               {
                 className: "w-full h-1",
@@ -7940,13 +6446,13 @@ function CanaryTabs({
         tab.id
       );
     }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { children: activeTabContent })
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { children: activeTabContent })
   ] });
 }
 
 // components/canary-ui/navigation/CanaryHeader.tsx
-var import_clsx53 = __toESM(require("clsx"));
-var import_jsx_runtime58 = require("react/jsx-runtime");
+var import_clsx38 = __toESM(require("clsx"));
+var import_jsx_runtime43 = require("react/jsx-runtime");
 function CanaryHeader({
   logo,
   title,
@@ -7954,10 +6460,10 @@ function CanaryHeader({
   navigation,
   className = ""
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(
     "header",
     {
-      className: (0, import_clsx53.default)(
+      className: (0, import_clsx38.default)(
         "w-full bg-white border-b flex items-center px-6 shrink-0 sticky top-0 z-50",
         className
       ),
@@ -7966,512 +6472,184 @@ function CanaryHeader({
         borderColor: colors.colorBlack6
       },
       children: [
-        (logo || title) && /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "flex items-center gap-3", children: [
-          logo && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "shrink-0", children: logo }),
-          title && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("h1", { className: "text-[20px] font-semibold", style: { color: colors.colorBlack1 }, children: title })
+        (logo || title) && /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex items-center gap-3", children: [
+          logo && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "shrink-0", children: logo }),
+          title && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-[20px] font-semibold", style: { color: colors.colorBlack1 }, children: title })
         ] }),
-        navigation && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("nav", { className: "flex-1 flex items-center justify-center px-6", children: navigation }),
-        actions && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "flex items-center gap-2 ml-auto", children: actions })
+        navigation && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("nav", { className: "flex-1 flex items-center justify-center px-6", children: navigation }),
+        actions && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "flex items-center gap-2 ml-auto", children: actions })
       ]
     }
   );
 }
 
-// components/canary-ui/navigation/CanaryProgressBar.tsx
-var import_clsx54 = __toESM(require("clsx"));
-var import_jsx_runtime59 = require("react/jsx-runtime");
-function CanaryProgressBar({
-  variant = "continuous" /* CONTINUOUS */,
-  totalSteps = 4,
-  currentStep = 0,
-  progress = 0,
-  showLabel = false,
-  className
-}) {
-  if (variant === "continuous" /* CONTINUOUS */) {
-    const clampedProgress = Math.min(100, Math.max(0, progress));
-    return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)("div", { className: (0, import_clsx54.default)("w-full", className), children: [
-      showLabel && /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(
-        "div",
-        {
-          className: "text-xs font-medium mb-1",
-          style: { color: colors.colorBlack2 },
-          children: [
-            Math.round(clampedProgress),
-            "%"
-          ]
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
-        "div",
-        {
-          className: "w-full rounded-full overflow-hidden",
-          style: { height: 8, backgroundColor: colors.colorBlack6 },
-          children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
-            "div",
-            {
-              className: "h-full rounded-full",
-              style: {
-                width: `${clampedProgress}%`,
-                backgroundColor: colors.colorBlueDark1,
-                transition: "width 200ms ease-in-out"
-              }
-            }
-          )
-        }
-      )
-    ] });
-  }
-  const steps = Array.from({ length: totalSteps }, (_, i) => i);
-  return /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("div", { className: (0, import_clsx54.default)("flex items-center w-full", className), children: steps.map((stepIndex) => {
-    const isCompleted = stepIndex < currentStep;
-    const isCurrent = stepIndex === currentStep;
-    return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)("div", { className: "flex items-center flex-1 last:flex-none", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
-        "div",
-        {
-          className: "flex items-center justify-center rounded-full flex-shrink-0",
-          style: {
-            width: 24,
-            height: 24,
-            backgroundColor: isCompleted ? colors.colorBlueDark1 : colors.colorWhite,
-            border: `2px solid ${isCompleted || isCurrent ? colors.colorBlueDark1 : colors.colorBlack6}`
-          },
-          children: isCompleted && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
-            "path",
-            {
-              d: "M2.5 6L5 8.5L9.5 3.5",
-              stroke: colors.colorWhite,
-              strokeWidth: "1.5",
-              strokeLinecap: "round",
-              strokeLinejoin: "round"
-            }
-          ) })
-        }
-      ),
-      stepIndex < totalSteps - 1 && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
-        "div",
-        {
-          className: "flex-1 mx-1",
-          style: {
-            height: 2,
-            backgroundColor: isCompleted ? colors.colorBlueDark1 : colors.colorBlack6
-          }
-        }
-      )
-    ] }, stepIndex);
-  }) });
-}
-
-// components/canary-ui/navigation/CanaryOverflowMenu.tsx
-var import_react48 = require("react");
-var import_clsx55 = __toESM(require("clsx"));
-var import_jsx_runtime60 = require("react/jsx-runtime");
-function CanaryOverflowMenu({
-  items,
-  placement = "bottom-end",
-  trigger,
-  className = ""
-}) {
-  const [isOpen, setIsOpen] = (0, import_react48.useState)(false);
-  const containerRef = (0, import_react48.useRef)(null);
-  (0, import_react48.useEffect)(() => {
-    const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    if (isOpen) {
-      document.addEventListener("click", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [isOpen]);
-  const handleToggle = () => {
-    setIsOpen((prev) => !prev);
-  };
-  const handleItemClick = (item) => {
-    var _a;
-    if (item.isDivider) return;
-    (_a = item.onClick) == null ? void 0 : _a.call(item);
-    setIsOpen(false);
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)("div", { ref: containerRef, className: (0, import_clsx55.default)("relative inline-block", className), children: [
-    trigger ? /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("div", { onClick: handleToggle, className: "cursor-pointer", children: trigger }) : /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
-      "button",
-      {
-        type: "button",
-        onClick: handleToggle,
-        className: "p-1 rounded hover:bg-gray-100 focus:outline-none",
-        "aria-label": "More options",
-        children: /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(
-          "svg",
-          {
-            width: "20",
-            height: "20",
-            viewBox: "0 0 20 20",
-            fill: "none",
-            xmlns: "http://www.w3.org/2000/svg",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("circle", { cx: "10", cy: "4", r: "1.5", fill: colors.colorBlack2 }),
-              /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("circle", { cx: "10", cy: "10", r: "1.5", fill: colors.colorBlack2 }),
-              /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("circle", { cx: "10", cy: "16", r: "1.5", fill: colors.colorBlack2 })
-            ]
-          }
-        )
-      }
-    ),
-    isOpen && /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
-      "div",
-      {
-        className: (0, import_clsx55.default)(
-          "absolute py-1 rounded-lg min-w-[180px]",
-          placement === "bottom-end" ? "right-0" : "left-0"
-        ),
-        style: {
-          backgroundColor: colors.colorWhite,
-          boxShadow: shadows.lg,
-          border: `1px solid ${colors.colorBlack6}`,
-          zIndex: zIndex.popover
-        },
-        children: items.map((item) => {
-          if (item.isDivider) {
-            return /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
-              "div",
-              {
-                className: "my-1",
-                style: { borderTop: `1px solid ${colors.colorBlack6}` }
-              },
-              item.id
-            );
-          }
-          return /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(
-            "div",
-            {
-              className: "px-4 py-2 text-sm cursor-pointer flex items-center gap-2",
-              style: {
-                color: item.isDanger ? colors.danger : colors.colorBlack2
-              },
-              onClick: () => handleItemClick(item),
-              onMouseEnter: (e) => {
-                e.currentTarget.style.backgroundColor = colors.colorBlack7;
-              },
-              onMouseLeave: (e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-              },
-              children: [
-                item.icon && /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("span", { className: "shrink-0", children: item.icon }),
-                /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("span", { children: item.label })
-              ]
-            },
-            item.id
-          );
-        })
-      }
-    )
-  ] });
-}
-
-// components/canary-ui/navigation/CanarySteps.tsx
-var import_react49 = __toESM(require("react"));
-var import_clsx56 = __toESM(require("clsx"));
-var import_jsx_runtime61 = require("react/jsx-runtime");
-var CanarySteps = ({
-  steps,
-  currentStep,
-  orientation = "horizontal" /* HORIZONTAL */,
-  className
-}) => {
-  const isHorizontal = orientation === "horizontal" /* HORIZONTAL */;
-  return /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-    "div",
-    {
-      className: (0, import_clsx56.default)(
-        "flex",
-        isHorizontal ? "flex-row items-start" : "flex-col",
-        className
-      ),
-      children: steps.map((step, index) => {
-        const isCompleted = index < currentStep;
-        const isCurrent = index === currentStep;
-        const isLast = index === steps.length - 1;
-        return /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(import_react49.default.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(
-            "div",
-            {
-              className: (0, import_clsx56.default)(
-                "flex",
-                isHorizontal ? "flex-col items-center" : "flex-row items-start"
-              ),
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-                  "div",
-                  {
-                    className: "flex items-center justify-center rounded-full shrink-0",
-                    style: {
-                      width: 24,
-                      height: 24,
-                      backgroundColor: isCompleted ? colors.colorBlueDark1 : "transparent",
-                      border: isCompleted ? "none" : `2px solid ${isCurrent ? colors.colorBlueDark1 : colors.colorBlack5}`
-                    },
-                    children: isCompleted ? /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-                      "svg",
-                      {
-                        width: "12",
-                        height: "12",
-                        viewBox: "0 0 12 12",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-                          "path",
-                          {
-                            d: "M10 3L4.5 8.5L2 6",
-                            stroke: "white",
-                            strokeWidth: "2",
-                            strokeLinecap: "round",
-                            strokeLinejoin: "round"
-                          }
-                        )
-                      }
-                    ) : /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-                      "span",
-                      {
-                        className: "text-xs font-medium leading-none",
-                        style: {
-                          color: isCurrent ? colors.colorBlueDark1 : colors.colorBlack4
-                        },
-                        children: index + 1
-                      }
-                    )
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)("div", { className: (0, import_clsx56.default)(isHorizontal ? "mt-2 text-center" : "ml-3"), children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-                    "div",
-                    {
-                      className: (0, import_clsx56.default)(
-                        "text-xs",
-                        isCurrent ? "font-semibold" : "font-normal"
-                      ),
-                      style: {
-                        color: isCurrent ? colors.colorBlack1 : colors.colorBlack3
-                      },
-                      children: step.label
-                    }
-                  ),
-                  step.description && /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-                    "div",
-                    {
-                      className: "text-xs",
-                      style: { color: colors.colorBlack4 },
-                      children: step.description
-                    }
-                  )
-                ] })
-              ]
-            }
-          ),
-          !isLast && /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-            "div",
-            {
-              className: (0, import_clsx56.default)(
-                isHorizontal ? "flex-1 self-center mt-0" : "self-start"
-              ),
-              style: isHorizontal ? {
-                height: 2,
-                marginTop: 0,
-                // Vertically center with the circle (12px from top)
-                position: "relative",
-                top: 12,
-                marginLeft: 4,
-                marginRight: 4,
-                backgroundColor: index < currentStep - 1 ? colors.colorBlueDark1 : colors.colorBlack5
-              } : {
-                width: 2,
-                height: 24,
-                marginLeft: 11,
-                // center under 24px circle
-                marginTop: 4,
-                marginBottom: 4,
-                backgroundColor: index < currentStep - 1 ? colors.colorBlueDark1 : colors.colorBlack5
-              }
-            }
-          )
-        ] }, index);
-      })
-    }
-  );
-};
-var CanarySteps_default = CanarySteps;
-
 // components/canary-ui/navigation/sidebar-tabs.tsx
-var import_react50 = __toESM(require("@mdi/react"));
-var import_js15 = require("@mdi/js");
-var import_jsx_runtime62 = require("react/jsx-runtime");
+var import_react43 = __toESM(require("@mdi/react"));
+var import_js14 = require("@mdi/js");
+var import_jsx_runtime44 = require("react/jsx-runtime");
 var sidebarTabs = {
   // Main Product Tabs
   upsells: {
     id: "upsells",
     label: "Upsells",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiCashMultiple, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCashMultiple, size: 1 })
   },
   checkIn: {
     id: "check-in",
     label: "Check-in",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiLogin, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiLogin, size: 1 })
   },
   checkout: {
     id: "checkout",
     label: "Checkout",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiLogout, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiLogout, size: 1 })
   },
   messages: {
     id: "messages",
     label: "Messages",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiMessageProcessingOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiMessageProcessingOutline, size: 1 })
   },
   calls: {
     id: "calls",
     label: "Calls",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiPhoneOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPhoneOutline, size: 1 })
   },
   digitalTips: {
     id: "digital-tips",
     label: "Digital Tips",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiCurrencyUsd, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCurrencyUsd, size: 1 })
   },
   authorizations: {
     id: "authorizations",
     label: "Authorizations",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiShieldCheckOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiShieldCheckOutline, size: 1 })
   },
   contracts: {
     id: "contracts",
     label: "Contracts",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiFileSign, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiFileSign, size: 1 })
   },
   idVerification: {
     id: "id-verification",
     label: "ID Verification",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiAccountCheckOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiAccountCheckOutline, size: 1 })
   },
   clientsOnFile: {
     id: "clients-on-file",
     label: "Clients on File",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiAccountBoxOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiAccountBoxOutline, size: 1 })
   },
   amenities: {
     id: "amenities",
     label: "Amenities",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiStoreOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiStoreOutline, size: 1 })
   },
   paymentLinks: {
     id: "payment-links",
     label: "Payment Links",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiCreditCardOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCreditCardOutline, size: 1 })
   },
   settings: {
     id: "settings",
     label: "Settings",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiCogOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCogOutline, size: 1 })
   },
   // Settings Tabs
   propertyInfo: {
     id: "property-info",
     label: "Property Info",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiHomeOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiHomeOutline, size: 1 })
   },
   branding: {
     id: "branding",
     label: "Branding",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiPaletteOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPaletteOutline, size: 1 })
   },
   billingPayment: {
     id: "billing-payment",
     label: "Billing & Payment",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiCreditCardOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCreditCardOutline, size: 1 })
   },
   staffMembers: {
     id: "staff-members",
     label: "Staff Members",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiAccountGroupOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiAccountGroupOutline, size: 1 })
   },
   security: {
     id: "security",
     label: "Security",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiShieldAccountOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiShieldAccountOutline, size: 1 })
   },
   pms: {
     id: "pms",
     label: "PMS",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiPuzzleOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPuzzleOutline, size: 1 })
   },
   devices: {
     id: "devices",
     label: "Devices",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiTabletCellphone, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiTabletCellphone, size: 1 })
   },
   compendium: {
     id: "compendium",
     label: "Compendium",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiNewspaperVariantOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiNewspaperVariantOutline, size: 1 })
   },
   areaInfo: {
     id: "area-info",
     label: "Area Info",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiMapMarker, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiMapMarker, size: 1 })
   },
   chat: {
     id: "chat",
     label: "Chat",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiChatOutline, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiChatOutline, size: 1 })
   },
   // Custom/Above-Property Tabs
   insights: {
     id: "insights",
     label: "Insights",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiChartLine, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiChartLine, size: 1 })
   },
   properties: {
     id: "properties",
     label: "Properties",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiDomain, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiDomain, size: 1 })
   },
   analytics: {
     id: "analytics",
     label: "Analytics",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiChartBar, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiChartBar, size: 1 })
   },
   surveys: {
     id: "surveys",
     label: "Surveys",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiPoll, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiPoll, size: 1 })
   },
   dashboard: {
     id: "dashboard",
     label: "Dashboard",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiViewDashboard, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiViewDashboard, size: 1 })
   },
   tasks: {
     id: "tasks",
     label: "Tasks",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiClipboardList, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiClipboardList, size: 1 })
   },
   calendar: {
     id: "calendar",
     label: "Calendar",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiCalendar, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiCalendar, size: 1 })
   },
   reports: {
     id: "reports",
     label: "Reports",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiNotebook, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiNotebook, size: 1 })
   },
   performance: {
     id: "performance",
     label: "Performance",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(import_react50.default, { path: import_js15.mdiTrendingUp, size: 1 })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react43.default, { path: import_js14.mdiTrendingUp, size: 1 })
   }
 };
 var createSidebarTab = (id, label, icon, options) => __spreadValues({
@@ -8589,9 +6767,9 @@ var enableProduct = (sections, productId) => {
 };
 
 // components/canary-ui/feedback/CanaryToast.tsx
-var import_react51 = require("react");
-var import_clsx57 = __toESM(require("clsx"));
-var import_jsx_runtime63 = require("react/jsx-runtime");
+var import_react44 = require("react");
+var import_clsx39 = __toESM(require("clsx"));
+var import_jsx_runtime45 = require("react/jsx-runtime");
 function CanaryToast({
   message,
   type = "info",
@@ -8602,8 +6780,8 @@ function CanaryToast({
   position = "top-right",
   className = ""
 }) {
-  const [visible, setVisible] = (0, import_react51.useState)(isOpen);
-  (0, import_react51.useEffect)(() => {
+  const [visible, setVisible] = (0, import_react44.useState)(isOpen);
+  (0, import_react44.useEffect)(() => {
     setVisible(isOpen);
     if (isOpen && duration > 0) {
       const timer = setTimeout(() => {
@@ -8636,7 +6814,7 @@ function CanaryToast({
       text: colors.colorBlueDark1
     }
   };
-  const positionClasses2 = {
+  const positionClasses = {
     "top-right": "top-4 right-4",
     "top-left": "top-4 left-4",
     "bottom-right": "bottom-4 right-4",
@@ -8649,15 +6827,15 @@ function CanaryToast({
     setVisible(false);
     onClose == null ? void 0 : onClose();
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime63.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(
     "div",
     {
-      className: (0, import_clsx57.default)(
+      className: (0, import_clsx39.default)(
         "fixed flex items-center gap-3",
         "px-4 py-3 rounded shadow-lg",
         "border animate-slide-in",
         "max-w-md",
-        positionClasses2[position],
+        positionClasses[position],
         className
       ),
       style: {
@@ -8667,14 +6845,14 @@ function CanaryToast({
         zIndex: zIndex.toast
       },
       children: [
-        icon && /* @__PURE__ */ (0, import_jsx_runtime63.jsx)("div", { className: "shrink-0", children: icon }),
-        /* @__PURE__ */ (0, import_jsx_runtime63.jsx)("p", { className: "text-[14px] font-medium flex-1", children: message }),
-        /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(
+        icon && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "shrink-0", children: icon }),
+        /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("p", { className: "text-[14px] font-medium flex-1", children: message }),
+        /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
           "button",
           {
             onClick: handleClose,
             className: "shrink-0 hover:opacity-70 transition-opacity",
-            children: /* @__PURE__ */ (0, import_jsx_runtime63.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime63.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
+            children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
           }
         )
       ]
@@ -8683,8 +6861,8 @@ function CanaryToast({
 }
 
 // components/canary-ui/feedback/CanaryAlert.tsx
-var import_clsx58 = __toESM(require("clsx"));
-var import_jsx_runtime64 = require("react/jsx-runtime");
+var import_clsx40 = __toESM(require("clsx"));
+var import_jsx_runtime46 = require("react/jsx-runtime");
 function CanaryAlert({
   message,
   type = "info",
@@ -8716,10 +6894,10 @@ function CanaryAlert({
     }
   };
   const colorScheme = typeColors[type];
-  return /* @__PURE__ */ (0, import_jsx_runtime64.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
     "div",
     {
-      className: (0, import_clsx58.default)(
+      className: (0, import_clsx40.default)(
         "flex items-start gap-3 p-4 rounded border",
         className
       ),
@@ -8729,115 +6907,36 @@ function CanaryAlert({
         color: colorScheme.text
       },
       children: [
-        icon && /* @__PURE__ */ (0, import_jsx_runtime64.jsx)("div", { className: "shrink-0 mt-0.5", children: icon }),
-        /* @__PURE__ */ (0, import_jsx_runtime64.jsxs)("div", { className: "flex-1", children: [
-          title && /* @__PURE__ */ (0, import_jsx_runtime64.jsx)("h4", { className: "text-[14px] font-semibold mb-1", children: title }),
-          /* @__PURE__ */ (0, import_jsx_runtime64.jsx)("p", { className: "text-[14px]", children: message })
+        icon && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "shrink-0 mt-0.5", children: icon }),
+        /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex-1", children: [
+          title && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("h4", { className: "text-[14px] font-semibold mb-1", children: title }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-[14px]", children: message })
         ] }),
-        onClose && /* @__PURE__ */ (0, import_jsx_runtime64.jsx)(
+        onClose && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
           "button",
           {
             onClick: onClose,
             className: "shrink-0 hover:opacity-70 transition-opacity",
-            children: /* @__PURE__ */ (0, import_jsx_runtime64.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime64.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
+            children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("path", { d: "M12 4L4 12M4 4L12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) })
           }
         )
       ]
     }
   );
 }
-
-// components/canary-ui/feedback/CanaryBadge.tsx
-var import_clsx59 = __toESM(require("clsx"));
-
-// components/canary-ui/feedback/types.ts
-var BadgeType = /* @__PURE__ */ ((BadgeType2) => {
-  BadgeType2["URGENT"] = "urgent";
-  BadgeType2["INFO"] = "info";
-  BadgeType2["WARNING"] = "warning";
-  return BadgeType2;
-})(BadgeType || {});
-var BadgeSize = /* @__PURE__ */ ((BadgeSize2) => {
-  BadgeSize2["NORMAL"] = "normal";
-  BadgeSize2["LARGE"] = "large";
-  return BadgeSize2;
-})(BadgeSize || {});
-
-// components/canary-ui/feedback/CanaryBadge.tsx
-var import_jsx_runtime65 = require("react/jsx-runtime");
-function CanaryBadge({
-  type = "info" /* INFO */,
-  size = "normal" /* NORMAL */,
-  label,
-  children,
-  className = ""
-}) {
-  const typeColors = {
-    ["urgent" /* URGENT */]: {
-      bg: colors.colorPink5,
-      text: colors.danger
-    },
-    ["info" /* INFO */]: {
-      bg: colors.colorBlueDark5,
-      text: colors.colorBlueDark1
-    },
-    ["warning" /* WARNING */]: {
-      bg: colors.colorWheat5,
-      text: colors.warning
-    }
-  };
-  const sizeStyles = {
-    ["normal" /* NORMAL */]: {
-      height: "20px",
-      fontSize: "10px"
-    },
-    ["large" /* LARGE */]: {
-      height: "24px",
-      fontSize: "12px"
-    }
-  };
-  const colorScheme = typeColors[type];
-  const sizeScheme = sizeStyles[size];
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
-    "span",
-    {
-      className: (0, import_clsx59.default)(
-        "inline-flex items-center justify-center rounded-full px-2 font-medium",
-        className
-      ),
-      style: {
-        backgroundColor: colorScheme.bg,
-        color: colorScheme.text,
-        height: sizeScheme.height,
-        fontSize: sizeScheme.fontSize,
-        lineHeight: sizeScheme.height
-      },
-      children: label || children
-    }
-  );
-}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  BadgeSize,
-  BadgeType,
   ButtonColor,
   ButtonSize,
   ButtonType,
   CanaryAlert,
   CanaryAppShell,
-  CanaryAutocomplete,
-  CanaryBadge,
   CanaryButton,
   CanaryCalendar,
   CanaryCard,
   CanaryCheckbox,
   CanaryChip,
   CanaryContainer,
-  CanaryCounter,
-  CanaryDialog,
-  CanaryDivider,
-  CanaryExpand,
-  CanaryFormLabel,
   CanaryGrid,
   CanaryHeader,
   CanaryIcon,
@@ -8861,63 +6960,29 @@ function CanaryBadge({
   CanaryLoading,
   CanaryLogo,
   CanaryModal,
-  CanaryNote,
-  CanaryOverflowMenu,
   CanaryPageHeader,
-  CanaryProfileImage,
-  CanaryProgressBar,
   CanaryRadio,
   CanaryRadioGroup,
-  CanarySegmentedControl,
   CanarySelect,
   CanarySelectUnderline,
-  CanarySettingsCard,
-  CanarySideSheet,
   CanarySidebar,
-  CanarySteps,
   CanarySwitch,
   CanaryTable,
   CanaryTabs,
   CanaryTag,
   CanaryTextArea,
   CanaryTextAreaUnderline,
-  CanaryTimestamp,
   CanaryToast,
-  CanaryTooltip,
-  CanaryTooltipIcon,
-  CanaryValidationError,
-  CardBoxShadow,
-  CardInnerSpacing,
-  CardPadding,
   ChipType,
-  DialogCloseButtonSize,
-  DialogStretch,
-  DividerDirection,
-  DraggableIconSize,
   Icon,
   IconPosition,
   InputSize,
   InputType,
-  LabelSize,
-  ListItemAlignment,
-  ListItemPadding,
-  ListStyle,
   NavigationItemState,
-  NoteColor,
-  ProfileImageSize,
-  ProgressBarVariant,
-  SettingsCardState,
   SidebarVariant,
-  StepsOrientation,
-  TabSize,
-  TabType,
   TagColor,
   TagSize,
   TagVariant,
-  TimestampColor,
-  TimestampFormat,
-  TooltipIconColor,
-  TooltipPosition,
   addBadge,
   addProduct,
   borderRadius,
