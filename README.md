@@ -54,11 +54,11 @@ The library ships with pre-built CSS, so you don't need to configure Tailwind to
 ### Step 1: Install the library
 
 ```bash
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.1
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.6.0
 # or
-yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.1
+yarn add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.6.0
 # or
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.1
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.6.0
 ```
 
 Or install from npm (once published):
@@ -918,7 +918,7 @@ To update the library in your project:
 npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#latest
 
 # Or update to a specific version
-npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.1
+npm install git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.6.0
 ```
 
 **After updating:**

@@ -6,7 +6,7 @@
 
 1. **Install the library** (user should have done this already):
 ```bash
-pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.5.4
+pnpm add git+https://github.com/msantana-canary/canary-prototype-foundation.git#v0.6.0
 ```
 
 2. **Import styles** in root layout:
