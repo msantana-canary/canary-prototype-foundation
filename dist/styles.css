@@ -650,3 +650,23 @@ body {
   .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
 }
+
+/* ==========================================================================
+   App Shell V2
+   Scoped helper for the V2 shell only. Icon nodes are passed in by callers at
+   whatever size they were authored (usually @mdi/react size={1} = 24px); the
+   shell sets the box and the SVG fills it. Namespaced so nothing in the V1
+   components can be affected.
+   ========================================================================== */
+.canary-shell-v2-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.canary-shell-v2-icon > svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}

@@ -32,6 +32,14 @@ export interface CanarySidebarProps {
   className?: string;
 }
 
+/**
+ * CanarySidebar - the V1 (180px) navigation sidebar.
+ *
+ * @deprecated New prototypes should use `CanarySidebarV2`, which implements the
+ * current design-system sidebar (240px, property switcher, Team Chat, account
+ * footer). This component is frozen and will keep working unchanged — existing
+ * prototypes do not need to migrate.
+ */
 export default function CanarySidebar({
   variant = SidebarVariant.MAIN,
   sections,

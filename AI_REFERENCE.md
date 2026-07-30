@@ -87,7 +87,8 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 | `CanaryContainer` | Responsive container |
 | `CanaryGrid` | CSS Grid layout |
 | `CanaryModal` | Modal dialog with overlay |
-| `CanaryAppShell` | **Complete app scaffolding with sidebar + header + content area** |
+| `CanaryAppShellV2` | **Complete app scaffolding — USE THIS for new prototypes** |
+| `CanaryAppShell` | V1 app scaffolding — frozen, existing prototypes only |
 | `CanaryDivider` | Horizontal or vertical separator |
 | `CanaryExpand` | Accordion/collapsible section |
 | `CanaryDialog` | Dialog overlay with stretch options |
@@ -98,9 +99,11 @@ import { ButtonType, ButtonSize, ButtonColor, IconPosition } from '@canary-ui/co
 | Component | Description |
 |-----------|-------------|
 | `CanaryTabs` | Tabbed navigation with size/type enums |
-| `CanarySidebar` | Side navigation |
+| `CanarySidebarV2` | **Current 240px sidebar** — property switcher, nav, Team Chat, account footer |
+| `CanaryTopBarV2` | **Current top bar** — page title, insight link, Reservations + Copilot pills |
+| `CanarySidebar` | V1 side navigation — frozen, existing prototypes only |
 | `CanaryHeader` | Generic application header |
-| `CanaryPageHeader` | **Standard Canary page header with property selector, user profile, reservation status** |
+| `CanaryPageHeader` | Page-level header with title and optional action buttons |
 | `CanaryLogo` | Canary logo component |
 | `CanaryOverflowMenu` | Three-dot action menu dropdown |
 | `CanaryProgressBar` | Step or continuous progress indicator |
@@ -149,13 +152,15 @@ Use this section to quickly find the right component for your use case. Examples
 - **Removable items** → `CanaryChip` with `ChipType.REMOVABLE` — in production, used for: applied reservation filters (each chip shows filter label with X to remove individual filters).
 
 ### "I need layout structure"
-- **Full app with sidebar + header** → `CanaryAppShell` — the recommended starting point for any prototype. Includes sidebar, page header, and content area.
-- **Page-level container** → `CanaryContainer` — centers content with responsive max-width. Use inside `CanaryAppShell` content area. Used for: dashboard layouts, settings pages, form sections with standardized padding.
+- **Full app with sidebar + top bar** → `CanaryAppShellV2` — the recommended starting point for any new prototype. Includes the 240px sidebar (property switcher, navigation, Team Chat, account footer), the top bar (page title, insight link, Reservations and Copilot pills), and the content area. The top bar title is derived from `selectedSidebarItemId`; only pass `pageTitle` when it genuinely differs from the nav label. Pass `contentPadding="none"` when the product renders its own full-bleed chrome under the top bar.
+  - `CanaryAppShell` (V1) is **frozen, not removed**. Existing prototypes keep working. Do not migrate one to V2 unless explicitly asked.
+- **Page-level container** → `CanaryContainer` — centers content with responsive max-width. Use inside the shell's content area. Used for: dashboard layouts, settings pages, form sections with standardized padding.
 - **Grid of items** → `CanaryGrid` — responsive CSS grid with configurable columns and gaps.
 - **Overlay/dialog** → `CanaryModal` — for confirmations, forms, or detail views. Handles ESC key and overlay click. In production, modals are used for: creating demo hotels (form with inputs + selects), session re-authentication (password input), advanced reservation filters (complex filter form), payment options, image crop dialogs.
 
 ### "I need navigation"
-- **App sidebar** → Use `CanaryAppShell` (includes sidebar). Only use `CanarySidebar` directly if you need a custom layout without `CanaryAppShell`.
+- **App sidebar** → Use `CanaryAppShellV2` (includes the sidebar). Only use `CanarySidebarV2` directly if you need a custom layout without the shell.
+- **Standard navigation groupings** → `standardMainSidebarSectionsV2` / `standardSettingsSidebarSectionsV2`. These are the current product groupings (Communications · Guest Management · SDM). The unsuffixed `standardMainSidebarSections` are the V1 groupings — pair those with V1 components only.
 - **Tab switching** → `CanaryTabs` — supports rounded, text, segmented, and checkbox variants. In production: tabs with badge counts for order status filtering (Pending/In Progress/Processed/Canceled with dynamic counts), round tabs for switching lookup methods (Email vs App), status filter tabs on dashboards.
 - **Page title bar** → `CanaryPageHeader` — standard Canary header with property selector, user profile, and connection status.
 - **Generic header** → `CanaryHeader` — simple header without Canary-specific features. Use `CanaryPageHeader` for Canary product prototypes.

@@ -75,21 +75,26 @@ export type { CustomTagColor, CanaryTableColumn, CanaryListItemProps, CanaryList
 
 // Layout
 export {
-  CanaryContainer, CanaryGrid, CanaryModal, CanaryAppShell,
+  CanaryContainer, CanaryGrid, CanaryModal, CanaryAppShell, CanaryAppShellV2,
   CanaryDivider, CanaryExpand, CanaryDialog, CanarySideSheet, CanarySettingsCard,
 } from "./layout";
-export type { CanaryAppShellProps, CanaryDialogProps, CanarySideSheetProps, CanarySettingsCardProps } from "./layout";
+export type { CanaryAppShellProps, CanaryAppShellV2Props, CanaryDialogProps, CanarySideSheetProps, CanarySettingsCardProps } from "./layout";
 export { DividerDirection, DialogStretch, DialogCloseButtonSize, SettingsCardState } from "./layout/types";
 
 // Navigation
 export {
-  CanaryTabs, CanarySidebar, CanaryHeader, CanaryPageHeader, CanaryLogo,
+  CanaryTabs, CanarySidebar, CanarySidebarV2, CanaryHeader, CanaryPageHeader, CanaryTopBarV2, CanaryLogo,
   CanaryProgressBar, CanaryOverflowMenu, CanarySteps,
 } from "./navigation";
 export type { CanaryProgressBarProps, CanaryOverflowMenuProps, CanaryStepsProps } from "./navigation";
 export { SidebarVariant, NavigationItemState, TabSize, TabType, ProgressBarVariant, StepsOrientation } from "./navigation";
 export type { CanarySidebarProps, SidebarNavigationItem, SidebarSection, CanaryLogoProps, CanaryPageHeaderProps } from "./navigation";
+export type {
+  CanarySidebarV2Props, SidebarV2Property, SidebarV2User, SidebarV2TeamChat,
+  CanaryTopBarV2Props, TopBarV2Insight, TopBarV2ReservationStatus, TopBarV2Copilot,
+} from "./navigation";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./navigation";
+export { standardMainSidebarSectionsV2, standardSettingsSidebarSectionsV2, shellV2 } from "./navigation";
 export { sidebarTabs, createSidebarTab } from "./navigation";
 export {
   hideProducts,

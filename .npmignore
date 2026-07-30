@@ -15,11 +15,15 @@ next-env.d.ts
 .gitignore
 .DS_Store
 
-# Documentation (keep README.md)
+# Documentation
+# AI_REFERENCE.md and CLAUDE.md must ship: agents working in a consuming
+# prototype read them from node_modules to learn the component API.
 docs/
 SESSION.md
 *.md
 !README.md
+!AI_REFERENCE.md
+!CLAUDE.md
 
 # Lock files
 package-lock.json

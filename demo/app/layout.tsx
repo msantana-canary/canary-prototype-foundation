@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+// Mirrors how a consuming prototype loads the library (see CLAUDE.md): library
+// styles first, then the app's own Tailwind so app utilities win on conflict.
+import "@canary-ui/components/styles.css";
 import "./globals.css";
 
 const roboto = Roboto({

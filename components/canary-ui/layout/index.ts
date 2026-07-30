@@ -3,6 +3,8 @@ export { default as CanaryGrid } from "./CanaryGrid";
 export { default as CanaryModal } from "./CanaryModal";
 export { default as CanaryAppShell } from "./CanaryAppShell";
 export type { CanaryAppShellProps } from "./CanaryAppShell";
+export { default as CanaryAppShellV2 } from "./CanaryAppShellV2";
+export type { CanaryAppShellV2Props } from "./CanaryAppShellV2";
 export { default as CanaryDivider } from "./CanaryDivider";
 export { default as CanaryExpand } from "./CanaryExpand";
 export type { CanaryExpandProps } from "./CanaryExpand";

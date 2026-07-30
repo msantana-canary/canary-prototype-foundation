@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-07-30
+
+This release also contains the component additions merged earlier under
+`0.6.0` (CanaryBadge, CanaryDialog, CanarySideSheet, CanarySettingsCard,
+CanarySteps, form components, and the CanaryPageHeader rewrite), which were
+version-bumped but never tagged.
+
+### Added — App Shell V2
+
+The current design-system shell, added alongside V1 rather than replacing it.
+Taken from the "Design system updates" Figma file.
+
+- `CanaryAppShellV2` — sidebar + top bar + content area. The top bar title is
+  derived from `selectedSidebarItemId` so it cannot drift out of sync with the
+  navigation; `pageTitle` overrides it when the two genuinely differ
+  (e.g. nav "F&B" → title "Food & Beverage").
+- `CanarySidebarV2` — 240px. Property switcher at the top, navigation groups
+  separated by rules, Canary wordmark at the bottom, Team Chat in its own dark
+  pill, and an account footer panel (user / Settings / Support). Supports the
+  blue MAIN skin and the dark SETTINGS skin (Back row, uppercase section
+  headers, no Team Chat or footer).
+- `CanaryTopBarV2` — page title, a per-product insight link, and the
+  Reservations and Copilot pills.
+- `standardMainSidebarSectionsV2` / `standardSettingsSidebarSectionsV2` — the
+  current navigation groupings (Communications · Guest Management · SDM).
+- `shellV2` — shell chrome tokens, measured from Figma.
+- `.canary-shell-v2-icon` in `styles.css` — scoped icon-box helper.
+
+V2 components use inline styles for structural CSS rather than Tailwind
+utilities, so layout does not depend on the consuming project scanning
+`node_modules` for classes.
+
+### Deprecated
+
+- `CanaryAppShell` and `CanarySidebar` are marked `@deprecated` in favour of the
+  V2 components. **They are frozen, not removed** — their markup and props are
+  unchanged and every existing prototype keeps rendering exactly as before.
+
+### Fixed
+
+- `AI_REFERENCE.md` and `CLAUDE.md` are now included in the published package.
+  They were excluded by `.npmignore`, so `node_modules/@canary-ui/components/AI_REFERENCE.md`
+  — the path the docs tell coding agents to read — did not exist in any
+  consuming project.
+
 ## [0.5.1] - 2026-03-18
 
 ### Added

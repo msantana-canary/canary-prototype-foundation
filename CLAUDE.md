@@ -44,32 +44,59 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ### Recommended Starting Point
 
-Use `CanaryAppShell` for complete app scaffolding:
+Use **`CanaryAppShellV2`** for complete app scaffolding. This is the current
+design-system shell and the default for all new prototypes:
 
 ```tsx
 'use client';
 
-import {
-  CanaryAppShell,
-  SidebarVariant
-} from '@canary-ui/components';
+import { useState } from 'react';
+import { CanaryAppShellV2 } from '@canary-ui/components';
 
 export default function Home() {
+  const [selectedId, setSelectedId] = useState('messages');
+
   return (
-    <CanaryAppShell
-      sidebarVariant={SidebarVariant.MAIN}
-      propertyName="Hotel Canary"
-      userProfile={{
-        name: 'John Doe',
-        role: 'Front Desk',
-      }}
+    <CanaryAppShellV2
+      // Sidebar
+      property={{ name: 'Days Inn & Suites by Wyndham Wausau', code: '38653' }}
+      selectedSidebarItemId={selectedId}
+      onSidebarItemClick={setSelectedId}
+      teamChat={{ badge: 2 }}
+      user={{ name: 'Theresa' }}
+      // Top bar
+      insight={{ label: '35 guests are arriving today' }}
+      reservationStatus={{ isConnected: true }}
+      copilot={{ message: '2 items need attention' }}
     >
       {/* Your page content here */}
       <h1>Welcome to your prototype</h1>
-    </CanaryAppShell>
+    </CanaryAppShellV2>
   );
 }
 ```
+
+**The top bar title is automatic.** It comes from the selected sidebar item, so
+you never pass it twice and the two can't drift apart. Only pass `pageTitle`
+when the page title genuinely differs from the nav label:
+
+```tsx
+<CanaryAppShellV2 selectedSidebarItemId="food-and-beverage" pageTitle="Food & Beverage">
+```
+
+**Content padding.** Defaults to `medium` (24px). Pass `contentPadding="none"`
+for products that render their own full-bleed chrome (a tab strip, a split
+pane) directly under the top bar.
+
+**Settings pages.** Same component, different skin — pass
+`sidebarVariant={SidebarVariant.SETTINGS}` and an `onSidebarBack` handler.
+
+#### V1 vs V2
+
+`CanaryAppShell`, `CanarySidebar` (V1) are **frozen, not removed**. Every
+prototype built against them keeps working exactly as before. Do not migrate an
+existing prototype to V2 unless explicitly asked — when you are asked, it is a
+one-line import swap plus renaming the shell props listed above.
 
 ## Component Documentation
 
@@ -104,7 +131,7 @@ This file contains:
 
 | Component | Purpose |
 |-----------|---------|
-| `CanaryAppShell` | Full app scaffold (sidebar + header + content) |
+| `CanaryAppShell` | V1 app scaffold — frozen, existing prototypes only |
 | `CanaryButton` | Primary, secondary, outline, ghost buttons |
 | `CanaryCard` | Content containers |
 | `CanaryInput` | Text inputs (regular and underline variants) |
@@ -112,7 +139,10 @@ This file contains:
 | `CanaryModal` | Dialog overlays |
 | `CanaryTabs` | Tab navigation |
 | `CanaryList` / `CanaryListItem` | Lists with optional drag-and-drop |
-| `CanarySidebar` | Navigation sidebar |
+| `CanaryAppShellV2` | **Current** full app scaffold (sidebar + top bar + content) |
+| `CanarySidebarV2` | **Current** 240px navigation sidebar |
+| `CanaryTopBarV2` | **Current** top bar (title, insight link, Reservations, Copilot) |
+| `CanarySidebar` | V1 navigation sidebar — frozen, existing prototypes only |
 | `CanaryPageHeader` | Page-level header with title and optional action buttons |
 
 ## Project Context

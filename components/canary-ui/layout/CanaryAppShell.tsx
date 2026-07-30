@@ -60,6 +60,12 @@ const paddingMap = {
  * - Page header (top)
  * - Main content area (center/right)
  *
+ * @deprecated New prototypes should use `CanaryAppShellV2`, which implements the
+ * current design-system shell (property switcher in the sidebar, Team Chat,
+ * account footer, and a top bar with the insight link plus Reservations and
+ * Copilot pills). This component is frozen and will keep working unchanged —
+ * existing prototypes do not need to migrate.
+ *
  * Usage:
  * ```tsx
  * <CanaryAppShell

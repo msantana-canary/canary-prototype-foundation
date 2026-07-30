@@ -17,7 +17,9 @@
   "files": [
     "dist",
     "tailwind.preset.js",
-    "README.md"
+    "README.md",
+    "AI_REFERENCE.md",
+    "CLAUDE.md"
   ],
   "sideEffects": [
     "*.css"

@@ -12,8 +12,24 @@ export { default as CanaryOverflowMenu } from "./CanaryOverflowMenu";
 export type { CanaryOverflowMenuProps } from "./CanaryOverflowMenu";
 export { default as CanarySteps } from "./CanarySteps";
 export type { CanaryStepsProps } from "./CanarySteps";
+export { default as CanarySidebarV2 } from "./CanarySidebarV2";
+export type {
+  CanarySidebarV2Props,
+  SidebarV2Property,
+  SidebarV2User,
+  SidebarV2TeamChat,
+} from "./CanarySidebarV2";
+export { default as CanaryTopBarV2 } from "./CanaryTopBarV2";
+export type {
+  CanaryTopBarV2Props,
+  TopBarV2Insight,
+  TopBarV2ReservationStatus,
+  TopBarV2Copilot,
+} from "./CanaryTopBarV2";
 export { SidebarVariant, NavigationItemState, TabSize, TabType, ProgressBarVariant, StepsOrientation } from "./types";
 export { standardMainSidebarSections, standardSettingsSidebarSections } from "./standard-sidebar-sections";
+export { standardMainSidebarSectionsV2, standardSettingsSidebarSectionsV2 } from "./standard-sidebar-sections-v2";
+export { shellV2 } from "./shell-v2-tokens";
 export { sidebarTabs, createSidebarTab } from "./sidebar-tabs";
 export {
   hideProducts,

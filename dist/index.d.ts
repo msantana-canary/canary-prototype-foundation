@@ -1033,6 +1033,14 @@ interface CanarySidebarProps {
     width?: number;
     className?: string;
 }
+/**
+ * CanarySidebar - the V1 (180px) navigation sidebar.
+ *
+ * @deprecated New prototypes should use `CanarySidebarV2`, which implements the
+ * current design-system sidebar (240px, property switcher, Team Chat, account
+ * footer). This component is frozen and will keep working unchanged — existing
+ * prototypes do not need to migrate.
+ */
 declare function CanarySidebar({ variant, sections, logo, title, backButton, selectedItemId, onItemClick, width, // Remove default, let it auto-size
 className, }: CanarySidebarProps): react_jsx_runtime.JSX.Element;
 
@@ -1076,6 +1084,12 @@ interface CanaryAppShellProps {
  * - Page header (top)
  * - Main content area (center/right)
  *
+ * @deprecated New prototypes should use `CanaryAppShellV2`, which implements the
+ * current design-system shell (property switcher in the sidebar, Team Chat,
+ * account footer, and a top bar with the insight link plus Reservations and
+ * Copilot pills). This component is frozen and will keep working unchanged —
+ * existing prototypes do not need to migrate.
+ *
  * Usage:
  * ```tsx
  * <CanaryAppShell
@@ -1088,6 +1102,152 @@ interface CanaryAppShellProps {
  * ```
  */
 declare function CanaryAppShell({ children, sidebarVariant, sidebarSections, selectedSidebarItemId, onSidebarItemClick, sidebarTitle, sidebarBackButton, hideSidebar, pageTitle, headerActions, hideHeader, contentBackground, contentPadding, contentClassName, className, }: CanaryAppShellProps): react_jsx_runtime.JSX.Element;
+
+interface SidebarV2Property {
+    /** Hotel/property name — truncates when long */
+    name: string;
+    /** Property code shown to the right of the name */
+    code?: string;
+}
+interface SidebarV2User {
+    /** Displayed in the footer — first name reads best at this size */
+    name: string;
+    avatarUrl?: string;
+}
+interface SidebarV2TeamChat {
+    label?: string;
+    badge?: string | number;
+    isSelected?: boolean;
+    onClick?: () => void;
+}
+interface CanarySidebarV2Props {
+    /** MAIN (blue) or SETTINGS (dark). CUSTOM renders the blue skin with your own sections. */
+    variant?: SidebarVariant;
+    /** Defaults to the standard V2 sections for the chosen variant */
+    sections?: SidebarSection[];
+    selectedItemId?: string;
+    onItemClick?: (itemId: string) => void;
+    property?: SidebarV2Property;
+    onPropertyClick?: () => void;
+    backLabel?: string;
+    onBack?: () => void;
+    /** Pass `false` to hide the Team Chat row entirely */
+    teamChat?: SidebarV2TeamChat | false;
+    user?: SidebarV2User;
+    onUserClick?: () => void;
+    onSettingsClick?: () => void;
+    onSupportClick?: () => void;
+    /** Show the Canary wordmark above the bottom rows */
+    showLogo?: boolean;
+    width?: number;
+    className?: string;
+}
+declare function CanarySidebarV2({ variant, sections, selectedItemId, onItemClick, property, onPropertyClick, backLabel, onBack, teamChat, user, onUserClick, onSettingsClick, onSupportClick, showLogo, width, className, }: CanarySidebarV2Props): react_jsx_runtime.JSX.Element;
+
+interface TopBarV2Insight {
+    /** e.g. "35 guests are arriving today" */
+    label: string;
+    /** Defaults to a trending-up arrow */
+    icon?: ReactNode;
+    onClick?: () => void;
+}
+interface TopBarV2ReservationStatus {
+    label?: string;
+    isConnected?: boolean;
+    onClick?: () => void;
+}
+interface TopBarV2Copilot {
+    /** Wordmark — defaults to "Copilot" */
+    label?: string;
+    /** e.g. "2 items need attention" */
+    message?: string;
+    onClick?: () => void;
+}
+interface CanaryTopBarV2Props {
+    /** Page title — usually the selected sidebar item */
+    title: string;
+    /** Optional live stat beside the title */
+    insight?: TopBarV2Insight;
+    /** PMS connection pill */
+    reservationStatus?: TopBarV2ReservationStatus;
+    /** Copilot entry point */
+    copilot?: TopBarV2Copilot;
+    /** Extra controls rendered to the left of the pills */
+    actions?: ReactNode;
+    className?: string;
+}
+declare function CanaryTopBarV2({ title, insight, reservationStatus, copilot, actions, className, }: CanaryTopBarV2Props): react_jsx_runtime.JSX.Element;
+
+interface CanaryAppShellV2Props {
+    /** Main content of the application */
+    children: ReactNode;
+    /** MAIN (blue) or SETTINGS (dark) */
+    sidebarVariant?: SidebarVariant;
+    /** Defaults to the standard V2 sections for the chosen variant */
+    sidebarSections?: SidebarSection[];
+    /** Currently selected sidebar item ID — also drives the top bar title */
+    selectedSidebarItemId?: string;
+    onSidebarItemClick?: (itemId: string) => void;
+    /** Property switcher at the top of the sidebar */
+    property?: SidebarV2Property;
+    onPropertyClick?: () => void;
+    /** Back row, shown on the settings sidebar */
+    sidebarBackLabel?: string;
+    onSidebarBack?: () => void;
+    /** Team Chat row above the footer. Pass `false` to hide it. */
+    teamChat?: SidebarV2TeamChat | false;
+    /** Signed-in user, shown in the sidebar footer */
+    user?: SidebarV2User;
+    onUserClick?: () => void;
+    onSettingsClick?: () => void;
+    onSupportClick?: () => void;
+    showSidebarLogo?: boolean;
+    hideSidebar?: boolean;
+    /**
+     * Overrides the top bar title. When omitted the title is taken from the
+     * selected sidebar item, so the two can never drift apart. Pass this when
+     * the page title differs from the nav label (e.g. "F&B" → "Food & Beverage").
+     */
+    pageTitle?: string;
+    /** Live stat beside the title, e.g. "35 guests are arriving today" */
+    insight?: TopBarV2Insight;
+    reservationStatus?: TopBarV2ReservationStatus;
+    copilot?: TopBarV2Copilot;
+    /** Extra controls rendered to the left of the pills */
+    headerActions?: ReactNode;
+    hideHeader?: boolean;
+    /** Defaults to #FAFAFA */
+    contentBackground?: string;
+    /**
+     * Defaults to "medium". Pass "none" for products that render their own
+     * full-bleed chrome (tab bars, split panes) directly under the top bar.
+     */
+    contentPadding?: "none" | "small" | "medium" | "large";
+    contentClassName?: string;
+    className?: string;
+}
+/**
+ * CanaryAppShellV2 — the current Canary application shell.
+ *
+ * Sidebar (property switcher, navigation, Team Chat, account footer),
+ * top bar (page title, insight link, Reservations and Copilot pills),
+ * and the content area.
+ *
+ * Usage:
+ * ```tsx
+ * <CanaryAppShellV2
+ *   property={{ name: "Days Inn & Suites by Wyndham Wausau", code: "38653" }}
+ *   selectedSidebarItemId="messages"
+ *   user={{ name: "Theresa" }}
+ *   insight={{ label: "35 guests are arriving today" }}
+ *   reservationStatus={{ isConnected: true }}
+ *   copilot={{ message: "2 items need attention" }}
+ * >
+ *   <YourPageContent />
+ * </CanaryAppShellV2>
+ * ```
+ */
+declare function CanaryAppShellV2({ children, sidebarVariant, sidebarSections, selectedSidebarItemId, onSidebarItemClick, property, onPropertyClick, sidebarBackLabel, onSidebarBack, teamChat, user, onUserClick, onSettingsClick, onSupportClick, showSidebarLogo, hideSidebar, pageTitle, insight, reservationStatus, copilot, headerActions, hideHeader, contentBackground, contentPadding, contentClassName, className, }: CanaryAppShellV2Props): react_jsx_runtime.JSX.Element;
 
 declare enum DividerDirection {
     HORIZONTAL = "horizontal",
@@ -1277,6 +1437,83 @@ declare const standardMainSidebarSections: SidebarSection[];
  * Matches the actual Canary product settings navigation
  */
 declare const standardSettingsSidebarSections: SidebarSection[];
+
+/**
+ * Standard Canary Sidebar Sections — V2
+ *
+ * Navigation groupings taken from the "Design system updates" Figma file.
+ * The V1 groupings in `standard-sidebar-sections.tsx` are left untouched so
+ * existing prototypes keep the navigation they were built against.
+ */
+
+/**
+ * Main navigation — three groups separated by rules:
+ * Communications, Guest Management, and SDM.
+ */
+declare const standardMainSidebarSectionsV2: SidebarSection[];
+/**
+ * Settings navigation — property-level settings, then a titled
+ * "Product settings" group.
+ */
+declare const standardSettingsSidebarSectionsV2: SidebarSection[];
+
+/**
+ * Shell V2 Tokens
+ *
+ * Values measured directly from the "Design system updates" Figma file
+ * (navigationBar/main, navigationBar/settings, and header frames).
+ *
+ * These are shell-chrome specific and intentionally kept out of the shared
+ * design-tokens file so the V1 shell is unaffected.
+ */
+declare const shellV2: {
+    readonly sidebarWidth: 240;
+    readonly sidebarBgMain: "#375492";
+    readonly sidebarBgSettings: "#333333";
+    /** 1px rules between nav groups and under the property switcher */
+    readonly sidebarDivider: "rgba(255, 255, 255, 0.15)";
+    /** Nav item label in its resting state */
+    readonly sidebarLabel: "rgba(255, 255, 255, 0.9)";
+    /** Section headers, property code, footer button labels */
+    readonly sidebarLabelMuted: "rgba(255, 255, 255, 0.55)";
+    readonly sidebarLabelDisabled: "rgba(255, 255, 255, 0.35)";
+    readonly sidebarHoverBg: "rgba(255, 255, 255, 0.1)";
+    readonly sidebarSelectedBg: "#FFFFFF";
+    readonly sidebarSelectedLabel: "#000000";
+    /** Bottom panel holding the user / settings / support buttons */
+    readonly footerPanelBgMain: "#2E467B";
+    readonly footerPanelBgSettings: "#262626";
+    /** Team Chat sits in its own dark pill above the footer panel */
+    readonly teamChatBg: "#022440";
+    readonly badgeBg: "#F16682";
+    readonly navItemHeight: 30;
+    readonly navItemInset: 12;
+    readonly navItemPaddingX: 8;
+    readonly navItemRadius: 6;
+    readonly navItemGap: 4;
+    readonly sectionGap: 8;
+    readonly propertySwitcherHeight: 50;
+    readonly footerButtonHeight: 52;
+    readonly logoWidth: 135;
+    readonly logoHeight: 34;
+    readonly logoOpacity: 0.3;
+    readonly topBarHeight: 52;
+    readonly topBarPaddingX: 24;
+    /** Reservations / PMS connection pill */
+    readonly reservationsBg: "#E5F2EB";
+    readonly reservationsText: "#008040";
+    readonly reservationsBgOffline: "#F0F0F0";
+    readonly reservationsTextOffline: "#666666";
+    /** Copilot pill — subtle left-to-right wash plus a gradient wordmark */
+    readonly copilotBgFrom: "#F8F8FE";
+    readonly copilotBgTo: "#FCF8F8";
+    readonly copilotBorder: "#EFE4F2";
+    readonly copilotWordmarkFrom: "#D43FB6";
+    readonly copilotWordmarkTo: "#6557E6";
+    readonly pillHeight: 28;
+    readonly pillRadius: 6;
+    readonly contentBg: "#FAFAFA";
+};
 
 /**
  * Pre-built Sidebar Tabs - Reusable Lego Pieces
@@ -1475,4 +1712,4 @@ interface CanaryLoadingProps {
 }
 declare function CanaryLoading({ color, size, className, }: CanaryLoadingProps): react_jsx_runtime.JSX.Element;
 
-export { BadgeSize, BadgeType, type BaseFormProps, ButtonColor, ButtonSize, ButtonType, type CalendarSelection, type CalendarSelectionMode, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryAutocomplete, type CanaryAutocompleteProps, CanaryBadge, CanaryButton, CanaryCalendar, type CanaryCalendarProps, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryCounter, type CanaryCounterProps, CanaryDialog, type CanaryDialogProps, CanaryDivider, CanaryExpand, CanaryFormLabel, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryNote, CanaryOverflowMenu, type CanaryOverflowMenuProps, CanaryPageHeader, type CanaryPageHeaderProps, CanaryProfileImage, CanaryProgressBar, type CanaryProgressBarProps, CanaryRadio, CanaryRadioGroup, CanarySegmentedControl, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySettingsCard, type CanarySettingsCardProps, CanarySideSheet, type CanarySideSheetProps, CanarySidebar, type CanarySidebarProps, CanarySteps, type CanaryStepsProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryTimestamp, CanaryToast, CanaryTooltip, CanaryTooltipIcon, CanaryValidationError, CardBoxShadow, CardInnerSpacing, CardPadding, type ChipSize, ChipType, type CustomTagColor, DialogCloseButtonSize, DialogStretch, DividerDirection, DraggableIconSize, IconPosition, InputSize, InputType, LabelSize, ListItemAlignment, ListItemPadding, ListStyle, NavigationItemState, NoteColor, ProfileImageSize, ProgressBarVariant, SettingsCardState, type SidebarNavigationItem, type SidebarSection, SidebarVariant, StepsOrientation, TabSize, TabType, TagColor, TagSize, TagVariant, TimestampColor, TimestampFormat, TooltipIconColor, TooltipPosition, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, sidebarTabs, spacing, standardMainSidebarSections, standardSettingsSidebarSections, transitions, typography, updateProduct, zIndex };
+export { BadgeSize, BadgeType, type BaseFormProps, ButtonColor, ButtonSize, ButtonType, type CalendarSelection, type CalendarSelectionMode, CanaryAlert, CanaryAppShell, type CanaryAppShellProps, CanaryAppShellV2, type CanaryAppShellV2Props, CanaryAutocomplete, type CanaryAutocompleteProps, CanaryBadge, CanaryButton, CanaryCalendar, type CanaryCalendarProps, CanaryCard, CanaryCheckbox, CanaryChip, type CanaryChipProps, CanaryContainer, CanaryCounter, type CanaryCounterProps, CanaryDialog, type CanaryDialogProps, CanaryDivider, CanaryExpand, CanaryFormLabel, CanaryGrid, CanaryHeader, CanaryIcon, type CanaryIconProps, CanaryInput, CanaryInputCreditCard, CanaryInputCreditCardUnderline, CanaryInputDate, CanaryInputDateRange, CanaryInputDateRangeUnderline, CanaryInputDateUnderline, CanaryInputMultiple, type CanaryInputMultipleProps, type CanaryInputMultipleRef, CanaryInputPassword, CanaryInputPasswordUnderline, CanaryInputPhone, CanaryInputPhoneUnderline, CanaryInputSearch, CanaryInputSearchUnderline, CanaryInputUnderline, CanaryList, CanaryListItem, type CanaryListItemProps, type CanaryListProps, CanaryLoading, CanaryLogo, type CanaryLogoProps, CanaryModal, CanaryNote, CanaryOverflowMenu, type CanaryOverflowMenuProps, CanaryPageHeader, type CanaryPageHeaderProps, CanaryProfileImage, CanaryProgressBar, type CanaryProgressBarProps, CanaryRadio, CanaryRadioGroup, CanarySegmentedControl, CanarySelect, type CanarySelectOption$1 as CanarySelectOption, CanarySelectUnderline, CanarySettingsCard, type CanarySettingsCardProps, CanarySideSheet, type CanarySideSheetProps, CanarySidebar, type CanarySidebarProps, CanarySidebarV2, type CanarySidebarV2Props, CanarySteps, type CanaryStepsProps, CanarySwitch, CanaryTable, type CanaryTableColumn, CanaryTabs, CanaryTag, CanaryTextArea, CanaryTextAreaUnderline, CanaryTimestamp, CanaryToast, CanaryTooltip, CanaryTooltipIcon, CanaryTopBarV2, type CanaryTopBarV2Props, CanaryValidationError, CardBoxShadow, CardInnerSpacing, CardPadding, type ChipSize, ChipType, type CustomTagColor, DialogCloseButtonSize, DialogStretch, DividerDirection, DraggableIconSize, IconPosition, InputSize, InputType, LabelSize, ListItemAlignment, ListItemPadding, ListStyle, NavigationItemState, NoteColor, ProfileImageSize, ProgressBarVariant, SettingsCardState, type SidebarNavigationItem, type SidebarSection, type SidebarV2Property, type SidebarV2TeamChat, type SidebarV2User, SidebarVariant, StepsOrientation, TabSize, TabType, TagColor, TagSize, TagVariant, TimestampColor, TimestampFormat, TooltipIconColor, TooltipPosition, type TopBarV2Copilot, type TopBarV2Insight, type TopBarV2ReservationStatus, addBadge, addProduct, borderRadius, breakpoints, colors, createCustomSection, createSidebarTab, dimensions, disableProduct, easings, enableProduct, hideProducts, iconPaths, mergeWithStandard, removeBadge, reorderProducts, shadows, shellV2, sidebarTabs, spacing, standardMainSidebarSections, standardMainSidebarSectionsV2, standardSettingsSidebarSections, standardSettingsSidebarSectionsV2, transitions, typography, updateProduct, zIndex };
